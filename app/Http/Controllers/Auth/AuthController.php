@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,10 +33,20 @@ class AuthController extends Controller
         }
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return view('back-end.auth.login');
+    }
 
     public function resister()
     {
         return view('back-end.auth.resister');
+    }
+
+    public function resisterWithRefer($refer_code)
+    {
+        $check = User::where('refer_code', $refer_code)->first();
     }
 
     public function forgetPassword()

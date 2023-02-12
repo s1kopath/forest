@@ -15,6 +15,8 @@ Route::get('/', function () {
 Route::match(['get', 'post'], '/login', [AuthController::class, 'login'])->middleware('auth')->name('auth_login');
 Route::get('forget-password', [AuthController::class, 'forgetPassword'])->name('forget_password');
 Route::get('resister', [AuthController::class, 'resister'])->name('resister');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('ref/{refer_code}', [AuthController::class, 'resisterWithRefer'])->name('resister_with_refer');
 
 
 Route::prefix('/admin')->middleware('admin')->group(function () {

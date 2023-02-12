@@ -47,7 +47,8 @@
                     <div class="navbar-wrapper">
                         <div class="navbar-logo">
                             <a href="">
-                                <img class="img-fluid" src="{{ asset('back-end/assets/images/logo.png') }}" alt="Theme-Logo" />
+                                <img class="img-fluid" src="{{ asset('back-end/assets/images/logo.png') }}"
+                                    alt="Theme-Logo" />
                             </a>
                             <a class="mobile-menu" id="mobile-collapse" href="#!">
                                 <i class="feather icon-menu icon-toggle-right"></i>
@@ -93,7 +94,8 @@
                                             </li>
                                             <li>
                                                 <div class="media">
-                                                    <img class="img-radius" src="{{ asset('back-end/assets/images/avatar-4.jpg') }}"
+                                                    <img class="img-radius"
+                                                        src="{{ asset('back-end/assets/images/avatar-4.jpg') }}"
                                                         alt="Generic placeholder image">
                                                     <div class="media-body">
                                                         <h5 class="notification-user">John Doe</h5>
@@ -106,7 +108,8 @@
                                             </li>
                                             <li>
                                                 <div class="media">
-                                                    <img class="img-radius" src="{{ asset('back-end/assets/images/avatar-4.jpg') }}"
+                                                    <img class="img-radius"
+                                                        src="{{ asset('back-end/assets/images/avatar-4.jpg') }}"
                                                         alt="Generic placeholder image">
                                                     <div class="media-body">
                                                         <h5 class="notification-user">Joseph William</h5>
@@ -119,7 +122,8 @@
                                             </li>
                                             <li>
                                                 <div class="media">
-                                                    <img class="img-radius" src="{{ asset('back-end/assets/images/avatar-4.jpg') }}"
+                                                    <img class="img-radius"
+                                                        src="{{ asset('back-end/assets/images/avatar-4.jpg') }}"
                                                         alt="Generic placeholder image">
                                                     <div class="media-body">
                                                         <h5 class="notification-user">Sara Soudein</h5>
@@ -144,14 +148,14 @@
                                 <li class="user-profile header-notification">
                                     <div class="dropdown-primary dropdown">
                                         <div class="dropdown-toggle" data-toggle="dropdown">
-                                            <img src="{{ asset('back-end/assets/images/avatar-4.jpg') }}" class="img-radius"
-                                                alt="User-Profile-Image">
-                                            <span>Adam Smith</span>
+                                            <img src="{{ asset('back-end/assets/images/avatar-4.jpg') }}"
+                                                class="img-radius" alt="User-Profile-Image">
+                                            <span>{{ auth()->user()->name }}</span>
                                             <i class="feather icon-chevron-down"></i>
                                         </div>
                                         <ul class="show-notification profile-notification dropdown-menu"
                                             data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                            <li>
+                                            {{-- <li>
                                                 <a href="#!">
                                                     <i class="feather icon-settings"></i> Settings
                                                 </a>
@@ -170,9 +174,9 @@
                                                 <a href="auth-lock-screen.html">
                                                     <i class="feather icon-lock"></i> Lock Screen
                                                 </a>
-                                            </li>
+                                            </li> --}}
                                             <li>
-                                                <a href="auth-sign-in-social.html">
+                                                <a href="{{ route('logout') }}">
                                                     <i class="feather icon-log-out"></i> Logout
                                                 </a>
                                             </li>
@@ -284,7 +288,8 @@
                         <div class="media chat-messages">
                             <a class="media-left photo-table" href="#!">
                                 <img class="media-object img-radius img-radius m-t-5"
-                                    src="{{ asset('back-end/assets/images/avatar-4.jpg') }}" alt="Generic placeholder image">
+                                    src="{{ asset('back-end/assets/images/avatar-4.jpg') }}"
+                                    alt="Generic placeholder image">
                             </a>
                             <div class="media-body chat-menu-content">
                                 <div class="">
@@ -306,7 +311,8 @@
                         <div class="media chat-messages">
                             <a class="media-left photo-table" href="#!">
                                 <img class="media-object img-radius img-radius m-t-5"
-                                    src="{{ asset('back-end/assets/images/avatar-4.jpg') }}" alt="Generic placeholder image">
+                                    src="{{ asset('back-end/assets/images/avatar-4.jpg') }}"
+                                    alt="Generic placeholder image">
                             </a>
                             <div class="media-body chat-menu-content">
                                 <div class="">
