@@ -26,9 +26,8 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
     Route::controller(StackingRoisController::class)->group(function () {
         Route::match(['get', 'post'], '/add-stacking-rois', 'addStacking')->name('add_stacking_rois');
         Route::get('/manage-stacking-rois', 'index')->name('manage_stacking_rois');
-        // Route::get('/delete-product/{id}', 'destroy')->name('delete_product');
+        Route::get('/delete-stack/{id}', 'destroy')->name('delete_stack');
         Route::match(['get', 'post'], '/update-stacking-rois/{id}', 'updateStacking')->name('update_stacking_rois');
     });
    
-
 });

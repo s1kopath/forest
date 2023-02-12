@@ -76,7 +76,7 @@
                                                 <td> 
                                                     <div class="btn-group">
                                                         <a class="btn btn-warning"
-                                                            href="#">Delete</a>
+                                                            href="{{ route('delete_stack', $stack->id) }}">Delete</a>
                                                     </div>
                                                     <div class="btn-group">
                                                         <a class="btn btn-primary"
