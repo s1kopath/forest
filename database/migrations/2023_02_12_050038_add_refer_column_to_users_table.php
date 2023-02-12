@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->integer('referer_id')->nullable();
-            $table->string('refer_code')->default(uniqid());
+            $table->string('refer_code')->nullable();
         });
     }
 
