@@ -71,7 +71,7 @@ class AuthController extends Controller
     public function registerWithRefer($refer_code)
     {
         $check = User::where('refer_code', $refer_code)->first();
-
+        
         if ($check) {
             session([
                 'referer_id' => $check->id,
