@@ -1,5 +1,14 @@
 @extends('back-end.layouts.auth')
 @section('page_content')
+    <style>
+        body{
+                margin: 0;
+                padding: 0;
+                background: url(https://images.unsplash.com/photo-1605714726527-411541ab17f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z3JlZW4lMjBmb3Jlc3R8ZW58MHx8MHx8&w=1000&q=80);
+                background-size: cover;
+                background-position: center;
+            }      
+    </style>
     <div class="theme-loader">
         <div class="loader-track">
             <div class="preloader-wrapper">
@@ -67,7 +76,7 @@
                                     </div>
                                 </div>
                                 <div class="row m-b-20">
-                                    <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <button class="btn btn-facebook m-b-20 btn-block"><i
                                                 class="icofont icofont-social-facebook"></i>facebook</button>
                                     </div>
@@ -76,7 +85,7 @@
                                                 class="icofont icofont-social-twitter"></i>
                                             twitter
                                         </button>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <p class="text-muted text-center p-b-5">Sign in with your regular account</p>
                                 @if (session('error'))
@@ -85,14 +94,14 @@
                                     </div>
                                 @endif
                                 <div class="form-group form-primary">
-                                    <input type="text" name="email" class="form-control" required="">
+                                    <input type="text" name="email" class="form-control" placeholder="Enter Your Email" required="">
                                     <span class="form-bar"></span>
-                                    <label class="float-label">Username</label>
+                                    {{-- <label class="float-label">Username</label> --}}
                                 </div>
                                 <div class="form-group form-primary">
-                                    <input type="password" name="password" class="form-control" required="">
+                                    <input type="password" name="password" class="form-control" placeholder="Enter Your Password" required="">
                                     <span class="form-bar"></span>
-                                    <label class="float-label">Password</label>
+                                    {{-- <label class="float-label">Password</label> --}}
                                 </div>
                                 <div class="row m-t-25 text-left">
                                     <div class="col-12">
