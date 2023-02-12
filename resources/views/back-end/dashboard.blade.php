@@ -79,7 +79,7 @@
                             </div>
 
 
-                            <div class="col-xl-6 col-md-12">
+                            {{-- <div class="col-xl-6 col-md-12">
                                 <div class="card latest-update-card">
                                     <div class="card-header">
                                         <h5>What’s New</h5>
@@ -347,7 +347,6 @@
                                 </div>
                             </div>
 
-
                             <div class="col-xl-8 col-md-12">
                                 <div class="card latest-update-card">
                                     <div class="card-header">
@@ -516,7 +515,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

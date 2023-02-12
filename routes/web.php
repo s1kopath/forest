@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CommisionController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\StackingRoisController;
 
 
 Route::get('/', function () {
@@ -23,4 +24,14 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
     Route::resource('package', PackageController::class);
     Route::resource('commision', CommisionController::class);
+
+    Route::controller(StackingRoisController::class)->group(function () {
+        // Route::match(['get', 'post'], '/create-product', 'createProduct')->name('create_product');
+        Route::get('/add-stacking-rois', 'addStacking')->name('add_stacking_rois');
+        // Route::get('/product-list', 'index')->name('products_name');
+        // Route::get('/delete-product/{id}', 'destroy')->name('delete_product');
+        // Route::match(['get', 'post'], '/edit-product/{id}', 'editProduct')->name('edit_Product');
+    });
+   
+
 });
