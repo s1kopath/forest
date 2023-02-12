@@ -1,13 +1,13 @@
 @extends('back-end.layouts.auth')
 @section('page_content')
     <style>
-        body{
-                margin: 0;
-                padding: 0;
-                background: url(https://images.unsplash.com/photo-1605714726527-411541ab17f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Z3JlZW4lMjBmb3Jlc3R8ZW58MHx8MHx8&w=1000&q=80);
-                background-size: cover;
-                background-position: center;
-            }      
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('back-end/assets/images/login-bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
     </style>
     <div class="theme-loader">
         <div class="loader-track">
@@ -89,17 +89,26 @@
                                 </div>
                                 <p class="text-muted text-center p-b-5">Sign in with your regular account</p>
                                 @if (session('error'))
-                                    <div class="alert bg-alert">
+                                    <div class="alert bg-alert text-danger">
                                         {{ session('error') }}
                                     </div>
                                 @endif
+                                @if ($errors->any())
+                                    @foreach ($errors->all() as $error)
+                                        <div class="alert bg-alert text-danger">
+                                            {{ $error }}
+                                        </div>
+                                    @endforeach
+                                @endif
                                 <div class="form-group form-primary">
-                                    <input type="text" name="email" class="form-control" placeholder="Enter Your Email" required="">
+                                    <input type="text" name="email" class="form-control" placeholder="Enter Your Email"
+                                        required="">
                                     <span class="form-bar"></span>
                                     {{-- <label class="float-label">Username</label> --}}
                                 </div>
                                 <div class="form-group form-primary">
-                                    <input type="password" name="password" class="form-control" placeholder="Enter Your Password" required="">
+                                    <input type="password" name="password" class="form-control"
+                                        placeholder="Enter Your Password" required="">
                                     <span class="form-bar"></span>
                                     {{-- <label class="float-label">Password</label> --}}
                                 </div>
@@ -130,7 +139,7 @@
                                 </div>
                                 <p class="text-inverse text-left">
                                     Don't have an account?
-                                    <a href="{{ route('resister') }}">
+                                    <a href="{{ route('register') }}">
                                         <b>Register here </b>
                                     </a>
                                     for free!

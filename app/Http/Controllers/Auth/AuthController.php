@@ -39,12 +39,35 @@ class AuthController extends Controller
         return view('back-end.auth.login');
     }
 
-    public function resister()
+    public function register(Request $request)
     {
-        return view('back-end.auth.resister');
+        if ($request->isMethod('post')) {
+            $request->validate([
+                'name' => 'required',
+                'username' => 'required',
+                'email' => 'required|email',
+                'password' => 'required|confirmed',
+            ]);
+
+            $newUser = User::create([
+                'name' => $request->name,
+                'username' => $request->username,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+                'user_type' => 'admin',
+                'referer_id' => $request->referer_id ?? null
+            ]);
+
+            Auth::login($newUser);
+            $request->session()->regenerate();
+
+            return redirect()->route('dashboard');
+        } else {
+            return view('back-end.auth.register');
+        }
     }
 
-    public function resisterWithRefer($refer_code)
+    public function registerWithRefer($refer_code)
     {
         $check = User::where('refer_code', $refer_code)->first();
     }
