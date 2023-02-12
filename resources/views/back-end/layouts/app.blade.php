@@ -366,6 +366,7 @@
         <script src="{{ asset('back-end/assets/js/vertical/vertical-layout.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('back-end/assets/pages/dashboard/custom-dashboard.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('back-end/assets/js/script.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('back-end/assets/pages/advance-elements/swithces.js') }}"></script>
 
         @stack('js')
     </body>
