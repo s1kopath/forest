@@ -27,8 +27,8 @@
                                     </a>
                                 </li>
                                 <li class=" ">
-                                    <a href="form-elements-add-on.html" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Add-On</span>
+                                    <a href="{{ route('manage_stacking_rois') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Manage Stacking Rois</span>
                                     </a>
                                 </li>
                             </ul>

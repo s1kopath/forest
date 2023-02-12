@@ -9,7 +9,7 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header bg bg-info">
-                                <h2 class="text-center">Add Stacking Rois</h5>
+                                <h2 class="text-center">Update Stacking Rois</h5>
                             </div>
                             <div class="col-12 py-3">
                                 @if (session()->has('message'))
@@ -26,7 +26,7 @@
                                 @endif
                             </div>
                             <div class="card-block">
-                                <form action="{{ route('add_stacking_rois') }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('update_stacking_rois', $stacking->id) }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <div class="row align-items-center">
@@ -34,7 +34,7 @@
                                                 <label for="" class="form-label mb-0 font-weight-bold">Amount:</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Enter Amount..." name="amount" required>
+                                                <input type="text" class="form-control" placeholder="Enter Amount..." name="amount" value="{{ $stacking->amount }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -44,7 +44,7 @@
                                                 <label for="" class="form-label mb-0 font-weight-bold">Percentage:</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Enter Percentage..." name="percentage" required>
+                                                <input type="text" class="form-control" placeholder="Enter Percentage..." name="percentage" value="{{ $stacking->percentage }}" required>
                                             </div>
                                         </div>
                                     </div>                                   
@@ -55,10 +55,10 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <select name="duration" class="form-control form-select" required>
-                                                    <option>Choose Duration...</option>
-                                                        <option value="3">3 Months</option>
-                                                        <option value="6">6 Months</option>
-                                                        <option value="9">9 Months</option>
+                                                    <option value="0">Choose Duration...</option>
+                                                        <option value="3" {{ $stacking->duration == '3' ? 'selected' : '' }}>3 Months</option>
+                                                        <option value="6" {{ $stacking->duration == '6' ? 'selected' : '' }}>6 Months</option>
+                                                        <option value="9" {{ $stacking->duration == '9' ? 'selected' : '' }}>9 Months</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -78,15 +78,15 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <select name="status" class="form-control form-select">
-                                                    <option>Choose status...</option>
-                                                        <option value="1">Active</option>
-                                                        <option value="0">Inactive</option>
+                                                    <option value="2">Choose status...</option>
+                                                        <option value="1" {{ $stacking->status == '1' ? 'selected' : '' }}>Active</option>
+                                                        <option value="0" {{ $stacking->status == '0' ? 'selected' : '' }}>Inactive</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="text-center mt-4">
-                                        <button type="submit" class="btn btn-success btn-round waves-effect waves-light">Save</button>
+                                        <button type="submit" class="btn btn-success btn-round waves-effect waves-light">Update</button>
                                     </div>
                                 </form>
                             </div>
