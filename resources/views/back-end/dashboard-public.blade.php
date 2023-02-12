@@ -78,6 +78,21 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control bg-white" value="Referral Link" readonly>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control bg-white" id="referral-link"
+                                            value="{{ env('APP_URL') . '/ref/' . auth()->user()->refer_code }}" readonly>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="button" class="form-control" value="Copy Link" onclick="myFunction()">
+                                    </div>
+                                </div>
+                            </div>
+
                             {{-- <div class="col-xl-6 col-md-12">
                                 <div class="card latest-update-card">
                                     <div class="card-header">

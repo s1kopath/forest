@@ -21,7 +21,11 @@ class AuthController extends Controller
 
             if (Auth::attempt($valid)) {
                 $request->session()->regenerate();
-                return redirect()->route('dashboard');
+                if (auth()->user()->user_type == 'admin') {
+                    return redirect()->route('dashboard');
+                } else {
+                    return redirect()->route('public_dashboard');
+                }
             } else {
                 return redirect()->back()->with(
                     'error',
@@ -36,7 +40,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return view('back-end.auth.login');
+        return redirect()->route('auth_login');
     }
 
     public function register(Request $request)
@@ -54,15 +58,15 @@ class AuthController extends Controller
                 'username' => $request->username,
                 'email' => $request->email,
                 'password' => bcrypt($request->password),
-                'user_type' => 'admin',
+                'user_type' => 'public',
                 'referer_id' => $request->referer_id ?? null,
-                'refer_code'=>uniqid()
+                'refer_code' => uniqid()
             ]);
 
             Auth::login($newUser);
             $request->session()->regenerate();
 
-            return redirect()->route('dashboard');
+            return redirect()->route('public_dashboard');
         } else {
             return view('back-end.auth.register');
         }
@@ -71,7 +75,7 @@ class AuthController extends Controller
     public function registerWithRefer($refer_code)
     {
         $check = User::where('refer_code', $refer_code)->first();
-        
+
         if ($check) {
             session([
                 'referer_id' => $check->id,

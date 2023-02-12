@@ -5,11 +5,12 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CommisionController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\Dashboard\PublicDashboardController;
 use App\Http\Controllers\StackingRoisController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front-end.index');
 });
 
 // Auth Routes
@@ -18,7 +19,6 @@ Route::get('forget-password', [AuthController::class, 'forgetPassword'])->name('
 Route::match(['get', 'post'], 'register', [AuthController::class, 'register'])->name('register');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('ref/{refer_code}', [AuthController::class, 'registerWithRefer'])->name('register_with_refer');
-
 
 Route::prefix('/admin')->middleware('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -32,6 +32,8 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
         // Route::get('/delete-product/{id}', 'destroy')->name('delete_product');
         // Route::match(['get', 'post'], '/edit-product/{id}', 'editProduct')->name('edit_Product');
     });
-   
+});
 
+Route::prefix('public')->middleware('public')->group(function () {
+    Route::get('/', [PublicDashboardController::class, 'publicDashboard'])->name('public_dashboard');
 });

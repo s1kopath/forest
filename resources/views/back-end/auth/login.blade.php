@@ -66,7 +66,7 @@
                     <form action="{{ route('auth_login') }}" method="POST" class="md-float-material form-material">
                         @csrf
                         <div class="text-center">
-                            <img src="{{ asset('back-end/assets/images/logo.png') }}" alt="logo.png">
+                            <img class="rounded" src="{{ asset('back-end/img/logo.png') }}" alt="logo.png">
                         </div>
                         <div class="auth-box card">
                             <div class="card-block">
@@ -144,6 +144,15 @@
                                     </a>
                                     for free!
                                 </p>
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <p class="text-inverse text-left">
+                                            <a href="/">
+                                                <b>Back to website</b>
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>
