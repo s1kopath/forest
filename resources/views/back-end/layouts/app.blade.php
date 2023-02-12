@@ -29,6 +29,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('back-end/assets/css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('back-end/assets/css/widget.css') }}">
 
+    <link rel="stylesheet" type="text/css"
+    href="{{asset('back-end/assets/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('back-end/assets/pages/data-table/css/buttons.dataTables.min.css')}}">
+    <link rel="stylesheet" type="text/css"
+    href="{{asset ('back-end/assets/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}">
+    
+
     @stack('css')
 </head>
 
@@ -367,6 +374,14 @@
         <script type="text/javascript" src="{{ asset('back-end/assets/pages/dashboard/custom-dashboard.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('back-end/assets/js/script.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('back-end/assets/pages/advance-elements/swithces.js') }}"></script>
+        <script src="{{ asset('back-end/assets/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
+        <script src="{{ asset('back-end/assets/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+        <script src="{{ asset('back-end/asstes/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+        <script src="{{ asset('back-end/asset/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+
+
+
+
 
         @stack('js')
     </body>

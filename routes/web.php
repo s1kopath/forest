@@ -24,11 +24,10 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
     Route::resource('commision', CommisionController::class);
 
     Route::controller(StackingRoisController::class)->group(function () {
-        // Route::match(['get', 'post'], '/create-product', 'createProduct')->name('create_product');
-        Route::get('/add-stacking-rois', 'addStacking')->name('add_stacking_rois');
-        // Route::get('/product-list', 'index')->name('products_name');
+        Route::match(['get', 'post'], '/add-stacking-rois', 'addStacking')->name('add_stacking_rois');
+        Route::get('/manage-stacking-rois', 'index')->name('manage_stacking_rois');
         // Route::get('/delete-product/{id}', 'destroy')->name('delete_product');
-        // Route::match(['get', 'post'], '/edit-product/{id}', 'editProduct')->name('edit_Product');
+        Route::match(['get', 'post'], '/update-stacking-rois/{id}', 'updateStacking')->name('update_stacking_rois');
     });
    
 
