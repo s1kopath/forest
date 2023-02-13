@@ -8,6 +8,7 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\Dashboard\PublicDashboardController;
 use App\Http\Controllers\StackingRoisController;
 use App\Http\Controllers\IbRoyalityController;
+use App\Http\Controllers\GiftController;
 
 
 Route::get('/', function () {
@@ -38,6 +39,13 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
         Route::get('/manage-ib-royality', 'index')->name('manage_ib_royality');
         Route::get('/delete-royality/{id}', 'destroy')->name('delete_royality');
         Route::match(['get', 'post'], '/update-ib-royality/{id}', 'updateRoyality')->name('update_ib_royality');
+    });
+
+
+    Route::controller(GiftController::class)->group(function () {
+        Route::match(['get', 'post'], '/add-gift', 'addGift')->name('add_gift');
+        Route::get('/manage-gift', 'index')->name('manage_gift');
+       
     });
 
 });

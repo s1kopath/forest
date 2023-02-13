@@ -57,6 +57,29 @@
                             </ul>
                         </li>
                     </ul>
+                    <div class="pcoded-navigation-label">Gift</div>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu">
+                            <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                <span class="pcoded-micon">
+                                    <i class="feather icon-clipboard"></i>
+                                </span>
+                                <span class="pcoded-mtext">Gift</span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li class=" ">
+                                    <a href="{{ route('add_gift') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Add Gift</span>
+                                    </a>
+                                </li>
+                                <li class=" ">
+                                    <a href="{{ route('manage_gift') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Manage Gift</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                     {{-- <div class="pcoded-navigation-label">Forms</div>
                 <ul class="pcoded-item pcoded-left-item">
                     <li class="pcoded-hasmenu">

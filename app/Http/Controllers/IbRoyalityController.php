@@ -10,7 +10,6 @@ class IbRoyalityController extends Controller
     
     public function index()
     {
-        //check products list
         $royality = IbRoyality::all();
         return view('back-end.ib-royality.manage-ib-royality', compact(
             'royality',
