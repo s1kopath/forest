@@ -9,8 +9,6 @@ use App\Models\Rank;
 
 class RanksController extends Controller
 {
-    //
-
     public function rank_calculation(Request $request)
     {
         $ib_payment_info = AmountForIbGain::where('user_id', Auth::user()->id)->first();
@@ -30,9 +28,9 @@ class RanksController extends Controller
             }
         } else if ($ib_payment_info->self_amount >= 100 && $ib_payment_info->direct_amount >= 1000 && $ib_payment_info->team_amount >= 5000 - $ib_payment_info->direct_amount) {
             if ($rank_info) {
-                $this->rank_update($rank_info, 'Pro IB');
+                $this->rank_update($rank_info, 'Pro-IB');
             } else {
-                $this->rank_create('Pro IB');
+                $this->rank_create('Pro-IB');
             }
         } else if ($ib_payment_info->self_amount >= 50 && $ib_payment_info->direct_amount >= 300 && $ib_payment_info->team_amount >= 1000 - $ib_payment_info->direct_amount) {
             if ($rank_info) {

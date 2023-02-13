@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->integer('referer_id')->nullable();
             $table->string('refer_code')->nullable();
+            $table->boolean('is_verified')->default(0);
         });
     }
 
@@ -29,6 +30,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('referer_id');
             $table->dropColumn('refer_code');
+            $table->dropColumn('is_verified');
         });
     }
 };

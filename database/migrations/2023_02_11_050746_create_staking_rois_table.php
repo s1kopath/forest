@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('staking_rois', function (Blueprint $table) {
             $table->id();
-            $table->double('amount');
             $table->string('duration');
             $table->float('percentage');
             $table->tinyInteger('status')->default(1);

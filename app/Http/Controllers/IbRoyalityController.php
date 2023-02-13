@@ -7,43 +7,38 @@ use Illuminate\Http\Request;
 
 class IbRoyalityController extends Controller
 {
-    
     public function index()
     {
         $royality = IbRoyality::all();
-        return view('back-end.ib-royality.manage-ib-royality', compact(
-            'royality',
-        ));
+        return view('back-end.ib-royality.manage-ib-royality', compact('royality'));
     }
-    
-    
+
     public function addRoyality(Request $request)
     {
-                      
         // check method
-         if ($request->isMethod('POST')) {
+        if ($request->isMethod('POST')) {
             // validation
             $request->validate([
-                'rank' => 'required',
-                'percentage' => 'required',
-
+                'rank' => 'required|unique:ib_royalities,rank',
+                'percentage' => 'required'
             ]);
 
             //create
             IbRoyality::create([
                 'rank' => $request->rank,
                 'percentage' => $request->percentage,
-                'status' => $request->status,                       
+                'status' => $request->status,
             ]);
 
-            return redirect()->route('manage_ib_royality')->with('message', 'Royality Add Successfully.');
-
+            return redirect()->route('manage_ib_royality')->with('message', 'Royality Added Successfully.');
         } else {
-            return view('back-end.ib-royality.add-ib-royality');
-        } 
+            if (IbRoyality::count() >= 5) {
+                return redirect()->route('manage_ib_royality')->with('message', 'Already Added.');
+            } else {
+                return view('back-end.ib-royality.add-ib-royality');
+            }
+        }
     }
-
-    
 
     public function updateRoyality(Request $request, $id)
     {
@@ -51,9 +46,8 @@ class IbRoyalityController extends Controller
         if ($request->isMethod('POST')) {
             // validation
             $request->validate([
-                'rank' => 'required',
-                'percentage' => 'required',
-
+                'rank' => 'required|unique:ib_royalities,rank,' . $id,
+                'percentage' => 'required'
             ]);
 
             //update
@@ -61,7 +55,7 @@ class IbRoyalityController extends Controller
             $royality->update([
                 'rank' => $request->rank,
                 'percentage' => $request->percentage,
-                'status' => $request->status, 
+                'status' => $request->status,
             ]);
 
             return redirect()->route('manage_ib_royality')->with('message', 'Royality Update Successfully.');
@@ -76,5 +70,4 @@ class IbRoyalityController extends Controller
         IbRoyality::find($id)->delete();
         return redirect()->back()->with('message', 'Royality Deleted Successfully.');
     }
-
 }
