@@ -45,7 +45,8 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
     Route::controller(GiftController::class)->group(function () {
         Route::match(['get', 'post'], '/add-gift', 'addGift')->name('add_gift');
         Route::get('/manage-gift', 'index')->name('manage_gift');
-       
+        Route::match(['get', 'post'], '/update-gift/{id}', 'updateGift')->name('update_gift');
+        Route::get('/delete-gift/{id}', 'destroy')->name('delete_gift');
     });
 
 });

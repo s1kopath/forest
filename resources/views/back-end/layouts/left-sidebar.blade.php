@@ -57,7 +57,7 @@
                             </ul>
                         </li>
                     </ul>
-                    <div class="pcoded-navigation-label">Gift</div>
+                    <div class="pcoded-navigation-label">GIFT</div>
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu">
                             <a href="javascript:void(0)" class="waves-effect waves-dark">

@@ -59,13 +59,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($gift as $data)        
+                                        @foreach ($gift as $item)        
                                             <tr role="row" class="even">
                                                 <td>{{ $loop->index + 1 }}</td>
-                                                <td>{{ $data->type }}</td>
-                                                <td>{{ $data->percentage }}</td>
+                                                <td>{{ $item->type }}</td>
+                                                <td>{{ $item->percentage }}</td>
                                                 <td>
-                                                    @if ($data->status == 1)
+                                                    @if ($item->status == 1)
                                                         <span class="badge bg-primary">Active</span>
                                                     @else
                                                         <span class="badge bg-danger">Inactive</span>
@@ -78,7 +78,7 @@
                                                     </div>
                                                     <div class="btn-group">
                                                         <a class="btn btn-primary"
-                                                            href="">Edit</a>
+                                                            href="{{ route('update_gift', $item->id) }}">Edit</a>
                                                     </div>
                                                 </td>
                                             </tr>
