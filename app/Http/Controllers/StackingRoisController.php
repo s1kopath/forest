@@ -10,7 +10,6 @@ class StackingRoisController extends Controller
     
     public function index()
     {
-        //check products list
         $stacking = StakingRoi::all();
         return view('back-end.stacking-rois.manage-stacking-rois', compact(
             'stacking',

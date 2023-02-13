@@ -34,6 +34,29 @@
                             </ul>
                         </li>
                     </ul>
+                    <div class="pcoded-navigation-label">ROYALITY</div>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu">
+                            <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                <span class="pcoded-micon">
+                                    <i class="feather icon-clipboard"></i>
+                                </span>
+                                <span class="pcoded-mtext">Ib Royality</span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li class=" ">
+                                    <a href="{{ route('add_ib_royality') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Add Ib Royality</span>
+                                    </a>
+                                </li>
+                                <li class=" ">
+                                    <a href="{{ route('manage_ib_royality') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Manage Ib Royality</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                     {{-- <div class="pcoded-navigation-label">Forms</div>
                 <ul class="pcoded-item pcoded-left-item">
                     <li class="pcoded-hasmenu">

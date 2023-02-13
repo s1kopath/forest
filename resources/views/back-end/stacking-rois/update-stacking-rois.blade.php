@@ -56,9 +56,9 @@
                                             <div class="col-md-6">
                                                 <select name="duration" class="form-control form-select" required>
                                                     <option value="0">Choose Duration...</option>
-                                                        <option value="3" {{ $stacking->duration == '3' ? 'selected' : '' }}>3 Months</option>
-                                                        <option value="6" {{ $stacking->duration == '6' ? 'selected' : '' }}>6 Months</option>
-                                                        <option value="9" {{ $stacking->duration == '9' ? 'selected' : '' }}>9 Months</option>
+                                                        <option value="3 Months" {{ $stacking->duration == '3 Months' ? 'selected' : '' }}>3 Months</option>
+                                                        <option value="6 Months" {{ $stacking->duration == '6 Months' ? 'selected' : '' }}>6 Months</option>
+                                                        <option value="9 Months" {{ $stacking->duration == '9 Months' ? 'selected' : '' }}>9 Months</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -78,7 +78,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <select name="status" class="form-control form-select">
-                                                    <option value="2">Choose status...</option>
+                                                        <option value="2">Choose status...</option>
                                                         <option value="1" {{ $stacking->status == '1' ? 'selected' : '' }}>Active</option>
                                                         <option value="0" {{ $stacking->status == '0' ? 'selected' : '' }}>Inactive</option>
                                                 </select>

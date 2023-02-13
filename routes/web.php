@@ -7,6 +7,7 @@ use App\Http\Controllers\CommisionController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\Dashboard\PublicDashboardController;
 use App\Http\Controllers\StackingRoisController;
+use App\Http\Controllers\IbRoyalityController;
 
 
 Route::get('/', function () {
@@ -31,6 +32,14 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
         Route::get('/delete-stack/{id}', 'destroy')->name('delete_stack');
         Route::match(['get', 'post'], '/update-stacking-rois/{id}', 'updateStacking')->name('update_stacking_rois');
     });
+
+    Route::controller(IbRoyalityController::class)->group(function () {
+        Route::match(['get', 'post'], '/add-ib-royality', 'addRoyality')->name('add_ib_royality');
+        Route::get('/manage-ib-royality', 'index')->name('manage_ib_royality');
+        // Route::get('/delete-stack/{id}', 'destroy')->name('delete_stack');
+        Route::match(['get', 'post'], '/update-ib-royality/{id}', 'updateRoyality')->name('update_ib_royality');
+    });
+
 });
 
 Route::prefix('public')->middleware('public')->group(function () {

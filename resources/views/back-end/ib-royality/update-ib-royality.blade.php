@@ -9,7 +9,7 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header bg bg-info">
-                                <h2 class="text-center">Add Stacking Rois</h5>
+                                <h2 class="text-center">Add Royality</h5>
                             </div>
                             <div class="col-12 py-3">
                                 @if (session()->has('message'))
@@ -26,15 +26,15 @@
                                 @endif
                             </div>
                             <div class="card-block">
-                                <form action="{{ route('add_stacking_rois') }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('update_ib_royality', $royality->id) }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <div class="row align-items-center">
                                             <div class="col-md-2 offset-md-2">
-                                                <label for="" class="form-label mb-0 font-weight-bold">Amount:</label>
+                                                <label for="" class="form-label mb-0 font-weight-bold">Rank:</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="number" class="form-control" placeholder="Enter Amount..." name="amount" required>
+                                                <input type="text" class="form-control" placeholder="Enter Rank..." name="rank" value="{{ $royality->rank }}" required>
                                             </div>
                                         </div>
                                     </div>
@@ -44,25 +44,11 @@
                                                 <label for="" class="form-label mb-0 font-weight-bold">Percentage:</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="number" class="form-control" placeholder="Enter Percentage..." name="percentage" required>
+                                                <input type="number" class="form-control" placeholder="Enter Percentage..." value="{{ $royality->percentage }}" name="percentage" required>
                                             </div>
                                         </div>
                                     </div>                                   
-                                    <div class="form-group">
-                                        <div class="row align-items-center">
-                                            <div class="col-md-2 offset-md-2">
-                                                <label for="" class="form-label mb-0 font-weight-bold">Duration:</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <select name="duration" class="form-control form-select" required>
-                                                    <option>Choose Duration...</option>
-                                                        <option value="3 Months">3 Months</option>
-                                                        <option value="6 Months">6 Months</option>
-                                                        <option value="9 Months">9 Months</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <div class="row align-items-center">
                                             {{-- <div class="col-md-2 offset-md-2">
@@ -78,15 +64,15 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <select name="status" class="form-control form-select">
-                                                    <option>Choose status...</option>
-                                                        <option value="1">Active</option>
-                                                        <option value="0">Inactive</option>
+                                                    <option value="2">Choose status...</option>
+                                                    <option value="1" {{ $royality->status == '1' ? 'selected' : '' }}>Active</option>
+                                                    <option value="0" {{ $royality->status == '0' ? 'selected' : '' }}>Inactive</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="text-center mt-4">
-                                        <button type="submit" class="btn btn-success btn-round waves-effect waves-light">Save</button>
+                                        <button type="submit" class="btn btn-success btn-round waves-effect waves-light">Update</button>
                                     </div>
                                 </form>
                             </div>

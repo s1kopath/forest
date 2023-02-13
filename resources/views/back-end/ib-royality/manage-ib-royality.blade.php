@@ -6,13 +6,10 @@
         <div class="card">
             <div class="card-block">
                 <div class="card-header bg bg-info">
-                    <h2 class="text-center">Staking List</h5>
+                    <h2 class="text-center">Royality List</h5>
                 </div>
-                {{-- <div class="text-right mt-4">
-                    <button type="submit" href={{ route('add_stacking_rois') }} class="btn btn-success btn-round waves-effect waves-light">Add New</button>
-                </div> --}}
                 <div class="text-right mt-4">
-                    <a href="{{ route('add_stacking_rois') }}" class="btn btn-success btn-round waves-effect waves-light">Add New</a>
+                    <a href="{{ route('add_ib_royality') }}" class="btn btn-success btn-round waves-effect waves-light">Add New</a>
                 </div>
                 <div class="dt-responsive table-responsive">
                     <div id="order-table_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -45,15 +42,11 @@
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Name: activate to sort column ascending"
-                                            style="width: 267.578px;">Amount
+                                            style="width: 267.578px;">Rank
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
                                             style="width: 392.922px;">Percentage
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
-                                            colspan="1" aria-label="Position: activate to sort column ascending"
-                                            style="width: 392.922px;">Duration
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
@@ -66,14 +59,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($stacking as $stack)        
+                                        @foreach ($royality as $data)        
                                             <tr role="row" class="even">
                                                 <td>{{ $loop->index + 1 }}</td>
-                                                <td>{{ $stack->amount }}</td>
-                                                <td>{{ $stack->percentage }}</td>
-                                                <td>{{ $stack->duration }}</td>                                        
+                                                <td>{{ $data->rank }}</td>
+                                                <td>{{ $data->percentage }}</td>
                                                 <td>
-                                                    @if ($stack->status == 1)
+                                                    @if ($data->status == 1)
                                                         <span class="badge bg-primary">Active</span>
                                                     @else
                                                         <span class="badge bg-danger">Inactive</span>
@@ -82,11 +74,12 @@
                                                 <td> 
                                                     <div class="btn-group">
                                                         <a class="btn btn-warning"
-                                                            href="{{ route('delete_stack', $stack->id) }}">Delete</a>
+                                                            href="">Delete</a>
+                                                            {{-- {{ route('delete_royality', $data->id) }} --}}
                                                     </div>
                                                     <div class="btn-group">
                                                         <a class="btn btn-primary"
-                                                            href="{{ route('update_stacking_rois', $stack->id) }}">Edit</a>
+                                                            href="{{ route('update_ib_royality', $data->id) }} ">Edit</a>
                                                     </div>
                                                 </td>
                                             </tr>
