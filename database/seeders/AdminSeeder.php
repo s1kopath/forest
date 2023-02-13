@@ -23,17 +23,17 @@ class AdminSeeder extends Seeder
             'refer_code' => uniqid(),
         ]);
         User::create([
-            'username' => 'frank',
+            'username' => 'q',
             'name' => 'Frank',
-            'email' => 'q',
+            'email' => 'frank@gamil.com',
             'password' => bcrypt('q'),
             'user_type' => 'admin',
             'refer_code' => uniqid(),
         ]);
         User::create([
-            'username' => 'frankie',
+            'username' => 'a',
             'name' => 'Frankie',
-            'email' => 'a',
+            'email' => 'frankie@gmail.com',
             'password' => bcrypt('a'),
             'user_type' => 'public',
             'refer_code' => uniqid(),

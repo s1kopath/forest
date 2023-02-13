@@ -12,14 +12,25 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         if ($request->isMethod('post')) {
-            $request->validate([
-                'email' => 'required',
-                'password' => 'required',
+            $request->validate(
+                [
+                    'login' => 'required',
+                    'password' => 'required'
+                ],
+                [
+                    'login.required' => 'Username or Email is required'
+                ]
+            );
+            $remember = $request->remember_me ? true : false;
+
+            $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+            $request->merge([
+                $login_type => $request->input('login')
             ]);
 
-            $valid = $request->only('email', 'password');
+            $valid = $request->only($login_type, 'password');
 
-            if (Auth::attempt($valid)) {
+            if (Auth::attempt($valid, $remember)) {
                 $request->session()->regenerate();
                 if (auth()->user()->user_type == 'admin') {
                     return redirect()->route('dashboard');
@@ -27,10 +38,7 @@ class AuthController extends Controller
                     return redirect()->route('public_dashboard');
                 }
             } else {
-                return redirect()->back()->with(
-                    'error',
-                    'Invalid credentials.'
-                );
+                return redirect()->back()->with('error', 'Invalid credentials.');
             }
         } else {
             return view('back-end.auth.login');

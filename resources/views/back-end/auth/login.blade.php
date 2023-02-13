@@ -101,8 +101,8 @@
                                     @endforeach
                                 @endif
                                 <div class="form-group form-primary">
-                                    <input type="text" name="email" class="form-control" placeholder="Enter Your Email"
-                                        required="">
+                                    <input type="text" name="login" class="form-control"
+                                        placeholder="Enter Username or Email" required="">
                                     <span class="form-bar"></span>
                                     {{-- <label class="float-label">Username</label> --}}
                                 </div>
@@ -116,9 +116,10 @@
                                     <div class="col-12">
                                         <div class="checkbox-fade fade-in-primary">
                                             <label>
-                                                <input type="checkbox" value="">
-                                                <span class="cr"><i
-                                                        class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
+                                                <input type="checkbox" name="remember_me" value="true">
+                                                <span class="cr">
+                                                    <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
+                                                </span>
                                                 <span class="text-inverse">Remember me</span>
                                             </label>
                                         </div>
