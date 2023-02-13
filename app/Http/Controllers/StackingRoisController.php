@@ -32,11 +32,7 @@ class StackingRoisController extends Controller
 
             return redirect()->route('manage_stacking_rois')->with('message', 'Stacking Added Successfully.');
         } else {
-            if (StakingRoi::count() >= 3) {
-                return redirect()->route('manage_stacking_rois')->with('message', 'Already Added.');
-            } else {
-                return view('back-end.stacking-rois.add-stacking-rois');
-            }
+            return view('back-end.stacking-rois.add-stacking-rois');
         }
     }
 

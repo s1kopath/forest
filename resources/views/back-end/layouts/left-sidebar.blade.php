@@ -91,7 +91,7 @@
                     </ul>
                     <div class="pcoded-navigation-label">IB</div>
                     <ul class="pcoded-item pcoded-left-item">
-                        <li class="pcoded-hasmenu">
+                        <li class="pcoded-hasmenu {{ $lastElement == 'ib' ? 'active pcoded-trigger' : '' }}">
                             <a href="javascript:void(0)" class="waves-effect waves-dark">
                                 <span class="pcoded-micon">
                                     <i class="feather icon-clipboard"></i>
@@ -99,12 +99,12 @@
                                 <span class="pcoded-mtext">Ib</span>
                             </a>
                             <ul class="pcoded-submenu">
-                                <li class=" ">
+                                <li class="{{ $route_name == 'add_ib' ? 'active' : '' }}">
                                     <a href="{{ route('add_ib') }}" class="waves-effect waves-dark">
                                         <span class="pcoded-mtext">Add IB</span>
                                     </a>
                                 </li>
-                                <li class=" ">
+                                <li class="{{ $route_name == 'manage_ib' ? 'active' : '' }}">
                                     <a href="{{ route('manage_ib') }}" class="waves-effect waves-dark">
                                         <span class="pcoded-mtext">Manage IB</span>
                                     </a>

@@ -32,11 +32,7 @@ class IbRoyalityController extends Controller
 
             return redirect()->route('manage_ib_royality')->with('message', 'Royality Added Successfully.');
         } else {
-            if (IbRoyality::count() >= 5) {
-                return redirect()->route('manage_ib_royality')->with('message', 'Already Added.');
-            } else {
-                return view('back-end.ib-royality.add-ib-royality');
-            }
+            return view('back-end.ib-royality.add-ib-royality');
         }
     }
 

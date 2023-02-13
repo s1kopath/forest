@@ -43,6 +43,8 @@
                                                         value="Master IB">Master IB</option>
                                                     <option {{ $royality->rank == 'Corporate IB' ? 'selected' : '' }}
                                                         value="Corporate IB">Corporate IB</option>
+                                                    <option {{ $royality->rank == 'Founder' ? 'selected' : '' }}
+                                                        value="Founder">Founder</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -72,7 +74,8 @@
                                                     <option value="2">Choose status...</option>
                                                     <option value="1" {{ $royality->status == '1' ? 'selected' : '' }}>
                                                         Active</option>
-                                                    <option value="0" {{ $royality->status == '0' ? 'selected' : '' }}>
+                                                    <option value="0"
+                                                        {{ $royality->status == '0' ? 'selected' : '' }}>
                                                         Inactive</option>
                                                 </select>
                                             </div>

@@ -22,12 +22,10 @@
                         @endforeach
                     @endif
                 </div>
-                @if ($royality->count() < 5)
-                    <div class="text-right mt-4">
-                        <a href="{{ route('add_ib_royality') }}"
-                            class="btn btn-success btn-round waves-effect waves-light">Add New</a>
-                    </div>
-                @endif
+                <div class="text-right mt-4">
+                    <a href="{{ route('add_ib_royality') }}" class="btn btn-success btn-round waves-effect waves-light">Add
+                        New</a>
+                </div>
                 <div class="dt-responsive table-responsive">
                     <div id="order-table_wrapper" class="dataTables_wrapper dt-bootstrap4">
                         <div class="row">

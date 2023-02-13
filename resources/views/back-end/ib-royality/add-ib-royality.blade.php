@@ -39,6 +39,7 @@
                                                     <option value="Pro-IB">Pro-IB</option>
                                                     <option value="Master IB">Master IB</option>
                                                     <option value="Corporate IB">Corporate IB</option>
+                                                    <option value="Founder">Founder</option>
                                                 </select>
                                             </div>
                                         </div>
