@@ -7,6 +7,7 @@ use App\Http\Controllers\Dashboard\PublicDashboardController;
 use App\Http\Controllers\StackingRoisController;
 use App\Http\Controllers\IbRoyalityController;
 use App\Http\Controllers\GiftController;
+use App\Http\Controllers\IbController;
 
 
 Route::get('/', function () {
@@ -38,10 +39,17 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     });
 
     Route::controller(GiftController::class)->group(function () {
-        Route::match(['get', 'post'], 'add-gift', 'addGift')->name('add_gift');
-        Route::get('manage-gift', 'index')->name('manage_gift');
-        Route::match(['get', 'post'], 'update-gift/{id}', 'updateGift')->name('update_gift');
-        Route::get('delete-gift/{id}', 'destroy')->name('delete_gift');
+        Route::match(['get', 'post'], '/add-gift', 'addGift')->name('add_gift');
+        Route::get('/manage-gift', 'index')->name('manage_gift');
+        Route::match(['get', 'post'], '/update-gift/{id}', 'updateGift')->name('update_gift');
+        Route::get('/delete-gift/{id}', 'destroy')->name('delete_gift');
+    });
+
+    Route::controller(IbController::class)->group(function () {
+        Route::match(['get', 'post'], '/add-ib', 'addIb')->name('add_ib');
+        Route::get('/manage-ib', 'index')->name('manage_ib');
+        Route::match(['get', 'post'], '/update-ib/{id}', 'updateIb')->name('update_ib');
+        Route::get('/delete-ib/{id}', 'destroy')->name('delete_ib');
     });
 });
 

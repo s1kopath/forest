@@ -48,16 +48,15 @@ class GiftController extends Controller
             $request->validate([
                 'type' => 'required',
                 'percentage' => 'required',
-                'status' => 'required'
+
             ]);
 
             //update
             $gift = Gift::find($id);
-
             $gift->update([
                 'type' => $request->type,
                 'percentage' => $request->percentage,
-                'status' => $request->status
+                'status' => $request->status,
             ]);
 
             return redirect()->route('manage_gift')->with('message', 'Gift Update Successfully.');

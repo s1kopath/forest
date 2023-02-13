@@ -66,7 +66,7 @@
                             </ul>
                         </li>
                     </ul>
-                    <div class="pcoded-navigation-label">Gift</div>
+                    <div class="pcoded-navigation-label">GIFT</div>
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu {{ $lastElement == 'gift' ? 'active pcoded-trigger' : '' }}">
                             <a href="javascript:void(0)" class="waves-effect waves-dark">
@@ -89,8 +89,31 @@
                             </ul>
                         </li>
                     </ul>
+                    <div class="pcoded-navigation-label">IB</div>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu">
+                            <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                <span class="pcoded-micon">
+                                    <i class="feather icon-clipboard"></i>
+                                </span>
+                                <span class="pcoded-mtext">Ib</span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li class=" ">
+                                    <a href="{{ route('add_ib') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Add IB</span>
+                                    </a>
+                                </li>
+                                <li class=" ">
+                                    <a href="{{ route('manage_ib') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Manage IB</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                     {{-- <div class="pcoded-navigation-label">Forms</div>
-                <ul class="pcoded-item pcoded-left-item">
+                 <ul class="pcoded-item pcoded-left-item">
                     <li class="pcoded-hasmenu">
                         <a href="javascript:void(0)" class="waves-effect waves-dark">
                             <span class="pcoded-micon">

@@ -66,7 +66,7 @@
                                                 <td>{{ $data->type }}</td>
                                                 <td>{{ $data->percentage }} %</td>
                                                 <td>
-                                                    @if ($data->status == 1)
+                                                    @if ($item->status == 1)
                                                         <span class="badge bg-primary">Active</span>
                                                     @else
                                                         <span class="badge bg-danger">Inactive</span>
