@@ -65,11 +65,17 @@ class IbRoyalityController extends Controller
                 'status' => $request->status, 
             ]);
 
-            return redirect()->route('manage_ib_royality')->with('message', 'Stacking Update Successfully.');
+            return redirect()->route('manage_ib_royality')->with('message', 'Royality Update Successfully.');
         } else {
             $royality = IbRoyality::find($id);
             return view('back-end.ib-royality.update-ib-royality', compact('royality'));
         }
+    }
+
+    public function destroy($id)
+    {
+        IbRoyality::find($id)->delete();
+        return redirect()->back()->with('message', 'Royality Deleted Successfully.');
     }
 
 }

@@ -74,8 +74,7 @@
                                                 <td> 
                                                     <div class="btn-group">
                                                         <a class="btn btn-warning"
-                                                            href="">Delete</a>
-                                                            {{-- {{ route('delete_royality', $data->id) }} --}}
+                                                            href="{{ route('delete_royality', $data->id) }}">Delete</a>
                                                     </div>
                                                     <div class="btn-group">
                                                         <a class="btn btn-primary"

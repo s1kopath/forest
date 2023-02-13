@@ -76,7 +76,7 @@ class StackingRoisController extends Controller
     public function destroy($id)
     {
         StakingRoi::find($id)->delete();
-        return redirect()->back()->with('message', 'Product Deleted Successfully.');
+        return redirect()->back()->with('message', 'Stacking Deleted Successfully.');
     }
 
 }

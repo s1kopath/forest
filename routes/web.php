@@ -36,7 +36,7 @@ Route::prefix('/admin')->middleware('admin')->group(function () {
     Route::controller(IbRoyalityController::class)->group(function () {
         Route::match(['get', 'post'], '/add-ib-royality', 'addRoyality')->name('add_ib_royality');
         Route::get('/manage-ib-royality', 'index')->name('manage_ib_royality');
-        // Route::get('/delete-stack/{id}', 'destroy')->name('delete_stack');
+        Route::get('/delete-royality/{id}', 'destroy')->name('delete_royality');
         Route::match(['get', 'post'], '/update-ib-royality/{id}', 'updateRoyality')->name('update_ib_royality');
     });
 
