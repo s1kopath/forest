@@ -727,12 +727,12 @@ ul {
     }
 
     .home:before {
-        background: url("../img/home/home-bg.jpg") no-repeat right center/cover;
+        background: url("/front-end/img/home/cover-picture_i4S5vbB.original.jpg") no-repeat right center/cover;
         z-index: 2;
     }
 
     .home:after {
-        background-color: #03ca88;
+        background-color: #03ca88af;
         z-index: 3;
         opacity: 0.65;
     }
@@ -761,7 +761,7 @@ ul {
     }
 
     .home--ellipse:before {
-        background: url("../img/home/home-bg2.jpg") no-repeat center center/cover;
+        background: url("/front-end/img/home/cover-picture_i4S5vbB.original.jpg") no-repeat center center/cover;
     }
 
     .home--rectangle:before,
@@ -777,7 +777,7 @@ ul {
     }
 
     .home--rectangle:before {
-        background: url("../img/home/home-bg2.jpg") no-repeat center center/cover;
+        background: url("/front-end/img/home/cover-picture_i4S5vbB.original.jpg") no-repeat center center/cover;
     }
 
     .home__content {
