@@ -6,10 +6,10 @@
         <div class="card">
             <div class="card-block">
                 <div class="card-header bg bg-info">
-                    <h2 class="text-center">Gift List</h5>
+                    <h2 class="text-center">IB List</h5>
                 </div>
                 <div class="text-right mt-4">
-                    <a href="{{ route('add_gift') }}" class="btn btn-success btn-round waves-effect waves-light">Add New</a>
+                    <a href="{{ route('add_ib') }}" class="btn btn-success btn-round waves-effect waves-light">Add New</a>
                 </div>
                 <div class="dt-responsive table-responsive">
                     <div id="order-table_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -42,15 +42,23 @@
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Name: activate to sort column ascending"
-                                            style="width: 267.578px;">Gift Type
+                                            style="width: 267.578px;">Ib Name
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
-                                            style="width: 392.922px;">Percentage
+                                            style="width: 392.922px;">Self Amount
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
-                                            style="width: 392.922px;">Status
+                                            style="width: 392.922px;">Direct Amount
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
+                                            colspan="1" aria-label="Position: activate to sort column ascending"
+                                            style="width: 392.922px;">Team Amount
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
+                                            colspan="1" aria-label="Position: activate to sort column ascending"
+                                            style="width: 392.922px;">Reward
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
@@ -59,26 +67,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($gift as $item)        
+                                        @foreach ($ib as $ibs)        
                                             <tr role="row" class="even">
                                                 <td>{{ $loop->index + 1 }}</td>
-                                                <td>{{ $item->type }}</td>
-                                                <td>{{ $item->percentage }}</td>
-                                                <td>
-                                                    @if ($item->status == 1)
-                                                        <span class="badge bg-primary">Active</span>
-                                                    @else
-                                                        <span class="badge bg-danger">Inactive</span>
-                                                    @endif
-                                                </td>                                        
+                                                <td>{{ $ibs->ib_name }}</td>
+                                                <td>{{ $ibs->self_amount }}</td>
+                                                <td>{{ $ibs->direct_amount }}</td>
+                                                <td>{{ $ibs->team_amount }}</td>
+                                                <td>{{ $ibs->reward }}</td>                                  
                                                 <td> 
                                                     <div class="btn-group">
                                                         <a class="btn btn-warning"
-                                                            href="{{ route('delete_gift', $item->id) }}">Delete</a>
+                                                            href="{{ route('delete_ib', $ibs->id) }}">Delete</a>
                                                     </div>
                                                     <div class="btn-group">
                                                         <a class="btn btn-primary"
-                                                            href="{{ route('update_gift', $item->id) }}">Edit</a>
+                                                            href="{{ route('update_ib', $ibs->id) }}">Edit</a>
                                                     </div>
                                                 </td>
                                             </tr>

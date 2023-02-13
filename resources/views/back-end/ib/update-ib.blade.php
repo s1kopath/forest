@@ -9,7 +9,7 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header bg bg-info">
-                                <h2 class="text-center">Add Gift</h5>
+                                <h2 class="text-center">Update IB</h5>
                             </div>
                             <div class="col-12 py-3">
                                 @if (session()->has('message'))
@@ -26,53 +26,60 @@
                                 @endif
                             </div>
                             <div class="card-block">
-                                <form action="{{ route('add_gift') }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('update_ib', $ib->id) }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <div class="row align-items-center">
                                             <div class="col-md-2 offset-md-2">
-                                                <label for="" class="form-label mb-0 font-weight-bold">Gift Type:</label>
+                                                <label for="" class="form-label mb-0 font-weight-bold">IB Name:</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" placeholder="Enter Gift Type..." name="type" required>
+                                                <input type="text" class="form-control" placeholder="Enter Ib Name..." name="ib_name" value={{ $ib->ib_name }} required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="row align-items-center">
                                             <div class="col-md-2 offset-md-2">
-                                                <label for="" class="form-label mb-0 font-weight-bold">Percentage:</label>
+                                                <label for="" class="form-label mb-0 font-weight-bold">Self Amount:</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="number" class="form-control" placeholder="Enter Percentage..." name="percentage" required>
+                                                <input type="number" class="form-control" placeholder="Enter Self Emount..." name="self_amount" value={{ $ib->self_amount }} required>
                                             </div>
                                         </div>
-                                    </div>                                   
-                                    
+                                    </div>                                    
                                     <div class="form-group">
                                         <div class="row align-items-center">
-                                            {{-- <div class="col-md-2 offset-md-2">
-                                                <label for="" class="form-label mb-0 font-weight-bold">Status:</label>
-                                            </div> --}}
-                                            {{-- <div class="col-md-6">
-                                                <span class="switchery switchery-default" style="background-color: rgb(64, 153, 255); border-color: rgb(64, 153, 255); box-shadow:
-                                                 rgb(64, 153, 255) 0px 0px 0px 16px inset; transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s, background-color 1.2s ease 0s;"><small style="left: 20px; background-color: rgb(255, 255, 255); transition: background-color 0.4s ease 0s, left 0.2s ease 0s;"></small></span>
-                                                 
-                                            </div> --}}
                                             <div class="col-md-2 offset-md-2">
-                                                <label for="" class="form-label mb-0 font-weight-bold">Status:</label>
+                                                <label for="" class="form-label mb-0 font-weight-bold">Direct Amount:</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <select name="status" class="form-control form-select">
-                                                        <option>Choose status...</option>
-                                                        <option value="1">Active</option>
-                                                        <option value="0">Inactive</option>
-                                                </select>
+                                                <input type="number" class="form-control" placeholder="Enter Direct Emount..." name="direct_amount" value={{ $ib->direct_amount }} required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-2 offset-md-2">
+                                                <label for="" class="form-label mb-0 font-weight-bold">Team Amount:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="number" class="form-control" placeholder="Enter Team Emount..." name="team_amount" value={{ $ib->team_amount }} required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-2 offset-md-2">
+                                                <label for="" class="form-label mb-0 font-weight-bold">Reward:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" placeholder="Enter Reward..." value="{{ $ib->reward }}" name="reward">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="text-center mt-4">
-                                        <button type="submit" class="btn btn-success btn-round waves-effect waves-light">Save</button>
+                                        <button type="submit" class="btn btn-success btn-round waves-effect waves-light">Update</button>
                                     </div>
                                 </form>
                             </div>

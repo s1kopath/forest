@@ -34,7 +34,7 @@ class GiftController extends Controller
                 'status' => $request->status,                       
             ]);
 
-            return redirect()->back()->with('message', 'Gift Add Successfully.');
+            return redirect()->route('manage_gift')->with('message', 'Gift Add Successfully.');
 
         } else {
             return view('back-end.gift.add-gift');
