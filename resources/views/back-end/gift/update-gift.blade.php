@@ -3,7 +3,7 @@
 
 @section('page-content')
     <div class="card">
-        <div class="card-header bg bg-info">
+        <div class="card-header bg-info">
             <h2 class="text-center">Update Gift</h5>
         </div>
         <div class="card-block">

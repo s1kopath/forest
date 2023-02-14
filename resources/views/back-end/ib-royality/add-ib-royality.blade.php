@@ -2,7 +2,7 @@
 @extends('back-end.layouts.left-sidebar')
 @section('page-content')
     <div class="card">
-        <div class="card-header bg bg-info">
+        <div class="card-header bg-info">
             <h2 class="text-center">Add Royality</h5>
         </div>
         <div class="card-block">

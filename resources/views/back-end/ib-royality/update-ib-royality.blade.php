@@ -5,22 +5,8 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
-                <div class="card-header bg bg-info">
+                <div class="card-header bg-info">
                     <h2 class="text-center">Add Royality</h5>
-                </div>
-                <div class="col-12 py-3">
-                    @if (session()->has('message'))
-                        <div class="alert bg-info">
-                            {{ session('message') }}
-                        </div>
-                    @endif
-                    @if ($errors->any())
-                        @foreach ($errors->all() as $error)
-                            <div class="alert bg-danger">
-                                {{ $error }}
-                            </div>
-                        @endforeach
-                    @endif
                 </div>
                 <div class="card-block">
                     <form action="{{ route('update_ib_royality', $royality->id) }}" method="post">

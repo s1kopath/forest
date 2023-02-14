@@ -4,7 +4,7 @@
 @section('page-content')
     <div class="card">
         <div class="card-block">
-            <div class="card-header bg bg-info">
+            <div class="card-header bg-info">
                 <h2 class="text-center">IB List</h5>
             </div>
             <div class="text-right mt-4">
