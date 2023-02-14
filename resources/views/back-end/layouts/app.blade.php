@@ -37,6 +37,8 @@
         href="{{ asset('back-end/assets/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('back-end/assets/css/switchery.css') }}" referrerpolicy="no-referrer" />
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('back-end/assets/css/pages.css') }}">
+
     @stack('css')
 </head>
 
@@ -415,6 +417,8 @@
     <script src="{{ asset('back-end/asset/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('back-end/assets/js/switchery.min.js') }}" referrerpolicy="no-referrer"></script>
 
+    <script src="{{ asset('back-end/assets/pages/file-upload/dropzone-amd-module.min.js') }}"></script>
+    
     @stack('js')
 </body>
 
