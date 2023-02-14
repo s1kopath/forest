@@ -1,810 +1,685 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
-<!-- Mirrored from forest.volkovdesign.com/javascript:void(0) by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Feb 2023 10:36:14 GMT -->
-
 <head>
+    <!-- Meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('front-end/css/bootstrap-reboot.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('front-end/css/bootstrap-grid.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('front-end/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('front-end/css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ asset('front-end/css/themify-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('front-end/css/cryptocoins.css') }}">
-    <link rel="stylesheet" href="{{ asset('front-end/css/cryptocoins-colors.css') }}">
-    <link rel="stylesheet" href="{{ asset('front-end/css/main.css') }}">
-
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" href="{{ asset('front-end/icon/favicon-32x32.png') }}" sizes="32x32">
-    <link rel="apple-touch-icon" href="{{ asset('front-end/icon/favicon-32x32.png') }}">
-
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="Global Fast Coder">
-    <title>Forest</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Forest, an investment platform">
+    <meta name="keywords" content="blockit, uikit3, indonez, handlebars, scss, javascript">
+    <meta name="author" content="Global fast Coder">
+    <meta name="theme-color" content="#FCB42D" />
+    <!-- critical preload -->
+    <link rel="preload" href="{{ asset('front-end/js/vendors/uikit.min.js') }}" as="script">
+    <link rel="preload" href="{{ asset('front-end/css/style.css') }}" as="style">
+    <!-- icon preload -->
+    <link rel="preload" href="{{ asset('front-end/fonts/fa-brands-400.woff2') }}" as="font" type="font/woff2"
+        crossorigin>
+    <link rel="preload" href="{{ asset('front-end/fonts/fa-solid-900.woff2') }}" as="font" type="font/woff2"
+        crossorigin>
+    <!-- font preload -->
+    <link rel="preload" href="{{ asset('front-end/fonts/archivo-v9-latin-regular.woff2') }}" as="font"
+        type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('front-end/fonts/archivo-v9-latin-300.woff2') }}" as="font"
+        type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('front-end/fonts/archivo-v9-latin-700.woff2') }}" as="font"
+        type="font/woff2" crossorigin>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('front-end/css/style.css') }}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('front-end/img/favicon-32x32.png') }}" type="image/x-icon">
+    <!-- Touch icon -->
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('front-end/img/apple-touch-icon.png') }}">
+    <title>{{ env('APP_NAME') }}</title>
 </head>
 
 <body>
-    <!-- header -->
-    <header class="header">
-        <!-- logo -->
-        <div class="header__logo">
-            <a href="javascript:void(0)">
-                <img src="{{ asset('front-end/img/logo-2.jpg') }}" alt="forest">
-            </a>
+    <!-- page loader begin -->
+    <div class="in-page-loader">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <!-- page loader end -->
+    <!-- header begin -->
+    <header>
+        <div class="uk-section uk-padding-remove-vertical">
+            <nav class="uk-navbar-container uk-navbar-transparent"
+                data-uk-sticky="show-on-up: true; animation: uk-animation-slide-top;">
+                <div class="uk-container" data-uk-navbar>
+                    <div class="uk-navbar-left">
+                        <div class="uk-navbar-item">
+                            <a class="uk-logo" href="index.html">
+                                <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                    data-src="{{ asset('front-end/img/user/header-logo-Uw3Zp9.svg') }}" alt="logo"
+                                    width="146" height="40" data-uk-img>
+                            </a>
+                            <ul class="uk-navbar-nav uk-visible@m">
+                                <li><a href="index.html">Home<i class="fas fa-chevron-down"></i></a>
+                                    <div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                            <li><a href="homepage2.html">Homepage 2</a></li>
+                                            <li><a href="homepage3.html">Homepage 3</a></li>
+                                            <li><a href="homepage4.html">Homepage 4</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="markets.html">Markets</a>
+                                </li>
+                                <li><a href="#">Company<i class="fas fa-chevron-down"></i></a>
+                                    <div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="careers.html">Careers</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="education.html">Education</a>
+                                </li>
+                                <li><a href="#">Resources<i class="fas fa-chevron-down"></i></a>
+                                    <div class="uk-navbar-dropdown uk-navbar-dropdown-width-2">
+                                        <div class="uk-navbar-dropdown-grid uk-child-width-1-2" data-uk-grid>
+                                            <div>
+                                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                    <li><a href="https://getuikit.com/docs/introduction">Documentation<i
+                                                                class="fas fa-square-arrow-up-right fa-sm"></i></a></li>
+                                                    <li><a href="help-center.html">Help Center</a></li>
+                                                    <li><a href="customers.html">Customers</a></li>
+                                                    <li><a href="roadmap.html">Roadmap</a></li>
+                                                    <li><a href="legal-docs.html">Legal Docs<i
+                                                                class="fas fa-gavel fa-sm"></i></a></li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                                    <li><a class="uk-disabled" href="#">Adipiscing elit sed do
+                                                            eiusmod incididunt ut labore dolore magna lorem ipsum sit
+                                                            dolor amet consectetur</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="uk-navbar-right">
+                        <div class="uk-navbar-item uk-visible@m in-optional-nav">
+                            <a href="signin.html" class="uk-button uk-button-text">Log in<i
+                                    class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                            <a href="#" class="uk-button uk-button-primary">Sign up<i
+                                    class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
         </div>
-        <!-- end logo -->
-
-        <!-- navigation -->
-        <ul class="header__nav">
-            <li><a href="javascript:void(0)">Home</a></li>
-            <li><a href="javascript:void(0)">Contacts</a></li>
-            <li><a href="javascript:void(0)">About us</a></li>
-            <li><a href="javascript:void(0)">Services</a></li>
-            <li><a href="javascript:void(0)">Pricing plans</a></li>
-            @auth
-                <li><a href="javascript:void(0)">Dashboard</a></li>
-            @endauth
-        </ul>
-        <!-- end navigation -->
-        @auth
-            <a href="{{ route('logout') }}" class="btn btn--header">logout</a>
-        @else
-            <a href="{{ route('auth_login') }}" class="btn btn--header">sign in</a>
-        @endauth
-
-        <!-- mob button -->
-        <button class="header__menu" type="button">
-            <i class="ti-menu"></i>
-            <i class="ti-close"></i>
-        </button>
-        <!-- end mob button -->
     </header>
-    <!-- end header -->
-
-    <!-- home -->
-    <section class="home home--rectangle">
-        <!-- particles -->
-        <div id="canvas" class="home__particles"></div>
-        <!-- end particles -->
-
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3 col-xl-5 offset-xl-0">
-                    <div class="home__content">
-                        <h1 class="home__title">Start with <span class="text-success">FOREST</span> today!</h1>
-                        <p class="home__text">Many desktop publishing packages and web page editors now use Lorem Ipsum
-                            as their default model text.</p>
-                        <a href="javascript:void(0)" class="btn btn--shadow">get started</a>
-                    </div>
-                </div>
-
-                <div class="col-xl-6 offset-xl-1">
-                    <div class="home__content home__content--desk">
-                        <div class="home__feature-wrap">
-                            <!-- feature -->
-                            <div class="home__feature">
-                                <i class="ti-bolt"></i>
-                                <h3>Instant Connection</h3>
+    <!-- header end -->
+    <main>
+        <!-- slideshow content begin -->
+        <div class="uk-section uk-padding-remove-vertical in-slideshow-gradient">
+            <div id="particles-js" class="uk-light in-slideshow uk-background-contain"
+                data-src="{{ asset('front-end/img/in-equity-decor-1.svg') }}" data-uk-img data-uk-slideshow>
+                <hr>
+                <ul class="uk-slideshow-items">
+                    <li class="uk-flex uk-flex-middle">
+                        <div class="uk-container">
+                            <div class="uk-grid-large uk-flex-middle" data-uk-grid>
+                                <div class="uk-width-1-2@s in-slide-text">
+                                    <p class="in-badge-text uk-text-small uk-margin-remove-bottom uk-visible@m"><span
+                                            class="uk-label uk-label-success in-label-small">New</span>Trade the
+                                        markets directly with
+                                        leading trading platforms.</p>
+                                    <h1 class="uk-heading-small">The world's most <span
+                                            class="in-highlight">powerful</span> trade app.</h1>
+                                    <p class="uk-text-lead uk-visible@m">Get the most accurate market data, alerts,
+                                        conversions, tools and more — all within the same app.</p>
+                                    <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-medium-top uk-visible@s"
+                                        data-uk-grid>
+                                        <div>
+                                            <div
+                                                class="uk-card uk-card-small uk-card-secondary uk-card-body uk-border-rounded uk-flex uk-flex-middle">
+                                                <div class="in-symbol-logo">
+                                                    <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                        data-src="{{ asset('front-end/img/in-symbol-tesla.svg') }}"
+                                                        alt="ticker" width="28" height="28" data-uk-img>
+                                                </div>
+                                                <div class="in-price down">
+                                                    <h6 class="uk-margin-remove">TSLA<span
+                                                            class="uk-text-small">-1.47%</span></h6>
+                                                    <p class="uk-margin-remove"><span
+                                                            class="fas fa-arrow-circle-right fa-xs"></span>$113.06</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div
+                                                class="uk-card uk-card-small uk-card-secondary uk-card-body uk-border-rounded uk-flex uk-flex-middle">
+                                                <div class="in-symbol-logo">
+                                                    <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                        data-src="{{ asset('front-end/img/in-symbol-google.svg') }}"
+                                                        alt="ticker" width="28" height="28" data-uk-img>
+                                                </div>
+                                                <div class="in-price up">
+                                                    <h6 class="uk-margin-remove">GOOGL<span
+                                                            class="uk-text-small">1.32%</span></h6>
+                                                    <p class="uk-margin-remove"><span
+                                                            class="fas fa-arrow-circle-right fa-xs"></span>$87.34</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-visible@m">
+                                            <div
+                                                class="uk-card uk-card-small uk-card-secondary uk-card-body uk-border-rounded uk-flex uk-flex-middle">
+                                                <div class="in-symbol-logo">
+                                                    <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                        data-src="{{ asset('front-end/img/in-symbol-apple.svg') }}"
+                                                        alt="ticker" width="28" height="28" data-uk-img>
+                                                </div>
+                                                <div class="in-price up">
+                                                    <h6 class="uk-margin-remove">AAPL<span
+                                                            class="uk-text-small">3.68%</span></h6>
+                                                    <p class="uk-margin-remove"><span
+                                                            class="fas fa-arrow-circle-right fa-xs"></span>$129.62</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="in-slide-img">
+                                    <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                        data-src="{{ asset('front-end/img/in-equity-slide-1.png') }}"
+                                        alt="image-slide" width="652" height="746" data-uk-img>
+                                </div>
                             </div>
-                            <!-- end feature -->
-
-                            <!-- feature -->
-                            <div class="home__feature">
-                                <i class="ti-wallet"></i>
-                                <h3>Instant Conclusion</h3>
+                        </div>
+                    </li>
+                    <li class="uk-flex uk-flex-middle">
+                        <div class="uk-container">
+                            <div class="uk-grid-large uk-flex-middle" data-uk-grid>
+                                <div class="uk-width-1-2@s in-slide-text">
+                                    <p class="in-badge-text uk-text-small uk-margin-remove-bottom uk-visible@m"><span
+                                            class="uk-label uk-label-success in-label-small">New</span>Trade the
+                                        markets directly with
+                                        leading trading platforms.</p>
+                                    <h1 class="uk-heading-small">Reach out to new trading <span
+                                            class="in-highlight">experience</span>.</h1>
+                                    <p class="uk-text-lead uk-visible@m">Bring your trading ventures go around the
+                                        world, way beyond the space of your trading account.</p>
+                                    <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-medium-top uk-visible@s"
+                                        data-uk-grid>
+                                        <div>
+                                            <div
+                                                class="uk-card uk-card-small uk-card-secondary uk-card-body uk-border-rounded uk-flex uk-flex-middle">
+                                                <div class="in-symbol-logo">
+                                                    <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                        data-src="{{ asset('front-end/img/in-symbol-mcdonalds.svg') }}"
+                                                        alt="ticker" width="28" height="28" data-uk-img>
+                                                </div>
+                                                <div class="in-price down">
+                                                    <h6 class="uk-margin-remove">MCD<span
+                                                            class="uk-text-small">-1.29%</span></h6>
+                                                    <p class="uk-margin-remove"><span
+                                                            class="fas fa-arrow-circle-right fa-xs"></span>$269.47</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div
+                                                class="uk-card uk-card-small uk-card-secondary uk-card-body uk-border-rounded uk-flex uk-flex-middle">
+                                                <div class="in-symbol-logo">
+                                                    <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                        data-src="{{ asset('front-end/img/in-symbol-amazon.svg') }}"
+                                                        alt="ticker" width="28" height="28" data-uk-img>
+                                                </div>
+                                                <div class="in-price up">
+                                                    <h6 class="uk-margin-remove">AMZN<span
+                                                            class="uk-text-small">3.56%</span></h6>
+                                                    <p class="uk-margin-remove"><span
+                                                            class="fas fa-arrow-circle-right fa-xs"></span>$86.08</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-visible@m">
+                                            <div
+                                                class="uk-card uk-card-small uk-card-secondary uk-card-body uk-border-rounded uk-flex uk-flex-middle">
+                                                <div class="in-symbol-logo">
+                                                    <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                        data-src="{{ asset('front-end/img/in-symbol-microsoft.svg') }}"
+                                                        alt="ticker" width="28" height="28" data-uk-img>
+                                                </div>
+                                                <div class="in-price down">
+                                                    <h6 class="uk-margin-remove">MSFT<span
+                                                            class="uk-text-small">-1.18%</span></h6>
+                                                    <p class="uk-margin-remove"><span
+                                                            class="fas fa-arrow-circle-right fa-xs"></span>$224.93</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="in-slide-img">
+                                    <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                        data-src="{{ asset('front-end/img/in-equity-slide-1.png') }}"
+                                        alt="image-slide" width="652" height="746" data-uk-img>
+                                </div>
                             </div>
-                            <!-- end feature -->
-
-                            <!-- feature -->
-                            <div class="home__feature">
-                                <i class="ti-stats-up"></i>
-                                <h3>Detailed Statistics</h3>
+                        </div>
+                    </li>
+                </ul>
+                <div class="uk-container">
+                    <div class="uk-position-relative" data-uk-grid>
+                        <ul class="uk-slideshow-nav uk-dotnav uk-position-bottom-right uk-flex uk-flex-middle"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- slideshow content end -->
+        <!-- section content begin -->
+        <div class="uk-section uk-section-primary uk-preserve-color in-equity-1">
+            <div class="uk-container">
+                <div class="uk-grid">
+                    <div class="uk-width-1-1">
+                        <h4>Popular products</h4>
+                    </div>
+                </div>
+                <div class="uk-grid-match uk-grid-medium uk-child-width-1-4@m uk-child-width-1-2@s uk-margin-bottom"
+                    data-uk-grid>
+                    <div>
+                        <div class="uk-card uk-card-body uk-card-default uk-border-rounded">
+                            <div class="uk-flex uk-flex-middle">
+                                <span class="in-product-name red">EQ</span>
+                                <h5 class="uk-margin-remove">Stocks</h5>
                             </div>
-                            <!-- end feature -->
-
-                            <!-- feature -->
-                            <div class="home__feature">
-                                <i class="ti-harddrives"></i>
-                                <h3>Power Distribution</h3>
+                            <p>Access 19,000+ stocks across core and emerging markets on 40+ exchanges worldwide.</p>
+                            <a href="#"
+                                class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
+                                    class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-body uk-card-default uk-border-rounded">
+                            <div class="uk-flex uk-flex-middle">
+                                <span class="in-product-name green">LQ</span>
+                                <h5 class="uk-margin-remove">Listed Options</h5>
                             </div>
-                            <!-- end feature -->
+                            <p>Access 1,200+ listed options across equities, indices, interest rates, energy, metals and
+                                more.</p>
+                            <a href="#"
+                                class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
+                                    class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-body uk-card-default uk-border-rounded">
+                            <div class="uk-flex uk-flex-middle">
+                                <span class="in-product-name blue">FU</span>
+                                <h5 class="uk-margin-remove">Futures</h5>
+                            </div>
+                            <p>Access 300+ futures covering equity indices, energy, metals, agriculture, rates and more.
+                            </p>
+                            <a href="#"
+                                class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
+                                    class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-body uk-card-default uk-border-rounded">
+                            <div class="uk-flex uk-flex-middle">
+                                <span class="in-product-name"><i class="fas fa-ellipsis-h fa-xs"></i></span>
+                                <h5 class="uk-margin-remove">More products</h5>
+                            </div>
+                            <p>Explore the full range of cash and leveraged products</p>
+                            <a href="#"
+                                class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
+                                    class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- end home -->
-
-    <!-- get started -->
-    <section class="section" id="getstarted">
-        <div class="container">
-            <div class="row">
-                <!-- section title -->
-                <div class="col-12 col-sm-10 offset-sm-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
-                    <h2 class="section__title">How To Get Started</h2>
-                    <p class="section__text">If you are going to use a passage of Lorem Ipsum, you need to be sure
-                        there isn't <b>anything</b> embarrassing hidden in the middle of text.</p>
-                </div>
-                <!-- end section title -->
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <!-- step -->
-                    <div class="step">
-                        <i class="ti-unlock"></i>
-                        <h3 class="step__title">Sign up for Smart Mine</h3>
-                        <p class="step__text">There are many variations of passages of Lorem Ipsum available, but the
-                            majority have suffered <b>alteration in some form</b>, by injected.</p>
+        <!-- section content end -->
+        <!-- section content begin -->
+        <div class="uk-section in-equity-2 uk-background-contain uk-background-center"
+            data-src="{{ asset('front-end/img/in-equity-2-bg.png') }}" data-uk-img>
+            <div class="uk-container uk-margin-top">
+                <div class="uk-grid uk-flex uk-flex-center">
+                    <div class="uk-width-2xlarge@m uk-text-center">
+                        <span class="uk-label uk-label-warning">Fast execution, low latency<i
+                                class="fas fa-arrow-right fa-xs uk-margin-small-left"></i></span>
+                        <h1 class="uk-margin-top">Your premium choice for trading currencies & stocks online</h1>
+                        <p class="uk-text-lead uk-margin-medium-top">Harness the power of technology to make a quicker,
+                            smarter and more precise decision on CFD currency pairs, stocks, commodities and more</p>
                     </div>
-                    <!-- end step -->
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <!-- step -->
-                    <div class="step">
-                        <i class="ti-harddrives"></i>
-                        <h3 class="step__title">Buy MH/s contract</h3>
-                        <p class="step__text">Various versions have evolved over the years, sometimes by accident,
-                            sometimes on purpose (injected humour and the like).</p>
+                    <div class="uk-width-3-4@m uk-margin-medium-top">
+                        <img class="uk-align-center" src="{{ asset('front-end/img/in-lazy.gif') }}"
+                            data-src="{{ asset('front-end/img/in-equity-2-img.png') }}" alt="image"
+                            width="758" height="334" data-uk-img>
                     </div>
-                    <!-- end step -->
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <!-- step -->
-                    <div class="step">
-                        <i class="ti-credit-card"></i>
-                        <h3 class="step__title">Get first payout in 1 day!</h3>
-                        <p class="step__text">It is a long established fact that a reader will be distracted by the
-                            readable content of a page when <a href="javascript:void(0)">looking</a> at its layout.</p>
+                    <div class="uk-width-2xlarge@m uk-margin-medium-top">
+                        <div class="uk-grid uk-child-width-1-4@m uk-child-width-1-4@s uk-text-center in-feature-box"
+                            data-uk-grid>
+                            <a href="#">
+                                <span class="in-icon-wrap">
+                                    <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                        data-src="{{ asset('front-end/img/in-equity-2-icon-1.svg') }}" alt="icon-1"
+                                        width="35" height="42" data-uk-img>
+                                </span>
+                                <p class="uk-margin-top">Trading calculators</p>
+                            </a>
+                            <a href="#">
+                                <span class="in-icon-wrap">
+                                    <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                        data-src="{{ asset('front-end/img/in-equity-2-icon-2.svg') }}" alt="icon-2"
+                                        width="38" height="42" data-uk-img>
+                                </span>
+                                <p class="uk-margin-top">Market analysis</p>
+                            </a>
+                            <a href="#">
+                                <span class="in-icon-wrap">
+                                    <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                        data-src="{{ asset('front-end/img/in-equity-2-icon-3.svg') }}" alt="icon-3"
+                                        width="42" height="42" data-uk-img>
+                                </span>
+                                <p class="uk-margin-top">Market reviews</p>
+                            </a>
+                            <a href="#">
+                                <span class="in-icon-wrap">
+                                    <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                        data-src="{{ asset('front-end/img/in-equity-2-icon-4.svg') }}" alt="icon-4"
+                                        width="42" height="42" data-uk-img>
+                                </span>
+                                <p class="uk-margin-top">Trading academy</p>
+                            </a>
+                        </div>
                     </div>
-                    <!-- end step -->
-                </div>
-
-                <div class="col-12">
-                    <a href="javascript:void(0)" class="btn btn--center btn--section btn--shadow">get started</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end get started -->
-
-    <!-- currencies -->
-    <section class="section section--blue">
-        <div class="container">
-            <div class="row">
-                <!-- section title -->
-                <div class="col-12 col-sm-10 offset-sm-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
-                    <h2 class="section__title">Supported currencies</h2>
-                    <p class="section__text">If you are going to use a passage of Lorem Ipsum, you need to be sure
-                        there isn't anything embarrassing hidden in the middle of text.</p>
-                </div>
-                <!-- end section title -->
-            </div>
-
-            <div class="row">
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <!-- currenc -->
-                    <div class="currenc">
-                        <i class="cc BTC currenc__icon"></i>
-                        <span class="currenc__name">Bitcoin</span>
-                        <span class="currenc__hash">43.1 PH/s</span>
-                    </div>
-                    <!-- end currenc -->
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <!-- currenc -->
-                    <div class="currenc">
-                        <i class="cc ETC-alt currenc__icon"></i>
-                        <span class="currenc__name">Ethereum Classic</span>
-                        <span class="currenc__hash">20.0 GH/s</span>
-                    </div>
-                    <!-- end currenc -->
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <!-- currenc -->
-                    <div class="currenc">
-                        <i class="cc ETH currenc__icon"></i>
-                        <span class="currenc__name">Ethereum</span>
-                        <span class="currenc__hash">120.1 GH/s</span>
-                    </div>
-                    <!-- end currenc -->
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <!-- currenc -->
-                    <div class="currenc">
-                        <i class="cc START currenc__icon"></i>
-                        <span class="currenc__name">Startcoin</span>
-                        <span class="currenc__hash">28.6 kH/s</span>
-                    </div>
-                    <!-- end currenc -->
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <!-- currenc -->
-                    <div class="currenc">
-                        <i class="cc LTC currenc__icon"></i>
-                        <span class="currenc__name">Litecoin</span>
-                        <span class="currenc__hash">2.7 GH/s</span>
-                    </div>
-                    <!-- end currenc -->
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <!-- currenc -->
-                    <div class="currenc">
-                        <i class="cc XMR currenc__icon"></i>
-                        <span class="currenc__name">Monero</span>
-                        <span class="currenc__hash">44.6 MH/s</span>
-                    </div>
-                    <!-- end currenc -->
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <!-- currenc -->
-                    <div class="currenc">
-                        <i class="cc VTC currenc__icon"></i>
-                        <span class="currenc__name">Vertcoin</span>
-                        <span class="currenc__hash">1.6 MH/s</span>
-                    </div>
-                    <!-- end currenc -->
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <!-- currenc -->
-                    <div class="currenc">
-                        <i class="cc IFC currenc__icon"></i>
-                        <span class="currenc__name">Infinitecoin</span>
-                        <span class="currenc__hash">184.1 kH/s</span>
-                    </div>
-                    <!-- end currenc -->
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <!-- currenc -->
-                    <div class="currenc">
-                        <i class="cc SLS currenc__icon"></i>
-                        <span class="currenc__name">Salus</span>
-                        <span class="currenc__hash">6.2 MH/s</span>
-                    </div>
-                    <!-- end currenc -->
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <!-- currenc -->
-                    <div class="currenc">
-                        <i class="cc XPM currenc__icon"></i>
-                        <span class="currenc__name">PrimeCoin</span>
-                        <span class="currenc__hash">12.1 MH/s</span>
-                    </div>
-                    <!-- end currenc -->
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <!-- currenc -->
-                    <div class="currenc">
-                        <i class="cc DASH currenc__icon"></i>
-                        <span class="currenc__name">Dash</span>
-                        <span class="currenc__hash">198.8 kH/s</span>
-                    </div>
-                    <!-- end currenc -->
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <!-- currenc -->
-                    <div class="currenc">
-                        <i class="cc SDC currenc__icon"></i>
-                        <span class="currenc__name">Shadow</span>
-                        <span class="currenc__hash">13.5 MH/s</span>
-                    </div>
-                    <!-- end currenc -->
                 </div>
             </div>
         </div>
-    </section>
-    <!-- end currencies -->
-
-    <!-- popular -->
-    <section class="section">
-        <div class="container">
-            <div class="row">
-                <!-- section title -->
-                <div class="col-12 col-sm-10 offset-sm-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
-                    <h2 class="section__title">Popular currencies</h2>
-                    <p class="section__text">If you are going to use a passage of Lorem Ipsum, you need to be sure
-                        there isn't <b>anything</b> embarrassing hidden in the middle of text.</p>
-                </div>
-                <!-- end section title -->
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="popular">
-                        <span class="popular__name popular__name--up">Bitcoin</span>
-                        <span class="popular__price">$8861.14 (+1.3%)</span>
-                        <span class="popular__cap">Cap.: $14562176.32</span>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="popular">
-                        <span class="popular__name popular__name--up">Ethereum</span>
-                        <span class="popular__price">$240.57 (+4.1%)</span>
-                        <span class="popular__cap">Cap.: $71497612.98</span>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="popular">
-                        <span class="popular__name popular__name--down">Startcoin</span>
-                        <span class="popular__price">$161.54 (-0.7%)</span>
-                        <span class="popular__cap">Cap.: $14562176.32</span>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="popular">
-                        <span class="popular__name popular__name--up">Litecoin</span>
-                        <span class="popular__price">$58.86 (+2.1%)</span>
-                        <span class="popular__cap">Cap.: $23562176.24</span>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="popular">
-                        <span class="popular__name popular__name--down">Dash</span>
-                        <span class="popular__price">$187.54 (-3.2%)</span>
-                        <span class="popular__cap">Cap.: $11562174.12</span>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="popular">
-                        <span class="popular__name popular__name--down">Monero</span>
-                        <span class="popular__price">$89.51 (-0.9%)</span>
-                        <span class="popular__cap">Cap.: $10367876.71</span>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="popular">
-                        <span class="popular__name popular__name--up">Infinitecoin</span>
-                        <span class="popular__price">134.93 (+5.1%)</span>
-                        <span class="popular__cap">Cap.: $13596476.63</span>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <div class="popular">
-                        <span class="popular__name popular__name--up">PrimeCoin</span>
-                        <span class="popular__price">$92.13 (+4.7%)</span>
-                        <span class="popular__cap">Cap.: $10062176.54</span>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <a href="#" class="btn btn--center btn--section btn--shadow">get started</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end popular -->
-
-    <!-- video -->
-    <div class="section section--bg" data-bg="{{ asset('front-end/img/section/section-bg2.jpg') }}">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <!-- section title -->
-                    <div
-                        class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-                        <a class="section__video" href="https://vimeo.com/45830194"><i
-                                class="ti-control-play"></i></a>
-                        <h2 class="section__title section__title--white">Why Choose Us?</h2>
-                        <p class="section__text section__text--white">Check out our mining farm setup. To bring you the
-                            best we must hire the best.</p>
-                    </div>
-                    <!-- end section title -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end video -->
-
-    <!-- pricing -->
-    <section class="section">
-        <div class="container">
-            <div class="row">
-                <!-- section title -->
-                <div class="col-12 col-sm-10 offset-sm-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
-                    <h2 class="section__title">Pricing</h2>
-                    <p class="section__text">Various versions have evolved over the years, sometimes by accident,
-                        sometimes on purpose.</p>
-                </div>
-                <!-- end section title -->
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <!-- price -->
-                    <div class="price price--single">
-                        <h3 class="price__title">Small</h3>
-                        <ul class="price__list">
-                            <li><b>Minimal Hashedrate:</b> 1 MH/s</li>
-                            <li><b>Service pay:</b> 0.005$ / 1 MH/s / 24h</li>
-                            <li><b>Equipment:</b> HashCoins SCRYPT</li>
-                            <li>Automatic charging in BTC</li>
-                            <li><b>1 year</b></li>
+        <!-- section content end -->
+        <!-- section content begin -->
+        <div class="uk-section in-equity-3 in-offset-top-20">
+            <div class="uk-container uk-margin-large-bottom">
+                <div class="uk-grid uk-flex uk-flex-middle">
+                    <div class="uk-width-expand@m">
+                        <h1 class="uk-margin-small-bottom">Tight spreads and <span
+                                class="in-highlight">ultra-fast</span> execution</h1>
+                        <h3 class="uk-margin-top uk-text-warning">Best market prices available so you can receive
+                            excellent conditions.</h3>
+                        <hr class="uk-margin-medium-top uk-margin-medium-bottom">
+                        <ul class="uk-list in-list-check">
+                            <li>Negative balance protection</li>
+                            <li>Segregated and supervised client funds</li>
+                            <li>Instant deposit & fast withdrawal</li>
                         </ul>
-                        <span class="price__value">$2.50</span>
-                        <p class="price__text">for 1 MH/s</p>
-                        <button class="btn btn--border btn--center" type="button">Buy now</button>
                     </div>
-                    <!-- end price -->
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <!-- price -->
-                    <div class="price price--single">
-                        <h3 class="price__title">Medium</h3>
-                        <ul class="price__list">
-                            <li><b>Minimal Hashedrate:</b> 10 GH/s</li>
-                            <li><b>Service pay:</b> 0.0035$ / 10 GH/s / 24h</li>
-                            <li><b>Equipment:</b> HashCoins SHA-256</li>
-                            <li>Automatic charging in BTC</li>
-                            <li><b>1 year</b></li>
-                        </ul>
-                        <span class="price__value">$5.20</span>
-                        <p class="price__text">for 10 GH/s</p>
-                        <button class="btn btn--border btn--center" type="button">Buy now</button>
+                    <div class="uk-width-2xlarge uk-flex uk-flex-right uk-flex-center@s">
+                        <div class="uk-card uk-card-body uk-card-default uk-border-rounded in-margin-top-60@s">
+                            <div id="tradingview-widget"></div>
+                        </div>
                     </div>
-                    <!-- end price -->
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <!-- price -->
-                    <div class="price price--single price--best">
-                        <h3 class="price__title">Large</h3>
-                        <ul class="price__list">
-                            <li><b>Minimal Hashedrate:</b> 100 KH/s</li>
-                            <li><b>Service pay:</b> No</li>
-                            <li><b>Equipment:</b> GPU Rigs</li>
-                            <li>Automatic charging in ETH</li>
-                            <li><b>1 year</b></li>
-                        </ul>
-                        <span class="price__value">$7.70</span>
-                        <p class="price__text">for 100 KH/s</p>
-                        <button class="btn btn--center" type="button">Buy now</button>
-                    </div>
-                    <!-- end price -->
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <!-- price -->
-                    <div class="price price--single">
-                        <h3 class="price__title">Pro</h3>
-                        <ul class="price__list">
-                            <li><b>Minimal Hashedrate:</b> 1 MH/s</li>
-                            <li><b>Service pay:</b> No</li>
-                            <li><b>Equipment:</b> Multi-Factor</li>
-                            <li>Automatic charging in DASH</li>
-                            <li><b>1 year</b></li>
-                        </ul>
-                        <span class="price__value">$9.90</span>
-                        <p class="price__text">for 1 MH/s</p>
-                        <button class="btn btn--border btn--center" type="button">Buy now</button>
-                    </div>
-                    <!-- end price -->
                 </div>
             </div>
         </div>
-    </section>
-    <!-- end pricing -->
-
-    <!-- partners -->
-    <div class="partners section--border-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <!-- partners slider -->
-                    <div class="owl-carousel partners__slider">
-                        <!-- slider item -->
-                        <div class="item">
-                            <a href="#">
-                                <img src="{{ asset('front-end/img/partners/activeden-light-background.png') }}"
-                                    alt="forest">
-                            </a>
-                        </div>
-                        <!-- end slider item -->
-
-                        <!-- slider item -->
-                        <div class="item">
-                            <a href="#">
-                                <img src="{{ asset('front-end/img/partners/audiojungle-light-background.png') }}"
-                                    alt="forest">
-                            </a>
-                        </div>
-                        <!-- end slider item -->
-
-                        <!-- slider item -->
-                        <div class="item">
-                            <a href="#">
-                                <img src="{{ asset('front-end/img/partners/codecanyon-light-background.png') }}"
-                                    alt="forest">
-                            </a>
-                        </div>
-                        <!-- end slider item -->
-
-                        <!-- slider item -->
-                        <div class="item">
-                            <a href="#">
-                                <img src="{{ asset('front-end/img/partners/photodune-light-background.png') }}"
-                                    alt="forest">
-                            </a>
-                        </div>
-                        <!-- end slider item -->
-
-                        <!-- slider item -->
-                        <div class="item">
-                            <a href="#">
-                                <img src="{{ asset('front-end/img/partners/themeforest-light-background.png') }}"
-                                    alt="forest">
-                            </a>
-                        </div>
-                        <!-- end slider item -->
-
-                        <!-- slider item -->
-                        <div class="item">
-                            <a href="#">
-                                <img src="{{ asset('front-end/img/partners/videohive-light-background.png') }}"
-                                    alt="forest">
-                            </a>
-                        </div>
-                        <!-- end slider item -->
-
-                        <!-- slider item -->
-                        <div class="item">
-                            <a href="#">
-                                <img src="{{ asset('front-end/img/partners/3docean-light-background.png') }}"
-                                    alt="forest">
-                            </a>
-                        </div>
-                        <!-- end slider item -->
+        <!-- section content end -->
+        <!-- section content begin -->
+        <div class="uk-section in-equity-4">
+            <div class="uk-container uk-margin-top uk-margin-medium-bottom">
+                <div class="uk-grid uk-child-width-1-2@m in-testimonial-2" data-uk-grid>
+                    <div class="uk-width-1-1@m uk-text-center">
+                        <h1>More than <span class="in-highlight">23,000</span> traders joined</h1>
                     </div>
-                    <!-- end partners slider -->
+                    <div>
+                        <div class="uk-background-contain uk-background-top-left"
+                            data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                            <div class="uk-flex uk-flex-middle">
+                                <div class="uk-margin-right">
+                                    <div class="uk-background-primary uk-border-pill">
+                                        <img class="uk-align-center uk-border-pill"
+                                            src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                            data-src="{{ asset('front-end/img/blockit/in-team-1.png') }}"
+                                            alt="client-1" width="100" height="100" data-uk-img>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
+                                    <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                </div>
+                            </div>
+                            <blockquote>
+                                <p>Very convenience for trader, spread for gold is relatively low compare to other
+                                    broker</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-background-contain uk-background-top-left"
+                            data-src="{{ asset('front-end/img/in-equity-4-blob-2.svg') }}" data-uk-img>
+                            <div class="uk-flex uk-flex-middle">
+                                <div class="uk-margin-right">
+                                    <div class="uk-background-primary uk-border-pill">
+                                        <img class="uk-align-center uk-border-pill"
+                                            src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                            data-src="{{ asset('front-end/img/blockit/in-team-8.png') }}"
+                                            alt="client-2" width="100" height="100" data-uk-img>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="uk-margin-remove-bottom">Wade Palmer</h5>
+                                    <p class="uk-text-muted uk-margin-remove-top">from Germany</p>
+                                </div>
+                            </div>
+                            <blockquote>
+                                <p>One of the best FX brokers, I have been using! their trading conditions are excellent
+                                </p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-1@m uk-text-center">
+                        <a href="#" class="uk-button uk-button-text">See more traders stories from all over the
+                            world<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- end partners -->
-
-    <!-- app -->
-    <div class="section section--bg" data-bg="{{ asset('front-end/img/section/section-bg.jpg') }}">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <!-- section title -->
-                    <div class="col-12 col-md-10 offset-md-1 col-xl-6 offset-xl-3">
-                        <h2 class="section__title section__title--white">Wallet on All Your Devices</h2>
-                        <p class="section__text section__text--white">There are many variations of passages of Lorem
-                            Ipsum available, but the majority have suffered alteration in some form, by injected humour.
-                        </p>
-                        <div class="section__app">
-                            <a href="#"><img src="{{ asset('front-end/img/android.png') }}"
-                                    alt="forest"></a>
-                            <a href="#"><img src="{{ asset('front-end/img/apple.png') }}" alt="forest"></a>
+        <!-- section content end -->
+        <!-- section content begin -->
+        <div class="uk-section in-equity-5">
+            <div class="uk-container uk-margin-remove-bottom">
+                <div class="uk-grid uk-child-width-1-3@m uk-child-width-1-2@s" data-uk-grid>
+                    <div>
+                        <div class="uk-flex uk-flex-left in-award">
+                            <div class="uk-margin-small-right">
+                                <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                    data-src="{{ asset('front-end/img/in-equity-5-award-1.svg') }}" alt="award-1"
+                                    width="91" height="82" data-uk-img>
+                            </div>
+                            <div>
+                                <h6>Best Mobile Trading App</h6>
+                                <p class="provider">European CEO Magazine</p>
+                                <p class="year">2019</p>
+                            </div>
                         </div>
                     </div>
-                    <!-- end section title -->
+                    <div>
+                        <div class="uk-flex uk-flex-left in-award">
+                            <div class="uk-margin-small-right">
+                                <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                    data-src="{{ asset('front-end/img/in-equity-5-award-2.svg') }}" alt="award-2"
+                                    width="91" height="82" data-uk-img>
+                            </div>
+                            <div>
+                                <h6>Best Forex Ecn Broker</h6>
+                                <p class="provider">UK Forex awards</p>
+                                <p class="year">2020</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-visible@m">
+                        <div class="uk-flex uk-flex-left in-award">
+                            <div class="uk-margin-small-right">
+                                <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                    data-src="{{ asset('front-end/img/in-equity-5-award-3.svg') }}" alt="award-3"
+                                    width="91" height="82" data-uk-img>
+                            </div>
+                            <div>
+                                <h6>Best Trading Conditions</h6>
+                                <p class="provider">Forex report magazine</p>
+                                <p class="year">2021</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- end app -->
-
-    <!-- footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="footer__logo">
-                        <a href="javascript:void(0)">
-                            <img src="{{ asset('front-end/img/logo-2.jpg') }}" alt="forest">
-                        </a>
+        <!-- section content end -->
+        <!-- section content begin -->
+        <div class="uk-section uk-section-primary uk-preserve-color in-equity-6 uk-background-contain uk-background-center"
+            data-src="{{ asset('front-end/img/in-equity-decor-2.svg') }}" data-uk-img>
+            <div class="uk-container uk-margin-small-bottom">
+                <div class="uk-grid uk-flex uk-flex-center">
+                    <div class="uk-width-2xlarge@m uk-text-center">
+                        <h1>Ready to get started?</h1>
+                        <p class="uk-text-lead">Global access to financial markets from a single account</p>
                     </div>
-                    <p class="footer__tagline">An Investment platform, <br>Just made for you.</p>
-                    <ul class="footer__social">
-                        <li><svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30Z"
-                                    fill="#ebebeb" />
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M15.3158 14.4213C15.3056 15.2359 16.0359 15.6905 16.5862 15.9608C17.1515 16.2381 17.3414 16.4159 17.3392 16.6639C17.3349 17.0435 16.8882 17.2109 16.4702 17.2175C15.7606 17.2286 15.34 17.0302 15.0073 16.8732L14.9798 16.8602L14.7171 18.0995C15.0553 18.2566 15.6815 18.3937 16.331 18.3997C17.8554 18.3997 18.8528 17.6411 18.8582 16.4649C18.8618 15.5719 18.128 15.1835 17.5409 14.8728C17.1466 14.6641 16.8184 14.4904 16.824 14.2223C16.8289 14.02 17.0204 13.8041 17.4401 13.7492C17.6477 13.7215 18.2212 13.7003 18.8712 14.0021L19.1263 12.803C18.7768 12.6747 18.3274 12.5518 17.768 12.5518C16.3332 12.5518 15.3239 13.3207 15.3158 14.4213ZM21.578 12.6551C21.2997 12.6551 21.065 12.8188 20.9604 13.07L18.7827 18.3115H20.306L20.6092 17.467L22.4707 17.467L22.6466 18.3115H23.9892L22.8176 12.6551H21.578ZM22.2307 16.3071L21.7911 14.1831L21.0267 16.3071H22.2307ZM13.4688 12.6551L12.2681 18.3115H13.7197L14.9199 12.6551H13.4688ZM9.81044 16.5051L11.3214 12.6551H12.8458L10.4939 18.3115H8.95977L7.80216 13.7976C7.73204 13.5197 7.67108 13.4175 7.45747 13.3006C7.10846 13.1092 6.53236 12.9303 6.0253 12.8193L6.05982 12.6551H8.52985C8.84433 12.6551 9.12753 12.8661 9.19928 13.2315L9.81044 16.5051Z"
-                                    fill="url(#paint0_linear)" />
-                                <defs>
-                                    <linearGradient id="paint0_linear" x1="6.05661" y1="14.3504" x2="11.1343"
-                                        y2="7.19927" gradientUnits="userSpaceOnUse">
-                                        <stop stop-color="#222357" />
-                                        <stop offset="1" stop-color="#254AA5" />
-                                    </linearGradient>
-                                </defs>
-                            </svg></li>
-                        <li><svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30Z"
-                                    fill="#ebebeb" />
-                                <path
-                                    d="M23.9868 15.0723C23.9868 18.1491 21.4973 20.6434 18.4263 20.6434C15.3552 20.6434 12.8657 18.1491 12.8657 15.0723C12.8657 11.9955 15.3552 9.50122 18.4263 9.50122C21.4973 9.50122 23.9868 11.9955 23.9868 15.0723V15.0723Z"
-                                    fill="#F79F1A" />
-                                <path
-                                    d="M17.127 15.0723C17.127 18.1491 14.6375 20.6434 11.5664 20.6434C8.49544 20.6434 6.00589 18.1491 6.00589 15.0723C6.00589 11.9955 8.49544 9.50122 11.5664 9.50122C14.6375 9.50122 17.127 11.9955 17.127 15.0723V15.0723Z"
-                                    fill="#EA001B" />
-                                <path
-                                    d="M14.9964 10.6866C13.6989 11.7065 12.8661 13.2914 12.8661 15.0717C12.8661 16.8521 13.6989 18.4381 14.9964 19.458C16.2938 18.4381 17.1266 16.8521 17.1266 15.0717C17.1266 13.2914 16.2938 11.7065 14.9964 10.6866V10.6866Z"
-                                    fill="#FF5F01" />
-                            </svg></li>
-                        <li><svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15Z"
-                                    fill="#ebebeb" />
-                                <path
-                                    d="M12.633 22.5771L12.8945 20.9161L12.312 20.9026H9.53049L11.4635 8.64608C11.4695 8.60908 11.489 8.57458 11.5175 8.55008C11.546 8.52558 11.5825 8.51208 11.6205 8.51208H16.3105C17.8675 8.51208 18.942 8.83608 19.503 9.47558C19.766 9.77558 19.9335 10.0891 20.0145 10.4341C20.0995 10.7961 20.101 11.2286 20.018 11.7561L20.012 11.7946V12.1326L20.275 12.2816C20.4965 12.3991 20.6725 12.5336 20.8075 12.6876C21.0325 12.9441 21.178 13.2701 21.2395 13.6566C21.303 14.0541 21.282 14.5271 21.178 15.0626C21.058 15.6786 20.864 16.2151 20.602 16.6541C20.361 17.0586 20.054 17.3941 19.6895 17.6541C19.3415 17.9011 18.928 18.0886 18.4605 18.2086C18.0075 18.3266 17.491 18.3861 16.9245 18.3861H16.5595C16.2985 18.3861 16.045 18.4801 15.846 18.6486C15.6465 18.8206 15.5145 19.0556 15.474 19.3126L15.4465 19.4621L14.9845 22.3896L14.9635 22.4971C14.958 22.5311 14.9485 22.5481 14.9345 22.5596C14.922 22.5701 14.904 22.5771 14.8865 22.5771H12.633V22.5771Z"
-                                    fill="#253B80" />
-                                <path
-                                    d="M20.524 11.8335V11.8335V11.8335C20.51 11.923 20.494 12.0145 20.476 12.1085C19.8575 15.284 17.7415 16.381 15.039 16.381H13.663C13.3325 16.381 13.054 16.621 13.0025 16.947V16.947V16.947L12.298 21.415L12.0985 22.6815C12.065 22.8955 12.23 23.0885 12.446 23.0885H14.8865C15.1755 23.0885 15.421 22.8785 15.4665 22.5935L15.4905 22.4695L15.95 19.5535L15.9795 19.3935C16.0245 19.1075 16.2705 18.8975 16.5595 18.8975H16.9245C19.289 18.8975 21.14 17.9375 21.681 15.1595C21.907 13.999 21.79 13.03 21.192 12.3485C21.011 12.143 20.7865 11.9725 20.524 11.8335V11.8335Z"
-                                    fill="#179BD7" />
-                                <path
-                                    d="M19.877 11.5755C19.7825 11.548 19.685 11.523 19.585 11.5005C19.4845 11.4785 19.3815 11.459 19.2755 11.442C18.9045 11.382 18.498 11.3535 18.0625 11.3535H14.3865C14.296 11.3535 14.21 11.374 14.133 11.411C13.9635 11.4925 13.8375 11.653 13.807 11.8495L13.025 16.8025L13.0025 16.947C13.054 16.621 13.3325 16.381 13.663 16.381H15.039C17.7415 16.381 19.8575 15.2835 20.476 12.1085C20.4945 12.0145 20.51 11.923 20.524 11.8335C20.3675 11.7505 20.198 11.6795 20.0155 11.619C19.9705 11.604 19.924 11.5895 19.877 11.5755V11.5755Z"
-                                    fill="#222D65" />
-                                <path
-                                    d="M14.133 11.4115C14.2105 11.3745 14.296 11.354 14.3865 11.354H18.0625C18.498 11.354 18.9045 11.3825 19.2755 11.4425C19.3815 11.4595 19.4845 11.479 19.585 11.501C19.685 11.5235 19.7825 11.5485 19.877 11.576C19.924 11.59 19.9705 11.6045 20.016 11.619C20.1985 11.6795 20.368 11.751 20.5245 11.8335C20.7085 10.66 20.523 9.861 19.8885 9.1375C19.189 8.341 17.9265 8 16.311 8H11.621C11.291 8 11.0095 8.24 10.9585 8.5665L9.00499 20.949C8.96649 21.194 9.15549 21.415 9.40249 21.415H12.298L13.025 16.8025L13.807 11.8495C13.8375 11.653 13.9635 11.4925 14.133 11.4115Z"
-                                    fill="#253B80" />
-                            </svg></li>
-                        <li><svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30Z"
-                                    fill="#ebebeb" />
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M21.2398 12.6664C21.5338 10.7012 20.0375 9.64469 17.9915 8.93992L18.6552 6.27777L17.0348 5.87392L16.3886 8.46592C15.9626 8.35977 15.5251 8.25961 15.0903 8.16038L15.7411 5.55131L14.1215 5.14746L13.4574 7.80869C13.1048 7.72838 12.7586 7.649 12.4226 7.56546L12.4245 7.55715L10.1897 6.99915L9.75862 8.72992C9.75862 8.72992 10.9609 9.00546 10.9355 9.02254C11.5918 9.18638 11.7105 9.62069 11.6906 9.965L10.9346 12.9978C10.9798 13.0093 11.0385 13.0259 11.1031 13.0518L11.0482 13.0381C11.0106 13.0286 10.9716 13.0189 10.9318 13.0093L9.87216 17.2578C9.79185 17.4572 9.58831 17.7562 9.12954 17.6427C9.14569 17.6662 7.95169 17.3487 7.95169 17.3487L7.14723 19.2036L9.256 19.7293C9.4914 19.7883 9.72398 19.8489 9.95413 19.909L9.95442 19.909L9.95464 19.9091C10.1079 19.9491 10.26 19.9887 10.4112 20.0275L9.74062 22.7201L11.3592 23.1239L12.0234 20.4599C12.4655 20.5799 12.8948 20.6907 13.3148 20.795L12.6529 23.4465L14.2734 23.8504L14.944 21.1628C17.7072 21.6858 19.7851 21.4748 20.6597 18.9756C21.3645 16.9633 20.6246 15.8025 19.1708 15.0456C20.2295 14.8015 21.0271 14.105 21.2398 12.6664ZM17.5374 17.8583C17.078 19.7045 14.1881 18.9412 12.8659 18.592C12.7469 18.5606 12.6407 18.5325 12.55 18.51L13.4398 14.9428C13.5503 14.9703 13.6852 15.0006 13.838 15.0349C15.2055 15.3418 18.0082 15.9706 17.5374 17.8583ZM14.1127 13.3794C15.2151 13.6736 17.6198 14.3154 18.0386 12.6374C18.4663 10.9211 16.1292 10.4037 14.9878 10.151C14.8595 10.1226 14.7462 10.0975 14.6537 10.0745L13.8469 13.3098C13.9231 13.3288 14.0126 13.3527 14.1127 13.3794Z"
-                                    fill="#F7931A" />
-                            </svg></li>
-                    </ul>
+                    <div class="uk-width-3-4@m uk-margin-medium-top">
+                        <div class="uk-flex uk-flex-center uk-flex-middle button-app">
+                            <div>
+                                <a href="#" class="uk-button uk-button-secondary uk-border-rounded">Open your
+                                    account<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                            </div>
+                            <div class="uk-margin-left uk-margin-right">
+                                <p class="uk-margin-remove">And download the app</p>
+                            </div>
+                            <div class="uk-margin-right">
+                                <a href="#"><img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                        data-src="{{ asset('front-end/img/in-app-store.svg') }}" alt="app-store"
+                                        width="120" height="40" data-uk-img></a>
+                            </div>
+                            <div>
+                                <a href="#"><img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                        data-src="{{ asset('front-end/img/in-google-play.svg') }}" alt="google-play"
+                                        width="135" height="40" data-uk-img></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-                    <h6 class="footer__title">Helpful</h6>
-                    <ul class="footer__list">
-                        <li><a href="javascript:void(0)">Services</a></li>
-                        <li><a href="javascript:void(0)">Forex</a></li>
-                        <li><a href="javascript:void(0)">Synthetic indices</a></li>
-                        <li><a href="javascript:void(0)">Commodities</a></li>
-                    </ul>
+            </div>
+        </div>
+        <!-- section content end -->
+    </main>
+    <!-- footer begin -->
+    <footer>
+        <div class="uk-section">
+            <div class="uk-container uk-margin-top">
+                <div class="uk-grid">
+                    <div class="uk-width-2-3@m">
+                        <div class="uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid="">
+                            <div>
+                                <h5>Instruments</h5>
+                                <ul class="uk-list uk-link-text">
+                                    <li><a href="#">Stock</a></li>
+                                    <li><a href="#">Indexes</a></li>
+                                    <li><a href="#">Currencies</a></li>
+                                    <li><a href="#">Metals<span
+                                                class="uk-label uk-margin-small-left in-label-small">Popular</span></a>
+                                    </li>
+                                    <li><a href="#">Oil and gas</a></li>
+                                    <li><a href="#">Cryptocurrencies<span
+                                                class="uk-label uk-margin-small-left in-label-small">Popular</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5>Analytics</h5>
+                                <ul class="uk-list uk-link-text">
+                                    <li><a href="#">World Markets</a></li>
+                                    <li><a href="#">Trading Central<span
+                                                class="uk-label uk-margin-small-left in-label-small">New</span></a>
+                                    </li>
+                                    <li><a href="#">Forex charts online</a></li>
+                                    <li><a href="#">Market calendar</a></li>
+                                    <li><a href="#">Central banks<span
+                                                class="uk-label uk-margin-small-left in-label-small">New</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="in-margin-top-60@s">
+                                <h5>Education</h5>
+                                <ul class="uk-list uk-link-text">
+                                    <li><a href="#">Basic course</a></li>
+                                    <li><a href="#">Introductory webinar</a></li>
+                                    <li><a href="#">About academy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-3@m uk-flex uk-flex-right@m">
+                        <!-- social media begin -->
+                        <div class="uk-flex uk-flex-column social-media-list">
+                            <div><a href="https://www.facebook.com/indonez"
+                                    class="color-facebook text-decoration-none"><i class="fab fa-facebook-square"></i>
+                                    Facebook</a></div>
+                            <div><a href="https://twitter.com/indonez_tw"
+                                    class="color-twitter text-decoration-none"><i class="fab fa-twitter"></i>
+                                    Twitter</a></div>
+                            <div><a href="https://www.instagram.com/indonez_ig"
+                                    class="color-instagram text-decoration-none"><i class="fab fa-instagram"></i>
+                                    Instagram</a></div>
+                            <div><a href="#some-link" class="color-telegram text-decoration-none"><i
+                                        class="fab fa-telegram"></i> Telegram</a></div>
+                            <div><a href="#some-link" class="color-youtube text-decoration-none"><i
+                                        class="fab fa-youtube"></i> Youtube</a></div>
+                        </div>
+                        <!-- social media end -->
+                    </div>
                 </div>
-
-                <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-                    <h6 class="footer__title">Company</h6>
-                    <ul class="footer__list">
-                        <li><a href="javascript:void(0)">About us</a></li>
-                        <li><a href="javascript:void(0)">Our blog</a></li>
-                        <li><a href="javascript:void(0)">Pricing plans</a></li>
-                        <li><a href="javascript:void(0)">Contacts</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <h6 class="footer__title">Contact</h6>
-                    <ul class="footer__list footer__list--contacts">
-                        <li><a href="tel:00000000000">0 000 000 00 00</a></li>
-                        <li><a href="mailto:support@forest.com">support@forest.com</a></li>
-                    </ul>
-                    <ul class="footer__social">
-                        <li><a href="#" target="_blank"><svg width="30" height="30"
-                                    viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15Z"
-                                        fill="#3B5998" />
-                                    <path
-                                        d="M16.5634 23.8197V15.6589H18.8161L19.1147 12.8466H16.5634L16.5672 11.4391C16.5672 10.7056 16.6369 10.3126 17.6904 10.3126H19.0987V7.5H16.8457C14.1394 7.5 13.1869 8.86425 13.1869 11.1585V12.8469H11.4999V15.6592H13.1869V23.8197H16.5634Z"
-                                        fill="white" />
-                                </svg></a></li>
-                        <li><a href="#" target="_blank"><svg width="30" height="30"
-                                    viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15Z"
-                                        fill="#55ACEE" />
-                                    <path
-                                        d="M14.5508 12.1922L14.5822 12.7112L14.0576 12.6477C12.148 12.404 10.4798 11.5778 9.06334 10.1902L8.37085 9.50169L8.19248 10.0101C7.81477 11.1435 8.05609 12.3405 8.843 13.1455C9.26269 13.5904 9.16826 13.654 8.4443 13.3891C8.19248 13.3044 7.97215 13.2408 7.95116 13.2726C7.87772 13.3468 8.12953 14.3107 8.32888 14.692C8.60168 15.2217 9.15777 15.7407 9.76631 16.0479L10.2804 16.2915L9.67188 16.3021C9.08432 16.3021 9.06334 16.3127 9.12629 16.5351C9.33613 17.2236 10.165 17.9545 11.0883 18.2723L11.7388 18.4947L11.1723 18.8337C10.3329 19.321 9.34663 19.5964 8.36036 19.6175C7.88821 19.6281 7.5 19.6705 7.5 19.7023C7.5 19.8082 8.78005 20.4014 9.52499 20.6344C11.7598 21.3229 14.4144 21.0264 16.4079 19.8506C17.8243 19.0138 19.2408 17.3507 19.9018 15.7407C20.2585 14.8827 20.6152 13.315 20.6152 12.5629C20.6152 12.0757 20.6467 12.0121 21.2343 11.4295C21.5805 11.0906 21.9058 10.7198 21.9687 10.6139C22.0737 10.4126 22.0632 10.4126 21.5281 10.5927C20.6362 10.9105 20.5103 10.8681 20.951 10.3915C21.2762 10.0525 21.6645 9.43813 21.6645 9.25806C21.6645 9.22628 21.5071 9.27924 21.3287 9.37458C21.1398 9.4805 20.7202 9.63939 20.4054 9.73472L19.8388 9.91479L19.3247 9.56524C19.0414 9.37458 18.6427 9.16273 18.4329 9.09917C17.8978 8.95087 17.0794 8.97206 16.5967 9.14154C15.2852 9.6182 14.4563 10.8469 14.5508 12.1922Z"
-                                        fill="white" />
-                                </svg></a></li>
-                        <li><a href="#" target="_blank"><svg width="30" height="30"
-                                    viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M0 15C0 6.71573 6.71573 0 15 0C23.2843 0 30 6.71573 30 15C30 23.2843 23.2843 30 15 30C6.71573 30 0 23.2843 0 15Z"
-                                        fill="#0077B5" />
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M10.8242 9.26419C10.8242 10.2449 10.086 11.0296 8.90074 11.0296H8.87902C7.73779 11.0296 7 10.2449 7 9.26419C7 8.26275 7.76026 7.5 8.92315 7.5C10.086 7.5 10.8022 8.26275 10.8242 9.26419ZM10.6003 12.4236V22.6372H7.201V12.4236H10.6003ZM22.8595 22.6372L22.8596 16.7811C22.8596 13.6439 21.1826 12.1838 18.9457 12.1838C17.1409 12.1838 16.3328 13.1752 15.8817 13.8706V12.4239H12.4819C12.5267 13.3823 12.4819 22.6375 12.4819 22.6375H15.8817V16.9334C15.8817 16.6282 15.9037 16.3237 15.9936 16.1051C16.2393 15.4953 16.7987 14.8639 17.7378 14.8639C18.9684 14.8639 19.4603 15.8005 19.4603 17.173V22.6372H22.8595Z"
-                                        fill="white" />
-                                </svg></a></li>
-                        <li><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128"
-                                    viewBox="0 0 128 128">
-                                    <defs>
-                                        <linearGradient id="tlogo-a" x1="50%" x2="50%" y1="0%"
-                                            y2="99.258%">
-                                            <stop offset="0%" stop-color="#2AABEE" />
-                                            <stop offset="100%" stop-color="#229ED9" />
-                                        </linearGradient>
-                                    </defs>
-                                    <g fill="none" fill-rule="evenodd">
-                                        <circle cx="64" cy="64" r="64" fill="url(#tlogo-a)"
-                                            fill-rule="nonzero" />
-                                        <path fill="#FFF" fill-rule="nonzero"
-                                            d="M28.9700376,63.3244248 C47.6273373,55.1957357 60.0684594,49.8368063 66.2934036,47.2476366 C84.0668845,39.855031 87.7600616,38.5708563 90.1672227,38.528 C90.6966555,38.5191258 91.8804274,38.6503351 92.6472251,39.2725385 C93.294694,39.7979149 93.4728387,40.5076237 93.5580865,41.0057381 C93.6433345,41.5038525 93.7494885,42.63857 93.6651041,43.5252052 C92.7019529,53.6451182 88.5344133,78.2034783 86.4142057,89.5379542 C85.5170662,94.3339958 83.750571,95.9420841 82.0403991,96.0994568 C78.3237996,96.4414641 75.5015827,93.6432685 71.9018743,91.2836143 C66.2690414,87.5912212 63.0868492,85.2926952 57.6192095,81.6896017 C51.3004058,77.5256038 55.3966232,75.2369981 58.9976911,71.4967761 C59.9401076,70.5179421 76.3155302,55.6232293 76.6324771,54.2720454 C76.6721165,54.1030573 76.7089039,53.4731496 76.3346867,53.1405352 C75.9604695,52.8079208 75.4081573,52.921662 75.0095933,53.0121213 C74.444641,53.1403447 65.4461175,59.0880351 48.0140228,70.8551922 C45.4598218,72.6091037 43.1463059,73.4636682 41.0734751,73.4188859 C38.7883453,73.3695169 34.3926725,72.1268388 31.1249416,71.0646282 C27.1169366,69.7617838 23.931454,69.0729605 24.208838,66.8603276 C24.3533167,65.7078514 25.9403832,64.5292172 28.9700376,63.3244248 Z" />
-                                    </g>
-                                </svg></a></li>
-                        <li><a href="https://www.instagram.com/volkov_des1gn/" target="_blank"><svg width="32"
-                                    height="32" viewBox="0 0 32 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M1 16C1 7.71573 7.71573 1 16 1C24.2843 1 31 7.71573 31 16C31 24.2843 24.2843 31 16 31C7.71573 31 1 24.2843 1 16Z"
-                                        fill="white" stroke="black" stroke-width="1.4" />
-                                    <mask x="1" y="1" width="30" height="30">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M1 16C1 7.71573 7.71573 1 16 1C24.2843 1 31 7.71573 31 16C31 24.2843 24.2843 31 16 31C7.71573 31 1 24.2843 1 16Z"
-                                            fill="white" />
-                                    </mask>
-                                    <g>
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M16.0007 8C13.8281 8 13.5554 8.0095 12.702 8.04833C11.8504 8.08733 11.269 8.22217 10.7604 8.42C10.2342 8.62434 9.78785 8.89768 9.34318 9.34251C8.89818 9.78719 8.62484 10.2335 8.41984 10.7595C8.2215 11.2684 8.0865 11.8499 8.04817 12.7012C8.01 13.5546 8 13.8274 8 16.0001C8 18.1728 8.00967 18.4446 8.04833 19.298C8.0875 20.1496 8.22234 20.731 8.42 21.2396C8.62451 21.7658 8.89784 22.2121 9.34268 22.6568C9.78719 23.1018 10.2335 23.3758 10.7594 23.5802C11.2684 23.778 11.8499 23.9128 12.7014 23.9518C13.5547 23.9907 13.8272 24.0002 15.9997 24.0002C18.1726 24.0002 18.4444 23.9907 19.2978 23.9518C20.1495 23.9128 20.7315 23.778 21.2405 23.5802C21.7665 23.3758 22.2121 23.1018 22.6567 22.6568C23.1017 22.2121 23.375 21.7658 23.58 21.2398C23.7767 20.731 23.9117 20.1495 23.9517 19.2981C23.99 18.4448 24 18.1728 24 16.0001C24 13.8274 23.99 13.5547 23.9517 12.7014C23.9117 11.8497 23.7767 11.2684 23.58 10.7597C23.375 10.2335 23.1017 9.78719 22.6567 9.34251C22.2116 8.89751 21.7666 8.62417 21.24 8.42C20.73 8.22217 20.1483 8.08733 19.2966 8.04833C18.4433 8.0095 18.1716 8 15.9983 8H16.0007ZM15.734 9.44156H15.7341L16.0007 9.44164C18.1368 9.44164 18.3899 9.4493 19.2334 9.48764C20.0135 9.5233 20.4368 9.65364 20.7188 9.76314C21.0921 9.90814 21.3583 10.0815 21.6381 10.3615C21.9181 10.6415 22.0915 10.9082 22.2368 11.2815C22.3463 11.5632 22.4768 11.9865 22.5123 12.7665C22.5506 13.6098 22.559 13.8632 22.559 15.9982C22.559 18.1332 22.5506 18.3866 22.5123 19.2299C22.4766 20.0099 22.3463 20.4333 22.2368 20.7149C22.0918 21.0883 21.9181 21.3541 21.6381 21.6339C21.3581 21.9139 21.0923 22.0873 20.7188 22.2323C20.4371 22.3423 20.0135 22.4723 19.2334 22.5079C18.3901 22.5463 18.1368 22.5546 16.0007 22.5546C13.8646 22.5546 13.6114 22.5463 12.768 22.5079C11.988 22.4719 11.5647 22.3416 11.2825 22.2321C10.9092 22.0871 10.6425 21.9138 10.3625 21.6338C10.0825 21.3538 9.90918 21.0878 9.76385 20.7143C9.65435 20.4326 9.52385 20.0092 9.48835 19.2292C9.45001 18.3859 9.44234 18.1326 9.44234 15.9962C9.44234 13.8598 9.45001 13.6078 9.48835 12.7645C9.52401 11.9845 9.65435 11.5612 9.76385 11.2792C9.90885 10.9058 10.0825 10.6391 10.3625 10.3591C10.6425 10.0791 10.9092 9.90581 11.2825 9.76047C11.5645 9.65047 11.988 9.52047 12.768 9.48464C13.5061 9.4513 13.7921 9.4413 15.2831 9.43964V9.44164C15.4224 9.44142 15.5723 9.44149 15.734 9.44156ZM19.3111 11.7297C19.3111 11.1995 19.7411 10.77 20.2711 10.77V10.7697C20.8011 10.7697 21.2311 11.1997 21.2311 11.7297C21.2311 12.2597 20.8011 12.6897 20.2711 12.6897C19.7411 12.6897 19.3111 12.2597 19.3111 11.7297ZM16.0006 11.8916C13.7318 11.8917 11.8924 13.7312 11.8924 16C11.8924 18.2689 13.7319 20.1076 16.0007 20.1076C18.2696 20.1076 20.1085 18.2689 20.1085 16C20.1085 13.7312 18.2694 11.8916 16.0006 11.8916ZM18.6674 16.0001C18.6674 14.5272 17.4734 13.3334 16.0007 13.3334C14.5279 13.3334 13.3341 14.5272 13.3341 16.0001C13.3341 17.4728 14.5279 18.6668 16.0007 18.6668C17.4734 18.6668 18.6674 17.4728 18.6674 16.0001Z"
-                                            fill="black" />
-                                    </g>
-                                </svg></a></li>
-                    </ul>
-                </div>
-
-                <div class="col-12">
-                    <div class="footer__copyright">
-                        <small>© Forest, 2023. Create by <a href="https://globalfastcoder.com" target="_blank">Global
-                                Fast Coder</a>.</small>
-
-                        <ul>
-                            <li><a href="javascript:void(0)">Legal documents</a></li>
-                            <li><a href="javascript:void(0)">Knowledge base</a></li>
-                            <li><a href="javascript:void(0)">Privacy policy</a></li>
+            </div>
+            <hr class="uk-margin-large">
+            <div class="uk-container">
+                <div class="uk-grid uk-flex uk-flex-middle">
+                    <div class="uk-width-2-3@m uk-text-small">
+                        <ul class="uk-subnav uk-subnav-divider uk-visible@s" data-uk-margin="">
+                            <li><a href="#">Risk disclosure</a></li>
+                            <li><a href="#">Privacy policy</a></li>
+                            <li><a href="#">Return policy</a></li>
+                            <li><a href="#">Customer Agreement</a></li>
+                            <li><a href="#">AML policy</a></li>
                         </ul>
+                        <p class="copyright-text">©2021 Equity Markets Incorporated. All Rights Reserved.</p>
+                    </div>
+                    <div class="uk-width-1-3@m uk-flex uk-flex-right uk-visible@m">
+                        <span class="uk-margin-right">
+                            <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                data-src="{{ asset('front-end/img/in-footer-mastercard.svg') }}" alt="footer-payment"
+                                width="34" height="21" data-uk-img="">
+                        </span>
+                        <span>
+                            <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                data-src="{{ asset('front-end/img/in-footer-visa.svg') }}" alt="footer-payment"
+                                width="50" height="16" data-uk-img="">
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-    <!-- end footer -->
-
-    <!-- JS -->
-    <script src="{{ asset('front-end/js/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('front-end/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('front-end/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('front-end/js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('front-end/js/three.min.js') }}"></script>
-    <script src="{{ asset('front-end/js/vanta.net.min.js') }}"></script>
-    <script src="{{ asset('front-end/js/main.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <!-- footer end -->
+    <!-- to top begin -->
+    <a class="to-top uk-visible@m" data-uk-scroll>
+        <i class="fas fa-chevron-up"></i>
+    </a>
+    <!-- to top end -->
+    <!-- javascript -->
+    <script src="{{ asset('front-end/js/vendors/uikit.min.js') }}"></script>
+    <script src="{{ asset('front-end/js/vendors/tradingview-widget.min.js') }}"></script>
+    <script src="{{ asset('front-end/js/vendors/particles.min.js') }}"></script>
+    <script src="{{ asset('front-end/js/config-particles.js') }}"></script>
+    <script src="{{ asset('front-end/js/utilities.min.js') }}"></script>
+    <script src="{{ asset('front-end/js/config-theme.js') }}"></script>
 </body>
-
-<!-- Mirrored from forest.volkovdesign.com/javascript:void(0) by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 12 Feb 2023 10:36:15 GMT -->
 
 </html>
