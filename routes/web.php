@@ -55,4 +55,8 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
 Route::prefix('public')->middleware('public')->group(function () {
     Route::get('/', [PublicDashboardController::class, 'publicDashboard'])->name('public_dashboard');
+
+    Route::prefix('profile')->group(function () {
+        Route::get('/', [PublicDashboardController::class, 'publicProfile'])->name('public_profile');
+    });
 });

@@ -153,7 +153,7 @@
             <div class="nav-list">
                 <div class="pcoded-inner-navbar main-menu">
                     <ul class="pcoded-item pcoded-left-item">
-                        <li class="pcoded-hasmenu active pcoded-trigger">
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
                             <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                 <span class="pcoded-mtext">Dashboard</span>
@@ -161,55 +161,58 @@
                         </li>
                     </ul>
                     <ul class="pcoded-item pcoded-left-item">
-                        <li class="pcoded-hasmenu">
-                            <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                <span class="pcoded-micon">
-                                    <i class="feather icon-clipboard"></i>
-                                </span>
-                                <span class="pcoded-mtext">Stacking Rois</span>
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_profile' ? 'active' : '' }}">
+                            <a href="{{ route('public_profile') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-micon"><i class="fas fa-cog"></i></span>
+                                <span class="pcoded-mtext">Profile</span>
                             </a>
-                            <ul class="pcoded-submenu">
-                                <li class="">
-                                    <a href="#" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Add Stacking Rois</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href="" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Add-On</span>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
-                    <div class="pcoded-navigation-label">Forms</div>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
+                            <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-micon"><i class="fa fa-briefcase"></i></span>
+                                <span class="pcoded-mtext">Funds</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
+                            <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-micon"><i class="fas fa-history"></i></span>
+                                <span class="pcoded-mtext">History</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
+                            <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-micon"><i class="fa fa-users"></i></span>
+                                <span class="pcoded-mtext">Referrals</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
+                            <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-micon"><i class="fas fa-cloud-download-alt"></i></span>
+                                <span class="pcoded-mtext">Downloads</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
+                            <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-micon"><i class="fa fa-paw"></i></span>
+                                <span class="pcoded-mtext">Become an IB</span>
+                            </a>
+                        </li>
+                    </ul>
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu">
-                            <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                <span class="pcoded-micon">
-                                    <i class="feather icon-clipboard"></i>
-                                </span>
-                                <span class="pcoded-mtext">Form</span>
-                            </a>
-                            <ul class="pcoded-submenu">
-                                <li class=" ">
-                                    <a href="form-elements-component.html" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Components</span>
-                                    </a>
-                                </li>
-                                <li class=" ">
-                                    <a href="form-elements-add-on.html" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Add-On</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class=" ">
-                            <a href="form-select.html" class="waves-effect waves-dark">
-                                <span class="pcoded-micon">
-                                    <i class="feather icon-feather"></i>
-                                </span>
-                                <span class="pcoded-mtext">Form Select</span>
+                            <a href="{{ route('logout') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-micon"><i class="fas fa-sign-out-alt"></i></span>
+                                <span class="pcoded-mtext">Logout</span>
                             </a>
                         </li>
                     </ul>
