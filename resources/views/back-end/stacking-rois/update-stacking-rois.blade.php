@@ -6,20 +6,6 @@
         <div class="card-header bg bg-info">
             <h2 class="text-center">Update Stacking Rois</h5>
         </div>
-        <div class="col-12 py-3">
-            @if (session()->has('message'))
-                <div class="alert bg-info">
-                    {{ session('message') }}
-                </div>
-            @endif
-            @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    <div class="alert bg-danger">
-                        {{ $error }}
-                    </div>
-                @endforeach
-            @endif
-        </div>
         <div class="card-block">
             <form action="{{ route('update_stacking_rois', $stacking->id) }}" method="post">
                 @csrf
@@ -54,14 +40,6 @@
                 </div>
                 <div class="form-group">
                     <div class="row align-items-center">
-                        {{-- <div class="col-md-2 offset-md-2">
-                                                <label for="" class="form-label mb-0 font-weight-bold">Status:</label>
-                                            </div> --}}
-                        {{-- <div class="col-md-6">
-                                                <span class="switchery switchery-default" style="background-color: rgb(64, 153, 255); border-color: rgb(64, 153, 255); box-shadow:
-                                                 rgb(64, 153, 255) 0px 0px 0px 16px inset; transition: border 0.4s ease 0s, box-shadow 0.4s ease 0s, background-color 1.2s ease 0s;"><small style="left: 20px; background-color: rgb(255, 255, 255); transition: background-color 0.4s ease 0s, left 0.2s ease 0s;"></small></span>
-
-                                            </div> --}}
                         <div class="col-md-2 offset-md-2">
                             <label for="" class="form-label mb-0 font-weight-bold">Status:</label>
                         </div>
