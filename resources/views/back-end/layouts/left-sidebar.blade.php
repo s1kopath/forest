@@ -112,6 +112,29 @@
                             </ul>
                         </li>
                     </ul>
+                    <div class="pcoded-navigation-label">CONTEST</div>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu {{ $lastElement == 'contest' ? 'active pcoded-trigger' : '' }}">
+                            <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                <span class="pcoded-micon">
+                                    <i class="feather icon-clipboard"></i>
+                                </span>
+                                <span class="pcoded-mtext">Monthly Contest</span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li class="{{ $route_name == 'add_monthly_contest' ? 'active' : '' }}">
+                                    <a href="{{ route('add_monthly_contest') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Add Contest</span>
+                                    </a>
+                                </li>
+                                <li class="{{ $route_name == 'manage_monthly_contest' ? 'active' : '' }}">
+                                    <a href="{{ route('manage_monthly_contest') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Manage Contest</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                     {{-- <div class="pcoded-navigation-label">Forms</div>
                  <ul class="pcoded-item pcoded-left-item">
                     <li class="pcoded-hasmenu">

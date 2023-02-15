@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class MonthlyContest extends Model
 {
     use HasFactory;
+
+    protected $table = 'monthly_contests';
+
+    protected $guarded = ['id'];
 }
