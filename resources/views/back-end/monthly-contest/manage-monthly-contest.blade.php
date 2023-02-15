@@ -51,8 +51,7 @@
                                             <td>
                                                 <div class="btn-group">
                                                     <a class="btn btn-warning"
-                                                        href="">Delete</a>
-                                                        {{-- {{ route('delete_contest', $contest->id) }} --}}
+                                                        href="{{ route('delete_contest', $contest->id) }}">Delete</a>
                                                 </div>
                                                 <div class="btn-group">
                                                     <a class="btn btn-primary"

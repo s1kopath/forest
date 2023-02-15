@@ -69,4 +69,10 @@ class MonthlyContestController extends Controller
             return view('back-end.monthly-contest.update-monthly-contest', compact('month'));
         }
     }
+
+    public function destroy($id)
+    {
+        MonthlyContest::find($id)->delete();
+        return redirect()->back()->with('message', 'Contest Deleted Successfully.');
+    }
 }

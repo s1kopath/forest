@@ -57,7 +57,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         Route::match(['get', 'post'], '/add-monthly-contest', 'addContest')->name('add_monthly_contest');
         Route::get('/manage-monthly-contest', 'index')->name('manage_monthly_contest');
         Route::match(['get', 'post'], '/update-monthly-contest/{id}', 'updateContest')->name('update_monthly_contest');
-        // Route::get('/delete-contest/{id}', 'destroy')->name('delete_contest');
+        Route::get('/delete-contest/{id}', 'destroy')->name('delete_contest');
     });
 });
 
