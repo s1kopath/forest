@@ -22,10 +22,10 @@ class PublicUser
                 return $next($request);
             } else {
                 Auth::logout();
-                return redirect()->route('auth_login')->with('error', 'Invalid permission');
+                return redirect()->route('public_login')->with('error', 'Invalid permission');
             }
         } else {
-            return redirect()->route('auth_login')->with('error', 'User is not valid');
+            return redirect()->route('public_login')->with('error', 'User is not valid');
         }
     }
 }

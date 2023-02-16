@@ -49,20 +49,14 @@
                 <div class="uk-container" data-uk-navbar>
                     <div class="uk-navbar-left">
                         <div class="uk-navbar-item">
-                            <a class="uk-logo" href="index.html">
+                            <a class="uk-logo" href="/">
                                 <img src="{{ asset('front-end/img/in-lazy.gif') }}"
                                     data-src="{{ asset('front-end/img/user/header-logo-Uw3Zp9.svg') }}" alt="logo"
                                     width="146" height="40" data-uk-img>
                             </a>
                             <ul class="uk-navbar-nav uk-visible@m">
-                                <li><a href="index.html">Home<i class="fas fa-chevron-down"></i></a>
-                                    <div class="uk-navbar-dropdown">
-                                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                                            <li><a href="homepage2.html">Homepage 2</a></li>
-                                            <li><a href="homepage3.html">Homepage 3</a></li>
-                                            <li><a href="homepage4.html">Homepage 4</a></li>
-                                        </ul>
-                                    </div>
+                                <li>
+                                    <a href="/">Home</a>
                                 </li>
                                 <li><a href="markets.html">Markets</a>
                                 </li>
@@ -107,10 +101,14 @@
                     </div>
                     <div class="uk-navbar-right">
                         <div class="uk-navbar-item uk-visible@m in-optional-nav">
-                            <a href="signin.html" class="uk-button uk-button-text">Log in<i
-                                    class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
-                            <a href="#" class="uk-button uk-button-primary">Sign up<i
-                                    class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                            <a href="{{ route('public_login') }}" class="uk-button uk-button-text">
+                                Log in
+                                <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                            </a>
+                            <a href="{{ route('register') }}" class="uk-button uk-button-primary">
+                                Sign up
+                                <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

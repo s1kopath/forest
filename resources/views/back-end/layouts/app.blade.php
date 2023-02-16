@@ -39,6 +39,9 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('back-end/assets/css/pages.css') }}">
 
+    {{-- sweetalert2 js $ css --}}
+    <script src="{{ asset('back-end/assets/js/sweetalert2@11.js') }}"></script>
+
     @stack('css')
 </head>
 
@@ -418,7 +421,7 @@
     <script src="{{ asset('back-end/assets/js/switchery.min.js') }}" referrerpolicy="no-referrer"></script>
 
     <script src="{{ asset('back-end/assets/pages/file-upload/dropzone-amd-module.min.js') }}"></script>
-    
+
     @stack('js')
 </body>
 

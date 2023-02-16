@@ -11,23 +11,23 @@
         </div>
         <div class="card-block">
             <div class="col-lg-12 col-xl-12">
-                <ul class="nav nav-tabs md-tabs" role="tablist">
+                <ul class="nav nav-tabs md-tabs" role="tablist" id="tab-list">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#home3" role="tab">About Me</a>
+                        <a class="nav-link active" data-toggle="tab" href="#aboutMe" role="tab">About Me</a>
                         <div class="slide"></div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#profile3" role="tab">Verification</a>
+                        <a class="nav-link" data-toggle="tab" href="#verification" role="tab">Verification</a>
                         <div class="slide"></div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#messages3" role="tab">Change Password</a>
+                        <a class="nav-link" data-toggle="tab" href="#changePassword" role="tab">Change Password</a>
                         <div class="slide"></div>
                     </li>
                 </ul>
 
                 <div class="tab-content card-block">
-                    <div class="tab-pane active" id="home3" role="tabpanel">
+                    <div class="tab-pane active" id="aboutMe" role="tabpanel">
                         <div class="mb-2">
                             <h3 class="text-primary font-weight-bold">
                                 Personal Details:
@@ -112,7 +112,7 @@
                         </div>
 
                     </div>
-                    <div class="tab-pane" id="profile3" role="tabpanel">
+                    <div class="tab-pane" id="verification" role="tabpanel">
                         <h3 class="text-primary font-weight-bold text-center">
                             <span>Identity Verification:</span>
                         </h3>
@@ -143,7 +143,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="tab-pane" id="messages3" role="tabpanel">
+                    <div class="tab-pane" id="changePassword" role="tabpanel">
 
                         <h3 class="text-primary font-weight-bold text-center">
                             <span>Change Password</span>
@@ -193,7 +193,6 @@
                                 Update Password
                             </button>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -202,4 +201,16 @@
 @endsection
 
 @push('js')
+    <script>
+        // function to stay at same tab after refresh
+        $(document).ready(function() {
+            $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+                localStorage.setItem('activeTab', $(e.target).attr('href'));
+            });
+            var activeTab = localStorage.getItem('activeTab');
+            if (activeTab) {
+                $('#tab-list a[href="' + activeTab + '"]').tab('show');
+            }
+        });
+    </script>
 @endpush

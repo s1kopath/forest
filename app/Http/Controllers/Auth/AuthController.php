@@ -45,10 +45,27 @@ class AuthController extends Controller
         }
     }
 
+    public function publicLogin()
+    {
+        return view('front-end.auth.login');
+    }
+
+    public function adminRegister()
+    {
+        return view('back-end.auth.register');
+    }
+
     public function logout()
     {
+        $user_type = auth()->user()->user_type;
+
         Auth::logout();
-        return redirect()->route('auth_login');
+
+        if ($user_type == 'admin') {
+            return redirect()->route('auth_login');
+        } else {
+            return redirect()->route('public_login');
+        }
     }
 
     public function register(Request $request)
@@ -76,7 +93,7 @@ class AuthController extends Controller
 
             return redirect()->route('public_dashboard');
         } else {
-            return view('back-end.auth.register');
+            return view('front-end.auth.register');
         }
     }
 
@@ -96,6 +113,6 @@ class AuthController extends Controller
 
     public function forgetPassword()
     {
-        return view('back-end.auth.forget-password');
+        return view('front-end.auth.forget-password');
     }
 }
