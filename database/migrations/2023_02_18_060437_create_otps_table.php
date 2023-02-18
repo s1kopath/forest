@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('monthly_contests', function (Blueprint $table) {
+        Schema::create('otps', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->double('direct_amount');
-            $table->double('reward_amount');
+            $table->string('email')->unique();
+            $table->integer('faild_attemp');
+            $table->integer('otp');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('monthly_contests');
+        Schema::dropIfExists('otps');
     }
 };
