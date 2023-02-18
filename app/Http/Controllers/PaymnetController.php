@@ -42,43 +42,45 @@ class PaymnetController extends Controller
         $ib_payment_info->save();
     }
 
-    public function payout()
+    public function payout() //Function will be monthly distribution
     {
-        $payment_infos = Payment::all();
-        $payout_amount  = 0;
-        foreach ($payment_infos as $payment_info) {
-            $payout_percentage = StakingRoi::find($payment_info->staking_roi_id)->percentage;
-            $payout_amount = ($payment_info->amount * $payout_percentage) / 100;
-            $distribution_amount = ($payout_amount * 3.5) / 100; //suppose 3.5
-            $actual_payout_amount =  $payout_amount -  $distribution_amount; //Will be save and and mail
-            $team_details = TeamDetail::whereIn('level', [1, 2, 3, 4])->where('referer_id', $payment_info->user_id)->get();
+        $payment_info = Payment::where('user_id', Auth::user()->id)->get();
+        $payout_percentage = StakingRoi::find($payment_info->staking_roi_id)->percentage;
+        $payout_amount = ($payment_info->amount * $payout_percentage) / 100;
+        $distribution_amount = ($payout_amount * 3.5) / 100; //suppose 3.5
+        $actual_payout_amount =  $payout_amount -  $distribution_amount; //Will be save and and mail
+        $team_details = TeamDetail::whereIn('level', [1, 2, 3, 4])->where('referer_id', $payment_info->user_id)->get();
 
-            foreach ($team_details as $tema_detail) {
-                if ($tema_detail->level == 1) {
-                    $this->ibCalculation($distribution_amount, $tema_detail);
-                    //
-                } else if ($tema_detail->level == 2) {
-                    $this->ibCalculation($distribution_amount, $tema_detail);
-                } else if ($tema_detail->level == 3) {
-                    $this->ibCalculation($distribution_amount, $tema_detail);
-                } else if ($tema_detail->level == 4) {
-                    $this->ibCalculation($distribution_amount, $tema_detail);
-                }
+        foreach ($team_details as $team_detail) {
+            if ($team_detail->level == 1) {
+                $amount = $this->ibAmountCalculation($distribution_amount, $team_detail);
+            } else if ($team_detail->level == 2) {
+                $amount = $this->ibAmountCalculation($distribution_amount, $team_detail);
+            } else if ($team_detail->level == 3) {
+                $amount = $this->ibAmountCalculation($distribution_amount, $team_detail);
+            } else if ($team_detail->level == 4) {
+                $amount = $this->ibAmountCalculation($distribution_amount, $team_detail);
             }
         }
     }
 
-    public function ibCalculation($distribution_amount, $tema_detail)
+    public function ibAmountCalculation($distribution_amount, $team_detail)
     {
-        $rank_info = Rank::where('user_id', $tema_detail->user_id)->first();
+        $rank_info = Rank::where('user_id', $team_detail->user_id)->first();
         if ($rank_info && $rank_info->rank == "IB") {
             return ($distribution_amount * 30) / 100; //30 percenta will be dynamic
-        } else if ($rank_info && $rank_info->rank == "Pro IB") {
+        } else if ($rank_info && $rank_info->rank == "Pro-IB") {
             return ($distribution_amount * 15) / 100;
         } else if ($rank_info && $rank_info->rank == "Master IB") {
             return ($distribution_amount * 7.5) / 100;
         } else if ($rank_info && $rank_info->rank == "Corporate IB") {
             return ($distribution_amount * 7.5) / 100;
         }
+    }
+
+    public function teamDirectTotalCalculate($user_id)
+    {
+        $team_all_ids = TeamDetail::where('referer_id', $user_id)->pluck('user_id')->toArray();
+        $team_direct_total_amount = Payment::whereIn('user_id', $team_all_ids)->selectRaw("SUM(amount) AS amount")->get();
     }
 }
