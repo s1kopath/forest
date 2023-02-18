@@ -212,7 +212,6 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
-        'Helper' => App\Helpers::class,
     ])->toArray(),
 
 ];
