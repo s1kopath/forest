@@ -9,6 +9,7 @@ use App\Http\Controllers\IbRoyalityController;
 use App\Http\Controllers\GiftController;
 use App\Http\Controllers\IbController;
 use App\Http\Controllers\User\FundController;
+use App\Http\Controllers\user\StakeController;
 
 Route::get('/', function () {
     return view('front-end.index');
@@ -21,7 +22,7 @@ Route::get('admin-register', [AuthController::class, 'adminRegister']);
 Route::get('forget-password', [AuthController::class, 'forgetPassword'])->name('forget_password');
 Route::match(['get', 'post'], 'register', [AuthController::class, 'register'])->name('register');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
-Route::get('ref/{refer_code}', [AuthController::class, 'registerWithRefer'])->name('register_with_refer');
+Route::get('ref/{username}', [AuthController::class, 'registerWithRefer'])->name('register_with_refer');
 
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -55,11 +56,13 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     });
 });
 
-Route::prefix('public')->middleware('public')->group(function () {
+Route::prefix('user')->middleware('public')->group(function () {
     Route::get('/', [PublicDashboardController::class, 'publicDashboard'])->name('public_dashboard');
 
     Route::prefix('profile')->group(function () {
         Route::get('/', [PublicDashboardController::class, 'publicProfile'])->name('public_profile');
         Route::get('fund', [FundController::class, 'fund'])->name('public_fund');
+        // stake
+        Route::post('fund/stake', [StakeController::class, 'stake'])->name('stake');
     });
 });

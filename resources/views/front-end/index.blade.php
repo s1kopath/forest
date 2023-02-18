@@ -13,17 +13,15 @@
     <link rel="preload" href="{{ asset('front-end/js/vendors/uikit.min.js') }}" as="script">
     <link rel="preload" href="{{ asset('front-end/css/style.css') }}" as="style">
     <!-- icon preload -->
-    <link rel="preload" href="{{ asset('front-end/fonts/fa-brands-400.woff2') }}" as="font" type="font/woff2"
-        crossorigin>
-    <link rel="preload" href="{{ asset('front-end/fonts/fa-solid-900.woff2') }}" as="font" type="font/woff2"
-        crossorigin>
+    <link rel="preload" href="{{ asset('front-end/fonts/fa-brands-400.woff2') }}" as="font" type="font/woff2">
+    <link rel="preload" href="{{ asset('front-end/fonts/fa-solid-900.woff2') }}" as="font" type="font/woff2">
     <!-- font preload -->
     <link rel="preload" href="{{ asset('front-end/fonts/archivo-v9-latin-regular.woff2') }}" as="font"
-        type="font/woff2" crossorigin>
+        type="font/woff2">
     <link rel="preload" href="{{ asset('front-end/fonts/archivo-v9-latin-300.woff2') }}" as="font"
-        type="font/woff2" crossorigin>
+        type="font/woff2">
     <link rel="preload" href="{{ asset('front-end/fonts/archivo-v9-latin-700.woff2') }}" as="font"
-        type="font/woff2" crossorigin>
+        type="font/woff2">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ asset('front-end/css/style.css') }}">
     <!-- Favicon -->
@@ -101,14 +99,25 @@
                     </div>
                     <div class="uk-navbar-right">
                         <div class="uk-navbar-item uk-visible@m in-optional-nav">
-                            <a href="{{ route('public_login') }}" class="uk-button uk-button-text">
-                                Log in
-                                <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                            </a>
-                            <a href="{{ route('register') }}" class="uk-button uk-button-primary">
-                                Sign up
-                                <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                            </a>
+                            @if (auth()->user())
+                                <a href="{{ route('public_dashboard') }}" class="uk-button uk-button-text">
+                                    Dashboard
+                                    <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                </a>
+                                <a href="{{ route('logout') }}" class="uk-button uk-button-primary">
+                                    Log Out
+                                    <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                </a>
+                            @else
+                                <a href="{{ route('public_login') }}" class="uk-button uk-button-text">
+                                    Log in
+                                    <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                </a>
+                                <a href="{{ route('register') }}" class="uk-button uk-button-primary">
+                                    Sign up
+                                    <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>

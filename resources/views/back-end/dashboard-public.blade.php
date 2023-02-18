@@ -62,7 +62,7 @@
                             <i class="fas fa-money-bill-alt bg-dribbble text-white f-18"></i>
                         </div>
                         <div class="col">
-                            <h3 class="m-b-0 f-w-700 text-white">$500.00</h3>
+                            <h3 class="m-b-0 f-w-700 text-white">${{ $wallet->main_amount }}</h3>
                             <h6 class="m-b-5 text-white">Current Wallet</h6>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                             <i class="fas fa-database bg-dribbble text-white f-18"></i>
                         </div>
                         <div class="col">
-                            <h3 class="m-b-0 f-w-700 text-white">$5000.00</h3>
+                            <h3 class="m-b-0 f-w-700 text-white">$????</h3>
                             <h6 class="m-b-5 text-white">Total Staking</h6>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                             <i class="fas fa-dollar-sign bg-dribbble text-white f-18"></i>
                         </div>
                         <div class="col">
-                            <h3 class="m-b-0 f-w-700 text-white">$700.00</h3>
+                            <h3 class="m-b-0 f-w-700 text-white">${{ $wallet->bonus_amount }}</h3>
                             <h6 class="m-b-5 text-white">Invitation Gift</h6>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                             <i class="fas fa-tags bg-dribbble text-white f-18"></i>
                         </div>
                         <div class="col">
-                            <h3 class="m-b-0 f-w-700 text-white">$2000.00</h3>
+                            <h3 class="m-b-0 f-w-700 text-white">${{ $wallet->total_earning }}</h3>
                             <h6 class="m-b-5 text-white">Total Income</h6>
                         </div>
                     </div>
@@ -129,7 +129,7 @@
                 <fieldset class="text-center m-3" style="border: 2px solid #060606;">
                     <legend style="width: 50%;">Invite Link</legend>
                     <p id="referral-link">
-                        {{ env('APP_URL') . '/ref/' . auth()->user()->refer_code }}
+                        {{ env('APP_URL') . '/ref/' . auth()->user()->username }}
                     </p>
 
                     <button type="button" class="btn btn-primary rounded-pill mb-3" onclick="myFunction()">

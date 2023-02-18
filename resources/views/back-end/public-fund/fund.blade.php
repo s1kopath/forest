@@ -193,62 +193,56 @@
                     </div>
                     <div class="tab-pane" id="staking" role="tabpanel">
                         <h3 class="text-primary font-weight-bold text-center">
-                            <span>My Wallet: $ 5000.00</span>
+                            <span>My Wallet: $ {{ $wallet->main_amount }}</span>
                         </h3>
-                        <div class="text-center d-md-flex justify-content-center">
-                            <div type="button" class="col-md-3 m-1 rounded-pill bg-secondary">
-                                <div class="p-2">
-                                    <h5 class="text-white">3 Months</h5>
-                                    <span class="text-dark">
-                                        2.5%/month
-                                    </span>
+                        <form action="{{ route('stake') }}" method="post" role="form">
+                            @csrf
+                            <div class="text-center row">
+                                @foreach ($staking as $stake)
+                                    <div class="col-md-4">
+                                        <div type="button" class="rounded-pill bg-secondary m-1">
+                                            <input class="form-check-input mt-4" type="radio" name="staking_package"
+                                                id="exampleRadios1" value="{{ $stake->id }}" required>
+                                            <label class="form-check-label" for="durationRadio">
+                                                <div class="p-2">
+                                                    <h5 class="text-white">{{ $stake->duration }} Months</h5>
+                                                    <span class="text-dark">
+                                                        {{ $stake->percentage }}%/month
+                                                    </span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <div class="col-md-8 m-3">
+                                    <label class="stakingAmount">
+                                        Staking Amount
+                                    </label>
+                                    <div class="input-group">
+                                        <input type="number" step="0.01" min="50" name="amount"
+                                            class="form-control rounded-pill" placeholder="$ 5000" required>
+                                        <span class="input-group-append" style="z-index: 100; margin-left: -2em">
+                                            <label class="input-group-text h5 rounded-pill px-4">Max</label>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                            <div type="button" class="col-md-3 m-1 rounded-pill bg-secondary">
-                                <div class="p-2">
-                                    <h5 class="text-white">6 Months</h5>
-                                    <span class="text-dark">
-                                        3.0%/month
-                                    </span>
+                            <div class="d-flex justify-content-center">
+                                <div class="border-checkbox-group border-checkbox-group-primary">
+                                    <input class="border-checkbox" type="checkbox" required>
+                                    <label class="border-checkbox-label" for="checkbox1">
+                                        I have read and agree to the company staking terms & agreement
+                                    </label>
                                 </div>
                             </div>
-                            <div type="button" class="col-md-3 m-1 rounded-pill bg-secondary">
-                                <div class="p-2">
-                                    <h5 class="text-white">12 Months</h5>
-                                    <span class="text-dark">
-                                        4.0%/month
-                                    </span>
-                                </div>
+                            <div class="text-center m-t-20">
+                                <button type="submit" class="btn btn-primary rounded-pill">
+                                    Stake Now
+                                </button>
                             </div>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <div class="col-md-8 m-3">
-                                <label class="">
-                                    Staking Amount
-                                </label>
-                                <div class="input-group">
-                                    <input type="number" step="0.01" min="50"
-                                        class="form-control rounded-pill" placeholder="$ 5000">
-                                    <span class="input-group-append" style="z-index: 100; margin-left: -2em">
-                                        <label class="input-group-text h5 rounded-pill px-4">Max</label>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <div class="border-checkbox-group border-checkbox-group-primary">
-                                <input class="border-checkbox" type="checkbox" id="checkbox1">
-                                <label class="border-checkbox-label" for="checkbox1">
-                                    I have read and agree to the company staking terms & agreement
-                                </label>
-                            </div>
-                        </div>
-                        <div class="text-center m-t-20">
-                            <button class="btn btn-primary rounded-pill">
-                                Stake Now
-                            </button>
-                        </div>
-
+                        </form>
                         <hr>
                         <h3 class="text-center">
                             <span>Summary</span>

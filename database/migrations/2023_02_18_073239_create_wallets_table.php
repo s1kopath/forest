@@ -19,6 +19,7 @@ return new class extends Migration
             $table->double('main_amount', 8, 2)->default(0);
             $table->double('bonus_amount', 8, 2)->default(0);
             $table->double('withdrawable_amount', 8, 2)->default(0);
+            $table->double('total_earning', 8, 2)->default(0);
             $table->string('status')->default(1);
             $table->timestamps();
         });
