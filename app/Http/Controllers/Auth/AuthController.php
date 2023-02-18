@@ -47,7 +47,11 @@ class AuthController extends Controller
 
     public function publicLogin()
     {
-        return view('front-end.auth.login');
+        if (auth()->user()) {
+            return redirect()->route('public_dashboard');
+        } else {
+            return view('front-end.auth.login');
+        }
     }
 
     public function adminRegister()
@@ -58,7 +62,7 @@ class AuthController extends Controller
     public function logout()
     {
         $user_type = auth()->user()->user_type;
-        
+
         Auth::logout();
 
         if ($user_type == 'admin') {
@@ -97,9 +101,9 @@ class AuthController extends Controller
         }
     }
 
-    public function registerWithRefer($refer_code)
+    public function registerWithRefer($username)
     {
-        $check = User::where('refer_code', $refer_code)->first();
+        $check = User::where('username', $username)->first();
 
         if ($check) {
             session([

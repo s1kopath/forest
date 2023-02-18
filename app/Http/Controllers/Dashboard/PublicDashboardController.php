@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Wallet;
 use Illuminate\Http\Request;
 
 class PublicDashboardController extends Controller
 {
     public function publicDashboard()
     {
-        return view('back-end.dashboard-public');
+        $wallet = Wallet::where('user_id', auth()->id())->first();
+        
+        return view('back-end.dashboard-public', compact('wallet'));
     }
 
     public function publicProfile()
