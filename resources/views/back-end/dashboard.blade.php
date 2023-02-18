@@ -9,7 +9,7 @@
                     <div class="page-header-title">
                         <i class="feather icon-home bg-c-blue"></i>
                         <div class="d-inline">
-                            <h5>Dashboard CRM</h5>
+                            <h5>Dashboard CRM AAAAAAAAAAAAAAAAA</h5>
                             <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                         </div>
                     </div>
@@ -20,7 +20,7 @@
                             <li class="breadcrumb-item">
                                 <a href=""><i class="feather icon-home"></i></a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#!">Dashboard CRM</a> </li>
+                            <li class="breadcrumb-item"><a href="#!">Dashboard CRM 'dsdsds' => {{ refferel_bonus() }}</a> </li>
                         </ul>
                     </div>
                 </div>
