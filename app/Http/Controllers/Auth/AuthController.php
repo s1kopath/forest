@@ -58,7 +58,7 @@ class AuthController extends Controller
     public function logout()
     {
         $user_type = auth()->user()->user_type;
-
+        
         Auth::logout();
 
         if ($user_type == 'admin') {

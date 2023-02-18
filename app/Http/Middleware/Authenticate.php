@@ -18,9 +18,9 @@ class Authenticate
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check()) {
-            return redirect()->route('dashboard');
+            return $next($request);
+        } else {
+            return redirect('/');
         }
-
-        return $next($request);
     }
 }

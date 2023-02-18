@@ -20,7 +20,7 @@ Route::get('public-login', [AuthController::class, 'publicLogin'])->name('public
 Route::get('admin-register', [AuthController::class, 'adminRegister']);
 Route::get('forget-password', [AuthController::class, 'forgetPassword'])->name('forget_password');
 Route::match(['get', 'post'], 'register', [AuthController::class, 'register'])->name('register');
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 Route::get('ref/{refer_code}', [AuthController::class, 'registerWithRefer'])->name('register_with_refer');
 
 Route::prefix('admin')->middleware('admin')->group(function () {
