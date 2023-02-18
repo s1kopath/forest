@@ -2767,7 +2767,7 @@ table thead .border-bottom-info th {
 }
 
 .bg-dribbble {
-    background: #ec4a89
+    background: #ec4a89!important;
 }
 
 .text-dribbble {

@@ -17,10 +17,15 @@ class AdminUser
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::check() && auth()->user()->user_type == 'admin') {
-            return $next($request);
+        if (Auth::check()) {
+            if (auth()->user()->user_type == 'admin') {
+                return $next($request);
+            } else {
+                Auth::logout();
+                return redirect()->route('auth_login')->with('error', 'Invalid permission');
+            }
         } else {
-            return redirect()->route('auth_login')->with('message', 'User is not valid');
+            return redirect()->route('auth_login')->with('error', 'User is not valid');
         }
     }
 }

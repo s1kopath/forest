@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\AmountForIbGain;
 use App\Models\StakingRoi;
-use App\Models\InvitationGift;
+use App\Models\Gift;
 use App\Models\TeamDetail;
 use App\Models\Rank;
 
@@ -23,7 +23,7 @@ class PaymnetController extends Controller
         $new_payment->save();
 
         if ($request->type == 'direct') { //should be changed
-            $invg = new InvitationGift();
+            $invg = new Gift();
             $invg->user_id = Auth::user()->id;
             $invg->amount = ($request->amount * 5) / 100; //suppose 5%
             $invg->type = 'invitation_gift';

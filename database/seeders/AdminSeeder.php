@@ -20,6 +20,23 @@ class AdminSeeder extends Seeder
             'email' => 'forest@gmail.com',
             'password' => bcrypt('forest12345'),
             'user_type' => 'admin',
+            'refer_code' => uniqid(),
+        ]);
+        User::create([
+            'username' => 'q',
+            'name' => 'Frank',
+            'email' => 'frank@gamil.com',
+            'password' => bcrypt('q'),
+            'user_type' => 'admin',
+            'refer_code' => uniqid(),
+        ]);
+        User::create([
+            'username' => 'a',
+            'name' => 'Frankie',
+            'email' => 'frankie@gmail.com',
+            'password' => bcrypt('a'),
+            'user_type' => 'public',
+            'refer_code' => uniqid(),
         ]);
     }
 }

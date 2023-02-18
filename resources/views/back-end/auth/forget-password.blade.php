@@ -1,5 +1,14 @@
 @extends('back-end.layouts.forget-password')
 @section('page_content')
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('back-end/assets/images/login-bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
     <div class="theme-loader">
         <div class="loader-track">
             <div class="preloader-wrapper">
@@ -56,7 +65,7 @@
                 <div class="col-sm-12">
                     <form class="md-float-material form-material">
                         <div class="text-center">
-                            <img src="{{ asset('back-end/assets/images/logo.png') }}" alt="logo.png">
+                            <img src="{{ asset('back-end/img/logo.png') }}" alt="logo.png">
                         </div>
                         <div class="auth-box card">
                             <div class="card-block">
@@ -77,16 +86,12 @@
                                             Password</button>
                                     </div>
                                 </div>
-                                <p class="f-w-600 text-right">Back to <a href="auth-sign-in-social.html">Login.</a></p>
+                                <p class="f-w-600 text-right">Back to <a href="{{ route('auth_login') }}">Login.</a></p>
                                 <div class="row">
                                     <div class="col-md-10">
                                         <p class="text-inverse text-left m-b-0">Thank you.</p>
-                                        <p class="text-inverse text-left"><a href="../index-2.html"><b>Back to
+                                        <p class="text-inverse text-left"><a href="/"><b>Back to
                                                     website</b></a></p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <img src="{{ asset('back-end/assets/images/auth/Logo-small-bottom.png') }}"
-                                            alt="small-logo.png">
                                     </div>
                                 </div>
                             </div>
