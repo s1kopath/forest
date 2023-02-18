@@ -8,7 +8,7 @@ use App\Http\Controllers\StackingRoisController;
 use App\Http\Controllers\IbRoyalityController;
 use App\Http\Controllers\GiftController;
 use App\Http\Controllers\IbController;
-use App\Http\Controllers\user\FundController;
+use App\Http\Controllers\User\FundController;
 
 Route::get('/', function () {
     return view('front-end.index');
