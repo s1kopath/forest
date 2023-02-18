@@ -10,6 +10,7 @@ use App\Http\Controllers\GiftController;
 use App\Http\Controllers\IbController;
 use App\Http\Controllers\MonthlyContestController;
 use App\Http\Controllers\user\FundController;
+use App\Http\Controllers\Otp\OtpController;
 
 Route::get('/', function () {
     return view('front-end.index');
@@ -23,6 +24,11 @@ Route::get('forget-password', [AuthController::class, 'forgetPassword'])->name('
 Route::match(['get', 'post'], 'register', [AuthController::class, 'register'])->name('register');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('ref/{refer_code}', [AuthController::class, 'registerWithRefer'])->name('register_with_refer');
+
+Route::get('otp', [OtpController::class, 'otpPublic'])->name('otp');
+// Route::post('otp-verify', [OtpController::class, 'verify'])->name('otp-verify');
+// Route::get('generate_otp', [OtpController::class, 'otpGenerate'])->name('generate_otp');
+
 
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
