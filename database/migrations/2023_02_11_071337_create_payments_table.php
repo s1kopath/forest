@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->double('amount');
             $table->integer('staking_roi_id');
-            $table->text('type')->default('direct');
+            $table->integer('type')->default(1);
             $table->timestamps();
         });
     }
