@@ -27,7 +27,7 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout')->middlew
 Route::get('ref/{username}', [AuthController::class, 'registerWithRefer'])->name('register_with_refer');
 
 Route::get('otp', [OtpController::class, 'otpPublic'])->name('otp');
-// Route::post('otp-verify', [OtpController::class, 'verify'])->name('otp-verify');
+Route::post('otp-verify', [OtpController::class, 'verify'])->name('otp_verify');
 // Route::get('generate_otp', [OtpController::class, 'otpGenerate'])->name('generate_otp');
 
 

@@ -68,21 +68,20 @@
                                             {{ session('error') }}
                                         </div>
                                     @endif
-                                    @if ($errors->any())
-                                        @foreach ($errors->all() as $error)
-                                            <div class="alert bg-alert text-danger">
-                                                {{ $error }}
-                                            </div>
-                                        @endforeach
-                                    @endif
-
+       
                                     <!-- login form begin -->
-                                    <form class="uk-grid uk-form" action="#" method="POST">
+                                    <form class="uk-grid uk-form" action="{{ route('otp_verify') }}" method="POST">
                                         @csrf
                                         <div class="uk-margin-small uk-width-1-1 uk-inline">
                                             <span class="uk-form-icon uk-form-icon-flip fas fa-user fa-sm"></span>
                                             <input class="uk-input uk-border-rounded" type="text"
-                                                placeholder="Enter Your Otp" name="otp" required>
+                                                placeholder="Enter Your Otp"class="form-control @error('otp') is-invalid @enderror" name="otp" required>
+                                                @error('otp')
+                                            <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                            @if(session()->get('error'))
+                                                <div class="text-danger">{{ session()->get('error') }}</div>
+                                            @endif
                                         </div>
                                         
                                         <div class="uk-margin-small uk-width-auto uk-text-small">

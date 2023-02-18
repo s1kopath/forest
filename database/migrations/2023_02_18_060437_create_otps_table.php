@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->integer('faild_attemp');
             $table->integer('otp');
+            $table->string('suspend_duration')->default(0);
             $table->timestamps();
         });
     }

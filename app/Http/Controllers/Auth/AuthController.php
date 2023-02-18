@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Otp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -82,6 +83,7 @@ class AuthController extends Controller
                 'password' => 'required|confirmed',
             ]);
 
+
             $newUser = User::create([
                 'name' => $request->name,
                 'username' => $request->username,
@@ -92,8 +94,24 @@ class AuthController extends Controller
                 'refer_code' => uniqid()
             ]);
 
-            Auth::login($newUser);
-            $request->session()->regenerate();
+            $digits = 3;
+            $otp = rand(pow(10, $digits - 1), pow(10, $digits) - 1);
+
+            //\Mail::to($request->email)->send(new Websitemail('OPT Send', $message));
+
+            $otp = new Otp();
+            $otp->email = $request->email;
+            $otp->otp = $otp;
+            $otp->faild_attemp = 0;
+            $otp->save();
+
+            session(['email' => $request->email]);
+
+
+            return redirect()->route('otp');
+
+            // Auth::login($newUser);
+            // $request->session()->regenerate();
 
             return redirect()->route('public_dashboard');
         } else {
