@@ -115,31 +115,30 @@
             </div>
         </div>
 
-        {{-- <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-2">
-                    <input type="text" class="form-control bg-white" value="Referral Link" readonly>
-                </div>
-                <div class="col-md-8">
-                    <input type="text" class="form-control bg-white" id="referral-link"
-                        value="{{ env('APP_URL') . '/ref/' . auth()->user()->refer_code }}" readonly>
-                </div>
-                <div class="col-md-2">
-                    <input type="button" class="form-control" value="Copy Link" onclick="myFunction()">
-                </div>
-            </div>
-        </div> --}}
-
-
         <div class="col-md-12">
             <div class="d-card bg-white rounded mt-3">
-                <fieldset class="text-center m-3" style="border: 2px solid #060606;">
+                {{-- <fieldset class="text-center m-3" style="border: 2px solid #060606;">
                     <legend style="width: 50%;">Invite Link</legend>
                     <p>
                         You need to verify your account.
                     </p>
                     <a href="#" class="btn btn-primary rounded-pill mb-3">
                         Verify
+                    </a>
+                </fieldset> --}}
+                <fieldset class="text-center m-3" style="border: 2px solid #060606;">
+                    <legend style="width: 50%;">Invite Link</legend>
+                    <p id="referral-link">
+                        {{ env('APP_URL') . '/ref/' . auth()->user()->refer_code }}
+                    </p>
+
+                    <button type="button" class="btn btn-primary rounded-pill mb-3" onclick="myFunction()">
+                        <i class="far fa-copy"></i>
+                        Copy
+                    </button>
+                    <a href="#" class="btn btn-primary rounded-pill mb-3">
+                        <i class="fas fa-share-alt"></i>
+                        Share
                     </a>
                 </fieldset>
                 <div class="pt-1">
@@ -153,17 +152,20 @@
     <script>
         function myFunction() {
             // Get the text field
-            var copyText = document.getElementById("referral-link");
+            var copyText = $("#referral-link").text();
 
-            // Select the text field
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); // For mobile devices
+            copyText = copyText.trim();
 
             // Copy the text inside the text field
-            navigator.clipboard.writeText(copyText.value);
+            navigator.clipboard.writeText(copyText);
 
             // Alert the copied text
-            alert("Copied the text: " + copyText.value);
+            Swal.fire({
+                icon: 'success',
+                title: 'Coppied to clipboard: ' + copyText,
+                showConfirmButton: false,
+                timer: 1500
+            })
         }
     </script>
 @endpush

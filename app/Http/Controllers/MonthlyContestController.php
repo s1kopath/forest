@@ -42,7 +42,6 @@ class MonthlyContestController extends Controller
         } 
     }
 
-
     public function updateContest(Request $request, $id)
     {
             // check method

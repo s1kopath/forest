@@ -9,14 +9,16 @@ use App\Http\Controllers\IbRoyalityController;
 use App\Http\Controllers\GiftController;
 use App\Http\Controllers\IbController;
 use App\Http\Controllers\MonthlyContestController;
-
+use App\Http\Controllers\user\FundController;
 
 Route::get('/', function () {
     return view('front-end.index');
 });
 
 // Auth Routes
-Route::match(['get', 'post'], 'login', [AuthController::class, 'login'])->middleware('auth')->name('auth_login');
+Route::match(['get', 'post'], 'admin-login', [AuthController::class, 'login'])->name('auth_login');
+Route::get('public-login', [AuthController::class, 'publicLogin'])->name('public_login');
+Route::get('admin-register', [AuthController::class, 'adminRegister']);
 Route::get('forget-password', [AuthController::class, 'forgetPassword'])->name('forget_password');
 Route::match(['get', 'post'], 'register', [AuthController::class, 'register'])->name('register');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
@@ -66,5 +68,6 @@ Route::prefix('public')->middleware('public')->group(function () {
 
     Route::prefix('profile')->group(function () {
         Route::get('/', [PublicDashboardController::class, 'publicProfile'])->name('public_profile');
+        Route::get('fund', [FundController::class, 'fund'])->name('public_fund');
     });
 });

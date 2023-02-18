@@ -192,8 +192,8 @@
                         </li>
                     </ul>
                     <ul class="pcoded-item pcoded-left-item">
-                        <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
-                            <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_fund' ? 'active' : '' }}">
+                            <a href="{{ route('public_fund') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-micon"><i class="fa fa-briefcase"></i></span>
                                 <span class="pcoded-mtext">Funds</span>
                             </a>
