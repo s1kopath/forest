@@ -32,7 +32,7 @@ class OtpController extends Controller
             $request->session()->regenerate();
             return redirect()->route('public_dashboard');
         } else {
-            if ($otp_info->faild_attemp > 3) {
+            if ($otp_info->failed_attempt > 3) {
                 $time = strtotime('now');
                 if ($otp_info->suspend_duration < 1) {
                     $endTime = strtotime(date("H:i", strtotime('+30 minutes', $time)));
@@ -49,7 +49,7 @@ class OtpController extends Controller
                     return redirect()->back()->with('error', 'You are suspended for 30 minute'); //--kore dekhate hobe
                 }
             } else {
-                $otp_info->faild_attemp = $otp_info->faild_attemp + 1;
+                $otp_info->failed_attempt = $otp_info->failed_attempt + 1;
                 $otp_info->save();
                 return redirect()->back()->with('error', 'Otp not found!');
             }

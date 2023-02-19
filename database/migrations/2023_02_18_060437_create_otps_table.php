@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('otps', function (Blueprint $table) {
             $table->id();
             $table->string('email')->unique();
-            $table->integer('faild_attemp');
+            $table->integer('failed_attempt');
             $table->integer('otp');
             $table->string('suspend_duration')->default(0);
             $table->timestamps();

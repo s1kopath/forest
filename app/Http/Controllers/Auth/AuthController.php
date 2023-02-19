@@ -95,14 +95,14 @@ class AuthController extends Controller
             ]);
 
             $digits = 3;
-            $otp = rand(pow(10, $digits - 1), pow(10, $digits) - 1);
+            $otp_code = rand(pow(10, $digits - 1), pow(10, $digits) - 1);
 
             //\Mail::to($request->email)->send(new Websitemail('OPT Send', $message));
 
             $otp = new Otp();
             $otp->email = $request->email;
-            $otp->otp = $otp;
-            $otp->faild_attemp = 0;
+            $otp->otp = $otp_code;
+            $otp->failed_attempt = 0;
             $otp->save();
 
             session(['email' => $request->email]);
@@ -113,7 +113,7 @@ class AuthController extends Controller
             // Auth::login($newUser);
             // $request->session()->regenerate();
 
-            return redirect()->route('public_dashboard');
+            // return redirect()->route('public_dashboard');
         } else {
             return view('front-end.auth.register');
         }
