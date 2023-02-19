@@ -19,26 +19,24 @@
                             <li><a href="#">Company<i class="fas fa-chevron-down"></i></a>
                                 <div class="uk-navbar-dropdown">
                                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="careers.html">Careers</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{{ route('about') }}">About</a></li>
+                                        <li><a href="{{ route('blog') }}">Blog</a></li>
+                                        <li><a href="{{ route('careers') }}">Careers</a></li>
+                                        <li><a href="{{ route('contact') }}">Contact</a></li>
                                     </ul>
                                 </div>
                             </li>
-                            <li><a href="education.html">Education</a>
+                            <li><a href="{{ route('education') }}">Education</a>
                             </li>
                             <li><a href="#">Resources<i class="fas fa-chevron-down"></i></a>
                                 <div class="uk-navbar-dropdown uk-navbar-dropdown-width-2">
                                     <div class="uk-navbar-dropdown-grid uk-child-width-1-2" data-uk-grid>
                                         <div>
                                             <ul class="uk-nav uk-navbar-dropdown-nav">
-                                                <li><a href="https://getuikit.com/docs/introduction">Documentation<i
-                                                            class="fas fa-square-arrow-up-right fa-sm"></i></a></li>
-                                                <li><a href="help-center.html">Help Center</a></li>
-                                                <li><a href="customers.html">Customers</a></li>
-                                                <li><a href="roadmap.html">Roadmap</a></li>
-                                                <li><a href="legal-docs.html">Legal Docs<i
+                                                <li><a href="{{ route('help_center') }}">Help Center</a></li>
+                                                <li><a href="{{ route('customers') }}">Customers</a></li>
+                                                <li><a href="{{ route('road_map') }}">Roadmap</a></li>
+                                                <li><a href="{{ route('legal_docs') }}">Legal Docs<i
                                                             class="fas fa-gavel fa-sm"></i></a></li>
                                             </ul>
                                         </div>

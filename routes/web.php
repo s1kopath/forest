@@ -19,6 +19,14 @@ Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 Route::get('/v2', [HomeController::class, 'homepage2'])->name('homepage2');
 Route::get('markets', [HomeController::class, 'markets'])->name('markets');
 Route::get('about', [HomeController::class, 'about'])->name('about');
+Route::get('blog', [HomeController::class, 'blog'])->name('blog');
+Route::get('careers', [HomeController::class, 'careers'])->name('careers');
+Route::get('contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('education', [HomeController::class, 'education'])->name('education');
+Route::get('help-center', [HomeController::class, 'helpCenter'])->name('help_center');
+Route::get('customers', [HomeController::class, 'customers'])->name('customers');
+Route::get('road-map', [HomeController::class, 'roadMap'])->name('road_map');
+Route::get('legal-docs', [HomeController::class, 'legalDocs'])->name('legal_docs');
 
 // Auth Routes
 Route::match(['get', 'post'], 'admin-login', [AuthController::class, 'login'])->name('auth_login');

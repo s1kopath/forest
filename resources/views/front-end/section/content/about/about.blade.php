@@ -1,6 +1,6 @@
 @extends('front-end.master')
 @section('title')
-    Markets
+    About
 @endsection
 
 @section('page-style')

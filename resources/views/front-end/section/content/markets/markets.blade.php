@@ -184,7 +184,7 @@
                                 <h3>Get up to $600 plus 60 days of commission-free stocks & forex trades</h3>
                             </div>
                             <div class="uk-width-auto">
-                                <a class="uk-button uk-button-primary uk-border-rounded" href="#">Open an Account<i
+                                <a class="uk-button uk-button-primary uk-border-rounded" href="{{ route('register') }}">Open an Account<i
                                         class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                             </div>
                         </div>
