@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Otp;
+use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -92,6 +93,9 @@ class AuthController extends Controller
                 'user_type' => 'public',
                 'referer_id' => $request->referer_id ?? null,
                 'refer_code' => uniqid()
+            ]);
+            Wallet::create([
+                'user_id' => $newUser->id,
             ]);
 
             $digits = 3;
