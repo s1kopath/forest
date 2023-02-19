@@ -105,6 +105,7 @@ class AuthController extends Controller
                 'referer_id' => $request->referer_id ?? null,
                 'refer_code' => uniqid()
             ]);
+
             Wallet::create([
                 'user_id' => $newUser->id,
             ]);
@@ -124,8 +125,14 @@ class AuthController extends Controller
             $user_data->remember_token = $token;
             $user_data->update();
             $message = 'This is your verify otp: ' . $otp_code;
-            \Mail::to($request->email)->send(new WebsiteMail('OTP Send', $message));
 
+            try {
+                \Mail::to($request->email)->send(new WebsiteMail('OTP Send', $message));
+            } catch (\Throwable $th) {
+                return to_route('register')->with('error', 'You Have No Internet Connection');
+            }
+
+            // \Mail::to(@$request->email)->send(new WebsiteMail('OTP Send', @$message));
             return redirect()->route('otp')->with('message', 'Please Check Your Email Address');
         } else {
             return view('front-end.auth.register');
@@ -142,7 +149,7 @@ class AuthController extends Controller
                 'referer_name' => $check->name
             ]);
         }
-
+        
         return redirect()->route('register');
     }
 
