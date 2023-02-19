@@ -12,10 +12,13 @@ use App\Http\Controllers\User\FundController;
 use App\Http\Controllers\User\StakeController;
 use App\Http\Controllers\MonthlyContestController;
 use App\Http\Controllers\Otp\OtpController;
+use App\Http\Controllers\User\HomeController;
 
-Route::get('/', function () {
-    return view('front-end.index');
-});
+
+Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
+Route::get('/v2', [HomeController::class, 'homepage2'])->name('homepage2');
+Route::get('markets', [HomeController::class, 'markets'])->name('markets');
+Route::get('about', [HomeController::class, 'about'])->name('about');
 
 // Auth Routes
 Route::match(['get', 'post'], 'admin-login', [AuthController::class, 'login'])->name('auth_login');
@@ -30,6 +33,7 @@ Route::get('otp', [OtpController::class, 'otpPublic'])->name('otp');
 Route::post('otp-verify', [OtpController::class, 'verify'])->name('otp_verify');
 // Route::get('generate_otp', [OtpController::class, 'otpGenerate'])->name('generate_otp');
 
+Route::get('/email/verify', [AuthController::class, 'verificationNotice'])->middleware('auth')->name('verification.notice');
 
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -70,7 +74,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     });
 });
 
-Route::prefix('user')->middleware('public')->group(function () {
+Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
     Route::get('/', [PublicDashboardController::class, 'publicDashboard'])->name('public_dashboard');
 
     Route::prefix('profile')->group(function () {
