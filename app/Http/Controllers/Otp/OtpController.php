@@ -8,9 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Otp;
 use App\Mail\Websitemail;
-
-use Auth;
-
+use Illuminate\Support\Facades\Auth;
 
 class OtpController extends Controller
 {
@@ -27,6 +25,10 @@ class OtpController extends Controller
 
         if ($otp_info->otp == $otp) {
             $newUser = User::where('email', $otp_info->email)->first();
+            $newUser->update([
+                'email_verified_at' => now()
+            ]);
+            
             Auth::login($newUser);
             $request->session()->forget('email');
             $request->session()->regenerate();

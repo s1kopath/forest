@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('a'),
             'user_type' => 'public',
             'refer_code' => uniqid(),
+            'email_verified_at' => now(),
         ]);
         Wallet::create([
             'user_id' => $newUser->id,

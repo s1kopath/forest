@@ -25,7 +25,7 @@ class AuthController extends Controller
                     'login.required' => 'Username or Email is required'
                 ]
             );
-            
+
             $remember = $request->remember_me ? true : false;
 
             $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
@@ -120,13 +120,13 @@ class AuthController extends Controller
             session(['email' => $request->email]);
 
             $user_data = User::where('email', $request->email)->first();
-            $token = hash('sha256', time());   
+            $token = hash('sha256', time());
             $user_data->remember_token = $token;
-            $user_data->update();   
-            $message = 'This is your verify otp: ' .$otp_code;    
+            $user_data->update();
+            $message = 'This is your verify otp: ' . $otp_code;
             \Mail::to($request->email)->send(new Websitemail('OTP Send', $message));
+
             return redirect()->route('otp')->with('message', 'Please Check Your Email Address');
-                  
         } else {
             return view('front-end.auth.register');
         }

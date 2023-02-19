@@ -72,12 +72,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     });
 });
 
-<<<<<<< HEAD
 Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
-=======
-
-Route::prefix('user')->middleware('public')->group(function () {
->>>>>>> 725c3b25247449fae0deeeaca593f80d836fdec7
     Route::get('/', [PublicDashboardController::class, 'publicDashboard'])->name('public_dashboard');
     Route::prefix('profile')->group(function () {
         Route::get('/', [PublicDashboardController::class, 'publicProfile'])->name('public_profile');
@@ -86,8 +81,3 @@ Route::prefix('user')->middleware('public')->group(function () {
         Route::post('fund/stake', [StakeController::class, 'stake'])->name('stake');
     });
 });
-
-
-// Route::get('/public_dashboard', function () {
-/
-/ })->middleware('verifieduser');
