@@ -31,9 +31,7 @@ Route::get('ref/{username}', [AuthController::class, 'registerWithRefer'])->name
 
 Route::get('otp', [OtpController::class, 'otpPublic'])->name('otp');
 Route::post('otp-verify', [OtpController::class, 'verify'])->name('otp_verify');
-// Route::get('generate_otp', [OtpController::class, 'otpGenerate'])->name('generate_otp');
-
-Route::get('/email/verify', [AuthController::class, 'verificationNotice'])->middleware('auth')->name('verification.notice');
+Route::get('email/verify', [AuthController::class, 'verificationNotice'])->middleware('auth')->name('verification.notice');
 
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -74,9 +72,13 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     });
 });
 
+<<<<<<< HEAD
 Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
-    Route::get('/', [PublicDashboardController::class, 'publicDashboard'])->name('public_dashboard');
+=======
 
+Route::prefix('user')->middleware('public')->group(function () {
+>>>>>>> 725c3b25247449fae0deeeaca593f80d836fdec7
+    Route::get('/', [PublicDashboardController::class, 'publicDashboard'])->name('public_dashboard');
     Route::prefix('profile')->group(function () {
         Route::get('/', [PublicDashboardController::class, 'publicProfile'])->name('public_profile');
         Route::get('fund', [FundController::class, 'fund'])->name('public_fund');
@@ -84,3 +86,8 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::post('fund/stake', [StakeController::class, 'stake'])->name('stake');
     });
 });
+
+
+// Route::get('/public_dashboard', function () {
+/
+/ })->middleware('verifieduser');

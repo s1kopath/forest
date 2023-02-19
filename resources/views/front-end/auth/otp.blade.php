@@ -62,13 +62,11 @@
                                     <p class="uk-text-lead uk-margin-small-top uk-margin-medium-bottom">
                                         Verify Your OTP
                                     </p>
-
-                                    @if (session('error'))
-                                        <div class="alert bg-alert text-danger">
-                                            {{ session('error') }}
-                                        </div>
+                                    @if(session('message'))
+                                        <div class="alert alert-success" role="alert">
+                                            {{ session('message') }}
+                                        <div>
                                     @endif
-       
                                     <!-- login form begin -->
                                     <form class="uk-grid uk-form" action="{{ route('otp_verify') }}" method="POST">
                                         @csrf
@@ -77,13 +75,12 @@
                                             <input class="uk-input uk-border-rounded" type="text"
                                                 placeholder="Enter Your Otp"class="form-control @error('otp') is-invalid @enderror" name="otp" required>
                                                 @error('otp')
-                                            <div class="text-danger">{{ $message }}</div>
-                                            @enderror
+                                                  <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             @if(session()->get('error'))
                                                 <div class="text-danger">{{ session()->get('error') }}</div>
                                             @endif
-                                        </div>
-                                        
+                                        </div>                                        
                                         <div class="uk-margin-small uk-width-auto uk-text-small">
                                             <label>
                                                 <input type="checkbox" value="" required>

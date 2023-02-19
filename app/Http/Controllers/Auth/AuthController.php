@@ -9,6 +9,7 @@ use App\Models\Wallet;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\Websitemail;
 
 class AuthController extends Controller
 {
@@ -24,6 +25,7 @@ class AuthController extends Controller
                     'login.required' => 'Username or Email is required'
                 ]
             );
+            
             $remember = $request->remember_me ? true : false;
 
             $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
@@ -91,9 +93,8 @@ class AuthController extends Controller
                 'name' => 'required',
                 'username' => 'required|unique:users,username',
                 'email' => 'required|email|unique:users,email',
-                'password' => 'required|confirmed',
+                'password' => 'required|min:6|confirmed',
             ]);
-
 
             $newUser = User::create([
                 'name' => $request->name,
@@ -108,26 +109,24 @@ class AuthController extends Controller
                 'user_id' => $newUser->id,
             ]);
 
-            $digits = 3;
+            $digits = 5;
             $otp_code = rand(pow(10, $digits - 1), pow(10, $digits) - 1);
-
-            //\Mail::to($request->email)->send(new Websitemail('OPT Send', $message));
 
             $otp = new Otp();
             $otp->email = $request->email;
             $otp->otp = $otp_code;
             $otp->failed_attempt = 0;
             $otp->save();
-
             session(['email' => $request->email]);
 
-
-            return redirect()->route('otp');
-
-            // Auth::login($newUser);
-            // $request->session()->regenerate();
-
-            // return redirect()->route('public_dashboard');
+            $user_data = User::where('email', $request->email)->first();
+            $token = hash('sha256', time());   
+            $user_data->remember_token = $token;
+            $user_data->update();   
+            $message = 'This is your verify otp: ' .$otp_code;    
+            \Mail::to($request->email)->send(new Websitemail('OTP Send', $message));
+            return redirect()->route('otp')->with('message', 'Please Check Your Email Address');
+                  
         } else {
             return view('front-end.auth.register');
         }
