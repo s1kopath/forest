@@ -9,7 +9,7 @@ use App\Http\Controllers\IbRoyalityController;
 use App\Http\Controllers\GiftController;
 use App\Http\Controllers\IbController;
 use App\Http\Controllers\User\FundController;
-use App\Http\Controllers\user\StakeController;
+use App\Http\Controllers\User\StakeController;
 
 Route::get('/', function () {
     return view('front-end.index');
