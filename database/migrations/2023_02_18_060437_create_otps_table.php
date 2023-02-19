@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('otps', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->double('amount');
-            $table->integer('staking_roi_id');
-            $table->integer('type')->default(1);
+            $table->string('email')->unique();
+            $table->integer('faild_attemp');
+            $table->integer('otp');
+            $table->string('suspend_duration')->default(0);
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('otps');
     }
 };

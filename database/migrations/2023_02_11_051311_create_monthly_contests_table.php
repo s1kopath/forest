@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('monthly_contests', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->double('direct_amount');
+            $table->double('reward_amount');
             $table->timestamps();
         });
     }

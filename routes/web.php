@@ -10,6 +10,8 @@ use App\Http\Controllers\GiftController;
 use App\Http\Controllers\IbController;
 use App\Http\Controllers\User\FundController;
 use App\Http\Controllers\User\StakeController;
+use App\Http\Controllers\MonthlyContestController;
+use App\Http\Controllers\Otp\OtpController;
 
 Route::get('/', function () {
     return view('front-end.index');
@@ -23,6 +25,11 @@ Route::get('forget-password', [AuthController::class, 'forgetPassword'])->name('
 Route::match(['get', 'post'], 'register', [AuthController::class, 'register'])->name('register');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 Route::get('ref/{username}', [AuthController::class, 'registerWithRefer'])->name('register_with_refer');
+
+Route::get('otp', [OtpController::class, 'otpPublic'])->name('otp');
+Route::post('otp-verify', [OtpController::class, 'verify'])->name('otp_verify');
+// Route::get('generate_otp', [OtpController::class, 'otpGenerate'])->name('generate_otp');
+
 
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -53,6 +60,13 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         Route::get('/manage-ib', 'index')->name('manage_ib');
         Route::match(['get', 'post'], '/update-ib/{id}', 'updateIb')->name('update_ib');
         Route::get('/delete-ib/{id}', 'destroy')->name('delete_ib');
+    });
+
+    Route::controller(MonthlyContestController::class)->group(function () {
+        Route::match(['get', 'post'], '/add-monthly-contest', 'addContest')->name('add_monthly_contest');
+        Route::get('/manage-monthly-contest', 'index')->name('manage_monthly_contest');
+        Route::match(['get', 'post'], '/update-monthly-contest/{id}', 'updateContest')->name('update_monthly_contest');
+        Route::get('/delete-contest/{id}', 'destroy')->name('delete_contest');
     });
 });
 
