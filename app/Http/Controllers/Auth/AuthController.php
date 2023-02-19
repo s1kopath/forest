@@ -9,7 +9,7 @@ use App\Models\Wallet;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Mail\Websitemail;
+use App\Mail\WebsiteMail;
 
 class AuthController extends Controller
 {
@@ -124,7 +124,7 @@ class AuthController extends Controller
             $user_data->remember_token = $token;
             $user_data->update();
             $message = 'This is your verify otp: ' . $otp_code;
-            \Mail::to($request->email)->send(new Websitemail('OTP Send', $message));
+            \Mail::to($request->email)->send(new WebsiteMail('OTP Send', $message));
 
             return redirect()->route('otp')->with('message', 'Please Check Your Email Address');
         } else {

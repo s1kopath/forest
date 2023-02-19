@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Otp;
-use App\Mail\Websitemail;
+use App\Mail\WebsiteMail;
 use Illuminate\Support\Facades\Auth;
 
 class OtpController extends Controller
@@ -28,7 +28,7 @@ class OtpController extends Controller
             $newUser->update([
                 'email_verified_at' => now()
             ]);
-            
+
             Auth::login($newUser);
             $request->session()->forget('email');
             $request->session()->regenerate();
