@@ -1,13 +1,17 @@
 <!doctype html>
 <html lang="en">
 @php
-    
     use Carbon\Carbon;
     use App\Models\Otp;
-    $startTime = Carbon::now();
+    
+    $startTime = session('last_attempted') ?? Carbon::now();
+    
     $endTime = $startTime->copy()->addMinutes(30);
-    $diff = $endTime->diffInSeconds($startTime); 
+    
+    $diff = $endTime->diffInSeconds(now());
+    
 @endphp
+
 <head>
     <!-- Meta tags -->
     <meta charset="utf-8">
@@ -69,10 +73,10 @@
                                     <p class="uk-text-lead uk-margin-small-top uk-margin-medium-bottom">
                                         Verify Your OTP
                                     </p>
-                                    @if(session('message'))
+                                    @if (session('message'))
                                         <div class="alert alert-success" role="alert">
                                             {{ session('message') }}
-                                        <div>
+                                            <div>
                                     @endif
                                     <!-- login form begin -->
                                     <form class="uk-grid uk-form" action="{{ route('otp_verify') }}" method="POST">
@@ -81,23 +85,34 @@
                                         <div class="uk-margin-small uk-width-1-1 uk-inline">
                                             <span class="uk-form-icon uk-form-icon-flip fas fa-user fa-sm"></span>
                                             <input class="uk-input uk-border-rounded" type="text"
-                                                placeholder="Enter Your Otp"class="form-control @error('otp') is-invalid @enderror" name="otp" required>
-                                            <span id="countdown"></span>
+                                                placeholder="Enter Your Otp"class="form-control @error('otp') is-invalid @enderror"
+                                                name="otp" required>
+
                                             @error('otp')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
-                                            @if(session()->get('error'))
+                                            @if (session()->get('error'))
                                                 <div class="text-danger">{{ session()->get('error') }}</div>
                                             @endif
-                                        </div>                                        
-                                        {{-- @if (session('referer_id'))
-                                            <span>
-                                                * Referer: {{ session('referer_name') }}
-                                            </span>
-                                            <input type="hidden" name="referer_id"
-                                                value="{{ session('referer_id') }}">
-                                        @endif --}}
+                                            @if (session()->get('failed_attempt'))
+                                                @if (session()->get('failed_attempt') == 4)
+                                                    Try Back <span id="countdown"></span>
+                                                @else
+                                                    <div class="text-danger">
+                                                        Failed Attempts:
+                                                        {{ session()->get('failed_attempt') }} / 4
+                                                    </div>
+                                                @endif
+                                            @endif
+                                        </div>
 
+                                        <div class="uk-margin-small uk-width-auto uk-text-small">
+                                            <label>
+                                                <span class="text-inverse">
+                                                    Check your email for otp code.
+                                                </span>
+                                            </label>
+                                        </div>
                                         <div class="uk-margin-small uk-width-1-1">
                                             <button type="submit"
                                                 class="uk-button uk-width-1-1 uk-button-primary uk-border-rounded uk-float-left">
@@ -126,19 +141,19 @@
     <script src="{{ asset('front-end/js/utilities.min.js') }}"></script>
     <script src="{{ asset('front-end/js/config-theme.js') }}"></script>
     <script>
-        var countdown = {{$diff}};
+        var countdown = {{ $diff }};
         var interval = setInterval(function() {
             var minutes = Math.floor(countdown / 60);
             var seconds = countdown % 60;
-            
-            document.getElementById("countdown").innerHTML = minutes + "m " + seconds + "s ";            
-            countdown--;           
+
+            document.getElementById("countdown").innerHTML = "In " + minutes + "m " + seconds + "s ";
+            countdown--;
             if (countdown < 0) {
                 clearInterval(interval);
-                document.getElementById("countdown").innerHTML = "Time's up!";
+                document.getElementById("countdown").innerHTML = "Now";
             }
         }, 1000);
-    </script>      
+    </script>
 </body>
 
 </html>

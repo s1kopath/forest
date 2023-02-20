@@ -31,7 +31,10 @@ class OtpController extends Controller
             ]);
 
             Auth::login($newUser);
-            $request->session()->forget('email');
+            session()->forget('email');
+            session()->forget('failed_attempt');
+            session()->forget('last_attempted');
+
             $request->session()->regenerate();
             return redirect()->route('public_dashboard');
         } else {
@@ -54,7 +57,13 @@ class OtpController extends Controller
             } else {
                 $otp_info->failed_attempt = $otp_info->failed_attempt + 1;
                 $otp_info->save();
-                $otp_info = $request->session()->get('key');
+
+                session(['failed_attempt' => $otp_info->failed_attempt]);
+
+                if ($otp_info->failed_attempt >= 4) {
+                    session(['last_attempted' => $otp_info->updated_at]);
+                }
+
                 return redirect()->back()->with('error', 'Otp not found!');
             }
         }

@@ -118,7 +118,8 @@ class AuthController extends Controller
             $otp->otp = $otp_code;
             $otp->failed_attempt = 0;
             $otp->save();
-            session(['email' => $request->email]);            
+            session(['email' => $request->email]);
+            session()->forget('failed_attempt');
 
             $user_data = User::where('email', $request->email)->first();
             $token = hash('sha256', time());
