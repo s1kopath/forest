@@ -77,7 +77,7 @@
                                     <!-- login form begin -->
                                     <form class="uk-grid uk-form" action="{{ route('otp_verify') }}" method="POST">
                                         @csrf
-                                        @dd(session('is_suspended'))
+                                        {{-- @dd(session('is_suspended')) --}}
                                         <div class="uk-margin-small uk-width-1-1 uk-inline">
                                             <span class="uk-form-icon uk-form-icon-flip fas fa-user fa-sm"></span>
                                             <input class="uk-input uk-border-rounded" type="text"
