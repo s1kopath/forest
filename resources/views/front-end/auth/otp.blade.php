@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
-
+@php
+    
+    use Carbon\Carbon;
+    use App\Models\Otp;
+    $startTime = Carbon::now();
+    $endTime = $startTime->copy()->addMinutes(30);
+    $diff = $endTime->diffInSeconds($startTime); 
+@endphp
 <head>
     <!-- Meta tags -->
     <meta charset="utf-8">
@@ -70,40 +77,19 @@
                                     <!-- login form begin -->
                                     <form class="uk-grid uk-form" action="{{ route('otp_verify') }}" method="POST">
                                         @csrf
+                                        @dd(session('is_suspended'))
                                         <div class="uk-margin-small uk-width-1-1 uk-inline">
                                             <span class="uk-form-icon uk-form-icon-flip fas fa-user fa-sm"></span>
                                             <input class="uk-input uk-border-rounded" type="text"
                                                 placeholder="Enter Your Otp"class="form-control @error('otp') is-invalid @enderror" name="otp" required>
-                                                @error('otp')
-                                                  <div class="text-danger">{{ $message }}</div>
-                                                @enderror
+                                            <span id="countdown"></span>
+                                            @error('otp')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                             @if(session()->get('error'))
                                                 <div class="text-danger">{{ session()->get('error') }}</div>
                                             @endif
                                         </div>                                        
-                                        <div class="uk-margin-small uk-width-auto uk-text-small">
-                                            <label>
-                                                <input type="checkbox" value="" required>
-                                                <span class="text-inverse">
-                                                    I read and accept
-                                                    <a href="/">
-                                                        Terms &amp; Conditions.
-                                                    </a>
-                                                </span>
-                                            </label>
-                                        </div>
-
-                                        <div class="uk-margin-small uk-width-auto uk-text-small">
-                                            <label>
-                                                <input type="checkbox" value="">
-                                                <span class="text-inverse">
-                                                    Send me the
-                                                    <a href="/">Newsletter</a>
-                                                    weekly.
-                                                </span>
-                                            </label>
-                                        </div>
-
                                         {{-- @if (session('referer_id'))
                                             <span>
                                                 * Referer: {{ session('referer_name') }}
@@ -139,6 +125,20 @@
     <script src="{{ asset('front-end/js/vendors/uikit.min.js') }}"></script>
     <script src="{{ asset('front-end/js/utilities.min.js') }}"></script>
     <script src="{{ asset('front-end/js/config-theme.js') }}"></script>
+    <script>
+        var countdown = {{$diff}};
+        var interval = setInterval(function() {
+            var minutes = Math.floor(countdown / 60);
+            var seconds = countdown % 60;
+            
+            document.getElementById("countdown").innerHTML = minutes + "m " + seconds + "s ";            
+            countdown--;           
+            if (countdown < 0) {
+                clearInterval(interval);
+                document.getElementById("countdown").innerHTML = "Time's up!";
+            }
+        }, 1000);
+    </script>      
 </body>
 
 </html>

@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Otp;
 use App\Mail\WebsiteMail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class OtpController extends Controller
 {
@@ -53,6 +54,7 @@ class OtpController extends Controller
             } else {
                 $otp_info->failed_attempt = $otp_info->failed_attempt + 1;
                 $otp_info->save();
+                $otp_info = $request->session()->get('key');
                 return redirect()->back()->with('error', 'Otp not found!');
             }
         }

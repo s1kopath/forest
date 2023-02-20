@@ -118,7 +118,7 @@ class AuthController extends Controller
             $otp->otp = $otp_code;
             $otp->failed_attempt = 0;
             $otp->save();
-            session(['email' => $request->email]);
+            session(['email' => $request->email]);            
 
             $user_data = User::where('email', $request->email)->first();
             $token = hash('sha256', time());
@@ -131,8 +131,6 @@ class AuthController extends Controller
             } catch (\Throwable $th) {
                 return to_route('register')->with('error', 'You Have No Internet Connection');
             }
-
-            // \Mail::to(@$request->email)->send(new WebsiteMail('OTP Send', @$message));
             return redirect()->route('otp')->with('message', 'Please Check Your Email Address');
         } else {
             return view('front-end.auth.register');
@@ -149,7 +147,7 @@ class AuthController extends Controller
                 'referer_name' => $check->name
             ]);
         }
-        
+
         return redirect()->route('register');
     }
 
