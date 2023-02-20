@@ -66,13 +66,14 @@ class AuthController extends Controller
 
     public function verificationNotice()
     {
+       
         // Auth::logout();
-
         // session(['verification_notice' => 'Verify your email first.']);
 
-        return view('front-end.auth.login');
+        return view('front-end.auth.resend-otp');
     }
 
+  
     public function logout()
     {
         $user_type = auth()->user()->user_type;

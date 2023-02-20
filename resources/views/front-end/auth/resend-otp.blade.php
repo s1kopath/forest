@@ -60,7 +60,7 @@
                                             alt="logo" width="146" height="40" data-uk-img>
                                     </a>
                                     <p class="uk-text-lead uk-margin-small-top uk-margin-medium-bottom">
-                                        Log into your account
+                                        Verify Your Email Address
                                     </p>
 
                                     @if (session('error'))
@@ -75,23 +75,18 @@
                                             </div>
                                         @endforeach
                                     @endif
-                                    {{-- @if (session('verification_notice'))
+                                    @if (session('verification_notice'))
                                         <h3 class="alert bg-alert text-danger">
                                             {{ session('verification_notice') }}
                                         </h3>
-                                    @endif --}}
+                                    @endif
                                     <!-- login form begin -->
-                                    <form class="uk-grid uk-form" action="{{ route('auth_login') }}" method="POST">
+                                    <form class="uk-grid uk-form" action="#" method="POST">
                                         @csrf
                                         <div class="uk-margin-small uk-width-1-1 uk-inline">
                                             <span class="uk-form-icon uk-form-icon-flip fas fa-user fa-sm"></span>
-                                            <input class="uk-input uk-border-rounded" id="username" type="text"
-                                                placeholder="Enter Username or Email" name="login" required>
-                                        </div>
-                                        <div class="uk-margin-small uk-width-1-1 uk-inline">
-                                            <span class="uk-form-icon uk-form-icon-flip fas fa-lock fa-sm"></span>
-                                            <input class="uk-input uk-border-rounded" id="password" type="password"
-                                                placeholder="Enter Your Password" name="password" required>
+                                            <input class="uk-input uk-border-rounded" id="email" type="text"
+                                                placeholder="Enter Your Email" class="@error('email') is-invalid @enderror" name="email" required>
                                         </div>
                                         <div class="uk-margin-small uk-width-auto uk-text-small">
                                             <label>
@@ -110,7 +105,7 @@
                                         <div class="uk-margin-small uk-width-1-1">
                                             <button type="submit"
                                                 class="uk-button uk-width-1-1 uk-button-primary uk-border-rounded uk-float-left">
-                                                Sign in
+                                                Resend Otp
                                             </button>
                                         </div>
                                     </form>
