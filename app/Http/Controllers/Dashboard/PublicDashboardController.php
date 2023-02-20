@@ -19,7 +19,7 @@ class PublicDashboardController extends Controller
 
     public function publicProfile()
     {
-        return view('back-end.public-profile.profile');
+        return view('back-end.public.profile.profile');
     }
 
     public function history()

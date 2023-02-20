@@ -14,6 +14,6 @@ class FundController extends Controller
         $staking = StakingRoi::where('status', 1)->get();
         $wallet = Wallet::where('user_id', auth()->id())->first();
 
-        return view('back-end.public-fund.fund', compact('staking', 'wallet'));
+        return view('back-end.public.fund.fund', compact('staking', 'wallet'));
     }
 }
