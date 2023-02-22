@@ -40,7 +40,7 @@ Route::get('ref/{username}', [AuthController::class, 'registerWithRefer'])->name
 Route::get('otp', [OtpController::class, 'otpPublic'])->name('otp');
 Route::post('otp-verify', [OtpController::class, 'verify'])->name('otp_verify');
 Route::get('email/verify', [AuthController::class, 'verificationNotice'])->middleware('auth')->name('verification.notice');
-Route::post('otp-verify-again', [AuthController::class, 'verifyAgain'])->name('otp_verify_again');
+Route::get('resend-otp', [AuthController::class, 'resendOtp'])->name('resend_otp');
 
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
