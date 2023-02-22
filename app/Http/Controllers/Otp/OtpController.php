@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Otp;
 
-use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\Otp;
+
+use App\Models\User;
 use App\Mail\WebsiteMail;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\User\FundController;
 
 class OtpController extends Controller
 {
@@ -30,12 +31,15 @@ class OtpController extends Controller
                 'email_verified_at' => now()
             ]);
 
-            Auth::login($newUser);
             session()->forget('email');
             session()->forget('failed_attempt');
             session()->forget('last_attempted');
 
+            Auth::login($newUser);
             $request->session()->regenerate();
+
+            $fundController = new FundController();
+            $fundController->joiningBonus();
             return redirect()->route('public_dashboard');
         } else {
             if ($otp_info->failed_attempt > 3) {

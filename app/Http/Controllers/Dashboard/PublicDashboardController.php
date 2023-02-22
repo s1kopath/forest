@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\user\StakeController;
+use App\Http\Controllers\User\StakeController;
 use App\Models\UserStake;
 use App\Models\Wallet;
 use Illuminate\Http\Request;

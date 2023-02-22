@@ -14,7 +14,7 @@ class HomeController extends Controller
 
     public function test()
     {
-        dd(strtotime(now()) );
+        dd(strtotime(now()) , session('email'));
         return view('test');
         // return view('front-end.section.content.test');
     }

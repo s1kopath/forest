@@ -21,11 +21,32 @@ class FundController extends Controller
     public function deposit($amount)
     {
         $wallet = Wallet::where('user_id', auth()->id())->first();
-        $wallet->main_amount = $wallet->main_amount + $amount;
+        $wallet->main_amount += $amount;
         $wallet->withdrawable_amount += $amount;
 
         $wallet->save();
 
         return true;
+    }
+
+    public function joiningBonus()
+    {
+        $userWallet = Wallet::where('user_id', auth()->id())->first();
+
+        $userWallet->main_amount += 20;
+        $userWallet->bonus_amount += 20;
+
+        $userWallet->save();
+
+        if (auth()->user()->userToReferer) {
+            $refererWallet = Wallet::where('user_id', auth()->user()->userToReferer->id)->first();
+
+            $refererWallet->main_amount += 1;
+            $refererWallet->bonus_amount += 1;
+
+            $refererWallet->save();
+        }
+
+        return 1;
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\user\FundController;
+use App\Http\Controllers\User\FundController;
 use Stripe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;

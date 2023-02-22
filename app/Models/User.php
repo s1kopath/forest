@@ -15,4 +15,9 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $guarded = ['id'];
+
+    public function userToReferer()
+    {
+        return $this->belongsTo($this::class, 'referer_id', 'id');
+    }
 }

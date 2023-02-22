@@ -108,7 +108,7 @@ class AuthController extends Controller
                 'refer_code' => uniqid()
             ]);
 
-            Wallet::create([
+            $newWallet = Wallet::create([
                 'user_id' => $newUser->id,
             ]);
 
