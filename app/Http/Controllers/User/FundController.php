@@ -22,7 +22,7 @@ class FundController extends Controller
     {
         $wallet = Wallet::where('user_id', auth()->id())->first();
         $wallet->main_amount = $wallet->main_amount + $amount;
-        $wallet->withdrawable_amount = $wallet->withdrawable_amount + $amount;
+        $wallet->withdrawable_amount += $amount;
 
         $wallet->save();
 

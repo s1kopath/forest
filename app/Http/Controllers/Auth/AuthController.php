@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\SendEmailJob;
+use App\Jobs\TempOtpRemoverJob;
 use App\Models\User;
 use App\Models\Otp;
 use App\Models\Wallet;
@@ -111,8 +112,7 @@ class AuthController extends Controller
                 'user_id' => $newUser->id,
             ]);
 
-            $digits = 5;
-            $otp_code = rand(pow(10, $digits - 1), pow(10, $digits) - 1);
+            $otp_code = $this->otpGenerator();
 
             $otp = new Otp();
             $otp->email = $request->email;
@@ -126,11 +126,12 @@ class AuthController extends Controller
             $token = hash('sha256', time());
             $user_data->remember_token = $token;
             $user_data->update();
-            $message = 'This is your verify otp: ' . $otp_code;
+
+            $message = 'This is your verification code: ' . $otp_code;
 
             $details['email'] = $request->email;
             $details['message'] = $message;
-            $details['subject'] = 'OTP Send';
+            $details['subject'] = 'OTP Code';
 
             dispatch(new SendEmailJob($details));
 
@@ -140,28 +141,58 @@ class AuthController extends Controller
         }
     }
 
-    public function resendOtp()
-    {        
+    public function otpGenerator()
+    {
         $digits = 5;
-        $otp_code = rand(pow(10, $digits - 1), pow(10, $digits) - 1);
+        return rand(pow(10, $digits - 1), pow(10, $digits) - 1);
+    }
 
+    public function resendOtp()
+    {
         $otp = Otp::where('email', session('email'))->first();
-        $otp->otp = $otp_code;
-        $otp->failed_attempt = 0;
-        $otp->update();
 
-        $user_data = User::where('email', session('email'))->first();
-        $token = hash('sha256', time());
-        $user_data->remember_token = $token;
-        $user_data->update();
-        $message = 'This is your verify otp: ' . $otp_code;
+        if ($otp) {
+            $otp_code = $this->otpGenerator();
 
-        try {
-            \Mail::to(session('email'))->send(new WebsiteMail('OTP Send', $message));
-        } catch (\Throwable $th) {
-            return redirect()->back()->with('error', 'You Have No Internet Connection');
+
+            if ($otp->resent_count > 3) {
+
+                $otp->resent_count++;
+                $otp->save();
+
+                return back()->with('message', 'Too many attempts, please try again after sometimes.');
+            }
+
+            if ($otp->resent_count == 3) {
+                $otpDetails['id'] = $otp->id;
+
+                $otp->resent_count++;
+                $otp->save();
+
+                // user can resend again in 30min
+                dispatch(new TempOtpRemoverJob($otpDetails))->delay(1800);
+
+                return back()->with('message', 'Too many attempts, please try again after sometimes.');
+            }
+
+
+            $otp->otp = $otp_code;
+            $otp->failed_attempt = 0;
+            $otp->resent_count++;
+            $otp->save();
+
+            $message = 'This is your verification code: ' . $otp_code;
+
+            $details['email'] = session('email');
+            $details['message'] = $message;
+            $details['subject'] = 'OTP Code';
+
+            dispatch(new SendEmailJob($details));
+
+            return redirect()->back()->with('message', 'Your Otp successfully resend!');
+        } else {
+            return redirect()->route('register')->with('message', 'User not found!');
         }
-        return redirect()->back()->with('message', 'Your Otp is Resend');
     }
 
 

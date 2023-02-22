@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('failed_attempt');
             $table->integer('otp');
             $table->string('suspend_duration')->default(0);
+            $table->integer('resent_count')->default(0);
             $table->timestamps();
         });
     }

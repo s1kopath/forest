@@ -3,13 +3,13 @@
 @php
     use Carbon\Carbon;
     use App\Models\Otp;
-    
+
     $startTime = session('last_attempted') ?? Carbon::now();
-    
+
     $endTime = $startTime->copy()->addMinutes(30);
-    
+
     $diff = $endTime->diffInSeconds(now());
-    
+
 @endphp
 
 <head>
@@ -116,14 +116,20 @@
                                                 class="uk-button uk-width-1-1 uk-button-primary uk-border-rounded uk-float-left">
                                                 Verify Otp
                                             </button>
-                                            <div class="text-center mt-3">
-                                                <a href="{{ route('resend_otp') }}" class="underline"><u>Resend OTP Again</u></a>
-                                            </div>
                                         </div>
-                                    </form>                                   
+
+                                        <div class="text-center">
+                                            <a href="{{ route('resend_otp') }}">
+                                                <u class="mt-5">
+                                                    Resend OTP
+                                                </u>
+                                            </a>
+                                        </div>
+                                    </form>
                                     <div class="uk-margin-small uk-width-expand uk-text-small">
                                         <label class="uk-align-left">
-                                            Already have an account? <a href="{{ route('public_login') }}">
+                                            Already have an account?
+                                            <a href="{{ route('public_login') }}">
                                                 Login here
                                             </a>
                                         </label>
