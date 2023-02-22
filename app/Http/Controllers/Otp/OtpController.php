@@ -40,6 +40,7 @@ class OtpController extends Controller
 
             $fundController = new FundController();
             $fundController->joiningBonus();
+            
             return redirect()->route('public_dashboard');
         } else {
             if ($otp_info->failed_attempt > 3) {
