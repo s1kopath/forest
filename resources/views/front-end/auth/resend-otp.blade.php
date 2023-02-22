@@ -60,7 +60,7 @@
                                             alt="logo" width="146" height="40" data-uk-img>
                                     </a>
                                     <p class="uk-text-lead uk-margin-small-top uk-margin-medium-bottom">
-                                        Verify Your Email Address
+                                        Verify Your Email Address First
                                     </p>
 
                                     @if (session('error'))
@@ -85,8 +85,9 @@
                                         @csrf
                                         <div class="uk-margin-small uk-width-1-1 uk-inline">
                                             <span class="uk-form-icon uk-form-icon-flip fas fa-user fa-sm"></span>
-                                            <input class="uk-input uk-border-rounded" id="email" type="text"
-                                                placeholder="Enter Your Email" class="@error('email') is-invalid @enderror" name="email" required>
+                                            <input class="uk-input uk-border-rounded" type="text"
+                                                placeholder="Enter Your Otp"class="form-control @error('otp') is-invalid @enderror"
+                                                name="otp" required>
                                         </div>
                                         <div class="uk-margin-small uk-width-auto uk-text-small">
                                             <label>
@@ -95,17 +96,10 @@
                                                 Remember me
                                             </label>
                                         </div>
-                                        <div class="uk-margin-small uk-width-expand uk-text-small">
-                                            <label class="uk-align-right">
-                                                <a class="uk-link-reset" href="{{ route('forget_password') }}">
-                                                    Forgot password?
-                                                </a>
-                                            </label>
-                                        </div>
                                         <div class="uk-margin-small uk-width-1-1">
                                             <button type="submit"
                                                 class="uk-button uk-width-1-1 uk-button-primary uk-border-rounded uk-float-left">
-                                                Resend Otp
+                                                Verify Otp
                                             </button>
                                         </div>
                                     </form>
