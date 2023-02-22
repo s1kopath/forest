@@ -12,9 +12,10 @@ class HomeController extends Controller
         return view('front-end.index');
     }
 
-    public function homepage2()
+    public function test()
     {
-        return view('front-end.section.content.test');
+        return view('test');
+        // return view('front-end.section.content.test');
     }
 
     public function markets()

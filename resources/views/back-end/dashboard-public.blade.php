@@ -77,7 +77,7 @@
                             <i class="fas fa-database bg-dribbble text-white f-18"></i>
                         </div>
                         <div class="col">
-                            <h3 class="m-b-0 f-w-700 text-white">$????</h3>
+                            <h3 class="m-b-0 f-w-700 text-white">${{ $totalStake }}</h3>
                             <h6 class="m-b-5 text-white">Total Staking</h6>
                         </div>
                     </div>

@@ -11,9 +11,21 @@ class FundController extends Controller
 {
     public function fund()
     {
+        $user = auth()->user();
         $staking = StakingRoi::where('status', 1)->get();
         $wallet = Wallet::where('user_id', auth()->id())->first();
 
-        return view('back-end.public.fund.fund', compact('staking', 'wallet'));
+        return view('back-end.public.fund.fund', compact('staking', 'wallet', 'user'));
+    }
+
+    public function deposit($amount)
+    {
+        $wallet = Wallet::where('user_id', auth()->id())->first();
+        $wallet->main_amount = $wallet->main_amount + $amount;
+        $wallet->withdrawable_amount = $wallet->withdrawable_amount + $amount;
+
+        $wallet->save();
+
+        return true;
     }
 }

@@ -12,11 +12,12 @@ use App\Http\Controllers\User\FundController;
 use App\Http\Controllers\User\StakeController;
 use App\Http\Controllers\MonthlyContestController;
 use App\Http\Controllers\Otp\OtpController;
+use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\User\HomeController;
 
 
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
-Route::get('/v2', [HomeController::class, 'homepage2'])->name('homepage2');
+Route::get('/test', [HomeController::class, 'test'])->name('test');
 Route::get('markets', [HomeController::class, 'markets'])->name('markets');
 Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('blog', [HomeController::class, 'blog'])->name('blog');
@@ -94,4 +95,9 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::get('downloads', [PublicDashboardController::class, 'downloads'])->name('public_downloads');
         Route::get('become-an-ib', [PublicDashboardController::class, 'becomeAnIb'])->name('public_become_an_ib');
     });
+});
+
+Route::controller(StripePaymentController::class)->group(function () {
+    Route::get('stripe', 'stripe');
+    Route::post('stripe', 'stripePost')->name('stripe.post');
 });
