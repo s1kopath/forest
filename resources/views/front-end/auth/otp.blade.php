@@ -81,7 +81,6 @@
                                     <!-- login form begin -->
                                     <form class="uk-grid uk-form" action="{{ route('otp_verify') }}" method="POST">
                                         @csrf
-                                        {{-- @dd(session('is_suspended')) --}}
                                         <div class="uk-margin-small uk-width-1-1 uk-inline">
                                             <span class="uk-form-icon uk-form-icon-flip fas fa-user fa-sm"></span>
                                             <input class="uk-input uk-border-rounded" type="text"
@@ -105,7 +104,6 @@
                                                 @endif
                                             @endif
                                         </div>
-
                                         <div class="uk-margin-small uk-width-auto uk-text-small">
                                             <label>
                                                 <span class="text-inverse">
@@ -118,8 +116,11 @@
                                                 class="uk-button uk-width-1-1 uk-button-primary uk-border-rounded uk-float-left">
                                                 Verify Otp
                                             </button>
+                                            <div class="text-center mt-3">
+                                                <a href="{{ route('resend_otp') }}" class="underline"><u>Resend OTP Again</u></a>
+                                            </div>
                                         </div>
-                                    </form>
+                                    </form>                                   
                                     <div class="uk-margin-small uk-width-expand uk-text-small">
                                         <label class="uk-align-left">
                                             Already have an account? <a href="{{ route('public_login') }}">

@@ -70,8 +70,7 @@ class AuthController extends Controller
 
         // Auth::logout();
         // session(['verification_notice' => 'Verify your email first.']);
-
-        return view('front-end.auth.resend-otp');
+        return view('front-end.auth.login');
     }
 
 
@@ -140,6 +139,31 @@ class AuthController extends Controller
             return view('front-end.auth.register');
         }
     }
+
+    public function resendOtp()
+    {        
+        $digits = 5;
+        $otp_code = rand(pow(10, $digits - 1), pow(10, $digits) - 1);
+
+        $otp = Otp::where('email', session('email'))->first();
+        $otp->otp = $otp_code;
+        $otp->failed_attempt = 0;
+        $otp->update();
+
+        $user_data = User::where('email', session('email'))->first();
+        $token = hash('sha256', time());
+        $user_data->remember_token = $token;
+        $user_data->update();
+        $message = 'This is your verify otp: ' . $otp_code;
+
+        try {
+            \Mail::to(session('email'))->send(new WebsiteMail('OTP Send', $message));
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'You Have No Internet Connection');
+        }
+        return redirect()->back()->with('message', 'Your Otp is Resend');
+    }
+
 
     public function registerWithRefer($username)
     {

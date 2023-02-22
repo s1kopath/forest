@@ -52,7 +52,7 @@ class OtpController extends Controller
                     $otp_info->delete();
                     return redirect()->back()->with('success', 'You are now able to register again');
                 } else {
-                    return redirect()->back()->with('error', 'You are suspended for 30 minute'); //--kore dekhate hobe
+                    return redirect()->back()->with('error', 'You are suspended for 30 minute');
                 }
             } else {
                 $otp_info->failed_attempt = $otp_info->failed_attempt + 1;
