@@ -38,6 +38,6 @@ class StakeController extends Controller
         $wallet->main_amount = $wallet->main_amount - $request->amount;
         $wallet->save();
 
-        return back()->with('message', 'Successfully created.');
+        return redirect()->route('public_history')->with('message', 'Successfully created.');
     }
 }

@@ -200,32 +200,32 @@
                         </li>
                     </ul>
                     <ul class="pcoded-item pcoded-left-item">
-                        <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
-                            <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_history' ? 'active' : '' }}">
+                            <a href="{{ route('public_history') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-micon"><i class="fas fa-history"></i></span>
                                 <span class="pcoded-mtext">History</span>
                             </a>
                         </li>
                     </ul>
                     <ul class="pcoded-item pcoded-left-item">
-                        <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
-                            <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_referrals' ? 'active' : '' }}">
+                            <a href="{{ route('public_referrals') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-micon"><i class="fa fa-users"></i></span>
                                 <span class="pcoded-mtext">Referrals</span>
                             </a>
                         </li>
                     </ul>
                     <ul class="pcoded-item pcoded-left-item">
-                        <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
-                            <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_downloads' ? 'active' : '' }}">
+                            <a href="{{ route('public_downloads') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-micon"><i class="fas fa-cloud-download-alt"></i></span>
                                 <span class="pcoded-mtext">Downloads</span>
                             </a>
                         </li>
                     </ul>
                     <ul class="pcoded-item pcoded-left-item">
-                        <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
-                            <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_become_an_ib' ? 'active' : '' }}">
+                            <a href="{{ route('public_become_an_ib') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-micon"><i class="fa fa-paw"></i></span>
                                 <span class="pcoded-mtext">Become an IB</span>
                             </a>

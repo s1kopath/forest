@@ -1,0 +1,52 @@
+@extends('back-end.layouts.app')
+@extends('back-end.layouts.left-sidebar')
+
+@push('css')
+@endpush
+
+@section('page-content')
+    <div class="card">
+        <div class="card-header bg-info">
+            <h2 class="text-center">History</h5>
+        </div>
+        <div class="card-block">
+            <div class="table-responsive">
+                <table class="table table-framed">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Amount</th>
+                            <th>Percentage</th>
+                            <th>Duration</th>
+                            <th>Per Month</th>
+                            <th>Completed</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Next Payout</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($stakes as $key => $stake)
+                            <tr>
+                                <th scope="row">{{ $key + 1 }}</th>
+                                <td>{{ $stake->amount }}$</td>
+                                <td>{{ $stake->percentage }}%</td>
+                                <td>{{ $stake->duration }} Months</td>
+                                <td>{{ $stake->amount_per_month }}$</td>
+                                <td>{{ $stake->completed }} Months</td>
+                                <td>{{ $stake->start_date }}</td>
+                                <td>{{ $stake->end_date }}</td>
+                                <td>{{ $stake->next_payout }}</td>
+                                <td>{{ $stake->status ? ($stake->status == 2 ? 'Completed' : 'Active') : 'Pending' }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+@endsection
+
+@push('js')
+@endpush

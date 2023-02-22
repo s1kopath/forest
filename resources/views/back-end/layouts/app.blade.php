@@ -21,6 +21,15 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('back-end/assets/icon/feather/css/feather.css') }}">
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('back-end/assets/icon/themify-icons/themify-icons.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('back-end/assets/icon/icofont/css/icofont.css') }}">
+
+    <link rel="stylesheet" type="text/css"
+        href="{{ asset('back-end/assets/icon/font-awesome/css/font-awesome.min.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('back-end/bower_components/jstree/css/style.min.css') }}">
+
     <link rel="stylesheet" type="text/css" href="{{ asset('back-end/assets/css/font-awesome-n.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('back-end/bower_components/chartist/css/chartist.css') }}" type="text/css"
@@ -421,6 +430,14 @@
     <script src="{{ asset('back-end/assets/js/switchery.min.js') }}" referrerpolicy="no-referrer"></script>
 
     <script src="{{ asset('back-end/assets/pages/file-upload/dropzone-amd-module.min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('back-end/bower_components/modernizr/js/modernizr.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('back-end/bower_components/modernizr/js/css-scrollbars.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('back-end/bower_components/jstree/js/jstree.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('back-end/assets/pages/treeview/jquery.tree.js') }}"></script>
+    <script src="{{ asset('back-end/assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('back-end/assets/js/script.js') }}"></script>
 
     @stack('js')
 </body>
