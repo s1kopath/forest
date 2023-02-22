@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendEmailJob;
 use App\Models\User;
 use App\Models\Otp;
 use App\Models\Wallet;
+use Carbon\Carbon;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Mail\WebsiteMail;
 
 class AuthController extends Controller
 {
@@ -66,14 +67,14 @@ class AuthController extends Controller
 
     public function verificationNotice()
     {
-       
+
         // Auth::logout();
         // session(['verification_notice' => 'Verify your email first.']);
 
         return view('front-end.auth.resend-otp');
     }
 
-  
+
     public function logout()
     {
         $user_type = auth()->user()->user_type;
@@ -128,11 +129,12 @@ class AuthController extends Controller
             $user_data->update();
             $message = 'This is your verify otp: ' . $otp_code;
 
-            try {
-                \Mail::to($request->email)->send(new WebsiteMail('OTP Send', $message));
-            } catch (\Throwable $th) {
-                return to_route('register')->with('error', 'You Have No Internet Connection');
-            }
+            $details['email'] = $request->email;
+            $details['message'] = $message;
+            $details['subject'] = 'OTP Send';
+
+            dispatch(new SendEmailJob($details));
+
             return redirect()->route('otp')->with('message', 'Please Check Your Email Address');
         } else {
             return view('front-end.auth.register');
