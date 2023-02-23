@@ -68,12 +68,11 @@ class AuthController extends Controller
 
     public function verificationNotice()
     {
-
         // Auth::logout();
         // session(['verification_notice' => 'Verify your email first.']);
-        return view('front-end.auth.login');
+        // return view('front-end.auth.login');
+        return redirect()->route('otp');
     }
-
 
     public function logout()
     {
@@ -112,7 +111,7 @@ class AuthController extends Controller
                 'user_id' => $newUser->id,
             ]);
 
-            $otp_code = $this->otpGenerator();
+            $otp_code = otp_generator();
 
             $otp = new Otp();
             $otp->email = $request->email;
@@ -141,19 +140,12 @@ class AuthController extends Controller
         }
     }
 
-    public function otpGenerator()
-    {
-        $digits = 5;
-        return rand(pow(10, $digits - 1), pow(10, $digits) - 1);
-    }
-
     public function resendOtp()
     {
         $otp = Otp::where('email', session('email'))->first();
 
         if ($otp) {
-            $otp_code = $this->otpGenerator();
-
+            $otp_code = otp_generator();
 
             if ($otp->resent_count > 3) {
 

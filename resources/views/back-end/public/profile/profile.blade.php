@@ -38,19 +38,19 @@
                             <div class="form-group row m-0">
                                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                                 <div class="col-sm-10">
-                                    : jenifer Lofez
+                                    : {{ $user->name }}
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="username" class="col-sm-2 col-form-label">Username</label>
                                 <div class="col-sm-10">
-                                    : jennifer001
+                                    : {{ $user->username }}
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
-                                    : abcd@hotemail.com
+                                    : {{ $user->email }}
                                 </div>
                             </div>
                             <div class="form-group row m-0">

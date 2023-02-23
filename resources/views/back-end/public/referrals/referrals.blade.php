@@ -14,52 +14,22 @@
             <div class="card-block tree-view">
                 <div id="basicTree">
                     <ul>
-                        <li>Admin
-                            <ul>
-                                <li data-jstree='{"opened":true}'>Assets
-                                    <ul>
-                                        <li data-jstree='{"type":"file"}'>
-                                            Css</li>
-                                        <li data-jstree='{"opened":true}'>
-                                            Plugins
-                                            <ul>
-                                                <li data-jstree='{"selected":true,"type":"file"}'>
-                                                    Plugin one</li>
-                                                <li data-jstree='{"type":"file"}'>
-                                                    Plugin two</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li data-jstree='{"opened":true}'>Email
-                                    Template
-                                    <ul>
-                                        <li data-jstree='{"type":"file"}'>
-                                            Email one</li>
-                                        <li data-jstree='{"type":"file"}'>
-                                            Email two</li>
-                                    </ul>
-                                </li>
-                                <li data-jstree='{"icon":"zmdi zmdi-view-dashboard"}'>
-                                    Dashboard</li>
-                                <li data-jstree='{"icon":"zmdi zmdi-format-underlined"}'>
-                                    Typography</li>
-                                <li data-jstree='{"opened":true}'>User
-                                    Interface
-                                    <ul>
-                                        <li data-jstree='{"type":"file"}'>
-                                            Buttons</li>
-                                        <li data-jstree='{"type":"file"}'>
-                                            Cards</li>
-                                    </ul>
-                                </li>
-                                <li data-jstree='{"icon":"zmdi zmdi-collection-text"}'>
-                                    Forms</li>
-                                <li data-jstree='{"icon":"zmdi zmdi-view-list"}'>
-                                    Tables</li>
-                            </ul>
-                        </li>
-                        <li data-jstree='{"type":"file"}'>Frontend</li>
+                        @if ($user->children)
+                            @foreach ($user->children as $child)
+                                @if (count($child->children) > 0)
+                                    <li data-jstree='{"opened":true}'>
+                                        {{ $child->name }} - {{ $child->email }}
+                                        <ul>
+                                            <x-children :children="$child->children" />
+                                        </ul>
+                                    </li>
+                                @else
+                                    <li data-jstree='{"type":"file"}'>
+                                        {{ $child->name }} - {{ $child->email }}
+                                    </li>
+                                @endif
+                            @endforeach
+                        @endif
                     </ul>
                 </div>
             </div>

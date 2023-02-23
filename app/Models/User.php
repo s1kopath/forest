@@ -20,4 +20,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsTo($this::class, 'referer_id', 'id');
     }
+
+    public function children()
+    {
+        return $this->hasMany($this::class, 'referer_id');
+    }
 }

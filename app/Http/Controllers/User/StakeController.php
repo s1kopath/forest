@@ -35,6 +35,7 @@ class StakeController extends Controller
             'end_date' => now()->addMonths($staking->duration),
             'next_payout' => now()->addMonth(),
         ]);
+        
         $wallet->main_amount = $wallet->main_amount - $request->amount;
         $wallet->save();
 

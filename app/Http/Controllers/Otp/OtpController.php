@@ -40,7 +40,8 @@ class OtpController extends Controller
 
             $fundController = new FundController();
             $fundController->joiningBonus();
-            
+            $otp_info->delete();
+
             return redirect()->route('public_dashboard');
         } else {
             if ($otp_info->failed_attempt > 3) {
@@ -48,14 +49,17 @@ class OtpController extends Controller
                 if ($otp_info->suspend_duration < 1) {
                     $endTime = strtotime(date("H:i", strtotime('+30 minutes', $time)));
                     $otp_info->suspend_duration = $endTime;
-                    $otp_info->otp = 0;
+                    $otp_info->otp = otp_generator();
                     $otp_info->save();
+
                     return redirect()->back()->with('error', 'You are suspended for 30 minute');
                 } else if ($time > $otp_info->suspend_duration) {
+
                     $newUser = User::where('email', $otp_info->email)->first();
                     $newUser->delete();
                     $otp_info->delete();
-                    return redirect()->back()->with('success', 'You are now able to register again');
+
+                    return redirect()->route('register')->with('success', 'You are now able to register again');
                 } else {
                     return redirect()->back()->with('error', 'You are suspended for 30 minute');
                 }

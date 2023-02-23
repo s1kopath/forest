@@ -136,7 +136,7 @@
                         </li>
                     </ul>
                     {{-- <div class="pcoded-navigation-label">Forms</div>
-                 <ul class="pcoded-item pcoded-left-item">
+                    <ul class="pcoded-item pcoded-left-item">
                     <li class="pcoded-hasmenu">
                         <a href="javascript:void(0)" class="waves-effect waves-dark">
                             <span class="pcoded-micon">
@@ -175,6 +175,20 @@
         <nav class="pcoded-navbar">
             <div class="nav-list">
                 <div class="pcoded-inner-navbar main-menu">
+                    <div class="d-flex justify-content-between">
+                        <div class="col-4">
+                            <img class="img-fluid rounded-lg shadow"
+                                src="{{ asset('back-end/assets/images/avatar-4.jpg') }}" alt="forest">
+                        </div>
+                        <div class="col-8 text-white" style="overflow-wrap: break-word">
+                            <span class="font-weight-bold">Hello, {{ auth()->user()->username }}</span>
+                            <br>
+                            <small>{{ auth()->user()->email }}</small>
+                            <br>
+                            <span class="font-weight-bold text-primary">Verified Account</span>
+
+                        </div>
+                    </div>
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
                             <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">

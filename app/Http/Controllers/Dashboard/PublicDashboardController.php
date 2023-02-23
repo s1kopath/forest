@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\User\StakeController;
+use App\Models\User;
 use App\Models\UserStake;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
@@ -20,7 +21,8 @@ class PublicDashboardController extends Controller
 
     public function publicProfile()
     {
-        return view('back-end.public.profile.profile');
+        $user = auth()->user();
+        return view('back-end.public.profile.profile', compact('user'));
     }
 
     public function history()
@@ -36,7 +38,8 @@ class PublicDashboardController extends Controller
 
     public function referrals()
     {
-        return view('back-end.public.referrals.referrals');
+        $user = User::with('children')->find(auth()->user())->first();
+        return view('back-end.public.referrals.referrals', compact('user'));
     }
 
     public function becomeAnIb()

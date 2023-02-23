@@ -65,7 +65,7 @@
             <nav class="navbar header-navbar pcoded-header">
                 <div class="navbar-wrapper">
                     <div class="navbar-logo">
-                        <a href="">
+                        <a href="/">
                             <img class="img-fluid w-50" src="{{ asset('back-end/img/WF.png') }}" alt="logo">
                         </a>
                         <a class="mobile-menu" id="mobile-collapse" href="#!">
@@ -230,8 +230,7 @@
                                     data-status="online" data-username="Josephin Doe">
                                     <a class="media-left" href="#!">
                                         <img class="media-object img-radius img-radius"
-                                            src="{{ asset('back-end/assets/images/avatar-4.jpg') }}"
-                                            alt="Generic placeholder image ">
+                                            src="{{ asset('back-end/assets/images/avatar-4.jpg') }}" alt="forest">
                                         <div class="live-status bg-success"></div>
                                     </a>
                                     <div class="media-body">

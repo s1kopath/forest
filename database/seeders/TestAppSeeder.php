@@ -39,11 +39,85 @@ class TestAppSeeder extends Seeder
         ]);
         Wallet::create([
             'user_id' => $newUser->id,
-            'main_amount' => 500000.00,
-            'bonus_amount' => 200.00,
+            'main_amount' => 500002.00,
+            'bonus_amount' => 202.00,
             'withdrawable_amount' => 499800.00,
-            'total_earning' => 0.00,
+            'total_earning' => 22.00,
         ]);
+
+        $newUser1 = User::create([
+            'name' => 'Nero Henderson',
+            'username' => 'kecabu',
+            'email' => 'hyguruxodu@mailinator.com',
+            'password' => bcrypt('hyguruxodu@mailinator.com'),
+            'user_type' => 'public',
+            'refer_code' => uniqid(),
+            'email_verified_at' => now(),
+            'referer_id' => $newUser->id
+        ]);
+        Wallet::create([
+            'user_id' => $newUser1->id,
+            'main_amount' => 20,
+            'bonus_amount' => 20,
+            'withdrawable_amount' => 0,
+            'total_earning' => 0,
+        ]);
+
+        $newUser2 = User::create([
+            'name' => 'Dieter Stephenson',
+            'username' => 'zipynysoz',
+            'email' => 'capemynyx@mailinator.com',
+            'password' => bcrypt('capemynyx@mailinator.com'),
+            'user_type' => 'public',
+            'refer_code' => uniqid(),
+            'email_verified_at' => now(),
+            'referer_id' => $newUser->id
+        ]);
+        Wallet::create([
+            'user_id' => $newUser2->id,
+            'main_amount' => 22,
+            'bonus_amount' => 22,
+            'withdrawable_amount' => 0,
+            'total_earning' => 0,
+        ]);
+
+        $newUser3 = User::create([
+            'name' => 'Abel Soto',
+            'username' => 'hojyziboge',
+            'email' => 'cetulewu@mailinator.com',
+            'password' => bcrypt('cetulewu@mailinator.com'),
+            'user_type' => 'public',
+            'refer_code' => uniqid(),
+            'email_verified_at' => now(),
+            'referer_id' => $newUser2->id
+        ]);
+        Wallet::create([
+            'user_id' => $newUser3->id,
+            'main_amount' => 20,
+            'bonus_amount' => 20,
+            'withdrawable_amount' => 0,
+            'total_earning' => 0,
+        ]);
+
+        $newUser4 = User::create([
+            'name' => 'Kay Juarez',
+            'username' => 'fesydybox',
+            'email' => 'mawyfigi@mailinator.com',
+            'password' => bcrypt('mawyfigi@mailinator.com'),
+            'user_type' => 'public',
+            'refer_code' => uniqid(),
+            'email_verified_at' => now(),
+            'referer_id' => $newUser2->id
+        ]);
+        Wallet::create([
+            'user_id' => $newUser4->id,
+            'main_amount' => 20,
+            'bonus_amount' => 20,
+            'withdrawable_amount' => 0,
+            'total_earning' => 0,
+        ]);
+
+
 
         // demo user stake
         $staking1 = StakingRoi::find(2);

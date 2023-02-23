@@ -299,7 +299,7 @@
                     </div>
                     <div class="tab-pane" id="staking" role="tabpanel">
                         <h3 class="text-primary font-weight-bold text-center">
-                            <span>My Wallet: $ {{ $wallet->main_amount }}</span>
+                            <span>My Wallet: $ {{ $wallet->main_amount }} ({{ $wallet->bonus_amount }})</span>
                         </h3>
                         <form action="{{ route('stake') }}" method="post" role="form" id="stakeForm">
                             @csrf
