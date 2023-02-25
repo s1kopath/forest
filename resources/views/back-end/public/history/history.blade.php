@@ -10,6 +10,7 @@
         .btn:focus {
             background: linear-gradient(#152B40, #152B40);
         }
+
     </style>
 @endpush
 
@@ -19,7 +20,7 @@
             <h2 class="text-center">History</h5>
         </div>
         <div class="card-block mt-4">
-            <button type="button" id="myDIV"class="btn btn-success">Deposit</button>
+            <button type="button" class="btn btn-success">Deposit</button>
             <button type="button" class="btn btn-success">Withdraw</button>
             <button type="button" class="btn btn-success">Invitation Gift</button>
             <button type="button" class="btn btn-success">Stacking ROI</button>
@@ -69,17 +70,6 @@
 
 @push('js')
     <script>
-        // var header = document.getElementById("myDIV");
-        // var btns = header.getElementsByClassName("hover-select");
-        // for (var i = 0; i < btns.length; i++) {
-        //     btns[i].addEventListener("click", function() {
-        //         var current = document.getElementsByClassName("hover-select-active");
-        //         if (current.length > 0) {
-        //             current[0].className = current[0].className.replace(" hover-select-active", "");
-        //         }
-        //         this.className += " hover-select-active";
-        //     });
-        // // }
         function focusMe(button) {
             document.getElementsByClassName("button-selected")[0].className = "";
             button.className = "button-selected";
