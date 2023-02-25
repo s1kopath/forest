@@ -11,27 +11,47 @@
             <h2 class="text-center">Referrals</h5>
         </div>
         <div class="card-block">
-            <div class="card-block tree-view">
-                <div id="basicTree">
-                    <ul>
-                        @if ($user->children)
-                            @foreach ($user->children as $child)
-                                @if (count($child->children) > 0)
-                                    <li data-jstree='{"opened":true}'>
-                                        {{ $child->name }} - {{ $child->email }}
-                                        <ul>
-                                            <x-children :children="$child->children" />
-                                        </ul>
-                                    </li>
-                                @else
-                                    <li data-jstree='{"type":"file"}'>
-                                        {{ $child->name }} - {{ $child->email }}
-                                    </li>
-                                @endif
-                            @endforeach
-                        @endif
-                    </ul>
+            <h4 class="font-weight-bold">Thank you for joining our Referral program</h4>
+            <h5>Below you can find the number of registration and funded accounts</h5>
+        </div>
+        <div class="card-block">
+            <h3 class="font-weight-bold">Referral Link</h3>
+            <h5>https://www.facebook.com <i class="fa fa-sticky-note"></i></h5>
+        </div>
+        <div class="card-block">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <h4 class="font-weight-bold">1</h4>
+                        <h3 class="font-weight-bold">Registration</h3>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h4 class="font-weight-bold">4</h4>
+                        <h3 class="font-weight-bold">Active</h3>
+                    </div>
                 </div>
+            <div class="table-responsive mt-4">
+                <table class="table table-framed">
+                    <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>User ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Position</th>
+                            <th>Funding</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Came 02</td>
+                            <td>Months</td>
+                            <td>April</td>
+                            <td>Doller</td>
+                            <td>House</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

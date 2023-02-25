@@ -95,9 +95,11 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::get('downloads', [PublicDashboardController::class, 'downloads'])->name('public_downloads');
         Route::get('become-an-ib', [PublicDashboardController::class, 'becomeAnIb'])->name('public_become_an_ib');
     });
+    
 });
 
 Route::controller(StripePaymentController::class)->group(function () {
     Route::get('stripe', 'stripe');
     Route::post('stripe', 'stripePost')->name('stripe.post');
+
 });
