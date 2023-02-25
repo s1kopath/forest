@@ -16,7 +16,11 @@
         </div>
         <div class="card-block">
             <h3 class="font-weight-bold">Referral Link</h3>
-            <h5>https://www.facebook.com <i class="fa fa-sticky-note"></i></h5>
+            <h5>https://www.facebook.com</h5>
+            <button type="button" class="btn btn-primary rounded-pill mb-3 mt-4">
+                <i class="far fa-copy"></i>
+                Copy
+            </button>
         </div>
         <div class="card-block">
                 <div class="row">

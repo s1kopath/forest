@@ -2,6 +2,15 @@
 @extends('back-end.layouts.left-sidebar')
 
 @push('css')
+    <style>
+        .btn:hover {
+            background: linear-gradient(#152B40, #152B40);
+        }
+
+        .btn:focus {
+            background: linear-gradient(#152B40, #152B40);
+        }
+    </style>
 @endpush
 
 @section('page-content')
@@ -9,57 +18,15 @@
         <div class="card-header bg-info">
             <h2 class="text-center">History</h5>
         </div>
-        <div class="card-block row justify-content-center">
-            <div class="">
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                    <label class="form-check-label font-weight-bold" for="exampleRadios1">
-                        Deposit
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label font-weight-bold" for="exampleRadios2">
-                        Withdraw 
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                    <label class="form-check-label font-weight-bold" for="exampleRadios3">
-                        Invitation Gift 
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-                    <label class="form-check-label font-weight-bold" for="exampleRadios4">
-                        Stacking ROI 
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
-                    <label class="form-check-label font-weight-bold" for="exampleRadios5">
-                        IB Royality 
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-                    <label class="form-check-label font-weight-bold" for="exampleRadios6">
-                        Rewards 
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios7" value="option7">
-                    <label class="form-check-label font-weight-bold" for="exampleRadios7">
-                    Transaction 
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios8" value="option8">
-                    <label class="form-check-label font-weight-bold" for="exampleRadios8">
-                        Context 
-                    </label>
-                </div>
-            </div>
+        <div class="card-block mt-4">
+            <button type="button" id="myDIV"class="btn btn-success">Deposit</button>
+            <button type="button" class="btn btn-success">Withdraw</button>
+            <button type="button" class="btn btn-success">Invitation Gift</button>
+            <button type="button" class="btn btn-success">Stacking ROI</button>
+            <button type="button" class="btn btn-success">IB Royality</button>
+            <button type="button" class="btn btn-success">Rewards</button>
+            <button type="button" class="btn btn-success">Transaction</button>
+            <button type="button" class="btn btn-success">Contest</button>
         </div>
         <div class="card-block">
             <div class="table-responsive">
@@ -101,4 +68,21 @@
 @endsection
 
 @push('js')
+    <script>
+        // var header = document.getElementById("myDIV");
+        // var btns = header.getElementsByClassName("hover-select");
+        // for (var i = 0; i < btns.length; i++) {
+        //     btns[i].addEventListener("click", function() {
+        //         var current = document.getElementsByClassName("hover-select-active");
+        //         if (current.length > 0) {
+        //             current[0].className = current[0].className.replace(" hover-select-active", "");
+        //         }
+        //         this.className += " hover-select-active";
+        //     });
+        // // }
+        function focusMe(button) {
+            document.getElementsByClassName("button-selected")[0].className = "";
+            button.className = "button-selected";
+        }
+    </script>
 @endpush
