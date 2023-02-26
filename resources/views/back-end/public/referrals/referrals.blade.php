@@ -92,8 +92,8 @@
                                     {{ $child->name }} - {{ $child->email }} - 1
                                 </li>
                             @endif
-                        @endforeach --}}
-                    @endif
+                        @endforeach
+                    @endif--}}
                 </ul>
             </div>
         </div>
@@ -118,7 +118,7 @@
                 </div>
             <div class="table-responsive mt-4">
                 <table class="table table-framed">
-                    <thead>                   
+                    <thead>
                         <tr>
                             <th>SL</th>
                             <th>User ID</th>
