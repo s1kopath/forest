@@ -13,7 +13,7 @@ class PublicDashboardController extends Controller
 {
     public function publicDashboard()
     {
-        
+
         $wallet = Wallet::where('user_id', auth()->id())->first();
         $totalStake = UserStake::where('user_id', auth()->id())->sum('amount');
 
@@ -39,7 +39,7 @@ class PublicDashboardController extends Controller
 
     public function referrals()
     {
-        $user = User::with('children')->find(auth()->user())->first();
+        $user = User::with('children')->where('id', auth()->id())->first();
         return view('back-end.public.referrals.referrals', compact('user'));
     }
 
