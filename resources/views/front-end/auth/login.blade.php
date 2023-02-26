@@ -75,7 +75,11 @@
                                             </div>
                                         @endforeach
                                     @endif
-
+                                    {{-- @if (session('verification_notice'))
+                                        <h3 class="alert bg-alert text-danger">
+                                            {{ session('verification_notice') }}
+                                        </h3>
+                                    @endif --}}
                                     <!-- login form begin -->
                                     <form class="uk-grid uk-form" action="{{ route('auth_login') }}" method="POST">
                                         @csrf

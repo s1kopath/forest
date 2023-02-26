@@ -77,7 +77,7 @@
                             <i class="fas fa-database bg-dribbble text-white f-18"></i>
                         </div>
                         <div class="col">
-                            <h3 class="m-b-0 f-w-700 text-white">$????</h3>
+                            <h3 class="m-b-0 f-w-700 text-white">${{ $totalStake }}</h3>
                             <h6 class="m-b-5 text-white">Total Staking</h6>
                         </div>
                     </div>
@@ -117,30 +117,34 @@
 
         <div class="col-md-12">
             <div class="d-card bg-white rounded mt-3">
-                {{-- <fieldset class="text-center m-3" style="border: 2px solid #060606;">
-                    <legend style="width: 50%;">Invite Link</legend>
-                    <p>
-                        You need to verify your account.
-                    </p>
-                    <a href="#" class="btn btn-primary rounded-pill mb-3">
-                        Verify
-                    </a>
-                </fieldset> --}}
-                <fieldset class="text-center m-3" style="border: 2px solid #060606;">
-                    <legend style="width: 50%;">Invite Link</legend>
-                    <p id="referral-link">
-                        {{ env('APP_URL') . '/ref/' . auth()->user()->username }}
-                    </p>
+                @if (auth()->user()->is_verified)
+                    <fieldset class="text-center m-3" style="border: 2px solid #060606;">
+                        <legend style="width: 50%;">Invite Link</legend>
+                        <p id="referral-link">
+                            {{ env('APP_URL') . '/ref/' . auth()->user()->username }}
+                        </p>
 
-                    <button type="button" class="btn btn-primary rounded-pill mb-3" onclick="myFunction()">
-                        <i class="far fa-copy"></i>
-                        Copy
-                    </button>
-                    <a href="#" class="btn btn-primary rounded-pill mb-3">
-                        <i class="fas fa-share-alt"></i>
-                        Share
-                    </a>
-                </fieldset>
+                        <button type="button" class="btn btn-primary rounded-pill mb-3" onclick="myFunction()">
+                            <i class="far fa-copy"></i>
+                            Copy
+                        </button>
+                        <a href="#" class="btn btn-primary rounded-pill mb-3">
+                            <i class="fas fa-share-alt"></i>
+                            Share
+                        </a>
+                    </fieldset>
+                @else
+                    <fieldset class="text-center m-3" style="border: 2px solid #060606;">
+                        <legend style="width: 50%;">Invite Link</legend>
+                        <p>
+                            You need to verify your account.
+                        </p>
+                        <a href="{{ route('public_profile') }}" class="btn btn-primary rounded-pill mb-3">
+                            Verify
+                        </a>
+                    </fieldset>
+                @endif
+
                 <div class="pt-1">
                 </div>
             </div>

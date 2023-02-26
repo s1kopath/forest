@@ -20,6 +20,14 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu {{ $route_name == 'manage_users' ? 'active' : '' }}">
+                            <a href="{{ route('manage_users') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                <span class="pcoded-mtext">Users</span>
+                            </a>
+                        </li>
+                    </ul>
                     <div class="pcoded-navigation-label">ROI</div>
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu {{ $lastElement == 'rois' ? 'active pcoded-trigger' : '' }}">
@@ -136,7 +144,7 @@
                         </li>
                     </ul>
                     {{-- <div class="pcoded-navigation-label">Forms</div>
-                 <ul class="pcoded-item pcoded-left-item">
+                    <ul class="pcoded-item pcoded-left-item">
                     <li class="pcoded-hasmenu">
                         <a href="javascript:void(0)" class="waves-effect waves-dark">
                             <span class="pcoded-micon">
@@ -175,6 +183,20 @@
         <nav class="pcoded-navbar">
             <div class="nav-list">
                 <div class="pcoded-inner-navbar main-menu">
+                    <div class="d-flex justify-content-between">
+                        <div class="col-4">
+                            <img class="img-fluid rounded-lg shadow"
+                                src="{{ asset('back-end/assets/images/avatar-4.jpg') }}" alt="forest">
+                        </div>
+                        <div class="col-8 text-white" style="overflow-wrap: break-word">
+                            <span class="font-weight-bold">Hello, {{ auth()->user()->username }}</span>
+                            <br>
+                            <small>{{ auth()->user()->email }}</small>
+                            <br>
+                            <span class="font-weight-bold text-primary">Verified Account</span>
+
+                        </div>
+                    </div>
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
                             <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
@@ -200,32 +222,32 @@
                         </li>
                     </ul>
                     <ul class="pcoded-item pcoded-left-item">
-                        <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
-                            <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_history' ? 'active' : '' }}">
+                            <a href="{{ route('public_history') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-micon"><i class="fas fa-history"></i></span>
                                 <span class="pcoded-mtext">History</span>
                             </a>
                         </li>
                     </ul>
                     <ul class="pcoded-item pcoded-left-item">
-                        <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
-                            <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_referrals' ? 'active' : '' }}">
+                            <a href="{{ route('public_referrals') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-micon"><i class="fa fa-users"></i></span>
                                 <span class="pcoded-mtext">Referrals</span>
                             </a>
                         </li>
                     </ul>
                     <ul class="pcoded-item pcoded-left-item">
-                        <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
-                            <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_downloads' ? 'active' : '' }}">
+                            <a href="{{ route('public_downloads') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-micon"><i class="fas fa-cloud-download-alt"></i></span>
                                 <span class="pcoded-mtext">Downloads</span>
                             </a>
                         </li>
                     </ul>
                     <ul class="pcoded-item pcoded-left-item">
-                        <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
-                            <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
+                        <li class="pcoded-hasmenu {{ $route_name == 'public_become_an_ib' ? 'active' : '' }}">
+                            <a href="{{ route('public_become_an_ib') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-micon"><i class="fa fa-paw"></i></span>
                                 <span class="pcoded-mtext">Become an IB</span>
                             </a>
