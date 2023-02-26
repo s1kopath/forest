@@ -14,9 +14,96 @@
             <h4 class="font-weight-bold">Thank you for joining our Referral program</h4>
             <h5>Below you can find the number of registration and funded accounts</h5>
         </div>
+        <div class="card-block tree-view">
+            <div id="basicTree">
+                <ul>
+                    {{-- <li>Admin
+                        <ul>
+                            <li data-jstree='{"opened":true}'>Assets
+                                <ul>
+                                    <li data-jstree='{"type":"file"}'>
+                                        Css</li>
+                                    <li data-jstree='{"opened":true}'>
+                                        Plugins
+                                        <ul>
+                                            <li data-jstree='{"selected":true,"type":"file"}'>
+                                                Plugin one</li>
+                                            <li data-jstree='{"type":"file"}'>
+                                                Plugin two</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li data-jstree='{"opened":true}'>Email
+                                Template
+                                <ul>
+                                    <li data-jstree='{"type":"file"}'>
+                                        Email one</li>
+                                    <li data-jstree='{"type":"file"}'>
+                                        Email two</li>
+                                </ul>
+                            </li>
+                            <li data-jstree='{"icon":"zmdi zmdi-view-dashboard"}'>
+                                Dashboard</li>
+                            <li data-jstree='{"icon":"zmdi zmdi-format-underlined"}'>
+                                Typography</li>
+                            <li data-jstree='{"opened":true}'>User
+                                Interface
+                                <ul>
+                                    <li data-jstree='{"type":"file"}'>
+                                        Buttons</li>
+                                    <li data-jstree='{"type":"file"}'>
+                                        Cards</li>
+                                </ul>
+                            </li>
+                            <li data-jstree='{"icon":"zmdi zmdi-collection-text"}'>
+                                Forms</li>
+                            <li data-jstree='{"icon":"zmdi zmdi-view-list"}'>
+                                Tables</li>
+                        </ul>
+                    </li> --}}
+                    {{-- @foreach ($children as $child)
+                        @if (count($child->children) > 0)
+                            <li data-jstree='{"opened":true}'>
+                                {{ $child->name }} - {{ email_mask($child->email) }}
+                                <ul>
+                                    <x-children :children="$child->children" />
+                                </ul>
+                            </li>
+                        @else
+                            <li data-jstree='{"type":"file"}'>
+                                {{ $child->name }} - {{ email_mask($child->email) }}
+                            </li>
+                        @endif
+                    @endforeach --}}
+
+                    {{-- <li data-jstree='{"type":"file"}'>Frontend</li>
+                    @if ($user->children)
+                        @foreach ($user->children as $child)
+                            @if (count($child->children) > 0)
+                                <li data-jstree='{"opened":true}'>
+                                    {{ $child->name }} - {{ $child->email }} - 1
+                                    <ul>
+                                        <x-children :children="$child->children" :level="2"/>
+                                    </ul>
+                                </li>
+                            @else
+                                <li data-jstree='{"type":"file"}'>
+                                    {{ $child->name }} - {{ $child->email }} - 1
+                                </li>
+                            @endif
+                        @endforeach --}}
+                    @endif
+                </ul>
+            </div>
+        </div>
         <div class="card-block">
             <h3 class="font-weight-bold">Referral Link</h3>
-            <h5>https://www.facebook.com <i class="fa fa-sticky-note"></i></h5>
+            <h5>https://www.facebook.com</h5>
+            <button type="button" class="btn btn-primary rounded-pill mb-3 mt-4">
+                <i class="far fa-copy"></i>
+                Copy
+            </button>
         </div>
         <div class="card-block">
                 <div class="row">
@@ -31,7 +118,7 @@
                 </div>
             <div class="table-responsive mt-4">
                 <table class="table table-framed">
-                    <thead>
+                    <thead>                   
                         <tr>
                             <th>SL</th>
                             <th>User ID</th>
@@ -42,14 +129,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Came 02</td>
-                            <td>Months</td>
-                            <td>April</td>
-                            <td>Doller</td>
-                            <td>House</td>
-                        </tr>
+                        @foreach ($user->children as $child)
+                            <tr>
+                                <td>{{ $loop->index + 1 }}</td>
+                                <td>{{ $child->username }}</td>
+                                <td>{{ $child->name }}</td>
+                                <td>{{ $child->email }}</td>
+                                <td>{{ $child->referer_id }}</td>
+                                <td>???</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
