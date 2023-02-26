@@ -14,7 +14,7 @@
             <h4 class="font-weight-bold">Thank you for joining our Referral program</h4>
             <h5>Below you can find the number of registration and funded accounts</h5>
         </div>
-        <div class="card-block tree-view">
+        {{-- <div class="card-block tree-view">
             <div id="basicTree">
                 <ul>
                     @if ($user->children)
@@ -23,7 +23,7 @@
                                 <li data-jstree='{"opened":true}'>
                                     {{ $child->name }} - {{ $child->email }} - 1
                                     <ul>
-                                        <x-children :children="$child->children" :level="2"/>
+                                        <x-children :children="$child->children" :level="2" />
                                     </ul>
                                 </li>
                             @else
@@ -35,7 +35,7 @@
                     @endif
                 </ul>
             </div>
-        </div>
+        </div> --}}
         <div class="card-block">
             <h3 class="font-weight-bold">Referral Link</h3>
             <h5>https://www.facebook.com</h5>
@@ -45,16 +45,16 @@
             </button>
         </div>
         <div class="card-block">
-                <div class="row">
-                    <div class="col-md-4 text-center">
-                        <h4 class="font-weight-bold">1</h4>
-                        <h3 class="font-weight-bold">Registration</h3>
-                    </div>
-                    <div class="col-md-4 text-center">
-                        <h4 class="font-weight-bold">4</h4>
-                        <h3 class="font-weight-bold">Active</h3>
-                    </div>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <h4 class="font-weight-bold">1</h4>
+                    <h3 class="font-weight-bold">Registration</h3>
                 </div>
+                <div class="col-md-4 text-center">
+                    <h4 class="font-weight-bold">4</h4>
+                    <h3 class="font-weight-bold">Active</h3>
+                </div>
+            </div>
             <div class="table-responsive mt-4">
                 <table class="table table-framed">
                     <thead>
@@ -68,16 +68,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($user->children as $child)
-                            <tr>
-                                <td>{{ $loop->index + 1 }}</td>
-                                <td>{{ $child->username }}</td>
-                                <td>{{ $child->name }}</td>
-                                <td>{{ $child->email }}</td>
-                                <td>{{ $child->referer_id }}</td>
-                                <td>???</td>
-                            </tr>
-                        @endforeach
+                        <x-refered-users-table :children="$user->children" :level="1" :sl="1" />
                     </tbody>
                 </table>
             </div>
