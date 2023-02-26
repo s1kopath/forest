@@ -38,8 +38,6 @@ class OtpController extends Controller
             Auth::login($newUser);
             $request->session()->regenerate();
 
-            $fundController = new FundController();
-            $fundController->joiningBonus();
             $otp_info->delete();
 
             return redirect()->route('public_dashboard');

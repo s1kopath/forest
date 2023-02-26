@@ -46,6 +46,12 @@ Route::get('resend-otp', [AuthController::class, 'resendOtp'])->name('resend_otp
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
+    Route::prefix('users')->group(function () {
+        Route::get('/', [DashboardController::class, 'manageUsers'])->name('manage_users');
+        Route::get('inspect/{user_id}', [DashboardController::class, 'inspectUser'])->name('inspect_user');
+        Route::get('verify/{user_id}/{status}', [DashboardController::class, 'verifyUser'])->name('verify_user');
+    });
+
     Route::controller(StackingRoisController::class)->group(function () {
         Route::match(['get', 'post'], '/add-stacking-rois', 'addStacking')->name('add_stacking_rois');
         Route::get('manage-stacking-rois', 'index')->name('manage_stacking_rois');
@@ -95,11 +101,9 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::get('downloads', [PublicDashboardController::class, 'downloads'])->name('public_downloads');
         Route::get('become-an-ib', [PublicDashboardController::class, 'becomeAnIb'])->name('public_become_an_ib');
     });
-    
 });
 
 Route::controller(StripePaymentController::class)->group(function () {
     Route::get('stripe', 'stripe');
     Route::post('stripe', 'stripePost')->name('stripe.post');
-
 });

@@ -3,13 +3,14 @@
 
 @section('page-content')
     <div class="card">
+        <div class="card-header bg-info">
+            <h2 class="text-center">Monthly Contest List</h5>
+        </div>
         <div class="card-block">
-            <div class="card-header bg-info">
-                <h2 class="text-center">Monthly Contest List</h5>
-            </div>
-            <div class="text-right mt-4">
-                <a href="{{ route('add_monthly_contest') }}" class="btn btn-success btn-round waves-effect waves-light">Add
-                    New</a>
+            <div class="text-right">
+                <a href="{{ route('add_monthly_contest') }}" class="btn btn-success btn-round waves-effect waves-light">
+                    Add New
+                </a>
             </div>
             <div class="dt-responsive table-responsive">
                 <div id="order-table_wrapper" class="dataTables_wrapper dt-bootstrap4">

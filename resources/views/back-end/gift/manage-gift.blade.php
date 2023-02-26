@@ -6,8 +6,9 @@
         <div class="card-header bg-info">
             <h2 class="text-center">Gift List</h5>
         </div>
+        <div class="card-block">
         @if ($gift->count() == 0)
-            <div class="text-right mt-4">
+            <div class="text-right">
                 <a href="{{ route('add_gift') }}" class="btn btn-success btn-round waves-effect waves-light">
                     Add New
                 </a>
@@ -101,6 +102,8 @@
                 </div> --}}
             </div>
         </div>
+
+    </div>
     </div>
 @endsection
 

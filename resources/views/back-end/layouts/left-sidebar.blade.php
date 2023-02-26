@@ -20,6 +20,14 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu {{ $route_name == 'manage_users' ? 'active' : '' }}">
+                            <a href="{{ route('manage_users') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                <span class="pcoded-mtext">Users</span>
+                            </a>
+                        </li>
+                    </ul>
                     <div class="pcoded-navigation-label">ROI</div>
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu {{ $lastElement == 'rois' ? 'active pcoded-trigger' : '' }}">

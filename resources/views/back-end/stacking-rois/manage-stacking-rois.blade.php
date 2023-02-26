@@ -3,25 +3,12 @@
 
 @section('page-content')
     <div class="card">
+        <div class="card-header bg-info">
+            <h2 class="text-center">Staking List</h5>
+        </div>
+
         <div class="card-block">
-            <div class="card-header bg-info">
-                <h2 class="text-center">Staking List</h5>
-            </div>
-            <div class="col-12 py-3">
-                @if (session()->has('message'))
-                    <div class="alert bg-info">
-                        {{ session('message') }}
-                    </div>
-                @endif
-                @if ($errors->any())
-                    @foreach ($errors->all() as $error)
-                        <div class="alert bg-danger">
-                            {{ $error }}
-                        </div>
-                    @endforeach
-                @endif
-            </div>
-            <div class="text-right mt-4">
+            <div class="text-right">
                 <a href="{{ route('add_stacking_rois') }}" class="btn btn-success btn-round waves-effect waves-light">
                     Add New
                 </a>

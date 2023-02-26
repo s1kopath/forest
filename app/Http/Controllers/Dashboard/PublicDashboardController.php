@@ -13,6 +13,7 @@ class PublicDashboardController extends Controller
 {
     public function publicDashboard()
     {
+        
         $wallet = Wallet::where('user_id', auth()->id())->first();
         $totalStake = UserStake::where('user_id', auth()->id())->sum('amount');
 

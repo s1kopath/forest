@@ -3,11 +3,11 @@
 
 @section('page-content')
     <div class="card">
+        <div class="card-header bg-info">
+            <h2 class="text-center">IB List</h5>
+        </div>
         <div class="card-block">
-            <div class="card-header bg-info">
-                <h2 class="text-center">IB List</h5>
-            </div>
-            <div class="text-right mt-4">
+            <div class="text-right">
                 <a href="{{ route('add_ib') }}" class="btn btn-success btn-round waves-effect waves-light">Add New</a>
             </div>
             <div class="dt-responsive table-responsive">
@@ -100,6 +100,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 @endsection
 
