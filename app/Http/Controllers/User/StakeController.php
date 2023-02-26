@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\LeadMemberRankRefreshJob;
+use App\Jobs\RankRefreshJob;
 use App\Models\StakingRoi;
 use App\Models\UserStake;
 use App\Models\Wallet;
@@ -35,9 +37,15 @@ class StakeController extends Controller
             'end_date' => now()->addMonths($staking->duration),
             'next_payout' => now()->addMonth(),
         ]);
-        
+
         $wallet->main_amount = $wallet->main_amount - $request->amount;
         $wallet->save();
+
+        $details['user_id'] = auth()->id();
+        $details['amount'] = $request->amount;
+
+        dispatch(new RankRefreshJob($details));
+        dispatch(new LeadMemberRankRefreshJob($details))->delay(1800);;
 
         return redirect()->route('public_history')->with('message', 'Successfully created.');
     }

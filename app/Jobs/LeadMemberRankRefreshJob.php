@@ -2,15 +2,16 @@
 
 namespace App\Jobs;
 
-use App\Models\Otp;
+use App\Http\Controllers\RanksController;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 
-class TempOtpRemoverJob implements ShouldQueue
+class LeadMemberRankRefreshJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -33,10 +34,10 @@ class TempOtpRemoverJob implements ShouldQueue
      */
     public function handle()
     {
-        $otp = Otp::find($this->details['id']);
-        if ($otp) {
-            $otp->resent_count = 0;
-            $otp->save();
-        }
+        $user_id = $this->details['user_id'];
+        $amount = $this->details['amount'];
+
+        $ranksController = new RanksController();
+        $ranksController->team_rank_refresh_with_ib_gain($user_id, $amount);
     }
 }
