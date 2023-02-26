@@ -8,6 +8,6 @@
         <td>??</td>
     </tr>
     @if (count($child->children) > 0)
-        <x-refered-users-table :children="$child->children" :level="$level + 1" :sl="$sl" />
+        <x-refered-users-table :children="$child->children" :level="$level + 1" :sl="$sl"/>
     @endif
 @endforeach

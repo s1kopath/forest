@@ -38,8 +38,10 @@
         </div> --}}
         <div class="card-block">
             <h3 class="font-weight-bold">Referral Link</h3>
-            <h5>https://www.facebook.com</h5>
-            <button type="button" class="btn btn-primary rounded-pill mb-3 mt-4">
+            <h5 id="referral-link">
+                {{ env('APP_URL') . '/ref/' . auth()->user()->username }}
+            </h5>
+            <button type="button" class="btn btn-primary rounded-pill mb-3 mt-2" onclick="myFunction()">
                 <i class="far fa-copy"></i>
                 Copy
             </button>
@@ -79,4 +81,23 @@
 @push('js')
     <script type="text/javascript" src="{{ asset('back-end/bower_components/jstree/js/jstree.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('back-end/assets/pages/treeview/jquery.tree.js') }}"></script>
+    <script>
+        function myFunction() {
+            // Get the text field
+            var copyText = $("#referral-link").text();
+
+            copyText = copyText.trim();
+
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(copyText);
+
+            // Alert the copied text
+            Swal.fire({
+                icon: 'success',
+                title: 'Coppied to clipboard: ' + copyText,
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+    </script>
 @endpush
