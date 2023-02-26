@@ -30,7 +30,7 @@
         </div>
         <div class="card-block">
             <div class="row">
-                <div class="col-6 col-md-3">
+                <div class="col-6 col-md-3 grid-item">
                     <div class="card bg-info">
                         <img class="card-img" src="{{ asset('img-ib/img1.png') }}" height="100px" width="100px">
                         <div class="card-body text-center">
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
+                <div class="col-6 col-md-3 grid-item">
                     <div class="card bg-info">
                         <img class="card-img" src="{{ asset('img-ib/img2.png') }}" height="100px" width="100px">
 
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
+                <div class="col-6 col-md-3 grid-item">
                     <div class="card bg-info">
                         <img class="card-img" src="{{ asset('img-ib/img1.png') }}" height="100px" width="100px">
 
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
+                <div class="col-6 col-md-3 grid-item">
                     <div class="card bg-info">
                         <img class="card-img" src="{{ asset('img-ib/img2.png') }}" height="100px" width="100px">
 

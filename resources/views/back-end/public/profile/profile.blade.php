@@ -233,7 +233,7 @@
     <script>
         var _editdetails =`
         <div>
-            <h3 class="font-weight-bold">
+            <h3 class="font-weight-bold mb-3">
                 Personal Details
             </h3>
             <div class="container">
@@ -296,7 +296,7 @@
 
         var _editlocation =`
         <div>
-            <h3 class="font-weight-bold">
+            <h3 class="font-weight-bold mb-3">
                 Location
             </h3>
             <div class="container">
