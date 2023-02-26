@@ -200,6 +200,9 @@
                             <small>{{ auth()->user()->email }}</small>
                             <br>
                             <span class="font-weight-bold text-primary">Verified Account</span>
+
+                            <br>
+                            <span class="font-weight-bold text-white">{{ auth()->user()->userToRank->rankToRankReward->title ?? '' }}</span>
                         </div>
                     </div>
                     <ul class="pcoded-item pcoded-left-item">
