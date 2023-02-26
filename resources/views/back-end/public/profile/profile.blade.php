@@ -38,31 +38,19 @@
                             <div class="form-group row m-0">
                                 <label for="name" class="col-sm-2 col-form-label">Name :</label>
                                 <div class="col-sm-10">
-<<<<<<< HEAD:resources/views/back-end/public-profile/profile.blade.php
                                     {{$user->name}}
-=======
-                                    : {{ $user->name }}
->>>>>>> 7ba47d6d8be3872a55b28655aaf180d0dbd8d255:resources/views/back-end/public/profile/profile.blade.php
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="username" class="col-sm-2 col-form-label">Username :</label>
                                 <div class="col-sm-10">
-<<<<<<< HEAD:resources/views/back-end/public-profile/profile.blade.php
                                     {{$user->username}}
-=======
-                                    : {{ $user->username }}
->>>>>>> 7ba47d6d8be3872a55b28655aaf180d0dbd8d255:resources/views/back-end/public/profile/profile.blade.php
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="email" class="col-sm-2 col-form-label">Email :</label>
                                 <div class="col-sm-10">
-<<<<<<< HEAD:resources/views/back-end/public-profile/profile.blade.php
                                     {{$user->email}}
-=======
-                                    : {{ $user->email }}
->>>>>>> 7ba47d6d8be3872a55b28655aaf180d0dbd8d255:resources/views/back-end/public/profile/profile.blade.php
                                 </div>
                             </div>
                             <div class="form-group row m-0">
