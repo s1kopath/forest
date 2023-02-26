@@ -7,6 +7,7 @@ use App\Models\UserDetail;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\RanksController;
 use App\Http\Controllers\User\StakeController;
+use App\Models\AmountForIbGain;
 use App\Models\UserStake;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
@@ -49,6 +50,9 @@ class PublicDashboardController extends Controller
         $ranksController = new RanksController();
         $ranksController->rank_calculation(auth()->id());
 
-        return view('back-end.public.become-an-ib.become-an-ib');
+        $ib_gain = AmountForIbGain::where('user_id', auth()->id())->first();
+        $rank = auth()->user()->userToRank->rank_id;
+
+        return view('back-end.public.become-an-ib.become-an-ib', compact('ib_gain', 'rank'));
     }
 }

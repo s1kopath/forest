@@ -76,17 +76,18 @@ class TestAppSeeder extends Seeder
 
         $newUser1 = User::create([
             'name' => 'Nero Henderson',
-            'username' => 'kecabu',
-            'email' => 'b',
+            'username' => 'b',
+            'email' => 'kecabu@gh.com',
             'password' => bcrypt('b'),
             'user_type' => 'public',
             'refer_code' => uniqid(),
             'email_verified_at' => now(),
-            'referer_id' => $newUser->id
+            'referer_id' => $newUser->id,
+            'is_verified' => 1,
         ]);
         Wallet::create([
             'user_id' => $newUser1->id,
-            'main_amount' => 20,
+            'main_amount' => 62600,
             'bonus_amount' => 20,
             'withdrawable_amount' => 0,
             'total_earning' => 0,
@@ -110,7 +111,7 @@ class TestAppSeeder extends Seeder
         ]);
         Wallet::create([
             'user_id' => $newUser2->id,
-            'main_amount' => 22,
+            'main_amount' => 22000,
             'bonus_amount' => 22,
             'withdrawable_amount' => 0,
             'total_earning' => 0,
@@ -178,11 +179,12 @@ class TestAppSeeder extends Seeder
             'user_type' => 'public',
             'refer_code' => uniqid(),
             'email_verified_at' => now(),
-            'referer_id' => $newUser1->id
+            'referer_id' => $newUser1->id,
+            'is_verified' => 1,
         ]);
         Wallet::create([
             'user_id' => $newUser5->id,
-            'main_amount' => 20,
+            'main_amount' => 30000,
             'bonus_amount' => 20,
             'withdrawable_amount' => 0,
             'total_earning' => 0,
@@ -202,11 +204,12 @@ class TestAppSeeder extends Seeder
             'user_type' => 'public',
             'refer_code' => uniqid(),
             'email_verified_at' => now(),
-            'referer_id' => $newUser5->id
+            'referer_id' => $newUser5->id,
+            'is_verified' => 1,
         ]);
         Wallet::create([
             'user_id' => $newUser6->id,
-            'main_amount' => 20,
+            'main_amount' => 20000,
             'bonus_amount' => 20,
             'withdrawable_amount' => 0,
             'total_earning' => 0,

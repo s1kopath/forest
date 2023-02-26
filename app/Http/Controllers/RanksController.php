@@ -15,6 +15,10 @@ class RanksController extends Controller
     {
         $ib_payment_info = AmountForIbGain::where('user_id', $user_id)->first();
 
+        $ib_payment_info->direct_amount = $this->direct_total_calculate($user_id) ?? 0;
+        $ib_payment_info->team_amount =  $this->team_total_calculate($user_id) ?? 0;
+        $ib_payment_info->save();
+
         $rank_info = Rank::where('user_id', $user_id)->first();
 
         if ($ib_payment_info->self_amount >= 1000 && $ib_payment_info->direct_amount >= 10000 && $ib_payment_info->team_amount >= 50000) {
@@ -71,7 +75,6 @@ class RanksController extends Controller
     public function direct_total_calculate($user_id)
     {
         $user = User::find($user_id);
-
         $ids = implode(',', $user->direct_team);
         if ($ids == "") {
             return 0;
@@ -97,19 +100,16 @@ class RanksController extends Controller
 
     public function rank_refresh_with_ib_gain($user_id, $amount)
     {
-        $direct_amount = $this->direct_total_calculate($user_id);
-        $team_amount = $this->team_total_calculate($user_id);
 
         $amountForIb = AmountForIbGain::where('user_id', $user_id)->first();
         $amountForIb->self_amount += $amount;
-        $amountForIb->direct_amount = $direct_amount;
-        $amountForIb->team_amount = $team_amount;
         $amountForIb->save();
 
         $this->rank_calculation($user_id);
 
         return true;
     }
+
 
     public function team_rank_refresh_with_ib_gain($user_id, $amount)
     {
