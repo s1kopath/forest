@@ -77,8 +77,8 @@ class TestAppSeeder extends Seeder
         $newUser1 = User::create([
             'name' => 'Nero Henderson',
             'username' => 'kecabu',
-            'email' => 'hyguruxodu@mailinator.com',
-            'password' => bcrypt('hyguruxodu@mailinator.com'),
+            'email' => 'b',
+            'password' => bcrypt('b'),
             'user_type' => 'public',
             'refer_code' => uniqid(),
             'email_verified_at' => now(),
@@ -146,7 +146,6 @@ class TestAppSeeder extends Seeder
             'user_id' => $newUser3->id,
         ]);
 
-
         $newUser4 = User::create([
             'name' => 'Kay Juarez',
             'username' => 'fesydybox',
@@ -171,12 +170,11 @@ class TestAppSeeder extends Seeder
             'user_id' => $newUser4->id,
         ]);
 
-
         $newUser5 = User::create([
             'name' => 'Melissa Ross',
-            'username' => 'b',
+            'username' => 'c',
             'email' => 'dalic@mailinator.com',
-            'password' => bcrypt('b'),
+            'password' => bcrypt('c'),
             'user_type' => 'public',
             'refer_code' => uniqid(),
             'email_verified_at' => now(),
@@ -196,12 +194,11 @@ class TestAppSeeder extends Seeder
             'user_id' => $newUser5->id,
         ]);
 
-
         $newUser6 = User::create([
             'name' => 'Wallace Pugh',
-            'username' => 'c',
+            'username' => 'd',
             'email' => 'qewubi@mailinator.com',
-            'password' => bcrypt('c'),
+            'password' => bcrypt('d'),
             'user_type' => 'public',
             'refer_code' => uniqid(),
             'email_verified_at' => now(),

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\User;
 use App\Models\UserDetail;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\RanksController;
 use App\Http\Controllers\User\StakeController;
 use App\Models\UserStake;
 use App\Models\Wallet;
@@ -45,6 +46,9 @@ class PublicDashboardController extends Controller
 
     public function becomeAnIb()
     {
+        $ranksController = new RanksController();
+        $ranksController->rank_calculation(auth()->id());
+
         return view('back-end.public.become-an-ib.become-an-ib');
     }
 }

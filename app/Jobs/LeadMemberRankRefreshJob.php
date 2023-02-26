@@ -34,10 +34,10 @@ class LeadMemberRankRefreshJob implements ShouldQueue
      */
     public function handle()
     {
-        $user_id = $this->details['user_id'];
-        $amount = $this->details['amount'];
+        // $user_id = $this->details['user_id'];
+        // $amount = $this->details['amount'];
 
-        $ranksController = new RanksController();
-        $ranksController->team_rank_refresh_with_ib_gain($user_id, $amount);
+        // $ranksController = new RanksController();
+        // $ranksController->team_rank_refresh_with_ib_gain($user_id, $amount);
     }
 }

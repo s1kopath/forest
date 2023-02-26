@@ -45,7 +45,7 @@ class StakeController extends Controller
         $details['amount'] = $request->amount;
 
         dispatch(new RankRefreshJob($details));
-        dispatch(new LeadMemberRankRefreshJob($details))->delay(120);
+        // dispatch(new LeadMemberRankRefreshJob($details))->delay(120);
 
         return redirect()->route('public_history')->with('message', 'Successfully created.');
     }
