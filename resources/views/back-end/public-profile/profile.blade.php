@@ -28,90 +28,106 @@
 
                 <div class="tab-content card-block">
                     <div class="tab-pane active" id="aboutMe" role="tabpanel">
-                        <div class="mb-2">
+                        <div class="mb-2" id="details">
                             <h3 class="text-primary font-weight-bold">
                                 Personal Details:
-                                <a href="#" class="h3">
+                                <a href="#" id="editdetails" class="h3">
                                     <i class="far fa-edit text-dark"></i>
                                 </a>
                             </h3>
                             <div class="form-group row m-0">
-                                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                                <label for="name" class="col-sm-2 col-form-label">Name :</label>
                                 <div class="col-sm-10">
-                                    : jenifer Lofez
+                                    {{$user->name}}
                                 </div>
                             </div>
                             <div class="form-group row m-0">
-                                <label for="username" class="col-sm-2 col-form-label">Username</label>
+                                <label for="username" class="col-sm-2 col-form-label">Username :</label>
                                 <div class="col-sm-10">
-                                    : jennifer001
+                                    {{$user->username}}
                                 </div>
                             </div>
                             <div class="form-group row m-0">
-                                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                <label for="email" class="col-sm-2 col-form-label">Email :</label>
                                 <div class="col-sm-10">
-                                    : abcd@hotemail.com
+                                    {{$user->email}}
                                 </div>
                             </div>
                             <div class="form-group row m-0">
-                                <label for="phoneNumber" class="col-sm-2 col-form-label">Phone Number</label>
+                                <label for="phoneNumber" class="col-sm-2 col-form-label">Phone Number :</label>
                                 <div class="col-sm-10">
-                                    : +39 ......
+                                @if (isset($userDetail->phone_number))
+                                    {{$userDetail->phone_number}}
+                                @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
-                                <label for="dateOfBirth" class="col-sm-2 col-form-label">Date of birth</label>
+                                <label for="dateOfBirth" class="col-sm-2 col-form-label">Date of birth :</label>
                                 <div class="col-sm-10">
-                                    : 1st March 1989
+                                @if (isset($userDetail->date_of_birth))
+                                    {{$userDetail->date_of_birth}}
+                                @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
-                                <label for="identityNumber" class="col-sm-2 col-form-label">Identity Number</label>
+                                <label for="identityNumber" class="col-sm-2 col-form-label">Identity Number :</label>
                                 <div class="col-sm-10">
-                                    : fN/A
+                                @if (isset($userDetail->identity_number))
+                                    {{$userDetail->identity_number}}
+                                @endif
                                 </div>
                             </div>
                         </div>
-                        <div class="mb-2">
+                        <div class="mb-2" id="location">
                             <h3 class="text-primary font-weight-bold">
                                 Location:
-                                <a href="#" class="h3">
+                                <a href="#" id="editlocation" class="h3">
                                     <i class="far fa-edit text-dark"></i>
                                 </a>
                             </h3>
                             <div class="form-group row m-0">
-                                <label for="houseArea" class="col-sm-2 col-form-label">House/Area</label>
+                                <label for="houseArea" class="col-sm-2 col-form-label">House/Area :</label>
                                 <div class="col-sm-10">
-                                    : ia Campi flagrai 35
+                                @if (isset($userDetail->house_no))
+                                    {{$userDetail->house_no}}
+                                @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
-                                <label for="street" class="col-sm-2 col-form-label">Street</label>
+                                <label for="street" class="col-sm-2 col-form-label">Street :</label>
                                 <div class="col-sm-10">
-                                    : Serra
+                                @if (isset($userDetail->street))
+                                    {{$userDetail->street}}
+                                @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
-                                <label for="city" class="col-sm-2 col-form-label">City</label>
+                                <label for="city" class="col-sm-2 col-form-label">City :</label>
                                 <div class="col-sm-10">
-                                    : Serra
+                                @if (isset($userDetail->city))
+                                    {{$userDetail->city}}
+                                @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
-                                <label for="zipCode" class="col-sm-2 col-form-label">Zip Code</label>
+                                <label for="zipCode" class="col-sm-2 col-form-label">Zip Code :</label>
                                 <div class="col-sm-10">
-                                    : 83030
+                                @if (isset($userDetail->zip_code))
+                                    {{$userDetail->zip_code}}
+                                @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
-                                <label for="country" class="col-sm-2 col-form-label">Country</label>
+                                <label for="country" class="col-sm-2 col-form-label">Country :</label>
                                 <div class="col-sm-10">
-                                    : Italy
+                                @if (@isset($userDetail->country))
+                                    {{$userDetail->country}}
+                                @endif
                                 </div>
                             </div>
                         </div>
-
                     </div>
+
                     <div class="tab-pane" id="verification" role="tabpanel">
                         <h3 class="text-primary font-weight-bold text-center">
                             <span>Identity Verification:</span>
@@ -138,7 +154,7 @@
                             </div>
                         </form>
                         <div class="text-center m-t-20">
-                            <button class="btn btn-primary rounded-pill">
+                            <button class="btn btn-primary rounded-pill" id="photoverify" disabled>
                                 UPDATE & NEXT
                             </button>
                         </div>
@@ -189,12 +205,13 @@
                         </div>
 
                         <div class="text-center m-t-20">
-                            <button class="btn btn-primary rounded-pill">
+                            <button class="btn btn-primary rounded-pill" disabled>
                                 Update Password
                             </button>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -211,6 +228,158 @@
             if (activeTab) {
                 $('#tab-list a[href="' + activeTab + '"]').tab('show');
             }
+        });
+    </script>
+    <script>
+        var _editdetails =`
+        <div>
+            <h3 class="font-weight-bold">
+                Personal Details
+            </h3>
+            <div class="container">
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="username">UserName</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="phonenumber">Phone Number</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="dateofbirth">Date of Birth</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="email" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="identitynumber">Identity Number</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="email" class="form-control" placeholder="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center m-t-20">
+                <button class="btn btn-primary rounded-pill mb-3" disabled>
+                    update
+                </button>
+            </div>
+        </div>`;
+
+        var _editlocation =`
+        <div>
+            <h3 class="font-weight-bold">
+                Location
+            </h3>
+            <div class="container">
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="house/area">House/Area</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="street">Street</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="city">City</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="email" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="zipcode">Zip Code</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="email" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="country">Country</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center m-t-20">
+                <button class="btn btn-primary rounded-pill" disabled>
+                    update
+                </button>
+            </div>
+        </div>`;
+
+        $("#editdetails").click(function()
+        {
+            $("#details").html(_editdetails);
+        });
+
+        $("#editlocation").click(function()
+        {
+            $("#location").html(_editlocation);
+        });
+
+        var _photoverify=`
+        <div id="photoverify">
+            <h3 class="text-primary font-weight-bold text-center">
+                <span>Photo Verification:</span>
+            </h3>
+            <div class="col-sm-4">
+                <form action="#" class="dropzone">
+                    <div class="fallback text-center">
+                        <input name="file" type="file"/>
+                    </div>
+                </form>
+            </div>
+            <div class="text-center m-t-20">
+                <button class="btn btn-primary rounded-pill" disabled>
+                    UPDATE
+                </button>
+            </div>
+        </div>`;
+        $("#photoverify").click(function()
+        {
+            $("#verification").html(_photoverify);
         });
     </script>
 @endpush
