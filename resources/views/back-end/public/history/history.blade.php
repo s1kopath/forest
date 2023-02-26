@@ -11,6 +11,27 @@
             background: linear-gradient(#152B40, #152B40);
         }
 
+        .button-container button {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 5px 10px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .shihab-btn-mbl-scroll {
+                overflow-x: scroll;
+                width: 100%;
+                display: flex;
+                position: relative;
+            }
+
+            .shihab-btn-mbl-scroll button {
+                display: inline-block;
+                position: relative;
+                padding: 6px 15px !important;
+                white-space: pre;
+            }
+        }
     </style>
 @endpush
 
@@ -19,15 +40,15 @@
         <div class="card-header bg-info">
             <h2 class="text-center">History</h5>
         </div>
-        <div class="card-block mt-4">
-            <button type="button" class="btn btn-success">Deposit</button>
-            <button type="button" class="btn btn-success">Withdraw</button>
-            <button type="button" class="btn btn-success">Invitation Gift</button>
-            <button type="button" class="btn btn-success">Stacking ROI</button>
-            <button type="button" class="btn btn-success">IB Royality</button>
-            <button type="button" class="btn btn-success">Rewards</button>
-            <button type="button" class="btn btn-success">Transaction</button>
-            <button type="button" class="btn btn-success">Contest</button>
+        <div class="card-block shihab-btn-mbl-scroll">
+            <button type="button" class="btn btn-success mx-1">Deposit</button>
+            <button type="button" class="btn btn-success mx-1">Withdraw</button>
+            <button type="button" class="btn btn-success mx-1">Invitation Gift</button>
+            <button type="button" class="btn btn-success mx-1">Stacking ROI</button>
+            <button type="button" class="btn btn-success mx-1">IB Royality</button>
+            <button type="button" class="btn btn-success mx-1">Rewards</button>
+            <button type="button" class="btn btn-success mx-1">Transaction</button>
+            <button type="button" class="btn btn-success mx-1">Contest</button>
         </div>
         <div class="card-block">
             <div class="table-responsive">
