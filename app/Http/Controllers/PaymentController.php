@@ -11,7 +11,7 @@ use App\Models\Gift;
 use App\Models\TeamDetail;
 use App\Models\Rank;
 
-class PaymnetController extends Controller
+class PaymentController extends Controller
 {
     public function pay(Request $request)
     {
@@ -68,7 +68,7 @@ class PaymnetController extends Controller
     {
         $rank_info = Rank::where('user_id', $team_detail->user_id)->first();
         if ($rank_info && $rank_info->rank == "IB") {
-            return ($distribution_amount * 30) / 100; //30 percenta will be dynamic
+            return ($distribution_amount * 30) / 100; //30 percents will be dynamic
         } else if ($rank_info && $rank_info->rank == "Pro-IB") {
             return ($distribution_amount * 15) / 100;
         } else if ($rank_info && $rank_info->rank == "Master IB") {

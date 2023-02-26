@@ -38,7 +38,7 @@
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
                                             style="width: 392.922px;">
-                                            Join Date
+                                            Joining
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
@@ -59,7 +59,7 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->username }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>{{ $user->created_at }}</td>
+                                            <td>{{ date('d M, Y', strtotime($user->created_at)) }}</td>
                                             <td>
                                                 @if ($user->is_verified)
                                                     <span class="badge bg-primary">Verified</span>

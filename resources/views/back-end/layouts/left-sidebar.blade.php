@@ -12,6 +12,19 @@
         <nav class="pcoded-navbar">
             <div class="nav-list">
                 <div class="pcoded-inner-navbar main-menu">
+                    <div class="d-flex justify-content-between">
+                        <div class="col-4">
+                            <img class="img-fluid rounded-lg shadow" src="{{ asset('back-end/assets/images/avatar-4.jpg') }}"
+                                alt="forest">
+                        </div>
+                        <div class="col-8 text-white" style="overflow-wrap: break-word">
+                            <span class="font-weight-bold">Hello, {{ auth()->user()->username }}</span>
+                            <br>
+                            <small>{{ auth()->user()->email }}</small>
+                            <br>
+                            <span class="font-weight-bold text-danger">Admin Account</span>
+                        </div>
+                    </div>
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu {{ $route_name == 'dashboard' ? 'active' : '' }}">
                             <a href="{{ route('dashboard') }}" class="waves-effect waves-dark">
@@ -20,14 +33,30 @@
                             </a>
                         </li>
                     </ul>
+                    <div class="pcoded-navigation-label">Users</div>
                     <ul class="pcoded-item pcoded-left-item">
-                        <li class="pcoded-hasmenu {{ $route_name == 'manage_users' ? 'active' : '' }}">
-                            <a href="{{ route('manage_users') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                                <span class="pcoded-mtext">Users</span>
+                        <li class="pcoded-hasmenu {{ $lastElement == 'users' ? 'active pcoded-trigger' : '' }}">
+                            <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                <span class="pcoded-micon">
+                                    <i class="feather icon-clipboard"></i>
+                                </span>
+                                <span class="pcoded-mtext">Users & IB</span>
                             </a>
+                            <ul class="pcoded-submenu">
+                                <li class="{{ $route_name == 'manage_users' ? 'active' : '' }}">
+                                    <a href="{{ route('manage_users') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Manage Users</span>
+                                    </a>
+                                </li>
+                                <li class="{{ $route_name == 'manage_ib' ? 'active' : '' }}">
+                                    <a href="{{ route('manage_ib') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Manage IB</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
+
                     <div class="pcoded-navigation-label">ROI</div>
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu {{ $lastElement == 'rois' ? 'active pcoded-trigger' : '' }}">
@@ -92,29 +121,6 @@
                                 <li class="{{ $route_name == 'manage_gift' ? 'active' : '' }}">
                                     <a href="{{ route('manage_gift') }}" class="waves-effect waves-dark">
                                         <span class="pcoded-mtext">Manage Gift</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <div class="pcoded-navigation-label">IB</div>
-                    <ul class="pcoded-item pcoded-left-item">
-                        <li class="pcoded-hasmenu {{ $lastElement == 'ib' ? 'active pcoded-trigger' : '' }}">
-                            <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                <span class="pcoded-micon">
-                                    <i class="feather icon-clipboard"></i>
-                                </span>
-                                <span class="pcoded-mtext">Ib</span>
-                            </a>
-                            <ul class="pcoded-submenu">
-                                <li class="{{ $route_name == 'add_ib' ? 'active' : '' }}">
-                                    <a href="{{ route('add_ib') }}" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Add IB</span>
-                                    </a>
-                                </li>
-                                <li class="{{ $route_name == 'manage_ib' ? 'active' : '' }}">
-                                    <a href="{{ route('manage_ib') }}" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Manage IB</span>
                                     </a>
                                 </li>
                             </ul>
@@ -194,7 +200,6 @@
                             <small>{{ auth()->user()->email }}</small>
                             <br>
                             <span class="font-weight-bold text-primary">Verified Account</span>
-
                         </div>
                     </div>
                     <ul class="pcoded-item pcoded-left-item">

@@ -47,13 +47,14 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 
     Route::prefix('users')->group(function () {
-        Route::get('/', [DashboardController::class, 'manageUsers'])->name('manage_users');
+        Route::get('manage-users', [DashboardController::class, 'manageUsers'])->name('manage_users');
+        Route::get('manage-ib-users', [IbController::class, 'index'])->name('manage_ib');
         Route::get('inspect/{user_id}', [DashboardController::class, 'inspectUser'])->name('inspect_user');
         Route::get('verify/{user_id}/{status}', [DashboardController::class, 'verifyUser'])->name('verify_user');
     });
 
     Route::controller(StackingRoisController::class)->group(function () {
-        Route::match(['get', 'post'], '/add-stacking-rois', 'addStacking')->name('add_stacking_rois');
+        Route::match(['get', 'post'], 'add-stacking-rois', 'addStacking')->name('add_stacking_rois');
         Route::get('manage-stacking-rois', 'index')->name('manage_stacking_rois');
         Route::get('delete-stack/{id}', 'destroy')->name('delete_stack');
         Route::match(['get', 'post'], 'update-stacking-rois/{id}', 'updateStacking')->name('update_stacking_rois');
@@ -71,13 +72,6 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         Route::get('/manage-gift', 'index')->name('manage_gift');
         Route::match(['get', 'post'], '/update-gift/{id}', 'updateGift')->name('update_gift');
         Route::get('/delete-gift/{id}', 'destroy')->name('delete_gift');
-    });
-
-    Route::controller(IbController::class)->group(function () {
-        Route::match(['get', 'post'], '/add-ib', 'addIb')->name('add_ib');
-        Route::get('/manage-ib', 'index')->name('manage_ib');
-        Route::match(['get', 'post'], '/update-ib/{id}', 'updateIb')->name('update_ib');
-        Route::get('/delete-ib/{id}', 'destroy')->name('delete_ib');
     });
 
     Route::controller(MonthlyContestController::class)->group(function () {

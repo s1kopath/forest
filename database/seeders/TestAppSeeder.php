@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\IbRoyality;
 use App\Models\StakingRoi;
 use App\Models\User;
 use App\Models\UserStake;
@@ -26,6 +27,14 @@ class TestAppSeeder extends Seeder
             ['duration' => 12, 'percentage' => 4.0, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
         ];
         StakingRoi::insert($staking);
+        $ib_royalty = [
+            ['rank' => "IB", 'percentage' => 30, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['rank' => "Pro-IB", 'percentage' => 15, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['rank' => "Master IB", 'percentage' => 7.5, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['rank' => "Corporate IB", 'percentage' => 7.5, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+            ['rank' => "Founder", 'percentage' => 2.5, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+        ];
+        IbRoyality::insert($ib_royalty);
 
         // demo user
         $newUser = User::create([
@@ -117,7 +126,41 @@ class TestAppSeeder extends Seeder
             'total_earning' => 0,
         ]);
 
+        $newUser5 = User::create([
+            'name' => 'Melissa Ross',
+            'username' => 'b',
+            'email' => 'dalic@mailinator.com',
+            'password' => bcrypt('b'),
+            'user_type' => 'public',
+            'refer_code' => uniqid(),
+            'email_verified_at' => now(),
+            'referer_id' => $newUser1->id
+        ]);
+        Wallet::create([
+            'user_id' => $newUser5->id,
+            'main_amount' => 20,
+            'bonus_amount' => 20,
+            'withdrawable_amount' => 0,
+            'total_earning' => 0,
+        ]);
 
+        $newUser6 = User::create([
+            'name' => 'Wallace Pugh',
+            'username' => 'c',
+            'email' => 'qewubi@mailinator.com',
+            'password' => bcrypt('c'),
+            'user_type' => 'public',
+            'refer_code' => uniqid(),
+            'email_verified_at' => now(),
+            'referer_id' => $newUser5->id
+        ]);
+        Wallet::create([
+            'user_id' => $newUser6->id,
+            'main_amount' => 20,
+            'bonus_amount' => 20,
+            'withdrawable_amount' => 0,
+            'total_earning' => 0,
+        ]);
 
         // demo user stake
         $staking1 = StakingRoi::find(2);

@@ -7,9 +7,6 @@
             <h2 class="text-center">IB List</h5>
         </div>
         <div class="card-block">
-            <div class="text-right">
-                <a href="{{ route('add_ib') }}" class="btn btn-success btn-round waves-effect waves-light">Add New</a>
-            </div>
             <div class="dt-responsive table-responsive">
                 <div id="order-table_wrapper" class="dataTables_wrapper dt-bootstrap4">
                     <div class="row">
