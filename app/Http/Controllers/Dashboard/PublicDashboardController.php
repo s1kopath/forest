@@ -6,7 +6,6 @@ use App\Models\User;
 use App\Models\UserDetail;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\User\StakeController;
-use App\Models\User;
 use App\Models\UserStake;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
