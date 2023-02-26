@@ -16,11 +16,9 @@
                         <div class="col-md-6">
                             <select name="rank" class="form-control form-select" required>
                                 <option value="">Choose Rank...</option>
-                                <option value="IB">IB</option>
-                                <option value="Pro-IB">Pro-IB</option>
-                                <option value="Master IB">Master IB</option>
-                                <option value="Corporate IB">Corporate IB</option>
-                                <option value="Founder">Founder</option>
+                                @foreach ($ranks as $rank)
+                                    <option value="{{ $rank->id }}">{{ $rank->title }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -61,4 +59,3 @@
 
 @push('js')
 @endpush
-

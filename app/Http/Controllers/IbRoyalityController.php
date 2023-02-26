@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\IbRoyality;
+use App\Models\RankAndReward;
 use Illuminate\Http\Request;
 
 class IbRoyalityController extends Controller
@@ -19,20 +20,21 @@ class IbRoyalityController extends Controller
         if ($request->isMethod('POST')) {
             // validation
             $request->validate([
-                'rank' => 'required|unique:ib_royalities,rank',
+                'rank' => 'required|unique:ib_royalities,rank_id',
                 'percentage' => 'required'
             ]);
 
             //create
             IbRoyality::create([
-                'rank' => $request->rank,
+                'rank_id' => $request->rank,
                 'percentage' => $request->percentage,
                 'status' => $request->status,
             ]);
 
             return redirect()->route('manage_ib_royality')->with('message', 'Royality Added Successfully.');
         } else {
-            return view('back-end.ib-royality.add-ib-royality');
+            $ranks = RankAndReward::all();
+            return view('back-end.ib-royality.add-ib-royality', compact('ranks'));
         }
     }
 
@@ -42,14 +44,14 @@ class IbRoyalityController extends Controller
         if ($request->isMethod('POST')) {
             // validation
             $request->validate([
-                'rank' => 'required|unique:ib_royalities,rank,' . $id,
+                'rank' => 'required|unique:ib_royalities,rank_id,' . $id,
                 'percentage' => 'required'
             ]);
 
             //update
             $royality = IbRoyality::find($id);
             $royality->update([
-                'rank' => $request->rank,
+                'rank_id' => $request->rank,
                 'percentage' => $request->percentage,
                 'status' => $request->status,
             ]);
@@ -57,7 +59,8 @@ class IbRoyalityController extends Controller
             return redirect()->route('manage_ib_royality')->with('message', 'Royality Update Successfully.');
         } else {
             $royality = IbRoyality::find($id);
-            return view('back-end.ib-royality.update-ib-royality', compact('royality'));
+            $ranks = RankAndReward::all();
+            return view('back-end.ib-royality.update-ib-royality', compact('royality', 'ranks'));
         }
     }
 

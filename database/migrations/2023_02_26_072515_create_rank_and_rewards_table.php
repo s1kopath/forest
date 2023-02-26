@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ranks', function (Blueprint $table) {
+        Schema::create('rank_and_rewards', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('rank_id')->nullable();
+            $table->string('title');
+            $table->integer('level');
+            $table->string('reward')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ranks');
+        Schema::dropIfExists('rank_and_rewards');
     }
 };

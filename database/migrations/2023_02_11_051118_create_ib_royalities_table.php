@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('ib_royalities', function (Blueprint $table) {
             $table->id();
-            $table->string('rank');
+            $table->integer('rank_id');
             $table->float('percentage');
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
@@ -27,7 +27,7 @@ return new class extends Migration
      *
      * @return void
      */
-    
+
     public function down()
     {
         Schema::dropIfExists('ib_royalities');

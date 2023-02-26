@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Jobs\SendEmailJob;
 use App\Jobs\TempOtpRemoverJob;
+use App\Models\AmountForIbGain;
 use App\Models\User;
 use App\Models\Otp;
+use App\Models\Rank;
 use App\Models\Wallet;
 use Carbon\Carbon;
 use Illuminate\Contracts\Session\Session;
@@ -108,6 +110,14 @@ class AuthController extends Controller
             ]);
 
             $newWallet = Wallet::create([
+                'user_id' => $newUser->id,
+            ]);
+
+            $newRank = Rank::create([
+                'user_id' => $newUser->id,
+            ]);
+
+            $newIpGain = AmountForIbGain::create([
                 'user_id' => $newUser->id,
             ]);
 

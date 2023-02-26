@@ -23,23 +23,28 @@
                                     <tr role="row">
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Name: activate to sort column ascending"
-                                            style="width: 267.578px;">#Sl
+                                            style="width: 267.578px;">
+                                            #Sl
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
-                                            style="width: 392.922px;">Percentage
+                                            style="width: 392.922px;">
+                                            Percentage
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
-                                            style="width: 392.922px;">Duration
+                                            style="width: 392.922px;">
+                                            Duration
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
-                                            style="width: 392.922px;">Status
+                                            style="width: 392.922px;">
+                                            Status
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
-                                            style="width: 392.922px;">Action
+                                            style="width: 392.922px;">
+                                            Action
                                         </th>
                                     </tr>
                                 </thead>
@@ -59,11 +64,15 @@
                                             <td>
                                                 <div class="btn-group">
                                                     <a class="btn btn-warning"
-                                                        href="{{ route('delete_stack', $stack->id) }}">Delete</a>
+                                                        href="{{ route('delete_stack', $stack->id) }}">
+                                                        Delete
+                                                    </a>
                                                 </div>
                                                 <div class="btn-group">
                                                     <a class="btn btn-primary"
-                                                        href="{{ route('update_stacking_rois', $stack->id) }}">Edit</a>
+                                                        href="{{ route('update_stacking_rois', $stack->id) }}">
+                                                        Edit
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>
