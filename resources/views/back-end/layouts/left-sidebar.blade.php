@@ -3,11 +3,13 @@
         $route_name = request()
             ->route()
             ->getName();
-
+        
         $url = url()->current();
         $urlArray = explode('-', $url);
         $lastElement = end($urlArray);
     @endphp
+    @push('css')
+    @endpush
     @if (auth()->user()->user_type == 'admin')
         <nav class="pcoded-navbar">
             <div class="nav-list">
@@ -192,8 +194,11 @@
                     <div class="d-flex justify-content-between">
                         <div class="col-4">
                             <img class="img-fluid rounded-lg shadow"
-                                src="{{ asset('back-end/assets/images/avatar-4.jpg') }}" alt="forest">
+                                src="{{ asset('back-end/assets/images/avatar-4.jpg') }}" data-toggle="modal"
+                                data-target="#exampleModal" id="myImg" alt="forest">
+
                         </div>
+
                         <div class="col-8 text-white" style="overflow-wrap: break-word">
                             <span class="font-weight-bold">Hello, {{ auth()->user()->username }}</span>
                             <br>
@@ -202,6 +207,7 @@
                             <span class="font-weight-bold text-primary">Verified Account</span>
                         </div>
                     </div>
+
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu {{ $route_name == 'public_dashboard' ? 'active' : '' }}">
                             <a href="{{ route('public_dashboard') }}" class="waves-effect waves-dark">
@@ -269,5 +275,57 @@
                 </div>
             </div>
         </nav>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Upload Profile Picture</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="" class="col-form-label">Profile Picture:</label>
+                                <img id="previewImage" class="w-100 img-fluid">
+                                <input type="file" class="form-control" id="imageInput">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Update</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal end -->
     @endif
 @endsection
+@push('js')
+    <script>
+        $(document).ready(function() {
+            $("#myImg").click(function() {
+                $("#myModal").modal();
+            });
+        });
+    </script>
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const previewImage = document.getElementById('previewImage');
+
+        imageInput.addEventListener('change', function() {
+            const file = this.files[0];
+            const reader = new FileReader();
+
+            reader.addEventListener('load', function() {
+                previewImage.src = reader.result;
+            });
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+@endpush

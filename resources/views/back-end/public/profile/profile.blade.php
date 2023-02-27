@@ -3,7 +3,6 @@
 
 @push('css')
 @endpush
-
 @section('page-content')
     <div class="card">
         <div class="card-header bg-info">
@@ -38,43 +37,43 @@
                             <div class="form-group row m-0">
                                 <label for="name" class="col-sm-2 col-form-label">Name :</label>
                                 <div class="col-sm-10">
-                                    {{$user->name}}
+                                    {{ $user->name }}
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="username" class="col-sm-2 col-form-label">Username :</label>
                                 <div class="col-sm-10">
-                                    {{$user->username}}
+                                    {{ $user->username }}
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="email" class="col-sm-2 col-form-label">Email :</label>
                                 <div class="col-sm-10">
-                                    {{$user->email}}
+                                    {{ $user->email }}
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="phoneNumber" class="col-sm-2 col-form-label">Phone Number :</label>
                                 <div class="col-sm-10">
-                                @if (isset($userDetail->phone_number))
-                                    {{$userDetail->phone_number}}
-                                @endif
+                                    @if (isset($userDetail->phone_number))
+                                        {{ $userDetail->phone_number }}
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="dateOfBirth" class="col-sm-2 col-form-label">Date of birth :</label>
                                 <div class="col-sm-10">
-                                @if (isset($userDetail->date_of_birth))
-                                    {{$userDetail->date_of_birth}}
-                                @endif
+                                    @if (isset($userDetail->date_of_birth))
+                                        {{ $userDetail->date_of_birth }}
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="identityNumber" class="col-sm-2 col-form-label">Identity Number :</label>
                                 <div class="col-sm-10">
-                                @if (isset($userDetail->identity_number))
-                                    {{$userDetail->identity_number}}
-                                @endif
+                                    @if (isset($userDetail->identity_number))
+                                        {{ $userDetail->identity_number }}
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -88,41 +87,41 @@
                             <div class="form-group row m-0">
                                 <label for="houseArea" class="col-sm-2 col-form-label">House/Area :</label>
                                 <div class="col-sm-10">
-                                @if (isset($userDetail->house_no))
-                                    {{$userDetail->house_no}}
-                                @endif
+                                    @if (isset($userDetail->house_no))
+                                        {{ $userDetail->house_no }}
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="street" class="col-sm-2 col-form-label">Street :</label>
                                 <div class="col-sm-10">
-                                @if (isset($userDetail->street))
-                                    {{$userDetail->street}}
-                                @endif
+                                    @if (isset($userDetail->street))
+                                        {{ $userDetail->street }}
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="city" class="col-sm-2 col-form-label">City :</label>
                                 <div class="col-sm-10">
-                                @if (isset($userDetail->city))
-                                    {{$userDetail->city}}
-                                @endif
+                                    @if (isset($userDetail->city))
+                                        {{ $userDetail->city }}
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="zipCode" class="col-sm-2 col-form-label">Zip Code :</label>
                                 <div class="col-sm-10">
-                                @if (isset($userDetail->zip_code))
-                                    {{$userDetail->zip_code}}
-                                @endif
+                                    @if (isset($userDetail->zip_code))
+                                        {{ $userDetail->zip_code }}
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="country" class="col-sm-2 col-form-label">Country :</label>
                                 <div class="col-sm-10">
-                                @if (@isset($userDetail->country))
-                                    {{$userDetail->country}}
-                                @endif
+                                    @if (@isset($userDetail->country))
+                                        {{ $userDetail->country }}
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -173,8 +172,8 @@
                                         </label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="password" name="old_password" class="form-control" placeholder="Enter Old Password..."
-                                        required>
+                                        <input type="password" name="old_password" class="form-control"
+                                            placeholder="Enter Old Password..." required>
                                     </div>
                                 </div>
                             </div>
@@ -186,8 +185,8 @@
                                         </label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="password" name="new_password" class="form-control" placeholder="Enter New Password..."
-                                        required>
+                                        <input type="password" name="new_password" class="form-control"
+                                            placeholder="Enter New Password..." required>
                                     </div>
                                 </div>
                             </div>
@@ -199,18 +198,18 @@
                                         </label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="password" name="new_password_confirmation" class="form-control" placeholder="Enter Confirm Password..."
-                                        required>
+                                        <input type="password" name="new_password_confirmation" class="form-control"
+                                            placeholder="Enter Confirm Password..." required>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="text-center m-t-20">
                                 <button type="submit" class="btn btn-primary rounded-pill" enable>
-                                    Update Password
+                                    Update Passwor
                                 </button>
                             </div>
-                        </form>  
+                        </form>
                     </div>
                 </div>
 
@@ -231,9 +230,9 @@
                 $('#tab-list a[href="' + activeTab + '"]').tab('show');
             }
         });
-    </script>
+    </script> 
     <script>
-        var _editdetails =`
+        var _editdetails = `
         <div>
             <h3 class="font-weight-bold mb-3">
                 Personal Details
@@ -296,7 +295,7 @@
             </div>
         </div>`;
 
-        var _editlocation =`
+        var _editlocation = `
         <div>
             <h3 class="font-weight-bold mb-3">
                 Location
@@ -351,17 +350,15 @@
             </div>
         </div>`;
 
-        $("#editdetails").click(function()
-        {
+        $("#editdetails").click(function() {
             $("#details").html(_editdetails);
         });
 
-        $("#editlocation").click(function()
-        {
+        $("#editlocation").click(function() {
             $("#location").html(_editlocation);
         });
 
-        var _photoverify=`
+        var _photoverify = `
         <div id="photoverify">
             <h3 class="text-primary font-weight-bold text-center">
                 <span>Photo Verification:</span>
@@ -379,8 +376,7 @@
                 </button>
             </div>
         </div>`;
-        $("#photoverify").click(function()
-        {
+        $("#photoverify").click(function() {
             $("#verification").html(_photoverify);
         });
     </script>

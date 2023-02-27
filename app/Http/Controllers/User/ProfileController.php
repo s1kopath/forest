@@ -30,4 +30,5 @@ class ProfileController extends Controller
 
         return redirect()->back()->with('message', 'Password Update successfully.');
     }
+
 }
