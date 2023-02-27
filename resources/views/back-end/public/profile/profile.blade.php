@@ -3,7 +3,6 @@
 
 @push('css')
 @endpush
-
 @section('page-content')
     <div class="card">
         <div class="card-header bg-info">
@@ -38,19 +37,19 @@
                             <div class="form-group row m-0">
                                 <label for="name" class="col-sm-2 col-form-label">Name :</label>
                                 <div class="col-sm-10">
-                                    {{$user->name}}
+                                    {{ $user->name }}
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="username" class="col-sm-2 col-form-label">Username :</label>
                                 <div class="col-sm-10">
-                                    {{$user->username}}
+                                    {{ $user->username }}
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="email" class="col-sm-2 col-form-label">Email :</label>
                                 <div class="col-sm-10">
-                                    {{$user->email}}
+                                    {{ $user->email }}
                                 </div>
                             </div>
                             <div class="form-group row m-0">
@@ -173,8 +172,8 @@
                                         </label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="password" name="old_password" class="form-control" placeholder="Enter Old Password..."
-                                        required>
+                                        <input type="password" name="old_password" class="form-control"
+                                            placeholder="Enter Old Password..." required>
                                     </div>
                                 </div>
                             </div>
@@ -186,8 +185,8 @@
                                         </label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="password" name="new_password" class="form-control" placeholder="Enter New Password..."
-                                        required>
+                                        <input type="password" name="new_password" class="form-control"
+                                            placeholder="Enter New Password..." required>
                                     </div>
                                 </div>
                             </div>
@@ -199,18 +198,18 @@
                                         </label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="password" name="new_password_confirmation" class="form-control" placeholder="Enter Confirm Password..."
-                                        required>
+                                        <input type="password" name="new_password_confirmation" class="form-control"
+                                            placeholder="Enter Confirm Password..." required>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="text-center m-t-20">
                                 <button type="submit" class="btn btn-primary rounded-pill" enable>
-                                    Update Password
+                                    Update Passwor
                                 </button>
                             </div>
-                        </form>  
+                        </form>
                     </div>
                 </div>
 
@@ -233,7 +232,7 @@
         });
     </script>
     <script>
-        var _editdetails =`
+        var _editdetails = `
         <div>
             <h3 class="font-weight-bold mb-3">
                 Personal Details
@@ -313,7 +312,7 @@
             </form>
         </div>`;
 
-        var _editlocation =`
+        var _editlocation = `
         <div>
             <h3 class="font-weight-bold mb-3">
                 Location
@@ -394,17 +393,15 @@
             </form>
         </div>`;
 
-        $("#editdetails").click(function()
-        {
+        $("#editdetails").click(function() {
             $("#details").html(_editdetails);
         });
 
-        $("#editlocation").click(function()
-        {
+        $("#editlocation").click(function() {
             $("#location").html(_editlocation);
         });
 
-        var _photoverify=`
+        var _photoverify = `
         <div id="photoverify">
             <h3 class="text-primary font-weight-bold text-center">
                 <span>Photo Verification :</span>
@@ -423,8 +420,7 @@
                 </button>
             </div>
         </div>`;
-        $("#photoverify").click(function()
-        {
+        $("#photoverify").click(function() {
             $("#verification").html(_photoverify);
         });
     </script>
