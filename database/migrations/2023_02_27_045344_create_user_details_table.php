@@ -15,14 +15,15 @@ return new class extends Migration
     {
         Schema::create('user_details', function (Blueprint $table) {
             $table->id();
-            $table->integer('phone_number');
-            $table->dateTime('date_of_birth');
-            $table->integer('identity_number');
-            $table->string('house_no');
-            $table->string('street');
-            $table->string('city');
-            $table->string('zip_code');
-            $table->string('country');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('phone_number')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->string('identity_number')->nullable();
+            $table->string('house_no')->nullable();
+            $table->string('street')->nullable();
+            $table->string('city')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('country')->nullable();
             $table->timestamps();
         });
     }

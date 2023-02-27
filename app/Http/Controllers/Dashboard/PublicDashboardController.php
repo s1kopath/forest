@@ -24,9 +24,69 @@ class PublicDashboardController extends Controller
 
     public function publicProfile()
     {
-        $user = auth()->user();
-        return view('back-end.public.profile.profile', compact('user'));
+        $user = User::with('userToUserDetails')->where('id', auth()->id())->first();
+        $userDetail = UserDetail::where('user_id', auth()->id())->first();
+
+        return view('back-end.public.profile.profile', compact('user', 'userDetail'));
     }
+
+    public function updatePublicProfile(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone_number' => 'nullable',
+            'identity_number' => 'nullable',
+            'date_of_birth' => 'nullable',
+        ]);
+
+        $user = User::where('id', auth()->id())->first();
+
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        UserDetail::updateOrCreate([
+            'user_id' => auth()->id()
+        ], [
+            'phone_number' => $request->phone_number,
+            'identity_number' => $request->identity_number,
+            'date_of_birth' => $request->date_of_birth,
+        ]);
+
+        return back()->with('message', 'updated successfully.');
+    }
+
+    public function editLocation(Request $request)
+    {
+        if ($request->isMethod('POST')) {
+            $request->validate([
+                'house_no' => 'nullable',
+                'street' => 'nullable',
+                'city' => 'nullable',
+                'country' => 'nullable',
+                'zip_code' => 'nullable'
+            ]);
+            $userDetail = UserDetail::where('user_id', auth()->id())->first();
+
+            $userDetail->updateOrCreate([
+                'user_id' => auth()->id()
+            ], [
+                'house_no' => $request->house_no,
+                'street' => $request->street,
+                'city' => $request->city,
+                'country' => $request->country,
+                'zip_code' => $request->zip_code,
+            ]);
+
+            return back()->with('message', 'updated successfully.');
+        } else {
+            return view('back-end.public.profile.profile');
+        }
+    }
+
+
 
     public function history()
     {
