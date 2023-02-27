@@ -35,8 +35,8 @@ class PublicDashboardController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'phone_number' => 'required',
-            'identity_number' => 'required',
+            'phone_number' => 'nullable',
+            'identity_number' => 'nullable',
             'date_of_birth' => 'nullable',
         ]);
 
@@ -60,8 +60,6 @@ class PublicDashboardController extends Controller
 
     public function editLocation(Request $request)
     {
-
-        $userDetail = UserDetail::where('id', auth()->id())->first();
         if ($request->isMethod('POST')) {
             $request->validate([
                 'house_no' => 'nullable',
@@ -70,17 +68,21 @@ class PublicDashboardController extends Controller
                 'country' => 'nullable',
                 'zip_code' => 'nullable'
             ]);
+            $userDetail = UserDetail::where('user_id', auth()->id())->first();
 
-            $userDetail->update([
+            $userDetail->updateOrCreate([
+                'user_id' => auth()->id()
+            ], [
                 'house_no' => $request->house_no,
                 'street' => $request->street,
                 'city' => $request->city,
                 'country' => $request->country,
                 'zip_code' => $request->zip_code,
             ]);
-            return redirect()->route('public_profile');
+
+            return back()->with('message', 'updated successfully.');
         } else {
-            return view('back-end.public.profile.profile', compact('userDetail'));
+            return view('back-end.public.profile.profile');
         }
     }
 

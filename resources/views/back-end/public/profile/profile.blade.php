@@ -271,7 +271,7 @@
                             @if (@isset($user->userToUserDetails->phone_number))
                                 <input type="number" class="form-control" value="{{$user->userToUserDetails->phone_number}}" name="phone_number">
                             @else
-                                <input type="number" class="form-control" value="" name="phone_number" required>
+                                <input type="number" class="form-control" value="" name="phone_number">
                             @endif
                         </div>
                     </div>
@@ -295,7 +295,7 @@
                             @if (@isset($user->userToUserDetails->identity_number))
                                 <input type="number" class="form-control" value="{{$user->userToUserDetails->identity_number}}" name="identity_number">
                             @else
-                                <input type="number" class="form-control" value="" name="identity_number" required>
+                                <input type="number" class="form-control" value="" name="identity_number">
                             @endif
                         </div>
                     </div>
