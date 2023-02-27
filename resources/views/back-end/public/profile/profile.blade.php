@@ -238,35 +238,35 @@
             </h3>
             <form action="{{ route('update_public_profile') }}" method="post">
                 @csrf
-                    <div class="form-group row m-1">
-                        <div class="col-sm-6">
-                            <label for="name">Name</label>
+                    <div class="form-group row m-0">
+                        <div class="col-sm-2">
+                            <label for="name">Name :</label>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-10">
                             <input type="text" class="form-control" value="{{$user->name}}" name="name" required>
                         </div>
                     </div>
-                    <div class="form-group row m-1">
-                        <div class="col-sm-6">
-                            <label for="username">UserName</label>
+                    <div class="form-group row m-0">
+                        <div class="col-sm-2">
+                            <label for="username">UserName :</label>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-10">
                             <input type="text" class="form-control" value="{{$user->username}}" name="username" readonly>
                         </div>
                     </div>
-                    <div class="form-group row m-1">
-                        <div class="col-sm-6">
-                            <label for="email">Email</label>
+                    <div class="form-group row m-0">
+                        <div class="col-sm-2">
+                            <label for="email">Email :</label>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-10">
                             <input type="email" class="form-control" value="{{$user->email}}" name="email" required>
                         </div>
                     </div>
-                    <div class="form-group row m-1">
-                        <div class="col-sm-6">
-                            <label for="phonenumber">Phone Number</label>
+                    <div class="form-group row m-0">
+                        <div class="col-sm-2">
+                            <label for="phonenumber">Phone Number :</label>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->phone_number))
                                 <input type="number" class="form-control" value="{{$user->userToUserDetails->phone_number}}" name="phone_number">
                             @else
@@ -274,11 +274,11 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row m-1">
-                        <div class="col-sm-6">
-                            <label for="dateofbirth">Date of Birth</label>
+                    <div class="form-group row m-0">
+                        <div class="col-sm-2">
+                            <label for="dateofbirth">Date of Birth :</label>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->date_of_birth))
                                 <input type="date" class="form-control" value="{{$user->userToUserDetails->date_of_birth}}" name="date_of_birth">
                             @else
@@ -286,11 +286,11 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row m-1">
-                        <div class="col-sm-6">
-                            <label for="identitynumber">Identity Number</label>
+                    <div class="form-group row m-0">
+                        <div class="col-sm-2">
+                            <label for="identitynumber">Identity Number :</label>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->identity_number))
                                 <input type="number" class="form-control" value="{{$user->userToUserDetails->identity_number}}" name="identity_number">
                             @else
@@ -319,11 +319,11 @@
             <form action="{{ route('edit_location') }}" method="post">
                 @csrf
                 <div class="container">
-                    <div class="form-group row m-1">
-                        <div class="col-sm-6">
-                            <label for="house/area">House/Area</label>
+                    <div class="form-group row m-0">
+                        <div class="col-sm-2">
+                            <label for="house/area">House/Area :</label>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->house_no))
                                 <input type="text" class="form-control" value="{{$user->userToUserDetails->house_no}}" name="house_no">
                             @else
@@ -331,11 +331,11 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row m-1">
-                        <div class="col-sm-6">
-                            <label for="street">Street</label>
+                    <div class="form-group row m-0">
+                        <div class="col-sm-2">
+                            <label for="street">Street :</label>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->street))
                                 <input type="text" class="form-control" value="{{$user->userToUserDetails->street}}" name="street">
                             @else
@@ -343,11 +343,11 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row m-1">
-                        <div class="col-sm-6">
-                            <label for="city">City</label>
+                    <div class="form-group row m-0">
+                        <div class="col-sm-2">
+                            <label for="city">City :</label>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->city))
                                 <input type="text" class="form-control" value="{{$user->userToUserDetails->city}}" name="city">
                             @else
@@ -355,11 +355,11 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row m-1">
-                        <div class="col-sm-6">
-                            <label for="zipcode">Zip Code</label>
+                    <div class="form-group row m-0">
+                        <div class="col-sm-2">
+                            <label for="zipcode">Zip Code :</label>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->zip_code))
                                 <input type="number" class="form-control" value="{{$user->userToUserDetails->zip_code}}" name="zip_code">
                             @else
@@ -367,11 +367,11 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row m-1">
-                        <div class="col-sm-6">
-                            <label for="country">Country</label>
+                    <div class="form-group row m-0">
+                        <div class="col-sm-2">
+                            <label for="country">Country :</label>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->country))
                                 <input type="text" class="form-control" value="{{$user->userToUserDetails->country}}" name="country">
                             @else
@@ -405,7 +405,7 @@
         var _photoverify=`
         <div id="photoverify">
             <h3 class="text-primary font-weight-bold text-center">
-                <span>Photo Verification:</span>
+                <span>Photo Verification :</span>
             </h3>
 
             <div class="col d-flex justify-content-center">
