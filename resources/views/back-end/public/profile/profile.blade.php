@@ -56,24 +56,24 @@
                             <div class="form-group row m-0">
                                 <label for="phoneNumber" class="col-sm-2 col-form-label">Phone Number :</label>
                                 <div class="col-sm-10">
-                                @if (isset($userDetail->phone_number))
-                                    {{$userDetail->phone_number}}
+                                @if (isset($user->userToUserDetails->phone_number))
+                                    {{$user->userToUserDetails->phone_number}}
                                 @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="dateOfBirth" class="col-sm-2 col-form-label">Date of birth :</label>
                                 <div class="col-sm-10">
-                                @if (isset($userDetail->date_of_birth))
-                                    {{$userDetail->date_of_birth}}
+                                @if (isset($user->userToUserDetails->date_of_birth))
+                                    {{$user->userToUserDetails->date_of_birth}}
                                 @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="identityNumber" class="col-sm-2 col-form-label">Identity Number :</label>
                                 <div class="col-sm-10">
-                                @if (isset($userDetail->identity_number))
-                                    {{$userDetail->identity_number}}
+                                @if (isset($user->userToUserDetails->identity_number))
+                                    {{$user->userToUserDetails->identity_number}}
                                 @endif
                                 </div>
                             </div>
@@ -88,40 +88,40 @@
                             <div class="form-group row m-0">
                                 <label for="houseArea" class="col-sm-2 col-form-label">House/Area :</label>
                                 <div class="col-sm-10">
-                                @if (isset($userDetail->house_no))
-                                    {{$userDetail->house_no}}
+                                @if (isset($user->userToUserDetails->house_no))
+                                    {{$user->userToUserDetails->house_no}}
                                 @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="street" class="col-sm-2 col-form-label">Street :</label>
                                 <div class="col-sm-10">
-                                @if (isset($userDetail->street))
-                                    {{$userDetail->street}}
+                                @if (isset($user->userToUserDetails->street))
+                                    {{$user->userToUserDetails->street}}
                                 @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="city" class="col-sm-2 col-form-label">City :</label>
                                 <div class="col-sm-10">
-                                @if (isset($userDetail->city))
-                                    {{$userDetail->city}}
+                                @if (isset($user->userToUserDetails->city))
+                                    {{$user->userToUserDetails->city}}
                                 @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="zipCode" class="col-sm-2 col-form-label">Zip Code :</label>
                                 <div class="col-sm-10">
-                                @if (isset($userDetail->zip_code))
-                                    {{$userDetail->zip_code}}
+                                @if (isset($user->userToUserDetails->zip_code))
+                                    {{$user->userToUserDetails->zip_code}}
                                 @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="country" class="col-sm-2 col-form-label">Country :</label>
                                 <div class="col-sm-10">
-                                @if (@isset($userDetail->country))
-                                    {{$userDetail->country}}
+                                @if (@isset($user->userToUserDetails->country))
+                                    {{$user->userToUserDetails->country}}
                                 @endif
                                 </div>
                             </div>
@@ -236,7 +236,7 @@
             <h3 class="font-weight-bold mb-3">
                 Personal Details
             </h3>
-            <form action="{{ route('public_profile') }}" method="post">
+            <form action="{{ route('update_public_profile') }}" method="post">
                 @csrf
                 <div class="container">
                     <div class="form-group row">
@@ -268,8 +268,8 @@
                             <label for="phonenumber">Phone Number</label>
                         </div>
                         <div class="col-sm-6">
-                            @if (@isset($userDetail->phone_number))
-                                <input type="number" class="form-control" value="{{$userDetail->phone_number}}" name="phone_number">
+                            @if (@isset($user->userToUserDetails->phone_number))
+                                <input type="number" class="form-control" value="{{$user->userToUserDetails->phone_number}}" name="phone_number">
                             @else
                                 <input type="number" class="form-control" value="" name="phone_number" required>
                             @endif
@@ -280,8 +280,8 @@
                             <label for="dateofbirth">Date of Birth</label>
                         </div>
                         <div class="col-sm-6">
-                            @if (@isset($userDetail->date_of_birth))
-                                <input type="date" class="form-control" value="{{$userDetail->date_of_birth}}" name="date_of_birth">
+                            @if (@isset($user->userToUserDetails->date_of_birth))
+                                <input type="date" class="form-control" value="{{$user->userToUserDetails->date_of_birth}}" name="date_of_birth">
                             @else
                                 <input type="date" class="form-control" value="" name="date_of_birth">
                             @endif
@@ -292,8 +292,8 @@
                             <label for="identitynumber">Identity Number</label>
                         </div>
                         <div class="col-sm-6">
-                            @if (@isset($userDetail->identity_number))
-                                <input type="number" class="form-control" value="{{$userDetail->identity_number}}" name="identity_number">
+                            @if (@isset($user->userToUserDetails->identity_number))
+                                <input type="number" class="form-control" value="{{$user->userToUserDetails->identity_number}}" name="identity_number">
                             @else
                                 <input type="number" class="form-control" value="" name="identity_number" required>
                             @endif
@@ -323,8 +323,8 @@
                             <label for="house/area">House/Area</label>
                         </div>
                         <div class="col-sm-6">
-                            @if (@isset($userDetail->house_no))
-                                <input type="text" class="form-control" value="{{$userDetail->house_no}}" name="house_no">
+                            @if (@isset($user->userToUserDetails->house_no))
+                                <input type="text" class="form-control" value="{{$user->userToUserDetails->house_no}}" name="house_no">
                             @else
                                 <input type="text" class="form-control" value="" name="house_no">
                             @endif
@@ -335,8 +335,8 @@
                             <label for="street">Street</label>
                         </div>
                         <div class="col-sm-6">
-                            @if (@isset($userDetail->street))
-                                <input type="text" class="form-control" value="{{$userDetail->street}}" name="street">
+                            @if (@isset($user->userToUserDetails->street))
+                                <input type="text" class="form-control" value="{{$user->userToUserDetails->street}}" name="street">
                             @else
                                 <input type="text" class="form-control" value="" name="street">
                             @endif
@@ -347,8 +347,8 @@
                             <label for="city">City</label>
                         </div>
                         <div class="col-sm-6">
-                            @if (@isset($userDetail->city))
-                                <input type="text" class="form-control" value="{{$userDetail->city}}" name="city">
+                            @if (@isset($user->userToUserDetails->city))
+                                <input type="text" class="form-control" value="{{$user->userToUserDetails->city}}" name="city">
                             @else
                                 <input type="text" class="form-control" value="" name="city">
                             @endif
@@ -359,8 +359,8 @@
                             <label for="zipcode">Zip Code</label>
                         </div>
                         <div class="col-sm-6">
-                            @if (@isset($userDetail->zip_code))
-                                <input type="number" class="form-control" value="{{$userDetail->zip_code}}" name="zip_code">
+                            @if (@isset($user->userToUserDetails->zip_code))
+                                <input type="number" class="form-control" value="{{$user->userToUserDetails->zip_code}}" name="zip_code">
                             @else
                                 <input type="number" class="form-control" value="" name="zip_code">
                             @endif
@@ -371,8 +371,8 @@
                             <label for="country">Country</label>
                         </div>
                         <div class="col-sm-6">
-                            @if (@isset($userDetail->country))
-                                <input type="text" class="form-control" value="{{$userDetail->country}}" name="country">
+                            @if (@isset($user->userToUserDetails->country))
+                                <input type="text" class="form-control" value="{{$user->userToUserDetails->country}}" name="country">
                             @else
                                 <input type="text" class="form-control" value="" name="country">
                             @endif

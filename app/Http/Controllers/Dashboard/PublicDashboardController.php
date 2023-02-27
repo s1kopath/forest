@@ -22,38 +22,44 @@ class PublicDashboardController extends Controller
         return view('back-end.dashboard-public', compact('wallet', 'totalStake'));
     }
 
-    public function publicProfile(Request $request)
+    public function publicProfile()
     {
-        $user=User::where('id', auth()->id())->first();
-        $userDetail = UserDetail::where('id', auth()->id())->first();
-        if ($request->isMethod('POST')) {
-            $request->validate([
-                'name' => 'required',
-                'email' => 'required',
-                'phone_number' => 'required',
-                'identity_number' => 'required',
-                'date_of_birth' => 'nullable',
-            ]);
-            $user->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                ]);
-            $userDetail->update([
-                'phone_number' => $request->phone_number,
-                'identity_number' => $request->identity_number,
-                'date_of_birth' => $request->date_of_birth,
-            ]);
+        $user = User::with('userToUserDetails')->where('id', auth()->id())->first();
+        $userDetail = UserDetail::where('user_id', auth()->id())->first();
 
-            return redirect()->route('public_profile');
-        }
-        else{
-            $user = auth()->user();
-
-            return view('back-end.public.profile.profile', compact('user', 'userDetail'));
-        }
+        return view('back-end.public.profile.profile', compact('user', 'userDetail'));
     }
 
-    public function editLocation(Request $request){
+    public function updatePublicProfile(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone_number' => 'required',
+            'identity_number' => 'required',
+            'date_of_birth' => 'nullable',
+        ]);
+
+        $user = User::where('id', auth()->id())->first();
+
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        UserDetail::updateOrCreate([
+            'user_id' => auth()->id()
+        ], [
+            'phone_number' => $request->phone_number,
+            'identity_number' => $request->identity_number,
+            'date_of_birth' => $request->date_of_birth,
+        ]);
+
+        return back()->with('message', 'updated successfully.');
+    }
+
+    public function editLocation(Request $request)
+    {
 
         $userDetail = UserDetail::where('id', auth()->id())->first();
         if ($request->isMethod('POST')) {
@@ -62,7 +68,7 @@ class PublicDashboardController extends Controller
                 'street' => 'nullable',
                 'city' => 'nullable',
                 'country' => 'nullable',
-                'zip_code'=> 'nullable'
+                'zip_code' => 'nullable'
             ]);
 
             $userDetail->update([
@@ -73,8 +79,7 @@ class PublicDashboardController extends Controller
                 'zip_code' => $request->zip_code,
             ]);
             return redirect()->route('public_profile');
-        }
-        else{
+        } else {
             return view('back-end.public.profile.profile', compact('userDetail'));
         }
     }

@@ -87,8 +87,8 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
     Route::get('/', [PublicDashboardController::class, 'publicDashboard'])->name('public_dashboard');
     Route::prefix('profile')->group(function () {
         Route::get('/', [PublicDashboardController::class, 'publicProfile'])->name('public_profile');
-        Route::post('/', [PublicDashboardController::class, 'publicProfile'])->name('public_profile');
-        Route::post('/', [PublicDashboardController::class, 'editLocation'])->name('edit_location');
+        Route::post('/update', [PublicDashboardController::class, 'updatePublicProfile'])->name('update_public_profile');
+        Route::post('/update-location', [PublicDashboardController::class, 'editLocation'])->name('edit_location');
         Route::get('fund', [FundController::class, 'fund'])->name('public_fund');
         // stake
         Route::post('fund/stake', [StakeController::class, 'stake'])->name('stake');
