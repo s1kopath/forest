@@ -22,11 +22,64 @@ class PublicDashboardController extends Controller
         return view('back-end.dashboard-public', compact('wallet', 'totalStake'));
     }
 
-    public function publicProfile()
+    public function publicProfile(Request $request)
     {
-        $user = auth()->user();
-        return view('back-end.public.profile.profile', compact('user'));
+        $user=User::where('id', auth()->id())->first();
+        $userDetail = UserDetail::where('id', auth()->id())->first();
+        if ($request->isMethod('POST')) {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+                'phone_number' => 'required',
+                'identity_number' => 'required',
+                'date_of_birth' => 'nullable',
+            ]);
+            $user->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                ]);
+            $userDetail->update([
+                'phone_number' => $request->phone_number,
+                'identity_number' => $request->identity_number,
+                'date_of_birth' => $request->date_of_birth,
+            ]);
+
+            return redirect()->route('public_profile');
+        }
+        else{
+            $user = auth()->user();
+
+            return view('back-end.public.profile.profile', compact('user', 'userDetail'));
+        }
     }
+
+    public function editLocation(Request $request){
+
+        $userDetail = UserDetail::where('id', auth()->id())->first();
+        if ($request->isMethod('POST')) {
+            $request->validate([
+                'house_no' => 'nullable',
+                'street' => 'nullable',
+                'city' => 'nullable',
+                'country' => 'nullable',
+                'zip_code'=> 'nullable'
+            ]);
+
+            $userDetail->update([
+                'house_no' => $request->house_no,
+                'street' => $request->street,
+                'city' => $request->city,
+                'country' => $request->country,
+                'zip_code' => $request->zip_code,
+            ]);
+            return redirect()->route('public_profile');
+        }
+        else{
+            return view('back-end.public.profile.profile', compact('userDetail'));
+        }
+    }
+
+
 
     public function history()
     {

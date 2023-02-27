@@ -236,62 +236,78 @@
             <h3 class="font-weight-bold mb-3">
                 Personal Details
             </h3>
-            <div class="container">
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="name">Name</label>
+            <form action="{{ route('public_profile') }}" method="post">
+                @csrf
+                <div class="container">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" value="{{$user->name}}" name="name" required>
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="username">UserName</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" value="{{$user->username}}" name="username" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="email" class="form-control" value="{{$user->email}}" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="phonenumber">Phone Number</label>
+                        </div>
+                        <div class="col-sm-6">
+                            @if (@isset($userDetail->phone_number))
+                                <input type="number" class="form-control" value="{{$userDetail->phone_number}}" name="phone_number">
+                            @else
+                                <input type="number" class="form-control" value="" name="phone_number" required>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="dateofbirth">Date of Birth</label>
+                        </div>
+                        <div class="col-sm-6">
+                            @if (@isset($userDetail->date_of_birth))
+                                <input type="date" class="form-control" value="{{$userDetail->date_of_birth}}" name="date_of_birth">
+                            @else
+                                <input type="date" class="form-control" value="" name="date_of_birth">
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="identitynumber">Identity Number</label>
+                        </div>
+                        <div class="col-sm-6">
+                            @if (@isset($userDetail->identity_number))
+                                <input type="number" class="form-control" value="{{$userDetail->identity_number}}" name="identity_number">
+                            @else
+                                <input type="number" class="form-control" value="" name="identity_number" required>
+                            @endif
+                        </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="username">UserName</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="phonenumber">Phone Number</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="dateofbirth">Date of Birth</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="email" class="form-control" placeholder="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="identitynumber">Identity Number</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="email" class="form-control" placeholder="">
-                    </div>
-                </div>
-            </div>
 
-            <div class="text-center m-t-20">
-                <button class="btn btn-primary rounded-pill mb-3" disabled>
-                    update
-                </button>
-            </div>
+
+                <div class="text-center m-t-20">
+                    <button class="btn btn-primary rounded-pill mb-3">
+                        update
+                    </button>
+                </div>
+            </form>
         </div>`;
 
         var _editlocation =`
@@ -299,54 +315,77 @@
             <h3 class="font-weight-bold mb-3">
                 Location
             </h3>
-            <div class="container">
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="house/area">House/Area</label>
+            <form action="{{ route('edit_location') }}" method="post">
+                @csrf
+                <div class="container">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="house/area">House/Area</label>
+                        </div>
+                        <div class="col-sm-6">
+                            @if (@isset($userDetail->house_no))
+                                <input type="text" class="form-control" value="{{$userDetail->house_no}}" name="house_no">
+                            @else
+                                <input type="text" class="form-control" value="" name="house_no">
+                            @endif
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="">
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="street">Street</label>
+                        </div>
+                        <div class="col-sm-6">
+                            @if (@isset($userDetail->street))
+                                <input type="text" class="form-control" value="{{$userDetail->street}}" name="street">
+                            @else
+                                <input type="text" class="form-control" value="" name="street">
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="city">City</label>
+                        </div>
+                        <div class="col-sm-6">
+                            @if (@isset($userDetail->city))
+                                <input type="text" class="form-control" value="{{$userDetail->city}}" name="city">
+                            @else
+                                <input type="text" class="form-control" value="" name="city">
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="zipcode">Zip Code</label>
+                        </div>
+                        <div class="col-sm-6">
+                            @if (@isset($userDetail->zip_code))
+                                <input type="number" class="form-control" value="{{$userDetail->zip_code}}" name="zip_code">
+                            @else
+                                <input type="number" class="form-control" value="" name="zip_code">
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <label for="country">Country</label>
+                        </div>
+                        <div class="col-sm-6">
+                            @if (@isset($userDetail->country))
+                                <input type="text" class="form-control" value="{{$userDetail->country}}" name="country">
+                            @else
+                                <input type="text" class="form-control" value="" name="country">
+                            @endif
+                        </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="street">Street</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="city">City</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="email" class="form-control" placeholder="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="zipcode">Zip Code</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="email" class="form-control" placeholder="">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-6">
-                        <label for="country">Country</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="">
-                    </div>
-                </div>
-            </div>
 
-            <div class="text-center m-t-20">
-                <button class="btn btn-primary rounded-pill" disabled>
-                    update
-                </button>
-            </div>
+                <div class="text-center m-t-20">
+                    <button class="btn btn-primary rounded-pill">
+                        update
+                    </button>
+                </div>
+            </form>
         </div>`;
 
         $("#editdetails").click(function()
