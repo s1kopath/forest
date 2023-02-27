@@ -164,51 +164,53 @@
                         <h3 class="text-primary font-weight-bold text-center">
                             <span>Change Password</span>
                         </h3>
-                        <div class="form-group">
-                            <div class="row align-items-center">
-                                <div class="col-md-2 offset-md-2">
-                                    <label for="oldPassword" class="form-label mb-0 font-weight-bold">
-                                        Old Password:
-                                    </label>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" placeholder="Enter Old Password..."
-                                        name="old_password" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row align-items-center">
-                                <div class="col-md-2 offset-md-2">
-                                    <label for="newPassword" class="form-label mb-0 font-weight-bold">
-                                        New Password:
-                                    </label>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" placeholder="Enter New Password..."
-                                        name="new_password" required>
+                        <form action="{{ route('update_password') }}" class="">
+                            <div class="form-group">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 offset-md-2">
+                                        <label for="oldPassword" class="form-label mb-0 font-weight-bold">
+                                            Old Password:
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="password" name="old_password" class="form-control" placeholder="Enter Old Password..."
+                                        required>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row align-items-center">
-                                <div class="col-md-2 offset-md-2">
-                                    <label for="confirmPassword" class="form-label mb-0 font-weight-bold">
-                                        Confirm Password:
-                                    </label>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" placeholder="Enter Confirm Password..."
-                                        name="confirm_password" required>
+                            <div class="form-group">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 offset-md-2">
+                                        <label for="newPassword" class="form-label mb-0 font-weight-bold">
+                                            New Password:
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="password" name="new_password" class="form-control" placeholder="Enter New Password..."
+                                        required>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 offset-md-2">
+                                        <label for="confirmPassword" class="form-label mb-0 font-weight-bold">
+                                            Confirm Password:
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="password" name="new_password_confirmation" class="form-control" placeholder="Enter Confirm Password..."
+                                        required>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div class="text-center m-t-20">
-                            <button class="btn btn-primary rounded-pill" disabled>
-                                Update Password
-                            </button>
-                        </div>
+                            <div class="text-center m-t-20">
+                                <button type="submit" class="btn btn-primary rounded-pill" enable>
+                                    Update Password
+                                </button>
+                            </div>
+                        </form>  
                     </div>
                 </div>
 

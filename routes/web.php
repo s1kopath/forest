@@ -13,12 +13,12 @@ use App\Http\Controllers\User\StakeController;
 use App\Http\Controllers\MonthlyContestController;
 use App\Http\Controllers\Otp\OtpController;
 use App\Http\Controllers\StripePaymentController;
-use App\Http\Controllers\TestController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\ProfileController;
 
-Route::get('/test', [TestController::class, 'test'])->name('test');
 
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
+Route::get('/test', [HomeController::class, 'test'])->name('test');
 Route::get('markets', [HomeController::class, 'markets'])->name('markets');
 Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('blog', [HomeController::class, 'blog'])->name('blog');
@@ -87,6 +87,8 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
     Route::get('/', [PublicDashboardController::class, 'publicDashboard'])->name('public_dashboard');
     Route::prefix('profile')->group(function () {
         Route::get('/', [PublicDashboardController::class, 'publicProfile'])->name('public_profile');
+        Route::get('update-password', [ProfileController::class, 'updatePassword'])->name('update_password');
+
         Route::get('fund', [FundController::class, 'fund'])->name('public_fund');
         // stake
         Route::post('fund/stake', [StakeController::class, 'stake'])->name('stake');
