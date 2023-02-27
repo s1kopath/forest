@@ -12,13 +12,6 @@ class HomeController extends Controller
         return view('front-end.index');
     }
 
-    public function test()
-    {
-        dd(strtotime(now()) , session('email'));
-        return view('test');
-        // return view('front-end.section.content.test');
-    }
-
     public function markets()
     {
         return view('front-end.section.content.markets.markets');

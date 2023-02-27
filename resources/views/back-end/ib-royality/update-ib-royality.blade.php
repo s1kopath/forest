@@ -19,16 +19,12 @@
                                 <div class="col-md-6">
                                     <select name="rank" class="form-control form-select" required>
                                         <option value="">Choose Rank...</option>
-                                        <option {{ $royality->rank == 'IB' ? 'selected' : '' }} value="IB">
-                                            IB</option>
-                                        <option {{ $royality->rank == 'Pro-IB' ? 'selected' : '' }} value="Pro-IB">Pro-IB
-                                        </option>
-                                        <option {{ $royality->rank == 'Master IB' ? 'selected' : '' }} value="Master IB">
-                                            Master IB</option>
-                                        <option {{ $royality->rank == 'Corporate IB' ? 'selected' : '' }}
-                                            value="Corporate IB">Corporate IB</option>
-                                        <option {{ $royality->rank == 'Founder' ? 'selected' : '' }} value="Founder">Founder
-                                        </option>
+                                        @foreach ($ranks as $rank)
+                                            <option value="{{ $rank->id }}"
+                                                {{ $royality->rank_id == $rank->id ? 'selected' : '' }}>
+                                                {{ $rank->title }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

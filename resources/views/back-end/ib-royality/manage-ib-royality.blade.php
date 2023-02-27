@@ -8,8 +8,9 @@
         </div>
         <div class="card-block">
             <div class="text-right">
-                <a href="{{ route('add_ib_royality') }}" class="btn btn-success btn-round waves-effect waves-light">Add
-                    New</a>
+                <a href="{{ route('add_ib_royality') }}" class="btn btn-success btn-round waves-effect waves-light">
+                    Add New
+                </a>
             </div>
             <div class="dt-responsive table-responsive">
                 <div id="order-table_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -21,23 +22,28 @@
                                     <tr role="row">
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Name: activate to sort column ascending"
-                                            style="width: 267.578px;">#Sl
+                                            style="width: 267.578px;">
+                                            #Sl
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Name: activate to sort column ascending"
-                                            style="width: 267.578px;">Rank
+                                            style="width: 267.578px;">
+                                            Rank
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
-                                            style="width: 392.922px;">Percentage
+                                            style="width: 392.922px;">
+                                            Percentage
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
-                                            style="width: 392.922px;">Status
+                                            style="width: 392.922px;">
+                                            Status
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
-                                            style="width: 392.922px;">Action
+                                            style="width: 392.922px;">
+                                            Action
                                         </th>
                                     </tr>
                                 </thead>
@@ -45,7 +51,7 @@
                                     @foreach ($royality as $data)
                                         <tr role="row" class="even">
                                             <td>{{ $loop->index + 1 }}</td>
-                                            <td>{{ $data->rank }}</td>
+                                            <td>{{ $data->royaltiesToRank->title }}</td>
                                             <td>{{ $data->percentage }} %</td>
                                             <td>
                                                 @if ($data->status == 1)

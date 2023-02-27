@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\User\StakeController;
 use App\Models\User;
+use App\Models\UserDetail;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\RanksController;
+use App\Http\Controllers\User\StakeController;
+use App\Models\AmountForIbGain;
 use App\Models\UserStake;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
@@ -13,7 +16,6 @@ class PublicDashboardController extends Controller
 {
     public function publicDashboard()
     {
-        
         $wallet = Wallet::where('user_id', auth()->id())->first();
         $totalStake = UserStake::where('user_id', auth()->id())->sum('amount');
 
@@ -39,12 +41,18 @@ class PublicDashboardController extends Controller
 
     public function referrals()
     {
-        $user = User::with('children')->find(auth()->user())->first();
+        $user = User::with('children')->where('id', auth()->id())->first();
         return view('back-end.public.referrals.referrals', compact('user'));
     }
 
     public function becomeAnIb()
     {
-        return view('back-end.public.become-an-ib.become-an-ib');
+        $ranksController = new RanksController();
+        $ranksController->rank_calculation(auth()->id());
+
+        $ib_gain = AmountForIbGain::where('user_id', auth()->id())->first();
+        $rank = auth()->user()->userToRank->rank_id;
+
+        return view('back-end.public.become-an-ib.become-an-ib', compact('ib_gain', 'rank'));
     }
 }

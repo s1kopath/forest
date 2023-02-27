@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class IbRoyality extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
-    protected $table = "ib_royalities";
-
-    protected $guarded = ['id'];
+    public function royaltiesToRank()
+    {
+        return $this->belongsTo(RankAndReward::class, 'rank_id');
+    }
 }

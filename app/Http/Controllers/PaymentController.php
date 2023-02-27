@@ -10,6 +10,7 @@ use App\Models\StakingRoi;
 use App\Models\Gift;
 use App\Models\TeamDetail;
 use App\Models\Rank;
+use App\Models\User;
 
 class PaymentController extends Controller
 {
@@ -78,9 +79,4 @@ class PaymentController extends Controller
         }
     }
 
-    public function teamDirectTotalCalculate($user_id)
-    {
-        $team_all_ids = TeamDetail::where('referer_id', $user_id)->pluck('user_id')->toArray();
-        $team_direct_total_amount = Payment::whereIn('user_id', $team_all_ids)->selectRaw("SUM(amount) AS amount")->get();
-    }
 }
