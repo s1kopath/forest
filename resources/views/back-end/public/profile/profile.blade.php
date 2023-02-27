@@ -154,7 +154,7 @@
                             </div>
                         </form>
                         <div class="text-center m-t-20">
-                            <button class="btn btn-primary rounded-pill" id="photoverify" disabled>
+                            <button class="btn btn-primary rounded-pill" id="photoverify">
                                 UPDATE & NEXT
                             </button>
                         </div>
@@ -238,8 +238,7 @@
             </h3>
             <form action="{{ route('update_public_profile') }}" method="post">
                 @csrf
-                <div class="container">
-                    <div class="form-group row">
+                    <div class="form-group row m-1">
                         <div class="col-sm-6">
                             <label for="name">Name</label>
                         </div>
@@ -247,7 +246,7 @@
                             <input type="text" class="form-control" value="{{$user->name}}" name="name" required>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row m-1">
                         <div class="col-sm-6">
                             <label for="username">UserName</label>
                         </div>
@@ -255,7 +254,7 @@
                             <input type="text" class="form-control" value="{{$user->username}}" name="username" readonly>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row m-1">
                         <div class="col-sm-6">
                             <label for="email">Email</label>
                         </div>
@@ -263,7 +262,7 @@
                             <input type="email" class="form-control" value="{{$user->email}}" name="email" required>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row m-1">
                         <div class="col-sm-6">
                             <label for="phonenumber">Phone Number</label>
                         </div>
@@ -275,7 +274,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row m-1">
                         <div class="col-sm-6">
                             <label for="dateofbirth">Date of Birth</label>
                         </div>
@@ -287,7 +286,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row m-1">
                         <div class="col-sm-6">
                             <label for="identitynumber">Identity Number</label>
                         </div>
@@ -299,13 +298,15 @@
                             @endif
                         </div>
                     </div>
-                </div>
+                <div class="text-center mt-3"
+                    <a href="#details"><button class="btn btn-primary btn-close rounded-pill">
+                        Cancel
+                    </button></a>
 
-
-                <div class="text-center m-t-20">
-                    <button class="btn btn-primary rounded-pill mb-3">
-                        update
+                    <button class="btn btn-primary rounded-pill">
+                        Update
                     </button>
+
                 </div>
             </form>
         </div>`;
@@ -318,7 +319,7 @@
             <form action="{{ route('edit_location') }}" method="post">
                 @csrf
                 <div class="container">
-                    <div class="form-group row">
+                    <div class="form-group row m-1">
                         <div class="col-sm-6">
                             <label for="house/area">House/Area</label>
                         </div>
@@ -330,7 +331,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row m-1">
                         <div class="col-sm-6">
                             <label for="street">Street</label>
                         </div>
@@ -342,7 +343,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row m-1">
                         <div class="col-sm-6">
                             <label for="city">City</label>
                         </div>
@@ -354,7 +355,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row m-1">
                         <div class="col-sm-6">
                             <label for="zipcode">Zip Code</label>
                         </div>
@@ -366,7 +367,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row m-1">
                         <div class="col-sm-6">
                             <label for="country">Country</label>
                         </div>
@@ -379,10 +380,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="text-center mt-3"
+                    <a href="#location"><button class="btn btn-primary btn-close rounded-pill">
+                        Cancel
+                    </button></a>
 
-                <div class="text-center m-t-20">
-                    <button class="btn btn-primary rounded-pill">
-                        update
+                    <button class="btn btn-primary rounded-pill" type="submit">
+                        Update
                     </button>
                 </div>
             </form>
@@ -403,15 +407,16 @@
             <h3 class="text-primary font-weight-bold text-center">
                 <span>Photo Verification:</span>
             </h3>
-            <div class="col-sm-4">
+
+            <div class="col d-flex justify-content-center">
                 <form action="#" class="dropzone">
-                    <div class="fallback text-center">
-                        <input name="file" type="file"/>
+                    <div class="fallback">
+                        <input name="file" type="file" class="dropify" />
                     </div>
                 </form>
             </div>
             <div class="text-center m-t-20">
-                <button class="btn btn-primary rounded-pill" disabled>
+                <button class="btn btn-primary rounded-pill">
                     UPDATE
                 </button>
             </div>
