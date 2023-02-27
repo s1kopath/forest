@@ -28,6 +28,6 @@ class ProfileController extends Controller
             'password' => bcrypt($request->new_password)
         ]);
 
-        return redirect()->back()->with('success', 'Password Update successfully.');
+        return redirect()->back()->with('message', 'Password Update successfully.');
     }
 }
