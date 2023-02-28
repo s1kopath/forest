@@ -31,7 +31,7 @@
                         <div class="mb-2" id="details">
                             <h3 class="text-primary font-weight-bold">
                                 Personal Details:
-                                <a href="#" id="editdetails" class="h3">
+                                <a href="#" onclick="editdetails()" class="h3">
                                     <i class="far fa-edit text-dark"></i>
                                 </a>
                             </h3>
@@ -298,12 +298,12 @@
                             @endif
                         </div>
                     </div>
-                <div class="text-center mt-3"
-                    <a href="#" id="close"><button class="btn btn-primary btn-close rounded-pill">
+                <div class="text-center mt-3">
+                    <button type="button" class="btn btn-secondary rounded-pill" onclick="closeDetails()">
                         Cancel
-                    </button></a>
+                    </button>
 
-                    <button class="btn btn-primary rounded-pill">
+                    <button type="submit" class="btn btn-primary rounded-pill">
                         Update
                     </button>
 
@@ -390,9 +390,9 @@
             </form>
         </div>`;
 
-        $("#editdetails").click(function() {
+        function editdetails() {
             $("#details").html(_editdetails);
-        });
+        };
 
         $("#editlocation").click(function() {
             $("#location").html(_editlocation);
@@ -402,7 +402,7 @@
         <div class="mb-2">
             <h3 class="text-primary font-weight-bold">
                 Personal Details:
-                <a href="#" id="editdetails" class="h3">
+                <a href="#" onclick="editdetails()" class="h3">
                     <i class="far fa-edit text-dark"></i>
                 </a>
             </h3>
@@ -450,9 +450,10 @@
             </div>
         </div>`;
 
-        $("#close").click(function() {
+        function closeDetails() {
             $("#detail").html(_returndetails);
-        });
+        }
+
 
         var _photoverify = `
         <div id="photoverify">
