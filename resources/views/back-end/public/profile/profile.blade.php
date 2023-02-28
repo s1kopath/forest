@@ -31,98 +31,98 @@
                         <div class="mb-2" id="details">
                             <h3 class="text-primary font-weight-bold">
                                 Personal Details:
-                                <a href="#" id="editdetails" class="h3">
+                                <a href="#" onclick="editdetails()" class="h3">
                                     <i class="far fa-edit text-dark"></i>
                                 </a>
                             </h3>
                             <div class="form-group row m-0">
                                 <label for="name" class="col-sm-2 col-form-label">Name :</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-10 mt-1">
                                     {{ $user->name }}
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="username" class="col-sm-2 col-form-label">Username :</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-10 mt-1">
                                     {{ $user->username }}
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="email" class="col-sm-2 col-form-label">Email :</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-10 mt-1">
                                     {{ $user->email }}
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="phoneNumber" class="col-sm-2 col-form-label">Phone Number :</label>
-                                <div class="col-sm-10">
-                                @if (isset($user->userToUserDetails->phone_number))
-                                    {{$user->userToUserDetails->phone_number}}
-                                @endif
+                                <div class="col-sm-10 mt-1">
+                                    @if (isset($user->userToUserDetails->phone_number))
+                                        {{ $user->userToUserDetails->phone_number }}
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="dateOfBirth" class="col-sm-2 col-form-label">Date of birth :</label>
-                                <div class="col-sm-10">
-                                @if (isset($user->userToUserDetails->date_of_birth))
-                                    {{$user->userToUserDetails->date_of_birth}}
-                                @endif
+                                <div class="col-sm-10 mt-1">
+                                    @if (isset($user->userToUserDetails->date_of_birth))
+                                        {{ $user->userToUserDetails->date_of_birth }}
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="identityNumber" class="col-sm-2 col-form-label">Identity Number :</label>
-                                <div class="col-sm-10">
-                                @if (isset($user->userToUserDetails->identity_number))
-                                    {{$user->userToUserDetails->identity_number}}
-                                @endif
+                                <div class="col-sm-10 mt-1">
+                                    @if (isset($user->userToUserDetails->identity_number))
+                                        {{ $user->userToUserDetails->identity_number }}
+                                    @endif
                                 </div>
                             </div>
                         </div>
                         <div class="mb-2" id="location">
                             <h3 class="text-primary font-weight-bold">
                                 Location:
-                                <a href="#" id="editlocation" class="h3">
+                                <a href="#" onclick="editlocation()" class="h3">
                                     <i class="far fa-edit text-dark"></i>
                                 </a>
                             </h3>
                             <div class="form-group row m-0">
                                 <label for="houseArea" class="col-sm-2 col-form-label">House/Area :</label>
-                                <div class="col-sm-10">
-                                @if (isset($user->userToUserDetails->house_no))
-                                    {{$user->userToUserDetails->house_no}}
-                                @endif
+                                <div class="col-sm-10 mt-1">
+                                    @if (isset($user->userToUserDetails->house_no))
+                                        {{ $user->userToUserDetails->house_no }}
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="street" class="col-sm-2 col-form-label">Street :</label>
-                                <div class="col-sm-10">
-                                @if (isset($user->userToUserDetails->street))
-                                    {{$user->userToUserDetails->street}}
-                                @endif
+                                <div class="col-sm-10 mt-1">
+                                    @if (isset($user->userToUserDetails->street))
+                                        {{ $user->userToUserDetails->street }}
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="city" class="col-sm-2 col-form-label">City :</label>
-                                <div class="col-sm-10">
-                                @if (isset($user->userToUserDetails->city))
-                                    {{$user->userToUserDetails->city}}
-                                @endif
+                                <div class="col-sm-10 mt-1">
+                                    @if (isset($user->userToUserDetails->city))
+                                        {{ $user->userToUserDetails->city }}
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="zipCode" class="col-sm-2 col-form-label">Zip Code :</label>
-                                <div class="col-sm-10">
-                                @if (isset($user->userToUserDetails->zip_code))
-                                    {{$user->userToUserDetails->zip_code}}
-                                @endif
+                                <div class="col-sm-10 mt-1">
+                                    @if (isset($user->userToUserDetails->zip_code))
+                                        {{ $user->userToUserDetails->zip_code }}
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group row m-0">
                                 <label for="country" class="col-sm-2 col-form-label">Country :</label>
-                                <div class="col-sm-10">
-                                @if (@isset($user->userToUserDetails->country))
-                                    {{$user->userToUserDetails->country}}
-                                @endif
+                                <div class="col-sm-10 mt-1">
+                                    @if (@isset($user->userToUserDetails->country))
+                                        {{ $user->userToUserDetails->country }}
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -148,9 +148,16 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="#" class="dropzone">
-                            <div class="fallback">
-                                <input name="file" type="file" multiple />
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <div class="col d-flex justify-content-center">
+                                    <div class="col-sm-4 dropzone">
+                                        <input type="file" class="dropify" data-max-file-size="1M" name="image1">
+                                    </div>
+                                    <div class="col-sm-4 dropzone ml-3">
+                                        <input type="file" class="dropify" data-max-file-size="1M" name="image2">
+                                    </div>
+                                </div>
                             </div>
                         </form>
                         <div class="text-center m-t-20">
@@ -204,10 +211,9 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="text-center m-t-20">
-                                <button type="submit" class="btn btn-primary rounded-pill" enable>
-                                    Update Passwor
+                                <button class="btn btn-primary rounded-pill">
+                                    Update Password
                                 </button>
                             </div>
                         </form>
@@ -230,47 +236,48 @@
             if (activeTab) {
                 $('#tab-list a[href="' + activeTab + '"]').tab('show');
             }
+            $('.dropify').dropify();
         });
     </script>
     <script>
         var _editdetails = `
-        <div>
-            <h3 class="font-weight-bold mb-3">
-                Personal Details
+        <div id="editdetail">
+            <h3 class="text-primary font-weight-bold">
+                Personal Details:
             </h3>
             <form action="{{ route('update_public_profile') }}" method="post">
                 @csrf
                     <div class="form-group row m-0">
                         <div class="col-sm-2">
-                            <label for="name">Name :</label>
+                            <label for="name" class="col-form-label">Name :</label>
                         </div>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" value="{{$user->name}}" name="name" required>
+                            <input type="text" class="form-control" value="{{ $user->name }}" name="name" required>
                         </div>
                     </div>
                     <div class="form-group row m-0">
                         <div class="col-sm-2">
-                            <label for="username">UserName :</label>
+                            <label for="username" class="col-form-label">Username :</label>
                         </div>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" value="{{$user->username}}" name="username" readonly>
+                            <input type="text" class="form-control" value="{{ $user->username }}" name="username" readonly>
                         </div>
                     </div>
                     <div class="form-group row m-0">
                         <div class="col-sm-2">
-                            <label for="email">Email :</label>
+                            <label for="email" class="col-form-label">Email :</label>
                         </div>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" value="{{$user->email}}" name="email" required>
+                            <input type="email" class="form-control" value="{{ $user->email }}" name="email" required>
                         </div>
                     </div>
                     <div class="form-group row m-0">
                         <div class="col-sm-2">
-                            <label for="phonenumber">Phone Number :</label>
+                            <label for="phoneNumber" class="col-form-label">Phone Number :</label>
                         </div>
                         <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->phone_number))
-                                <input type="number" class="form-control" value="{{$user->userToUserDetails->phone_number}}" name="phone_number">
+                                <input type="number" class="form-control" value="{{ $user->userToUserDetails->phone_number }}" name="phone_number">
                             @else
                                 <input type="number" class="form-control" value="" name="phone_number">
                             @endif
@@ -278,11 +285,11 @@
                     </div>
                     <div class="form-group row m-0">
                         <div class="col-sm-2">
-                            <label for="dateofbirth">Date of Birth :</label>
+                            <label for="dateOfBirth" class="col-form-label">Date of birth :</label>
                         </div>
                         <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->date_of_birth))
-                                <input type="date" class="form-control" value="{{$user->userToUserDetails->date_of_birth}}" name="date_of_birth">
+                                <input type="date" class="form-control" value="{{ $user->userToUserDetails->date_of_birth }}" name="date_of_birth">
                             @else
                                 <input type="date" class="form-control" value="" name="date_of_birth">
                             @endif
@@ -290,22 +297,22 @@
                     </div>
                     <div class="form-group row m-0">
                         <div class="col-sm-2">
-                            <label for="identitynumber">Identity Number :</label>
+                            <label for="identitynumber" class="col-form-label">Identity Number :</label>
                         </div>
                         <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->identity_number))
-                                <input type="number" class="form-control" value="{{$user->userToUserDetails->identity_number}}" name="identity_number">
+                                <input type="number" class="form-control" value="{{ $user->userToUserDetails->identity_number }}" name="identity_number">
                             @else
                                 <input type="number" class="form-control" value="" name="identity_number">
                             @endif
                         </div>
                     </div>
-                <div class="text-center mt-3"
-                    <a href="#details"><button class="btn btn-primary btn-close rounded-pill">
+                <div class="text-center mt-3">
+                    <button type="button" class="btn btn-secondary rounded-pill" onclick="closeDetails()">
                         Cancel
-                    </button></a>
+                    </button>
 
-                    <button class="btn btn-primary rounded-pill">
+                    <button type="submit" class="btn btn-primary rounded-pill">
                         Update
                     </button>
 
@@ -314,20 +321,19 @@
         </div>`;
 
         var _editlocation = `
-        <div>
-            <h3 class="font-weight-bold mb-3">
-                Location
+        <div id="editlocation">
+            <h3 class="text-primary font-weight-bold">
+                Location:
             </h3>
             <form action="{{ route('edit_location') }}" method="post">
                 @csrf
-                <div class="container">
                     <div class="form-group row m-0">
                         <div class="col-sm-2">
                             <label for="house/area">House/Area :</label>
                         </div>
                         <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->house_no))
-                                <input type="text" class="form-control" value="{{$user->userToUserDetails->house_no}}" name="house_no">
+                                <input type="text" class="form-control" value="{{ $user->userToUserDetails->house_no }}" name="house_no">
                             @else
                                 <input type="text" class="form-control" value="" name="house_no">
                             @endif
@@ -339,7 +345,7 @@
                         </div>
                         <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->street))
-                                <input type="text" class="form-control" value="{{$user->userToUserDetails->street}}" name="street">
+                                <input type="text" class="form-control" value="{{ $user->userToUserDetails->street }}" name="street">
                             @else
                                 <input type="text" class="form-control" value="" name="street">
                             @endif
@@ -351,7 +357,7 @@
                         </div>
                         <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->city))
-                                <input type="text" class="form-control" value="{{$user->userToUserDetails->city}}" name="city">
+                                <input type="text" class="form-control" value="{{ $user->userToUserDetails->city }}" name="city">
                             @else
                                 <input type="text" class="form-control" value="" name="city">
                             @endif
@@ -363,7 +369,7 @@
                         </div>
                         <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->zip_code))
-                                <input type="number" class="form-control" value="{{$user->userToUserDetails->zip_code}}" name="zip_code">
+                                <input type="number" class="form-control" value="{{ $user->userToUserDetails->zip_code }}" name="zip_code">
                             @else
                                 <input type="number" class="form-control" value="" name="zip_code">
                             @endif
@@ -375,32 +381,143 @@
                         </div>
                         <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->country))
-                                <input type="text" class="form-control" value="{{$user->userToUserDetails->country}}" name="country">
+                                <input type="text" class="form-control" value="{{ $user->userToUserDetails->country }}" name="country">
                             @else
                                 <input type="text" class="form-control" value="" name="country">
                             @endif
                         </div>
                     </div>
-                </div>
-                <div class="text-center mt-3"
-                    <a href="#location"><button class="btn btn-primary btn-close rounded-pill">
+                <div class="text-center mt-3">
+                    <button type="button" class="btn btn-secondary rounded-pill" onclick="closeLocation()">
                         Cancel
-                    </button></a>
+                    </button>
 
-                    <button class="btn btn-primary rounded-pill" type="submit">
+                    <button type="submit" class="btn btn-primary rounded-pill">
                         Update
                     </button>
+
                 </div>
             </form>
         </div>`;
 
-        $("#editdetails").click(function() {
+        function editdetails() {
             $("#details").html(_editdetails);
-        });
+        };
 
-        $("#editlocation").click(function() {
+        function editlocation() {
             $("#location").html(_editlocation);
-        });
+        };
+
+        var _returndetails = `
+        <div class="mb-2">
+            <h3 class="text-primary font-weight-bold">
+                Personal Details:
+                <a href="#" onclick="editdetails()" class="h3">
+                    <i class="far fa-edit text-dark"></i>
+                </a>
+            </h3>
+            <div class="form-group row m-0">
+                <label for="name" class="col-sm-2 col-form-label">Name :</label>
+                <div class="col-sm-10 mt-1">
+                    {{ $user->name }}
+                </div>
+            </div>
+            <div class="form-group row m-0">
+                <label for="username" class="col-sm-2 col-form-label">Username :</label>
+                <div class="col-sm-10 mt-1">
+                    {{ $user->username }}
+                </div>
+            </div>
+            <div class="form-group row m-0">
+                <label for="email" class="col-sm-2 col-form-label">Email :</label>
+                <div class="col-sm-10 mt-1">
+                    {{ $user->email }}
+                </div>
+            </div>
+            <div class="form-group row m-0">
+                <label for="phoneNumber" class="col-sm-2 col-form-label">Phone Number :</label>
+                <div class="col-sm-10 mt-1">
+                    @if (isset($user->userToUserDetails->phone_number))
+                        {{ $user->userToUserDetails->phone_number }}
+                    @endif
+                </div>
+            </div>
+            <div class="form-group row m-0">
+                <label for="dateOfBirth" class="col-sm-2 col-form-label">Date of birth :</label>
+                <div class="col-sm-10 mt-1">
+                    @if (isset($user->userToUserDetails->date_of_birth))
+                        {{ $user->userToUserDetails->date_of_birth }}
+                    @endif
+                </div>
+            </div>
+            <div class="form-group row m-0">
+                <label for="identityNumber" class="col-sm-2 col-form-label">Identity Number :</label>
+                <div class="col-sm-10 mt-1">
+                    @if (isset($user->userToUserDetails->identity_number))
+                        {{ $user->userToUserDetails->identity_number }}
+                    @endif
+                </div>
+            </div>
+        </div>`;
+
+        var _returnlocation = `
+        <div class="mb-2">
+            <h3 class="text-primary font-weight-bold">
+                Location:
+                <a href="#" onclick="editlocation()" class="h3">
+                    <i class="far fa-edit text-dark"></i>
+                </a>
+            </h3>
+            <div class="form-group row m-0">
+                <label for="houseArea" class="col-sm-2 col-form-label">House/Area :</label>
+                <div class="col-sm-10">
+                    @if (isset($user->userToUserDetails->house_no))
+                        {{ $user->userToUserDetails->house_no }}
+                    @endif
+                </div>
+            </div>
+            <div class="form-group row m-0">
+                <label for="street" class="col-sm-2 col-form-label">Street :</label>
+                <div class="col-sm-10">
+                    @if (isset($user->userToUserDetails->street))
+                        {{ $user->userToUserDetails->street }}
+                    @endif
+                </div>
+            </div>
+            <div class="form-group row m-0">
+                <label for="city" class="col-sm-2 col-form-label">City :</label>
+                <div class="col-sm-10">
+                    @if (isset($user->userToUserDetails->city))
+                        {{ $user->userToUserDetails->city }}
+                    @endif
+                </div>
+            </div>
+            <div class="form-group row m-0">
+                <label for="zipCode" class="col-sm-2 col-form-label">Zip Code :</label>
+                <div class="col-sm-10">
+                    @if (isset($user->userToUserDetails->zip_code))
+                        {{ $user->userToUserDetails->zip_code }}
+                    @endif
+                </div>
+            </div>
+            <div class="form-group row m-0">
+                <label for="country" class="col-sm-2 col-form-label">Country :</label>
+                <div class="col-sm-10">
+                    @if (@isset($user->userToUserDetails->country))
+                        {{ $user->userToUserDetails->country }}
+                    @endif
+                </div>
+            </div>
+        </div>`;
+
+        function closeDetails() {
+            $("#editdetail").html(_returndetails);
+        }
+
+        function closeLocation() {
+            $("#editlocation").html(_returnlocation);
+        }
+
 
         var _photoverify = `
         <div id="photoverify">
