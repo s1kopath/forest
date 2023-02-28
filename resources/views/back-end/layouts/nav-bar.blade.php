@@ -1,17 +1,22 @@
+<style>
+    .slimScrollBar {
+        display: none !important;
+    }
+</style>
 <nav class="navbar header-navbar pcoded-header">
     <div class="navbar-wrapper">
         <div class="navbar-logo">
             <a href="/">
-                <img class="img-fluid w-50" src="{{ asset('back-end/img/WF.png') }}" alt="logo">
+                <img class="img-fluid" src="{{ asset('back-end/img/WF.png') }}" alt="logo" width="100px">
             </a>
             <a class="mobile-menu" id="mobile-collapse" href="#!">
                 <i class="feather icon-menu icon-toggle-right"></i>
             </a>
-            <a class="mobile-options waves-effect waves-light">
+            {{-- <a class="mobile-options waves-effect waves-light">
                 <i class="feather icon-more-horizontal"></i>
-            </a>
+            </a> --}}
         </div>
-        <div class="navbar-container container-fluid">
+        {{-- <div class="navbar-container container-fluid">
             <ul class="nav-left">
                 <li class="header-search">
                     <div class="main-search morphsearch-search">
@@ -87,7 +92,7 @@
                         </ul>
                     </div>
                 </li>
-                
+
                 <li class="user-profile header-notification">
                     <div class="dropdown-primary dropdown">
                         <div class="dropdown-toggle" data-toggle="dropdown">
@@ -98,26 +103,26 @@
                         </div>
                         <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn"
                             data-dropdown-out="fadeOut">
-                            {{-- <li>
-                                    <a href="#!">
-                                        <i class="feather icon-settings"></i> Settings
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="feather icon-user"></i> Profile
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="email-inbox.html">
-                                        <i class="feather icon-mail"></i> My Messages
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="auth-lock-screen.html">
-                                        <i class="feather icon-lock"></i> Lock Screen
-                                    </a>
-                                </li> --}}
+                            <li>
+                                <a href="#!">
+                                    <i class="feather icon-settings"></i> Settings
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="feather icon-user"></i> Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="email-inbox.html">
+                                    <i class="feather icon-mail"></i> My Messages
+                                </a>
+                            </li>
+                            <li>
+                                <a href="auth-lock-screen.html">
+                                    <i class="feather icon-lock"></i> Lock Screen
+                                </a>
+                            </li>
                             <li>
                                 <a href="{{ route('logout') }}">
                                     <i class="feather icon-log-out"></i> Logout
@@ -127,6 +132,6 @@
                     </div>
                 </li>
             </ul>
-        </div>
+        </div> --}}
     </div>
 </nav>

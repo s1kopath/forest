@@ -3,7 +3,7 @@
         $route_name = request()
             ->route()
             ->getName();
-        
+
         $url = url()->current();
         $urlArray = explode('-', $url);
         $lastElement = end($urlArray);
@@ -105,6 +105,7 @@
                             </ul>
                         </li>
                     </ul>
+
                     <div class="pcoded-navigation-label">GIFT</div>
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu {{ $lastElement == 'gift' ? 'active pcoded-trigger' : '' }}">
@@ -128,6 +129,7 @@
                             </ul>
                         </li>
                     </ul>
+
                     <div class="pcoded-navigation-label">CONTEST</div>
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu {{ $lastElement == 'contest' ? 'active pcoded-trigger' : '' }}">
@@ -151,6 +153,17 @@
                             </ul>
                         </li>
                     </ul>
+
+                    <div class="pcoded-navigation-label">SETTING</div>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu">
+                            <a href="{{ route('logout') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-micon"><i class="fas fa-sign-out-alt"></i></span>
+                                <span class="pcoded-mtext">Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+
                     {{-- <div class="pcoded-navigation-label">Forms</div>
                     <ul class="pcoded-item pcoded-left-item">
                     <li class="pcoded-hasmenu">
@@ -196,7 +209,6 @@
                             <img class="img-fluid rounded-lg shadow"
                                 src="{{ asset('back-end/assets/images/avatar-4.jpg') }}" data-toggle="modal"
                                 data-target="#exampleModal" id="myImg" alt="forest">
-
                         </div>
 
                         <div class="col-8 text-white" style="overflow-wrap: break-word">
