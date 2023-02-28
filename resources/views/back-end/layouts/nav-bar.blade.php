@@ -16,8 +16,8 @@
                 <i class="feather icon-more-horizontal"></i>
             </a> --}}
         </div>
-        {{-- <div class="navbar-container container-fluid">
-            <ul class="nav-left">
+        <div class="navbar-container container-fluid">
+            {{-- <ul class="nav-left">
                 <li class="header-search">
                     <div class="main-search morphsearch-search">
                         <div class="input-group">
@@ -31,13 +31,15 @@
                         </div>
                     </div>
                 </li>
+            </ul> --}}
+            <ul class="nav-right">
                 <li>
                     <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
                         <i class="full-screen feather icon-maximize"></i>
                     </a>
                 </li>
             </ul>
-            <ul class="nav-right">
+            {{-- <ul class="nav-right">
                 <li class="header-notification">
                     <div class="dropdown-primary dropdown">
                         <div class="dropdown-toggle" data-toggle="dropdown">
@@ -131,7 +133,7 @@
                         </ul>
                     </div>
                 </li>
-            </ul>
-        </div> --}}
+            </ul> --}}
+        </div>
     </div>
 </nav>

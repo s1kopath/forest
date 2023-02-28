@@ -3,6 +3,7 @@
 
 @push('css')
 @endpush
+
 @section('page-content')
     <div class="card">
         <div class="card-header bg-info">
