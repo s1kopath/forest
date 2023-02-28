@@ -113,19 +113,18 @@ class PublicDashboardController extends Controller
         $ib_gain = AmountForIbGain::where('user_id', auth()->id())->first();
         $rank = auth()->user()->userToRank->rank_id;
 
-
         $gained_percentage1 = 0;
         if ($ib_gain->self_amount >= 50 && $ib_gain->direct_amount >= 300 && $ib_gain->team_amount >= 1000) {
             $gained_percentage1 = 100;
         } elseif ($ib_gain->self_amount >= 50 && $ib_gain->direct_amount < 300 && $ib_gain->team_amount < 1000) {
             $self = 40;
-            $direct = ($ib_gain->direct_amount * 100) / 300;
-            $team = ($ib_gain->team_amount * 100) / 1000;
+            $direct =  ((($ib_gain->direct_amount * 100) / 300) * 30) / 100;
+            $team = ((($ib_gain->team_amount * 100) / 1000) * 30) / 100;
             $gained_percentage1 = ($self + $direct + $team);
         } elseif ($ib_gain->self_amount >= 50 && $ib_gain->direct_amount >= 300 && $ib_gain->team_amount < 1000) {
             $self = 40;
             $direct = 30;
-            $team = ($ib_gain->team_amount * 100) / 1000;
+            $team = ((($ib_gain->team_amount * 100) / 1000) * 30) / 100;
             $gained_percentage1 = ($self + $direct + $team);
         } else {
             $self = ($ib_gain->self_amount * 100) / 50;
@@ -140,13 +139,13 @@ class PublicDashboardController extends Controller
             $gained_percentage2 = 100;
         } elseif ($ib_gain->self_amount >= 100 && $ib_gain->direct_amount < 1000 && $ib_gain->team_amount < 5000) {
             $self = 40;
-            $direct = ($ib_gain->direct_amount * 100) / 1000;
-            $team = ($ib_gain->team_amount * 100) / 5000;
+            $direct = ((($ib_gain->direct_amount * 100) / 1000) * 30) /100;
+            $team = ((($ib_gain->team_amount * 100) / 5000)*30)/100;
             $gained_percentage2 = ($self + $direct + $team);
         } elseif ($ib_gain->self_amount >= 100 && $ib_gain->direct_amount >= 1000 && $ib_gain->team_amount < 5000) {
             $self = 40;
             $direct = 30;
-            $team = ($ib_gain->team_amount * 100) / 5000;
+            $team = ((($ib_gain->team_amount * 100) / 5000)*30)/100;
             $gained_percentage2 = ($self + $direct + $team);
         } else {
             $self = ($ib_gain->self_amount * 100) / 100;
@@ -160,13 +159,13 @@ class PublicDashboardController extends Controller
             $gained_percentage3 = 100;
         } elseif ($ib_gain->self_amount >= 500 && $ib_gain->direct_amount < 5000 && $ib_gain->team_amount < 10000) {
             $self = 40;
-            $direct = ($ib_gain->direct_amount * 100) / 5000;
-            $team = ($ib_gain->team_amount * 100) / 10000;
+            $direct = ((($ib_gain->direct_amount * 100) / 5000)*30)/100;
+            $team = ((($ib_gain->team_amount * 100) / 10000)*30)/100;
             $gained_percentage3 = ($self + $direct + $team);
         } elseif ($ib_gain->self_amount >= 500 && $ib_gain->direct_amount >= 5000 && $ib_gain->team_amount < 10000) {
             $self = 40;
             $direct = 30;
-            $team = ($ib_gain->team_amount * 100) / 10000;
+            $team = ((($ib_gain->team_amount * 100) / 10000)*30)/100;
             $gained_percentage3 = ($self + $direct + $team);
         } else {
             $self = ($ib_gain->self_amount * 100) / 500;
@@ -180,13 +179,13 @@ class PublicDashboardController extends Controller
             $gained_percentage4 = 100;
         } elseif ($ib_gain->self_amount >= 1000 && $ib_gain->direct_amount < 10000 && $ib_gain->team_amount < 50000) {
             $self = 40;
-            $direct = ($ib_gain->direct_amount * 100) / 1000;
-            $team = ($ib_gain->team_amount * 100) / 50000;
+            $direct = ((($ib_gain->direct_amount * 100) / 10000)*30)/100;
+            $team = ((($ib_gain->team_amount * 100) / 50000)*30)/100;
             $gained_percentage4 = ($self + $direct + $team);
         } elseif ($ib_gain->self_amount >= 1000 && $ib_gain->direct_amount >= 10000 && $ib_gain->team_amount < 50000) {
             $self = 40;
             $direct = 30;
-            $team = ($ib_gain->team_amount * 100) / 50000;
+            $team = ((($ib_gain->team_amount * 100) / 50000)*30)/100;
             $gained_percentage4 = ($self + $direct + $team);
         } else {
             $self = ($ib_gain->self_amount * 100) / 1000;
