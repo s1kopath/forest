@@ -22,10 +22,10 @@
                             </div>
                             <div class="card-body text-center">
                                 <h5 class="card-title mb-2">IB</h5>
-                                <h4>100%</h4>
+                                <h4>{{$gained_percentage1}}%</h4>
                                 <div class="progress mb-2">
-                                    <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="0"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                                    <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="{{$gained_percentage1}}"
+                                        aria-valuemin="0" aria-valuemax="100" style="width: {{$gained_percentage1}}%"></div>
                                 </div>
                                 <p class="mb-3">
                                     Self - $ {{ $ib_gain->self_amount }} / $ 50
@@ -48,10 +48,10 @@
                             </div>
                             <div class="card-body text-center">
                                 <h5 class="card-title mb-2">Pro-IB</h5>
-                                <h4>25%</h4>
+                                <h4>{{$gained_percentage2}}%</h4>
                                 <div class="progress mb-2">
-                                    <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="25"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
+                                    <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="{{$gained_percentage2}}"
+                                        aria-valuemin="0" aria-valuemax="100" style="width: {{$gained_percentage2}}%"></div>
                                 </div>
                                 <p class="mb-3">
                                     Self - $ {{ $ib_gain->self_amount }} / $ 100
@@ -75,10 +75,10 @@
 
                             <div class="card-body text-center">
                                 <h5 class="card-title mb-2">Master IB</h5>
-                                <h4>40%</h4>
+                                <h4>{{$gained_percentage3}}%</h4>
                                 <div class="progress mb-2">
-                                    <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="40"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
+                                    <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="{{$gained_percentage3}}"
+                                        aria-valuemin="0" aria-valuemax="100" style="width: {{$gained_percentage3}}%"></div>
                                 </div>
                                 <p class="mb-3">
                                     Self - $ {{ $ib_gain->self_amount }} / $ 500
@@ -102,10 +102,10 @@
 
                             <div class="card-body text-center">
                                 <h5 class="card-title mb-2">Corporate IB</h5>
-                                <h4>75%</h4>
+                                <h4>{{$gained_percentage4}}%</h4>
                                 <div class="progress mb-2">
-                                    <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="75"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                                    <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="{{$gained_percentage4}}"
+                                        aria-valuemin="0" aria-valuemax="100" style="width:{{$gained_percentage4}}%"></div>
                                 </div>
                                 <p class="mb-3">
                                     Self - $ {{ $ib_gain->self_amount }} / $ 1000
