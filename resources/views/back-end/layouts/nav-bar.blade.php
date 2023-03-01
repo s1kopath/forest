@@ -34,8 +34,7 @@
             </ul> --}}
             <ul class="nav-right">
                 <li>
-                    <a href="#!" onclick="javascript:toggleFullScreen()"
-                        class="waves-effect waves-light">
+                    <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
                         <i class="full-screen feather icon-maximize"></i>
                     </a>
                 </li>

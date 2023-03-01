@@ -69,7 +69,7 @@
                             <img class="rounded" src="{{ asset('back-end/img/logo.png') }}" alt="logo.png">
                         </div>
                         <div class="auth-box card">
-                            <div class="card-block">
+                            <div class="card-body">
                                 <div class="row m-b-20">
                                     <div class="col-md-12">
                                         <h3 class="text-center txt-primary">Sign In</h3>

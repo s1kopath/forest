@@ -35,11 +35,10 @@
     </style>
 @endpush
 
+@section('page-title', 'History')
+
 @section('page-content')
     <div class="card">
-        <div class="card-header bg-info">
-            <h2 class="text-center">History</h5>
-        </div>
         <div class="card-block shihab-btn-mbl-scroll">
             <button type="button" class="btn btn-success mx-1">Deposit</button>
             <button type="button" class="btn btn-success mx-1">Withdraw</button>

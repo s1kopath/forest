@@ -93,7 +93,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="card-block">
+                                    <div class="card-body">
                                         <div class="latest-update-box">
                                             <div class="row p-t-20 p-b-30">
                                                 <div class="col-auto text-right update-meta p-r-0">
@@ -165,7 +165,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="card-block">
+                                    <div class="card-body">
                                         <div class="align-middle m-b-35">
                                             <img src="{{ asset('back-end/assets/images/avatar-3.jpg') }}" alt="user image"
                                                 class="img-radius img-40 align-top m-r-15">
@@ -273,7 +273,7 @@
                                     <div class="card-header">
                                         <h5>Total Leads</h5>
                                     </div>
-                                    <div class="card-block">
+                                    <div class="card-body">
                                         <div class="row">
                                             <div class="col-4">
                                                 <p class="text-muted m-b-5">Overall</p>
@@ -297,7 +297,7 @@
                                     <div class="card-header">
                                         <h5>Total Vendors</h5>
                                     </div>
-                                    <div class="card-block">
+                                    <div class="card-body">
                                         <div class="row">
                                             <div class="col-4">
                                                 <p class="text-muted m-b-5">Overall</p>
@@ -321,7 +321,7 @@
                                     <div class="card-header">
                                         <h5>Invoice Generate</h5>
                                     </div>
-                                    <div class="card-block">
+                                    <div class="card-body">
                                         <div class="row">
                                             <div class="col-4">
                                                 <p class="text-muted m-b-5">Overall</p>
@@ -361,7 +361,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="card-block">
+                                    <div class="card-body">
                                         <div class="latest-update-box">
                                             <div class="row p-t-20 p-b-30">
                                                 <div class="col-auto text-right update-meta">
@@ -428,7 +428,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="card-block">
+                                    <div class="card-body">
                                         <div class="row m-b-20 received-chat">
                                             <div class="col-auto p-r-0">
                                                 <img src="{{ asset('back-end/assets/images/avatar-3.jpg') }}" alt="user image"

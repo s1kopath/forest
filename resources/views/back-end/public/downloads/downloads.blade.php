@@ -4,11 +4,10 @@
 @push('css')
 @endpush
 
+@section('page-title', 'Downloads')
+
 @section('page-content')
     <div class="card">
-        <div class="card-header bg-info">
-            <h2 class="text-center">Downloads</h5>
-        </div>
         <div class="card-block">
             <div class="table-responsive">
                 <table class="table table-framed">

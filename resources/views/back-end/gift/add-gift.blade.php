@@ -6,7 +6,7 @@
         <div class="card-header bg-info">
             <h2 class="text-center">Add Gift</h5>
         </div>
-        <div class="card-block">
+        <div class="card-body">
             <form action="{{ route('add_gift') }}" method="post">
                 @csrf
                 <div class="form-group">

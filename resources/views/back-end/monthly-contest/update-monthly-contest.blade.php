@@ -6,7 +6,7 @@
         <div class="card-header bg-info">
             <h2 class="text-center">Add Contest</h5>
         </div>
-        <div class="card-block">
+        <div class="card-body">
             <form action="{{ route('update_monthly_contest', $month->id) }}" method="post">
                 @csrf
                 <div class="form-group">

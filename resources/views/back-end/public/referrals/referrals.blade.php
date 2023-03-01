@@ -5,11 +5,10 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('back-end/assets/pages/treeview/treeview.css') }}">
 @endpush
 
+@section('page-title', 'Referrals')
+
 @section('page-content')
     <div class="card">
-        <div class="card-header bg-info">
-            <h2 class="text-center">Referrals</h5>
-        </div>
         <div class="card-block">
             <h4 class="font-weight-bold">Thank you for joining our Referral program</h4>
             <h5>Below you can find the number of registration and funded accounts</h5>

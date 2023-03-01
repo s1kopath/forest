@@ -220,7 +220,7 @@
         <div class="card-header bg-info">
             <h2 class="text-center">TEST PAGE</h5>
         </div>
-        <div class="card-block">
+        <div class="card-body">
 
             <div class="card-this mt-50 mb-50">
                 <form>
