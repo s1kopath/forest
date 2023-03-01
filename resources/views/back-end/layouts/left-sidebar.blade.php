@@ -3,12 +3,26 @@
         $route_name = request()
             ->route()
             ->getName();
-
+        
         $url = url()->current();
         $urlArray = explode('-', $url);
         $lastElement = end($urlArray);
     @endphp
     @push('css')
+        <style type="text/css">
+            img {
+                display: block;
+                max-width: 100%;
+            }
+
+            .preview {
+                overflow: hidden;
+                width: 160px;
+                height: 160px;
+                margin: 10px;
+                border: 1px solid red;
+            }
+        </style>
     @endpush
     @if (auth()->user()->user_type == 'admin')
         <nav class="pcoded-navbar">
@@ -299,18 +313,21 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="#" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('test') }}" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="" class="col-form-label">Profile Picture:</label>
-                                <img id="previewImage" class="w-100 img-fluid">
-                                <input type="file" class="form-control" id="imageInput">
+                                <img id="image">
+                                <div class="preview"></div>
+                                <input type="file" class="form-control"  name="image" id="imageInput">
                             </div>
-                        </form>
+                            <button type="submit" class="btn btn-primary" id="upload" data-dismiss="modal">Update</button>
+                       </form>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Update</button>
+                    {{-- <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                            id="crop">Update</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -325,7 +342,7 @@
             });
         });
     </script>
-    <script>
+    {{-- <script>
         const imageInput = document.getElementById('imageInput');
         const previewImage = document.getElementById('previewImage');
 
@@ -338,6 +355,74 @@
             });
 
             reader.readAsDataURL(file);
+        });
+    </script> --}}
+    <script>
+        var bs_modal = $('#examplModal');
+        var image = document.getElementById('image');
+        var cropper, reader, file;
+
+
+        $("body").on("change", '#imageInput', function(e) {
+            var files = e.target.files;
+            var done = function(url) {
+                image.src = url;
+                // bs_modal.modal('show');
+            };
+
+
+            if (files && files.length > 0) {
+                file = files[0];
+
+                if (URL) {
+                    done(URL.createObjectURL(file));
+                } else if (FileReader) {
+                    reader = new FileReader();
+                    reader.onload = function(e) {
+                        done(reader.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            cropper = new Cropper(image, {
+                aspectRatio: 1,
+                viewMode: 3,
+                preview: '.preview'
+            });
+        });
+
+        $("#upload").click(function() {
+            canvas = cropper.getCroppedCanvas({
+                width: 160,
+                height: 160,
+            });
+
+            canvas.toBlob(function(blob) {
+                url = URL.createObjectURL(blob);
+                var reader = new FileReader();
+                reader.readAsDataURL(blob);
+                reader.onloadend = function() {
+                    var base64data = reader.result;
+    
+                    $.ajax({
+                        type: "POST",
+                        url: "/test",
+                        data: {
+                            '_token': $('meta[name="_token"]').attr('content'),
+                            'image': base64data
+                        },
+                        success: function(data) {
+                            console.log(data);
+
+                            cropper.destroy();
+                            cropper = null;
+
+                            $('#image').attr('src', '');
+                        }
+                    });
+                }
+            });
         });
     </script>
 @endpush

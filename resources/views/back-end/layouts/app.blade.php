@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="_token" content="{{ csrf_token() }}" />
 
     <link rel="icon" href="{{ asset('back-end/assets/images/favicon.ico') }}" type="image/x-icon">
 
@@ -47,6 +48,9 @@
     <link rel="stylesheet" href="{{ asset('back-end/assets/css/switchery.css') }}" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" type="text/css" href="{{ asset('back-end/assets/css/pages.css') }}">
+
+    {{-- cropper css --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" />
 
     {{-- sweetalert2 js $ css --}}
     <script src="{{ asset('back-end/assets/js/sweetalert2@11.js') }}"></script>
@@ -137,6 +141,9 @@
     <script type="text/javascript" src="{{ asset('back-end/assets/pages/treeview/jquery.tree.js') }}"></script>
     <script src="{{ asset('back-end/assets/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('back-end/assets/js/script.js') }}"></script>
+
+    {{-- cropper js --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
 
     @stack('js')
 </body>

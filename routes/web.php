@@ -18,7 +18,7 @@ use App\Http\Controllers\User\ProfileController;
 
 
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
-Route::get('/test', [HomeController::class, 'test'])->name('test');
+Route::match(['get', 'post'], '/test', [HomeController::class, 'test'])->name('test');
 Route::get('markets', [HomeController::class, 'markets'])->name('markets');
 Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('blog', [HomeController::class, 'blog'])->name('blog');
