@@ -4,11 +4,10 @@
 @push('css')
 @endpush
 
+@section('page-title', 'My Profile')
+
 @section('page-content')
     <div class="card">
-        <div class="card-header bg-info">
-            <h2 class="text-center">My Profile</h5>
-        </div>
         <div class="card-block">
             <div class="col-lg-12 col-xl-12">
                 <ul class="nav nav-tabs md-tabs" role="tablist" id="tab-list">

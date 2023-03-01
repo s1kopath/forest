@@ -3,7 +3,7 @@
         display: none !important;
     }
 </style>
-<nav class="navbar header-navbar pcoded-header">
+<nav class="navbar header-navbar pcoded-header" style="background: #FCB42D;">
     <div class="navbar-wrapper">
         <div class="navbar-logo">
             <a href="/">
@@ -34,10 +34,16 @@
             </ul> --}}
             <ul class="nav-right">
                 <li>
-                    <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
+                    <a href="#!" onclick="javascript:toggleFullScreen()"
+                        class="waves-effect waves-light">
                         <i class="full-screen feather icon-maximize"></i>
                     </a>
                 </li>
+            </ul>
+            <ul class="text-center nav-left" style="float: none!important">
+                <h2 class="pt-2">
+                    @yield('page-title')
+                </h2>
             </ul>
             {{-- <ul class="nav-right">
                 <li class="header-notification">
