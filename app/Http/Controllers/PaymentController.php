@@ -65,18 +65,5 @@ class PaymentController extends Controller
         }
     }
 
-    public function ibAmountCalculation($distribution_amount, $team_detail)
-    {
-        $rank_info = Rank::where('user_id', $team_detail->user_id)->first();
-        if ($rank_info && $rank_info->rank == "IB") {
-            return ($distribution_amount * 30) / 100; //30 percents will be dynamic
-        } else if ($rank_info && $rank_info->rank == "Pro-IB") {
-            return ($distribution_amount * 15) / 100;
-        } else if ($rank_info && $rank_info->rank == "Master IB") {
-            return ($distribution_amount * 7.5) / 100;
-        } else if ($rank_info && $rank_info->rank == "Corporate IB") {
-            return ($distribution_amount * 7.5) / 100;
-        }
-    }
 
 }

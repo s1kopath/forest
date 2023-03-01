@@ -5,23 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\AmountForIbGain;
 use App\Http\Controllers\RanksController;
+use App\Models\IbRoyality;
+use App\Models\Rank;
+use App\Models\StakingRebate;
+use App\Models\StakingRebateBonus;
+use App\Models\User;
+use App\Models\UserStake;
+use App\Models\Wallet;
 
 class TestController extends Controller
 {
-    public function test()
-    {
-        // $chargePer1000 = 20;
-        // $chargeAfter1000 = 5;
-
-        // $withdraw_amount = 2110;
-
-        // $total_charge = (round($withdraw_amount / 1000) * $chargePer1000) + $chargeAfter1000;
-
-        $ids = implode(',', auth()->user()->direct_team);
-
-        dd($ids == "");
+    public function test(){
         abort(500);
-        return view('test');
-        // return view('front-end.section.content.test');
     }
 }

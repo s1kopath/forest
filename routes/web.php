@@ -13,12 +13,13 @@ use App\Http\Controllers\User\StakeController;
 use App\Http\Controllers\MonthlyContestController;
 use App\Http\Controllers\Otp\OtpController;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\ProfileController;
 
+Route::get('/test', [TestController::class, 'test'])->name('test');
 
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
-Route::get('/test', [HomeController::class, 'test'])->name('test');
 Route::get('markets', [HomeController::class, 'markets'])->name('markets');
 Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('blog', [HomeController::class, 'blog'])->name('blog');
