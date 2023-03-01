@@ -10,8 +10,8 @@
     <div class="card">
         <div class="card-block" style="background-color: rgba(233, 233, 233, 0.678);">
             <div class="container">
-                <div class="row">
-                    <div class="col-12 col-lg-3 col-xl-3 col-md-6 grid-item mt-5">
+                <div class="row mt-4">
+                    <div class="col-12 col-lg-3 col-xl-3 col-md-6 grid-item mt-5 pt-3">
                         <div class="card" style="border-radius: 1.3rem; {{ $rank != 1 ? 'opacity:0.5' : '' }}">
                             <div class="text-center" style="margin-top: -25%">
                                 <img class="rounded-circle border" src="{{ asset('back-end/img/ib/1.jpg') }}" height="150px"
@@ -19,11 +19,11 @@
                             </div>
                             <div class="card-body text-center">
                                 <h5 class="card-title mb-2">IB</h5>
-                                <h4>{{ $gained_percentage1 }}%</h4>
+                                <h4>{{ $percentage['ib'] }}%</h4>
                                 <div class="progress mb-2">
                                     <div class="progress-bar bg-secondary" role="progressbar"
-                                        aria-valuenow="{{ $gained_percentage1 }}" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: {{ $gained_percentage1 }}%"></div>
+                                        aria-valuenow="{{ $percentage['ib'] }}" aria-valuemin="0" aria-valuemax="100"
+                                        style="width: {{ $percentage['ib'] }}%"></div>
                                 </div>
                                 <p class="mb-3">
                                     Self - $ {{ $ib_gain->self_amount }} / $ 50
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3 col-xl-3 col-md-6 grid-item mt-5">
+                    <div class="col-12 col-lg-3 col-xl-3 col-md-6 grid-item mt-5 pt-3">
                         <div class="card" style="border-radius: 1.3rem; {{ $rank != 2 ? 'opacity:0.5' : '' }}">
                             <div class="text-center" style="margin-top: -25%">
                                 <img class="rounded-circle border" src="{{ asset('back-end/img/ib/2.jpg') }}" height="150px"
@@ -46,11 +46,11 @@
                             </div>
                             <div class="card-body text-center">
                                 <h5 class="card-title mb-2">Pro-IB</h5>
-                                <h4>{{ $gained_percentage2 }}%</h4>
+                                <h4>{{ $percentage['pro-ib'] }}%</h4>
                                 <div class="progress mb-2">
                                     <div class="progress-bar bg-secondary" role="progressbar"
-                                        aria-valuenow="{{ $gained_percentage2 }}" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: {{ $gained_percentage2 }}%"></div>
+                                        aria-valuenow="{{ $percentage['pro-ib'] }}" aria-valuemin="0" aria-valuemax="100"
+                                        style="width: {{ $percentage['pro-ib'] }}%"></div>
                                 </div>
                                 <p class="mb-3">
                                     Self - $ {{ $ib_gain->self_amount }} / $ 100
@@ -65,7 +65,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3 col-xl-3 col-md-6 grid-item mt-5">
+                    <div class="col-12 col-lg-3 col-xl-3 col-md-6 grid-item mt-5 pt-3">
                         <div class="card" style="border-radius: 1.3rem; {{ $rank != 3 ? 'opacity:0.5' : '' }}">
                             <div class="text-center" style="margin-top: -25%">
                                 <img class="rounded-circle border" src="{{ asset('back-end/img/ib/3.jpg') }}"
@@ -74,11 +74,11 @@
 
                             <div class="card-body text-center">
                                 <h5 class="card-title mb-2">Master IB</h5>
-                                <h4>{{ $gained_percentage3 }}%</h4>
+                                <h4>{{ $percentage['master-ib'] }}%</h4>
                                 <div class="progress mb-2">
                                     <div class="progress-bar bg-secondary" role="progressbar"
-                                        aria-valuenow="{{ $gained_percentage3 }}" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: {{ $gained_percentage3 }}%"></div>
+                                        aria-valuenow="{{ $percentage['master-ib'] }}" aria-valuemin="0"
+                                        aria-valuemax="100" style="width: {{ $percentage['master-ib'] }}%"></div>
                                 </div>
                                 <p class="mb-3">
                                     Self - $ {{ $ib_gain->self_amount }} / $ 500
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-3 col-xl-3 col-md-6 grid-item mt-5">
+                    <div class="col-12 col-lg-3 col-xl-3 col-md-6 grid-item mt-5 pt-3">
                         <div class="card" style="border-radius: 1.3rem; {{ $rank != 4 ? 'opacity:0.5' : '' }}">
                             <div class="text-center" style="margin-top: -25%">
                                 <img class="rounded-circle border" src="{{ asset('back-end/img/ib/4.jpg') }}"
@@ -102,11 +102,11 @@
 
                             <div class="card-body text-center">
                                 <h5 class="card-title mb-2">Corporate IB</h5>
-                                <h4>{{ $gained_percentage4 }}%</h4>
+                                <h4>{{ $percentage['corporate-ib'] }}%</h4>
                                 <div class="progress mb-2">
                                     <div class="progress-bar bg-secondary" role="progressbar"
-                                        aria-valuenow="{{ $gained_percentage4 }}" aria-valuemin="0" aria-valuemax="100"
-                                        style="width:{{ $gained_percentage4 }}%"></div>
+                                        aria-valuenow="{{ $percentage['corporate-ib'] }}" aria-valuemin="0"
+                                        aria-valuemax="100" style="width:{{ $percentage['corporate-ib'] }}%"></div>
                                 </div>
                                 <p class="mb-3">
                                     Self - $ {{ $ib_gain->self_amount }} / $ 1000
@@ -123,7 +123,7 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="text-center m-t-20">
+            {{-- <div class="text-center m-t-20 m-b-20">
                 <button class="btn btn-primary rounded-pill">
                     APPLY
                 </button>

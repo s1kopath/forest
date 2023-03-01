@@ -98,7 +98,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="text-center m-t-20">
+                                            <div class="text-center m-t-20 m-b-20">
                                                 <button type="button" class="btn btn-primary rounded-pill"
                                                     onclick="proceedToStripe()">
                                                     Proceed
@@ -158,7 +158,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="text-center m-t-20">
+                                                <div class="text-center m-t-20 m-b-20">
                                                     <button type="submit" class="btn btn-primary rounded-pill">
                                                         Confirm Payment
                                                     </button>
@@ -195,7 +195,7 @@
                                 </div>
                             </div>
                             <small class="text-danger">* Min 20 USD - Max 50000 USD</small>
-                            <div class="text-center m-t-20">
+                            <div class="text-center m-t-20 m-b-20">
                                 <button class="btn btn-primary rounded-pill">
                                     DEPOSIT
                                 </button>
@@ -290,7 +290,7 @@
                             </div>
 
                         </div>
-                        <div class="text-center m-t-20">
+                        <div class="text-center m-t-20 m-b-20">
                             <button class="btn btn-primary rounded-pill">
                                 REQUEST WITHDRAWAL
                             </button>
@@ -350,7 +350,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="text-center m-t-20">
+                            <div class="text-center m-t-20 m-b-20">
                                 <button type="submit" class="btn btn-primary rounded-pill">
                                     Stake Now
                                 </button>
@@ -425,7 +425,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="text-center m-t-20">
+                                            <div class="text-center m-t-20 m-b-20">
                                                 <button type="button" class="btn btn-primary rounded-pill"
                                                     onclick="confirmSubmitForm()">
                                                     Confirm
@@ -505,7 +505,7 @@
                             </div>
                         </div>
 
-                        <div class="text-center m-t-20">
+                        <div class="text-center m-t-20 m-b-20">
                             <button class="btn btn-primary rounded-pill">
                                 update
                             </button>

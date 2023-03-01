@@ -9,7 +9,7 @@
 
 @section('page-content')
     <div class="card">
-        <div class="card-block">
+        <div class="card-body">
             <h4 class="font-weight-bold">Thank you for joining our Referral program</h4>
             <h5>Below you can find the number of registration and funded accounts</h5>
         </div>
@@ -35,10 +35,10 @@
                 </ul>
             </div>
         </div> --}}
-        <div class="card-block">
+        <div class="card-body">
             <h3 class="font-weight-bold">Referral Link</h3>
             <h5 id="referral-link">
-                {{ env('APP_URL') . '/ref/' . auth()->user()->username }}
+                {{ env('APP_URL') . '/ref/' . $user->username }}
             </h5>
             <button type="button" class="btn btn-primary rounded-pill mb-3 mt-2" onclick="myFunction()">
                 <i class="far fa-copy"></i>
@@ -48,11 +48,11 @@
         <div class="card-block">
             <div class="row">
                 <div class="col-md-4 text-center">
-                    <h4 class="font-weight-bold">1</h4>
+                    <h4 class="font-weight-bold">{{ count($user->direct_team) }}</h4>
                     <h3 class="font-weight-bold">Registration</h3>
                 </div>
                 <div class="col-md-4 text-center">
-                    <h4 class="font-weight-bold">4</h4>
+                    <h4 class="font-weight-bold">{{ count($user->total_team) }}</h4>
                     <h3 class="font-weight-bold">Active</h3>
                 </div>
             </div>

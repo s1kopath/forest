@@ -159,7 +159,7 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="text-center m-t-20">
+                        <div class="text-center m-t-20 m-b-20">
                             <button class="btn btn-primary rounded-pill" id="photoverify">
                                 UPDATE & NEXT
                             </button>
@@ -210,7 +210,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-center m-t-20">
+                            <div class="text-center m-t-20 m-b-20">
                                 <button class="btn btn-primary rounded-pill">
                                     Update Password
                                 </button>
@@ -531,7 +531,7 @@
                     </div>
                 </form>
             </div>
-            <div class="text-center m-t-20">
+            <div class="text-center m-t-20 m-b-20">
                 <button class="btn btn-primary rounded-pill">
                     UPDATE
                 </button>
