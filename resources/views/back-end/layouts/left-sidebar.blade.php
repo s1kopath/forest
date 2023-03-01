@@ -216,7 +216,10 @@
                             <br>
                             <small>{{ auth()->user()->email }}</small>
                             <br>
-                            <span class="font-weight-bold text-primary">Verified Account</span>
+                            <span class="font-weight-bold text-primary">
+                                {{ auth()->user()->is_verified ? 'Verified' : 'Un-verified' }}
+                                Account
+                            </span>
                         </div>
                     </div>
 
