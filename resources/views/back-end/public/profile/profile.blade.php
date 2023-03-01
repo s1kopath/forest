@@ -166,7 +166,6 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="changePassword" role="tabpanel">
-
                         <h3 class="text-primary font-weight-bold text-center">
                             <span>Change Password</span>
                         </h3>
@@ -276,9 +275,9 @@
                         </div>
                         <div class="col-sm-10">
                             @if (@isset($user->userToUserDetails->phone_number))
-                                <input type="number" class="form-control" value="{{ $user->userToUserDetails->phone_number }}" name="phone_number">
+                                <input type="text" class="form-control" value="{{ $user->userToUserDetails->phone_number }}" name="phone_number">
                             @else
-                                <input type="number" class="form-control" value="" name="phone_number">
+                                <input type="text" class="form-control" value="" name="phone_number">
                             @endif
                         </div>
                     </div>
@@ -302,7 +301,7 @@
                             @if (@isset($user->userToUserDetails->identity_number))
                                 <input type="number" class="form-control" value="{{ $user->userToUserDetails->identity_number }}" name="identity_number">
                             @else
-                                <input type="number" class="form-control" value="" name="identity_number">
+                                <input type="text" class="form-control" value="" name="identity_number">
                             @endif
                         </div>
                     </div>
@@ -394,7 +393,6 @@
                     <button type="submit" class="btn btn-primary rounded-pill">
                         Update
                     </button>
-
                 </div>
             </form>
         </div>`;
