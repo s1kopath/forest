@@ -40,7 +40,7 @@
             <h5 id="referral-link">
                 {{ env('APP_URL') . '/ref/' . $user->username }}
             </h5>
-            <button type="button" class="btn btn-primary rounded-pill mb-3 mt-2" onclick="myFunction()">
+            <button type="button" class="btn btn-primary rounded-pill mb-3 mt-2" onclick="myFunction()" id="copied">
                 <i class="far fa-copy"></i>
                 Copy
             </button>
@@ -90,13 +90,14 @@
             // Copy the text inside the text field
             navigator.clipboard.writeText(copyText);
 
+            $('#copied').html('✔️ Copied');
             // Alert the copied text
-            Swal.fire({
-                icon: 'success',
-                title: 'Coppied to clipboard: ' + copyText,
-                showConfirmButton: false,
-                timer: 1500
-            })
+            // Swal.fire({
+            //     icon: 'success',
+            //     title: 'Coppied to clipboard: ' + copyText,
+            //     showConfirmButton: false,
+            //     timer: 1500
+            // })
         }
     </script>
 @endpush

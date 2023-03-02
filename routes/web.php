@@ -40,10 +40,12 @@ Route::match(['get', 'post'], 'register', [AuthController::class, 'register'])->
 Route::get('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 Route::get('ref/{username}', [AuthController::class, 'registerWithRefer'])->name('register_with_refer');
 
-Route::get('otp', [OtpController::class, 'otpPublic'])->name('otp');
-Route::post('otp-verify', [OtpController::class, 'verify'])->name('otp_verify');
-Route::get('email/verify', [AuthController::class, 'verificationNotice'])->middleware('auth')->name('verification.notice');
-Route::get('resend-otp', [AuthController::class, 'resendOtp'])->name('resend_otp');
+// Route::get('otp', [OtpController::class, 'otpPublic'])->name('otp');
+// Route::post('otp-verify', [OtpController::class, 'verify'])->name('otp_verify');
+// Route::get('resend-otp', [AuthController::class, 'resendOtp'])->name('resend_otp');
+Route::post('email/resend', [AuthController::class, 'resendLink'])->name('resend_link');
+Route::get('email/verification', [AuthController::class, 'verificationNotice'])->name('verification_notice');
+Route::get('verify/{token}', [AuthController::class, 'verifyEmail']);
 
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');

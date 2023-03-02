@@ -25,7 +25,7 @@ class AdminSeeder extends Seeder
         User::create([
             'username' => 'q',
             'name' => 'Frank',
-            'email' => 'frank@gamil.com',
+            'email' => 'frank@gmail.com',
             'password' => bcrypt('q'),
             'user_type' => 'admin',
             'refer_code' => uniqid(),

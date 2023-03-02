@@ -30,7 +30,7 @@
     <link rel="shortcut icon" href="{{ asset('front-end/img/favicon-32x32.png') }}" type="image/x-icon">
     <!-- Touch icon -->
     <link rel="apple-touch-icon-precomposed" href="{{ asset('front-end/img/apple-touch-icon.png') }}">
-    <title>Sign in - {{ env('APP_NAME') }}</title>
+    <title>Otp - {{ env('APP_NAME') }}</title>
 </head>
 
 <body>
@@ -60,58 +60,66 @@
                                             width="146" height="40" data-uk-img>
                                     </a>
                                     <p class="uk-text-lead uk-margin-small-top uk-margin-medium-bottom">
-                                        Log into your account
+                                        Verify Your Email
                                     </p>
-
-                                    @if (session('error'))
-                                        <div class="alert bg-alert text-danger">
-                                            {{ session('error') }}
-                                        </div>
+                                    @if (session('message'))
+                                        <div class="alert alert-success" role="alert">
+                                            {{ session('message') }}
+                                            <div>
                                     @endif
-                                    @if ($errors->any())
-                                        @foreach ($errors->all() as $error)
-                                            <div class="alert bg-alert text-danger">
-                                                {{ $error }}
-                                            </div>
-                                        @endforeach
-                                    @endif
-
                                     <!-- login form begin -->
-                                    <form class="uk-grid uk-form" action="" method="POST">
+                                    <form class="uk-grid uk-form" action="{{ route('resend_link') }}" method="post">
                                         @csrf
-                                        <div class="uk-margin-small uk-width-1-1 uk-inline">
-                                            <span class="uk-form-icon uk-form-icon-flip fas fa-user fa-sm"></span>
-                                            <input class="uk-input uk-border-rounded" id="username" type="email"
-                                                placeholder="Enter Email" name="email" required>
-                                        </div>
-                                        <div class="uk-margin-small uk-width-expand uk-text-small">
-                                            <label class="uk-align-right">
-                                                <a class="uk-link-reset" href="{{ route('public_login') }}">
-                                                    Login instead?
-                                                </a>
+                                        <div class="uk-margin-small uk-width-auto uk-text-small">
+                                            <label>
+                                                <span class="text-inverse">
+                                                    Check your email for varifiction link.
+                                                </span>
                                             </label>
                                         </div>
+
+                                        <div class="uk-margin-small uk-width-auto uk-text-small">
+                                            <label>
+                                                <span class="text-inverse">
+                                                    Did not get any mail?
+                                                </span>
+                                            </label>
+                                        </div>
+
+                                        <div class="uk-margin-small uk-width-1-1 uk-inline">
+                                            <span class="uk-form-icon uk-form-icon-flip fas fa-user fa-sm"></span>
+                                            <input class="uk-input uk-border-rounded" type="email"
+                                                placeholder="Enter Your Email"class="form-control" name="email"
+                                                required>
+
+                                            @if (session()->get('error'))
+                                                <div class="text-danger">{{ session()->get('error') }}</div>
+                                            @endif
+
+                                            @if (session()->get('resent_count'))
+                                                <div class="text-danger">
+                                                    Resend Attempts:
+                                                    {{ session()->get('resent_count') }} / 3
+                                                </div>
+                                            @endif
+                                        </div>
+
                                         <div class="uk-margin-small uk-width-1-1">
                                             <button type="submit"
                                                 class="uk-button uk-width-1-1 uk-button-primary uk-border-rounded uk-float-left">
-                                                Reset Password
+                                                Resend Link
                                             </button>
                                         </div>
+
                                     </form>
-                                    <!-- login form end -->
-                                    {{-- <p class="uk-heading-line"><span>Or sign in with</span></p>
-                                    <div class="uk-margin-medium-bottom">
-                                        <a class="uk-button uk-button-small uk-border-rounded uk-margin-small-right color-google"
-                                            href="#"><i class="fab fa-google uk-margin-small-right"></i>Google</a>
-                                        <a class="uk-button uk-button-small uk-border-rounded uk-margin-small-left color-facebook"
-                                            href="#"><i
-                                                class="fab fa-facebook-f uk-margin-small-right"></i>Facebook</a>
-                                    </div> --}}
-                                    <span class="uk-text-small">
-                                        Don't have an account? <a href="{{ route('register') }}">
-                                            Register here
-                                        </a>
-                                    </span>
+                                    <div class="uk-margin-small uk-width-expand uk-text-small">
+                                        <label class="uk-align-left">
+                                            Already have an account?
+                                            <a href="{{ route('public_login') }}">
+                                                Login here
+                                            </a>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
