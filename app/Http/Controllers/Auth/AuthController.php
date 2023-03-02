@@ -71,8 +71,6 @@ class AuthController extends Controller
 
     public function verificationNotice()
     {
-        // Auth::logout();
-        // session(['verification_notice' => 'Verify your email first.']);
         return view('front-end.auth.verification-notice');
     }
 
@@ -175,7 +173,7 @@ class AuthController extends Controller
 
             dispatch(new VerifyEmailJob($details));
 
-            return redirect()->route('verification_notice')->with('message', 'Email sent!');
+            return redirect()->route('verification.notice')->with('message', 'Email sent!');
         } else {
             return view('front-end.auth.register');
         }
@@ -228,7 +226,6 @@ class AuthController extends Controller
     //     }
     // }
 
-
     public function registerWithRefer($username)
     {
         $check = User::where('username', $username)->first();
@@ -262,7 +259,7 @@ class AuthController extends Controller
                 session()->forget('email');
 
                 Auth::login($user);
-                
+
                 return redirect()->route('public_dashboard')->with('message', 'Email successfully verified!');
             }
         } else {

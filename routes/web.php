@@ -44,7 +44,7 @@ Route::get('ref/{username}', [AuthController::class, 'registerWithRefer'])->name
 // Route::post('otp-verify', [OtpController::class, 'verify'])->name('otp_verify');
 // Route::get('resend-otp', [AuthController::class, 'resendOtp'])->name('resend_otp');
 Route::post('email/resend', [AuthController::class, 'resendLink'])->name('resend_link');
-Route::get('email/verification', [AuthController::class, 'verificationNotice'])->name('verification_notice');
+Route::get('email/verification', [AuthController::class, 'verificationNotice'])->name('verification.notice');
 Route::get('verify/{token}', [AuthController::class, 'verifyEmail']);
 
 Route::prefix('admin')->middleware('admin')->group(function () {
