@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Jobs\TempOtpRemoverJob;
 use App\Models\AmountForIbGain;
 use App\Http\Controllers\Controller;
+use App\Models\UserDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Session\Session;
 
@@ -140,6 +141,10 @@ class AuthController extends Controller
                 'refer_code' => uniqid()
             ]);
 
+            $newDetails = UserDetail::create([
+                'user_id' => $newUser->id,
+            ]);
+
             $newWallet = Wallet::create([
                 'user_id' => $newUser->id,
             ]);
@@ -263,7 +268,7 @@ class AuthController extends Controller
                 return redirect()->route('public_dashboard')->with('message', 'Email successfully verified!');
             }
         } else {
-            return redirect()->route('register')->with('Invalid url!');
+            return redirect()->route('register')->with('error', 'Invalid url!');
         }
     }
 }

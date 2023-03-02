@@ -220,9 +220,9 @@
                 <div class="pcoded-inner-navbar main-menu">
                     <div class="d-flex justify-content-between">
                         <div class="col-4">
-                            <img class="img-fluid rounded-lg shadow"
-                                src="{{ asset('back-end/assets/images/avatar-4.jpg') }}" data-toggle="modal"
-                                data-target="#exampleModal" id="myImg" alt="forest">
+                            <img class="img-fluid rounded-lg" src="{{ auth()->user()->userToUserDetails->pic }}"
+                                data-toggle="modal" data-target="#exampleModal" id="myImg" alt="forest"
+                                type="button">
                         </div>
 
                         <div class="col-8 text-white" style="overflow-wrap: break-word">
@@ -307,7 +307,7 @@
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Upload Profile Picture</h5>
@@ -316,51 +316,29 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ route('test') }}" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="" class="col-form-label">Profile Picture:</label>
-                                <img id="image">
-                                <div class="preview"></div>
-                                <input type="file" class="form-control"  name="image" id="imageInput">
-                            </div>
-                            <button type="submit" class="btn btn-primary" id="upload" data-dismiss="modal">Update</button>
-                       </form>
+                        <div class="form-group">
+                            <label for="" class="col-form-label">Profile Picture:</label>
+                            <img id="image">
+                            <div class="preview"></div>
+                            <input type="file" class="form-control" name="image" id="imageInput">
+                        </div>
+                        <button type="button" class="btn btn-primary" id="upload" data-dismiss="modal">
+                            Upload
+                        </button>
                     </div>
-                    {{-- <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"
-                            id="crop">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div> --}}
                 </div>
             </div>
         </div>
         <!-- modal end -->
     @endif
 @endsection
+
 @push('js')
     <script>
-        $(document).ready(function() {
-            $("#myImg").click(function() {
-                $("#myModal").modal();
-            });
+        $("#myImg").click(function() {
+            $("#myModal").modal();
         });
-    </script>
-    {{-- <script>
-        const imageInput = document.getElementById('imageInput');
-        const previewImage = document.getElementById('previewImage');
 
-        imageInput.addEventListener('change', function() {
-            const file = this.files[0];
-            const reader = new FileReader();
-
-            reader.addEventListener('load', function() {
-                previewImage.src = reader.result;
-            });
-
-            reader.readAsDataURL(file);
-        });
-    </script> --}}
-    <script>
         var bs_modal = $('#examplModal');
         var image = document.getElementById('image');
         var cropper, reader, file;
@@ -372,7 +350,6 @@
                 image.src = url;
                 // bs_modal.modal('show');
             };
-
 
             if (files && files.length > 0) {
                 file = files[0];
@@ -389,16 +366,16 @@
             }
 
             cropper = new Cropper(image, {
-                aspectRatio: 1,
-                viewMode: 3,
+                aspectRatio: NaN,
+                viewMode: NaN,
                 preview: '.preview'
             });
         });
 
         $("#upload").click(function() {
             canvas = cropper.getCroppedCanvas({
-                width: 160,
-                height: 160,
+                width: 100,
+                height: 100,
             });
 
             canvas.toBlob(function(blob) {
@@ -407,21 +384,28 @@
                 reader.readAsDataURL(blob);
                 reader.onloadend = function() {
                     var base64data = reader.result;
-    
+
                     $.ajax({
                         type: "POST",
-                        url: "/test",
+                        url: "/user/profile/upload-profile-picture",
                         data: {
                             '_token': $('meta[name="_token"]').attr('content'),
                             'image': base64data
                         },
-                        success: function(data) {
-                            console.log(data);
+                        success: function(response) {
+                            // console.log(response);
+                            if (response == 1) {
+                                cropper.destroy();
+                                cropper = null;
 
-                            cropper.destroy();
-                            cropper = null;
+                                $('#image').attr('src', '');
 
-                            $('#image').attr('src', '');
+                                // alert('Successfully updated!');
+
+                                window.location.reload();
+                            } else {
+                                alert('Something went wrong');
+                            }
                         }
                     });
                 }

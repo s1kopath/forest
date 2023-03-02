@@ -92,6 +92,8 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::get('/', [PublicDashboardController::class, 'publicProfile'])->name('public_profile');
         Route::get('update-password', [ProfileController::class, 'updatePassword'])->name('update_password');
 
+        Route::post('upload-profile-picture', [ProfileController::class, 'uploadProfilePicture'])->name('upload_profile_picture');
+
         Route::post('/update', [PublicDashboardController::class, 'updatePublicProfile'])->name('update_public_profile');
         Route::post('/update-location', [PublicDashboardController::class, 'editLocation'])->name('edit_location');
         Route::get('fund', [FundController::class, 'fund'])->name('public_fund');

@@ -66,26 +66,4 @@ class HomeController extends Controller
         return view('front-end.section.content.legal-docs.legal-docs');
     }
 
-    public function test(Request $request)
-    {
-        // upload base64 image to storage
-        $image = $request->image;
-        $image_parts = explode(";base64,", $image);
-        $image_type_aux = explode("image/", $image_parts[0]);
-        $image_type = $image_type_aux[1];
-        $image_base64 = base64_decode($image_parts[1]);
-
-        $folderPath = "public/avatars/";
-        $uniqid = uniqid();
-        $file = $folderPath . $uniqid . '.' . $image_type;
-        Storage::disk('local')->put($file, $image_base64);
-
-        UserDetail::updateOrCreate([
-            'user_id' => auth()->id()
-        ], [
-            'image' => $file,
-        ]);
-
-        return true;
-    }
 }

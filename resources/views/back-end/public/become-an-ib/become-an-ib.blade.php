@@ -13,11 +13,11 @@
                 <div class="row mt-4">
                     <div class="col-12 col-lg-3 col-xl-3 col-md-6 grid-item mt-5 pt-3">
                         <div class="card" style="border-radius: 1.3rem; {{ $rank != 1 ? 'opacity:0.5' : '' }}">
-                            <div class="text-center" style="margin-top: -25%">
+                            <div class="d-flex justify-content-center" style="margin-top: -25%">
                                 <img class="rounded-circle border" src="{{ asset('back-end/img/ib/1.jpg') }}" height="150px"
                                     width="150px">
                             </div>
-                            <div class="card-body text-center">
+                            <div class="card-body">
                                 <h5 class="card-title mb-2">IB</h5>
                                 <h4>{{ $percentage['ib'] }}%</h4>
                                 <div class="progress mb-2">
@@ -40,11 +40,11 @@
                     </div>
                     <div class="col-12 col-lg-3 col-xl-3 col-md-6 grid-item mt-5 pt-3">
                         <div class="card" style="border-radius: 1.3rem; {{ $rank != 2 ? 'opacity:0.5' : '' }}">
-                            <div class="text-center" style="margin-top: -25%">
+                            <div class="d-flex justify-content-center" style="margin-top: -25%">
                                 <img class="rounded-circle border" src="{{ asset('back-end/img/ib/2.jpg') }}" height="150px"
                                     width="150px">
                             </div>
-                            <div class="card-body text-center">
+                            <div class="card-body">
                                 <h5 class="card-title mb-2">Pro-IB</h5>
                                 <h4>{{ $percentage['pro-ib'] }}%</h4>
                                 <div class="progress mb-2">
@@ -67,12 +67,12 @@
                     </div>
                     <div class="col-12 col-lg-3 col-xl-3 col-md-6 grid-item mt-5 pt-3">
                         <div class="card" style="border-radius: 1.3rem; {{ $rank != 3 ? 'opacity:0.5' : '' }}">
-                            <div class="text-center" style="margin-top: -25%">
+                            <div class="d-flex justify-content-center" style="margin-top: -25%">
                                 <img class="rounded-circle border" src="{{ asset('back-end/img/ib/3.jpg') }}"
                                     height="150px" width="150px">
                             </div>
 
-                            <div class="card-body text-center">
+                            <div class="card-body">
                                 <h5 class="card-title mb-2">Master IB</h5>
                                 <h4>{{ $percentage['master-ib'] }}%</h4>
                                 <div class="progress mb-2">
@@ -95,12 +95,12 @@
                     </div>
                     <div class="col-12 col-lg-3 col-xl-3 col-md-6 grid-item mt-5 pt-3">
                         <div class="card" style="border-radius: 1.3rem; {{ $rank != 4 ? 'opacity:0.5' : '' }}">
-                            <div class="text-center" style="margin-top: -25%">
+                            <div class="d-flex justify-content-center" style="margin-top: -25%">
                                 <img class="rounded-circle border" src="{{ asset('back-end/img/ib/4.jpg') }}"
                                     height="150px" width="150px">
                             </div>
 
-                            <div class="card-body text-center">
+                            <div class="card-body">
                                 <h5 class="card-title mb-2">Corporate IB</h5>
                                 <h4>{{ $percentage['corporate-ib'] }}%</h4>
                                 <div class="progress mb-2">
