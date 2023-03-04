@@ -16,7 +16,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(AdminSeeder::class);
-        $this->call(TestAppSeeder::class);
+        // $this->call(AdminSeeder::class);
+        // $this->call(TestAppSeeder::class);
+        $this->call(TestAmountForIbGainsTableSeeder::class);
+        $this->call(TestIbRoyalitiesTableSeeder::class);
+        $this->call(TestRanksTableSeeder::class);
+        $this->call(TestRankAndRewardsTableSeeder::class);
+        $this->call(TestStakingRoisTableSeeder::class);
+        $this->call(TestUsersTableSeeder::class);
+        $this->call(TestUserDetailsTableSeeder::class);
+        $this->call(TestUserStakesTableSeeder::class);
+        $this->call(TestWalletsTableSeeder::class);
     }
 }
