@@ -8,22 +8,7 @@
         $urlArray = explode('-', $url);
         $lastElement = end($urlArray);
     @endphp
-    @push('css')
-        <style type="text/css">
-            img {
-                display: block;
-                max-width: 100%;
-            }
 
-            .preview {
-                overflow: hidden;
-                width: 160px;
-                height: 160px;
-                margin: 10px;
-                border: 1px solid red;
-            }
-        </style>
-    @endpush
     @if (auth()->user()->user_type == 'admin')
         <nav class="pcoded-navbar">
             <div class="nav-list">
@@ -166,9 +151,31 @@
                                 </li>
                             </ul>
                         </li>
-                    </ul>
+                    </ul>   
 
-                    <div class="pcoded-navigation-label">SETTING</div>
+                    <div class="pcoded-navigation-label">SETTINGS</div>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu {{ $lastElement == 'banner' ? 'active pcoded-trigger' : '' }}">
+                            <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                <span class="pcoded-micon">
+                                    <i class="feather icon-clipboard"></i>
+                                </span>
+                                <span class="pcoded-mtext">Dashboard Banner</span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li class="{{ $route_name == 'add_banner' ? 'active' : '' }}">
+                                    <a href="{{ route('add_banner') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Add Banner</span>
+                                    </a>
+                                </li>
+                                <li class="{{ $route_name == 'manage_banner' ? 'active' : '' }}">
+                                    <a href="{{ route('manage_banner') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Manage Banner</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu">
                             <a href="{{ route('logout') }}" class="waves-effect waves-dark">
@@ -318,8 +325,8 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="" class="col-form-label">Profile Picture:</label>
-                            <img id="image">
-                            <div class="preview"></div>
+                            <img class="cropper-img" id="image">
+                            <div class="cropper-preview"></div>
                             <input type="file" class="form-control" name="image" id="imageInput">
                         </div>
                         <button type="button" class="btn btn-primary" id="upload" data-dismiss="modal">
@@ -334,82 +341,84 @@
 @endsection
 
 @push('js')
-    <script>
-        $("#myImg").click(function() {
-            $("#myModal").modal();
-        });
+    @if (auth()->user()->user_type == 'public')
+        <script>
+            $("#myImg").click(function() {
+                $("#myModal").modal();
+            });
 
-        var bs_modal = $('#examplModal');
-        var image = document.getElementById('image');
-        var cropper, reader, file;
+            var bs_modal = $('#examplModal');
+            var image = document.getElementById('image');
+            var cropper, reader, file;
 
 
-        $("body").on("change", '#imageInput', function(e) {
-            var files = e.target.files;
-            var done = function(url) {
-                image.src = url;
-                // bs_modal.modal('show');
-            };
+            $("body").on("change", '#imageInput', function(e) {
+                var files = e.target.files;
+                var done = function(url) {
+                    image.src = url;
+                    // bs_modal.modal('show');
+                };
 
-            if (files && files.length > 0) {
-                file = files[0];
+                if (files && files.length > 0) {
+                    file = files[0];
 
-                if (URL) {
-                    done(URL.createObjectURL(file));
-                } else if (FileReader) {
-                    reader = new FileReader();
-                    reader.onload = function(e) {
-                        done(reader.result);
-                    };
-                    reader.readAsDataURL(file);
+                    if (URL) {
+                        done(URL.createObjectURL(file));
+                    } else if (FileReader) {
+                        reader = new FileReader();
+                        reader.onload = function(e) {
+                            done(reader.result);
+                        };
+                        reader.readAsDataURL(file);
+                    }
                 }
-            }
 
-            cropper = new Cropper(image, {
-                aspectRatio: NaN,
-                viewMode: NaN,
-                preview: '.preview'
-            });
-        });
-
-        $("#upload").click(function() {
-            canvas = cropper.getCroppedCanvas({
-                width: 100,
-                height: 100,
+                cropper = new Cropper(image, {
+                    aspectRatio: NaN,
+                    viewMode: NaN,
+                    preview: '.cropper-preview'
+                });
             });
 
-            canvas.toBlob(function(blob) {
-                url = URL.createObjectURL(blob);
-                var reader = new FileReader();
-                reader.readAsDataURL(blob);
-                reader.onloadend = function() {
-                    var base64data = reader.result;
+            $("#upload").click(function() {
+                canvas = cropper.getCroppedCanvas({
+                    width: 100,
+                    height: 100,
+                });
 
-                    $.ajax({
-                        type: "POST",
-                        url: "/user/profile/upload-profile-picture",
-                        data: {
-                            '_token': $('meta[name="_token"]').attr('content'),
-                            'image': base64data
-                        },
-                        success: function(response) {
-                            // console.log(response);
-                            if (response == 1) {
-                                cropper.destroy();
-                                cropper = null;
+                canvas.toBlob(function(blob) {
+                    url = URL.createObjectURL(blob);
+                    var reader = new FileReader();
+                    reader.readAsDataURL(blob);
+                    reader.onloadend = function() {
+                        var base64data = reader.result;
 
-                                $('#image').attr('src', '');
+                        $.ajax({
+                            type: "POST",
+                            url: "/user/profile/upload-profile-picture",
+                            data: {
+                                '_token': $('meta[name="_token"]').attr('content'),
+                                'image': base64data
+                            },
+                            success: function(response) {
+                                // console.log(response);
+                                if (response == 1) {
+                                    cropper.destroy();
+                                    cropper = null;
 
-                                // alert('Successfully updated!');
+                                    $('#image').attr('src', '');
 
-                                window.location.reload();
-                            } else {
-                                alert('Something went wrong');
+                                    // alert('Successfully updated!');
+
+                                    window.location.reload();
+                                } else {
+                                    alert('Something went wrong');
+                                }
                             }
-                        }
-                    });
-                }
+                        });
+                    }
+                });
             });
-        });
-    </script>
+        </script>
+    @endif
 @endpush

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class MonthlyContestController extends Controller
 {
-    
+
     public function index()
     {
         $month = MonthlyContest::all();
@@ -15,11 +15,11 @@ class MonthlyContestController extends Controller
             'month',
         ));
     }
-    
+
     public function addContest(Request $request)
     {
-         // check method
-         if ($request->isMethod('POST')) {
+        // check method
+        if ($request->isMethod('POST')) {
             // validation
             $request->validate([
                 'name' => 'required',
@@ -32,19 +32,18 @@ class MonthlyContestController extends Controller
                 'name' => $request->name,
                 'direct_amount' => $request->direct_amount,
                 'reward_amount' => $request->reward_amount,
-                                    
+
             ]);
 
             return redirect()->route('manage_monthly_contest')->with('message', 'Contest Add Successfully.');
-
         } else {
             return view('back-end.monthly-contest.add-monthly-contest');
-        } 
+        }
     }
 
     public function updateContest(Request $request, $id)
     {
-            // check method
+        // check method
         if ($request->isMethod('POST')) {
             // validation
             $request->validate([

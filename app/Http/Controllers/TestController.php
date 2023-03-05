@@ -2,20 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\AmountForIbGain;
-use App\Http\Controllers\RanksController;
-use App\Models\IbRoyality;
 use App\Models\Rank;
-use App\Models\StakingRebate;
-use App\Models\StakingRebateBonus;
 use App\Models\User;
-use App\Models\UserStake;
 use App\Models\Wallet;
+use App\Models\UserStake;
+use App\Models\IbRoyality;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Models\StakingRebate;
+use App\Models\AmountForIbGain;
+use App\Models\StakingRebateBonus;
+use App\Http\Controllers\RanksController;
 
 class TestController extends Controller
 {
     public function test(){
+        $random = Str::random(10);
+        // dd($random);
         abort(500);
     }
 }

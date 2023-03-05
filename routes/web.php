@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\Dashboard\PublicDashboardController;
 use App\Http\Controllers\StackingRoisController;
 use App\Http\Controllers\IbRoyalityController;
@@ -84,6 +85,13 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         Route::match(['get', 'post'], '/update-monthly-contest/{id}', 'updateContest')->name('update_monthly_contest');
         Route::get('/delete-contest/{id}', 'destroy')->name('delete_contest');
     });
+
+    Route::prefix('banner')->group(function () {
+        Route::match(['get', 'post'], 'add-banner', [BannerController::class, 'addBanner'])->name('add_banner');
+        Route::get('manage-banner', [BannerController::class, 'manageBanner'])->name('manage_banner');
+        Route::match(['get', 'post'], 'edit-banner/{id}', [BannerController::class, 'editBanner'])->name('edit_banner');
+        Route::get('delete-banner/{id}', [BannerController::class, 'deleteBanner'])->name('delete_banner');
+    });
 });
 
 Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
@@ -92,7 +100,7 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::get('/', [PublicDashboardController::class, 'publicProfile'])->name('public_profile');
         Route::get('update-password', [ProfileController::class, 'updatePassword'])->name('update_password');
 
-        Route::post('upload-profile-picture', [ProfileController::class, 'uploadProfilePicture'])->name('upload_profile_picture');
+        Route::post('upload-profile-picture', [ProfileController::class, 'uploadProfilePicture']);
 
         Route::post('/update', [PublicDashboardController::class, 'updatePublicProfile'])->name('update_public_profile');
         Route::post('/update-location', [PublicDashboardController::class, 'editLocation'])->name('edit_location');

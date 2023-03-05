@@ -34,7 +34,7 @@
         <div class="col-md-12 mb-3">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" style=" width:100%; max-height: 200px !important;">
-                    <div class="carousel-item active">
+                    {{-- <div class="carousel-item active">
                         <img src="{{ asset('back-end/img/slider/1.jpg') }}" class="rounded d-block w-100" alt="forest">
                     </div>
                     <div class="carousel-item">
@@ -42,8 +42,15 @@
                     </div>
                     <div class="carousel-item">
                         <img src="{{ asset('back-end/img/slider/3.jpg') }}" class="rounded d-block w-100" alt="forest">
-                    </div>
+                    </div> --}}
+                    @foreach ($banners as $banner)
+                        <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }}">
+                            <img src="{{ $banner->image }}" class="rounded d-block w-100" alt="forest">
+                        </div>
+                    @endforeach
                 </div>
+
+
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>

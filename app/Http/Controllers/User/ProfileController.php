@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\ImageHandlerController;
 
 class ProfileController extends Controller
 {
@@ -35,22 +36,13 @@ class ProfileController extends Controller
 
     public function uploadProfilePicture(Request $request)
     {
-        // upload base64 image to storage
-        $image = $request->image;
-        $image_parts = explode(";base64,", $image);
-        $image_type_aux = explode("image/", $image_parts[0]);
-        $image_type = $image_type_aux[1];
-        $image_base64 = base64_decode($image_parts[1]);
-
-        $folderPath = "avatars/";
-        $uniqid = uniqid();
-        $file = $folderPath . $uniqid . '.' . $image_type;
-        Storage::disk('public')->put($file, $image_base64);
+        $imageHandler = new ImageHandlerController();
+        $file_name = $imageHandler->base64Upload($request->en_image, 'avatars');
 
         UserDetail::updateOrCreate([
             'user_id' => auth()->id()
         ], [
-            'image' => $file,
+            'image' => $file_name,
         ]);
 
         return true;

@@ -50,7 +50,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('back-end/assets/css/pages.css') }}">
 
     {{-- cropper css --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" />
+    <link rel="stylesheet" href="{{ asset('back-end/assets/css/cropper.min.css') }}" />
 
     {{-- sweetalert2 js $ css --}}
     <script src="{{ asset('back-end/assets/js/sweetalert2@11.js') }}"></script>
@@ -143,7 +143,7 @@
     <script type="text/javascript" src="{{ asset('back-end/assets/js/script.js') }}"></script>
 
     {{-- cropper js --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <script src="{{ asset('back-end/assets/js/cropper.min.js') }}"></script>
 
     @stack('js')
 </body>

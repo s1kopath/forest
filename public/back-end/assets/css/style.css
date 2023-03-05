@@ -2768,7 +2768,7 @@ table thead .border-bottom-info th {
 }
 
 .bg-dribbble {
-    background: #ec4a89!important;
+    background: #ec4a89 !important;
 }
 
 .text-dribbble {
@@ -12806,4 +12806,20 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
 
 .pcoded[layout-type=dark] .bg-c-purple {
     background: #536dfe
+}
+
+
+
+/* cropper js */
+.cropper-img {
+    display: block;
+    max-width: 100%;
+}
+
+.cropper-preview {
+    overflow: hidden;
+    height: 160px;
+    width: auto;
+    margin: 10px 0;
+    border: 1px solid #000;
 }
