@@ -160,7 +160,7 @@
                                 <span class="pcoded-micon">
                                     <i class="feather icon-clipboard"></i>
                                 </span>
-                                <span class="pcoded-mtext">Dashboard Banner</span>
+                                <span class="pcoded-mtext">User Dashboard Banner</span>
                             </a>
                             <ul class="pcoded-submenu">
                                 <li class="{{ $route_name == 'add_banner' ? 'active' : '' }}">
