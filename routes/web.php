@@ -92,6 +92,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         Route::match(['get', 'post'], 'edit-banner/{id}', [BannerController::class, 'editBanner'])->name('edit_banner');
         Route::get('delete-banner/{id}', [BannerController::class, 'deleteBanner'])->name('delete_banner');
     });
+    
 });
 
 Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
