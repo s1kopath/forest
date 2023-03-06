@@ -6,6 +6,8 @@ use App\Models\Banner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
+use function PHPUnit\Framework\fileExists;
+
 class BannerController extends Controller
 {
     public function addBanner(Request $request)
@@ -57,8 +59,17 @@ class BannerController extends Controller
 
     public function deleteBanner($id)
     {
-        Banner::find($id)->delete();
+        $banner = Banner::find($id);
+
+        // Storage::disk('public')->exists($banner->image_path);
+        // dd(storage_path() . '/' . $banner->image_path, Storage::disk('public')->exists($banner->image_path));
+        
+        // if (file_exists($banner->image_path)) {
+        //     dd('yes');
+        // }
+
+        // dd('wait');
+        $banner->delete();
         return redirect()->back()->with('message', 'Banner Deleted Successfully.');
     }
-    
 }

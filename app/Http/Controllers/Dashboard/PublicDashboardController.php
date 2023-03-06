@@ -19,8 +19,8 @@ class PublicDashboardController extends Controller
     {
         $wallet = Wallet::where('user_id', auth()->id())->first();
         $totalStake = UserStake::where('user_id', auth()->id())->sum('amount');
-        $banners = Banner::orderBy('sl', 'asc')->get();
-        
+        $banners = Banner::where('status', 1)->orderBy('sl', 'asc')->get();
+
         return view('back-end.dashboard-public', compact('wallet', 'totalStake', 'banners'));
     }
 

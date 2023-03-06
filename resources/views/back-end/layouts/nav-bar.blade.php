@@ -32,10 +32,17 @@
                     </div>
                 </li>
             </ul> --}}
-            <ul class="nav-right">
+            <ul class="nav-left">
                 <li>
                     <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
                         <i class="full-screen feather icon-maximize"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav-right">
+                <li>
+                    <a href="{{ route('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i>
                     </a>
                 </li>
             </ul>
@@ -44,14 +51,16 @@
                     @yield('page-title')
                 </h2>
             </ul>
-            {{-- <ul class="nav-right">
+            <ul class="nav-right">
                 <li class="header-notification">
-                    <div class="dropdown-primary dropdown">
+                    <div class="dropdown">
                         <div class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="feather icon-bell"></i>
-                            <span class="badge bg-c-red">5</span>
+                            <span class="badge">
+                                <i class="far fa-bell text-dark font-weight-bold"></i>
+                                <sup class="p-1 rounded-pill bg-c-red">5</sup>
+                            </span>
                         </div>
-                        <ul class="show-notification notification-view dropdown-menu" data-dropdown-in="fadeIn"
+                        <ul class="show-notification notification-view dropdown-menu mt-4" data-dropdown-in="fadeIn"
                             data-dropdown-out="fadeOut">
                             <li>
                                 <h6>Notifications</h6>
@@ -100,7 +109,7 @@
                     </div>
                 </li>
 
-                <li class="user-profile header-notification">
+                {{-- <li class="user-profile header-notification">
                     <div class="dropdown-primary dropdown">
                         <div class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{ asset('back-end/assets/images/avatar-4.jpg') }}" class="img-radius"
@@ -137,8 +146,8 @@
                             </li>
                         </ul>
                     </div>
-                </li>
-            </ul> --}}
+                </li> --}}
+            </ul>
         </div>
     </div>
 </nav>
