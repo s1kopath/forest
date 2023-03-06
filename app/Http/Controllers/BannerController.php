@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
+use Illuminate\Support\Facades\Storage;
 use function PHPUnit\Framework\fileExists;
 
 class BannerController extends Controller
@@ -36,14 +37,16 @@ class BannerController extends Controller
                 'image' => 'required'
             ]);
 
+            $banner_image = Banner::find($id);
             $imageHandler = new ImageHandlerController();
+
+            $imageHandler->secureUnlink($banner_image->image_path);
+
             $file_name = $imageHandler->base64Upload($request->en_image, 'banner');
 
-            $banner_image = Banner::find($id);
-            $banner_image->update([
-                'sl' => rand(11111, 99999),
-                'image_path' => $file_name,
-            ]);
+            $banner_image->image_path = $file_name;
+            $banner_image->save();
+
             return redirect()->route('manage_banner')->with('message', 'Banner update successfully!');
         } else {
             $banner_image = Banner::find($id);
@@ -61,15 +64,11 @@ class BannerController extends Controller
     {
         $banner = Banner::find($id);
 
-        // Storage::disk('public')->exists($banner->image_path);
-        // dd(storage_path() . '/' . $banner->image_path, Storage::disk('public')->exists($banner->image_path));
-        
-        // if (file_exists($banner->image_path)) {
-        //     dd('yes');
-        // }
+        $imageHandler = new ImageHandlerController();
+        $imageHandler->secureUnlink($banner->image_path);
 
-        // dd('wait');
         $banner->delete();
+
         return redirect()->back()->with('message', 'Banner Deleted Successfully.');
     }
 }

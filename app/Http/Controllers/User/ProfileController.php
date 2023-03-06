@@ -36,14 +36,22 @@ class ProfileController extends Controller
 
     public function uploadProfilePicture(Request $request)
     {
-        $imageHandler = new ImageHandlerController();
-        $file_name = $imageHandler->base64Upload($request->en_image, 'avatars');
+        $userDetails = UserDetail::where('user_id', auth()->id())->first();
 
-        UserDetail::updateOrCreate([
-            'user_id' => auth()->id()
-        ], [
-            'image' => $file_name,
-        ]);
+        $imageHandler = new ImageHandlerController();
+        $file_name = $imageHandler->base64Upload($request->image, 'avatars');
+
+        if ($userDetails) {
+            $imageHandler->secureUnlink($userDetails->image);
+
+            $userDetails->image = $file_name;
+            $userDetails->save();
+        } else {
+            UserDetail::create([
+                'user_id' => auth()->id(),
+                'image' => $file_name
+            ]);
+        }
 
         return true;
     }

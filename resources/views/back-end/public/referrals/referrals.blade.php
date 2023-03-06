@@ -91,13 +91,6 @@
             navigator.clipboard.writeText(copyText);
 
             $('#copied').html('✔️ Copied');
-            // Alert the copied text
-            // Swal.fire({
-            //     icon: 'success',
-            //     title: 'Coppied to clipboard: ' + copyText,
-            //     showConfirmButton: false,
-            //     timer: 1500
-            // })
         }
     </script>
 @endpush

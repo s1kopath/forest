@@ -151,7 +151,7 @@
                                 </li>
                             </ul>
                         </li>
-                    </ul>   
+                    </ul>
 
                     <div class="pcoded-navigation-label">SETTINGS</div>
                     <ul class="pcoded-item pcoded-left-item">
@@ -410,9 +410,16 @@
 
                                     // alert('Successfully updated!');
 
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Successfully uploaded!',
+                                    });
                                     window.location.reload();
                                 } else {
-                                    alert('Something went wrong');
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Something went wrong!',
+                                    });
                                 }
                             }
                         });

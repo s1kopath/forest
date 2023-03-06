@@ -20,4 +20,16 @@ class ImageHandlerController extends Controller
 
         return $file;
     }
+
+    public function secureUnlink($path)
+    {
+        $absolute_path = storage_path() . '/app/public/' . $path;
+
+        if (file_exists($absolute_path) && is_file($absolute_path)) {
+            unlink($absolute_path);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

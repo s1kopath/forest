@@ -46,21 +46,14 @@
                     </a>
                 </li>
             </ul>
-            <ul class="text-center nav-left" style="float: none!important">
-                <h2 class="pt-2">
-                    @yield('page-title')
-                </h2>
-            </ul>
             <ul class="nav-right">
                 <li class="header-notification">
-                    <div class="dropdown">
+                    <div class="dropdown-primary dropdown">
                         <div class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="badge">
-                                <i class="far fa-bell text-dark font-weight-bold"></i>
-                                <sup class="p-1 rounded-pill bg-c-red">5</sup>
-                            </span>
+                            <i class="feather icon-bell"></i>
+                            <span class="badge bg-c-red">5</span>
                         </div>
-                        <ul class="show-notification notification-view dropdown-menu mt-4" data-dropdown-in="fadeIn"
+                        <ul class="show-notification notification-view dropdown-menu" data-dropdown-in="fadeIn"
                             data-dropdown-out="fadeOut">
                             <li>
                                 <h6>Notifications</h6>
@@ -147,6 +140,12 @@
                         </ul>
                     </div>
                 </li> --}}
+            </ul>
+
+            <ul class="text-center nav-left" style="float: none!important">
+                <h2 class="pt-2">
+                    @yield('page-title')
+                </h2>
             </ul>
         </div>
     </div>

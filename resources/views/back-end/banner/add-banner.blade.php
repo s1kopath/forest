@@ -85,7 +85,7 @@
                 Swal.fire({
                     icon: 'error',
                     title: 'Select an image!',
-                })
+                });
             }
         });
     </script>
