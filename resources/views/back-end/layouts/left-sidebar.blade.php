@@ -269,6 +269,14 @@
                         </li>
                     </ul>
                     <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu {{ $route_name == 'stake' ? 'active' : '' }}">
+                            <a href="{{ route('stake') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-micon"><i class="far fa-money-bill-alt"></i></span>
+                                <span class="pcoded-mtext">Staking</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu {{ $route_name == 'public_history' ? 'active' : '' }}">
                             <a href="{{ route('public_history') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-micon"><i class="fas fa-history"></i></span>

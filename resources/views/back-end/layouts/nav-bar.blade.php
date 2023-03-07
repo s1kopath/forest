@@ -10,7 +10,7 @@
                 <img class="img-fluid" src="{{ asset('back-end/img/WF.png') }}" alt="logo" width="100px">
             </a>
             <a class="mobile-menu" id="mobile-collapse" href="#!">
-                <i class="feather icon-menu icon-toggle-right"></i>
+                <i class="fas fa-bars"></i>
             </a>
             {{-- <a class="mobile-options waves-effect waves-light">
                 <i class="feather icon-more-horizontal"></i>
@@ -32,13 +32,13 @@
                     </div>
                 </li>
             </ul> --}}
-            <ul class="nav-left">
+            {{-- <ul class="nav-left">
                 <li>
                     <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
                         <i class="full-screen feather icon-maximize"></i>
                     </a>
                 </li>
-            </ul>
+            </ul> --}}
             <ul class="nav-right">
                 <li>
                     <a href="{{ route('logout') }}">
@@ -141,6 +141,10 @@
                     </div>
                 </li> --}}
             </ul>
+
+            {{-- onlu for public dashboard --}}
+            @yield('dashboard-navbar')
+            {{-- /onlu for public dashboard --}}
 
             <ul class="text-center nav-left" style="float: none!important">
                 <h2 class="pt-2">

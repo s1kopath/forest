@@ -92,7 +92,6 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         Route::match(['get', 'post'], 'edit-banner/{id}', [BannerController::class, 'editBanner'])->name('edit_banner');
         Route::get('delete-banner/{id}', [BannerController::class, 'deleteBanner'])->name('delete_banner');
     });
-    
 });
 
 Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
@@ -107,7 +106,7 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::post('/update-location', [PublicDashboardController::class, 'editLocation'])->name('edit_location');
         Route::get('fund', [FundController::class, 'fund'])->name('public_fund');
         // stake
-        Route::post('fund/stake', [StakeController::class, 'stake'])->name('stake');
+        Route::match(['get', 'post'], 'stake', [StakeController::class, 'stake'])->name('stake');
 
         Route::get('history', [PublicDashboardController::class, 'history'])->name('public_history');
         Route::get('referrals', [PublicDashboardController::class, 'referrals'])->name('public_referrals');
