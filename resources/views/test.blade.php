@@ -3,8 +3,11 @@
 
 @push('css')
 @endpush
-
 @section('page-content')
+    
+
+
+
     <div class="card">
         <div class="card-header bg-info">
             <h2 class="text-center">TEST PAGE</h5>

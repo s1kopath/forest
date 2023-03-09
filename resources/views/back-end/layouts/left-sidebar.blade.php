@@ -225,22 +225,25 @@
         <nav class="pcoded-navbar">
             <div class="nav-list">
                 <div class="pcoded-inner-navbar main-menu">
-                    <div class="d-flex justify-content-between">
-                        <div class="col-4">
-                            <img class="img-fluid rounded-lg" src="{{ auth()->user()->userToUserDetails->pic }}"
-                                data-toggle="modal" data-target="#exampleModal" id="myImg" alt="forest"
-                                type="button">
-                        </div>
+                    {{-- user details section is hidden in sidebar on mobile and showen in dashobard  --}}
+                    <div class="d-none d-lg-block">
+                        <div class="d-flex justify-content-between">
+                            <div class="col-4">
+                                <img class="img-fluid rounded-lg" src="{{ auth()->user()->userToUserDetails->pic }}"
+                                    data-toggle="modal" data-target="#exampleModal" id="myImg" alt="forest"
+                                    type="button">
+                            </div>
 
-                        <div class="col-8 text-white" style="overflow-wrap: break-word">
-                            <span class="font-weight-bold">Hello, {{ auth()->user()->username }}</span>
-                            <br>
-                            <small>{{ auth()->user()->email }}</small>
-                            <br>
-                            <span class="font-weight-bold text-primary">
-                                {{ auth()->user()->is_verified ? 'Verified' : 'Unverified' }}
-                                Account
-                            </span>
+                            <div class="col-8 text-white" style="overflow-wrap: break-word">
+                                <span class="font-weight-bold">Hello, {{ auth()->user()->username }}</span>
+                                <br>
+                                <small>{{ auth()->user()->email }}</small>
+                                <br>
+                                <span class="font-weight-bold text-primary">
+                                    {{ auth()->user()->is_verified ? 'Verified' : 'Unverified' }}
+                                    Account
+                                </span>
+                            </div>
                         </div>
                     </div>
 

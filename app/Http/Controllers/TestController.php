@@ -17,6 +17,8 @@ use App\Http\Controllers\RanksController;
 class TestController extends Controller
 {
     public function test(){
+
+        return view('test');
         $random = Str::random(10);
         // dd($random);
         abort(500);

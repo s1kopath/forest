@@ -55,6 +55,9 @@
     {{-- sweetalert2 js $ css --}}
     <script src="{{ asset('back-end/assets/js/sweetalert2@11.js') }}"></script>
 
+    {{-- custom css --}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('back-end/assets/css/custom-style.css') }}">
+
     @stack('css')
 </head>
 
@@ -73,6 +76,8 @@
                 <div class="pcoded-wrapper">
 
                     @yield('left-sidebar')
+
+                    @yield('dashboard-extra')
 
                     <div class="pcoded-content">
                         <div class="pcoded-inner-content">
@@ -94,6 +99,10 @@
             </div>
         </div>
     </div>
+
+    @if (auth()->user()->user_type == 'public')
+        @include('back-end.layouts.mobile-bottom-nav-bar')
+    @endif
 
     <script type="text/javascript" src="{{ asset('back-end/bower_components/jquery/js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('back-end/bower_components/jquery-ui/js/jquery-ui.min.js') }}"></script>

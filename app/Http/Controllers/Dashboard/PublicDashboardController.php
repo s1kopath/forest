@@ -39,6 +39,7 @@ class PublicDashboardController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|unique:users,email,' . $user->id,
+            'username' => 'required|unique:users,username,' . $user->id,
             'phone_number' => 'nullable',
             'identity_number' => 'nullable',
             'date_of_birth' => 'nullable',
@@ -46,6 +47,7 @@ class PublicDashboardController extends Controller
 
         $user->update([
             'name' => $request->name,
+            'username' => $request->username,
             'email' => $request->email
         ]);
 
