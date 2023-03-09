@@ -47,7 +47,7 @@
             <h3 class="font-weight-bold">Invite Link</h3>
             @if (auth()->user()->is_verified)
                 <h5 id="referral-link">
-                    {{ env('APP_URL') . '/ref/' . $user->username }}
+                    {{ env('APP_URL') . '/ref/' . auth()->user()->username }}
                 </h5>
                 <button type="button" class="btn btn-primary rounded-pill mb-3 mt-2" onclick="myFunction()" id="copied">
                     <i class="far fa-copy"></i>
@@ -65,7 +65,7 @@
         <div class="card-block">
             <div class="d-flex justify-content-center">
                 <div class="col-md-4 text-center">
-                    <h4 class="font-weight-bold">{{ count($user->total_team) }}</h4>
+                    <h4 class="font-weight-bold">{{ count(auth()->user()->total_team) }}</h4>
                     <h3 class="font-weight-bold">Registration</h3>
                 </div>
                 <div class="col-md-4 text-center">
@@ -75,11 +75,11 @@
             </div>
 
             <div class="card-block shihab-btn-mbl-scroll mt-4">
-                <button type="button" class="btn btn-success rounded-pill mx-1">Direct</button>
-                <button type="button" class="btn btn-success rounded-pill mx-1">IB</button>
-                <button type="button" class="btn btn-success rounded-pill mx-1">Pro-IB</button>
-                <button type="button" class="btn btn-success rounded-pill mx-1">Master-IB</button>
-                <button type="button" class="btn btn-success rounded-pill mx-1">Corporate-IB</button>
+                <a href="{{ route('public_referrals') }}?rank=null" class="btn btn-success rounded-pill mx-1">Direct</a>
+                <a href="{{ route('public_referrals') }}?rank=1" class="btn btn-success rounded-pill mx-1">IB</a>
+                <a href="{{ route('public_referrals') }}?rank=2" class="btn btn-success rounded-pill mx-1">Pro-IB</a>
+                <a href="{{ route('public_referrals') }}?rank=3" class="btn btn-success rounded-pill mx-1">Master-IB</a>
+                <a href="{{ route('public_referrals') }}?rank=4" class="btn btn-success rounded-pill mx-1">Corporate-IB</a>
             </div>
             <div class="table-responsive mt-4">
                 <table class="table table-responsive">
@@ -149,9 +149,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <x-refered-users-table :children="$user->children" :level="1" :sl="1" />
+                        @foreach ($user_list as $key => $child)
+                            <tr>
+                                <td>{{ $key + 1 }}</td>
+                                <td>{{ $child->username }}</td>
+                                <td>{{ $child->name }}</td>
+                                <td>
+                                    {{ isset($child->userToRank->rank_id) ? $child->userToRank->rankToRankReward->title : 'Register' }}
+                                </td>
+                                <td>{{ $child->total_investment }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
+            </div>
+            <div class="col-md-12 mb-3">
+                {{ $user_list->links() }}
             </div>
         </div>
     </div>

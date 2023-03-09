@@ -96,12 +96,24 @@ class PublicDashboardController extends Controller
         return view('back-end.public.downloads.downloads');
     }
 
-    public function referrals()
+    public function referrals(Request $request)
     {
-        $user = User::with('children')->where('id', auth()->id())->first();
-        $staked_user = UserStake::whereIn('user_id', $user->total_team)->distinct()->count('user_id');
-        
-        return view('back-end.public.referrals.referrals', compact('user', 'staked_user'));
+        $staked_user = UserStake::whereIn('user_id', auth()->user()->total_team)->distinct()->count('user_id');
+
+
+        $list = User::with(['userToRank', 'userToRank.rankToRankReward'])->whereIn('id', auth()->user()->total_team);
+
+        if ($request->rank) {
+            if ($request->rank == 'null') {
+                $list->whereRelation('userToRank', 'rank_id', null);
+            } else {
+                $list->whereRelation('userToRank', 'rank_id', $request->rank);
+            }
+        }
+
+        $user_list = $list->paginate(5);
+
+        return view('back-end.public.referrals.referrals', compact('staked_user', 'user_list'));
     }
 
     public function percentCalculation($rank, $ib_gain)
