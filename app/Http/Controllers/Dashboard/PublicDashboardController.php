@@ -20,7 +20,7 @@ class PublicDashboardController extends Controller
         $wallet = Wallet::where('user_id', auth()->id())->first();
         $totalStake = UserStake::where('user_id', auth()->id())->sum('amount');
         $banners = Banner::where('status', 1)->orderBy('sl', 'asc')->get();
-        
+
         return view('back-end.dashboard-public', compact('wallet', 'totalStake', 'banners'));
     }
 
@@ -99,7 +99,9 @@ class PublicDashboardController extends Controller
     public function referrals()
     {
         $user = User::with('children')->where('id', auth()->id())->first();
-        return view('back-end.public.referrals.referrals', compact('user'));
+        $staked_user = UserStake::whereIn('user_id', $user->total_team)->distinct()->count('user_id');
+        
+        return view('back-end.public.referrals.referrals', compact('user', 'staked_user'));
     }
 
     public function percentCalculation($rank, $ib_gain)
