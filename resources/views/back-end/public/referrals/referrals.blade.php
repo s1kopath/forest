@@ -32,6 +32,23 @@
                 white-space: pre;
             }
         }
+
+        .circle {
+            background: #626ef2;
+            width: 30px;
+            height: 5px;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: aliceblue;
+            margin: 40%;
+        }
+
+        .t-data {
+            font-weight: bold;
+            padding-left: 5%;
+        }
     </style>
 @endpush
 
@@ -90,47 +107,47 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
+                            <td class="circle">1</td>
                             <td>
-                                <h4 style="font-weight:bold">Danial001</h4>
-                                <h6>Diana Joshep Padex</h6>
+                                <h4 class="t-data">Danial001</h4>
+                                <h6 class="t-data">Diana Joshep Padex</h6>
                             </td>
                             <td>
-                                <h4 style="font-weight:bold">Register</h4>
-                                <h6>$10000</h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>
-                                <h4 style="font-weight:bold">Danial001</h4>
-                                <h6>Diana Joshep Padex</h6>
-                            </td>
-                            <td>
-                                <h4 style="font-weight:bold">IB</h4>
-                                <h6>$1000</h6>
+                                <h4 class="t-data">Register</h4>
+                                <h6 class="t-data">$10000</h6>
                             </td>
                         </tr>
                         <tr>
-                            <td>3</td>
+                            <td class="circle">2</td>
                             <td>
-                                <h4 style="font-weight:bold">Danial001</h4>
-                                <h6>Diana Joshep Padex</h6>
+                                <h4 class="t-data">Danial001</h4>
+                                <h6 class="t-data">Diana Joshep Padex</h6>
                             </td>
                             <td>
-                                <h4 style="font-weight:bold">Master IB</h4>
-                                <h6>$1000</h6>
+                                <h4 class="t-data">IB</h4>
+                                <h6 class="t-data">$1000</h6>
                             </td>
                         </tr>
                         <tr>
-                            <td>4</td>
+                            <td class="circle">3</td>
                             <td>
-                                <h4 style="font-weight:bold">Danial001</h4>
-                                <h6>Diana Joshep Padex</h6>
+                                <h4 class="t-data">Danial001</h4>
+                                <h6 class="t-data">Diana Joshep Padex</h6>
                             </td>
                             <td>
-                                <h4 style="font-weight:bold">Pro IB</h4>
-                                <h6>$1000</h6>
+                                <h4 class="t-data">Master IB</h4>
+                                <h6 class="t-data">$1000</h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="circle">4</td>
+                            <td>
+                                <h4 class="t-data">Danial001</h4>
+                                <h6 class="t-data">Diana Joshep Padex</h6>
+                            </td>
+                            <td>
+                                <h4 class="t-data">Pro IB</h4>
+                                <h6 class="t-data">$1000</h6>
                             </td>
                         </tr>
                     </tbody>
