@@ -3,18 +3,15 @@
 
 @push('css')
     <style>
-        .btn:hover {
-            background: linear-gradient(#152B40, #152B40);
-        }
-
-        .btn:focus {
-            background: linear-gradient(#152B40, #152B40);
-        }
-
         .button-container button {
             display: inline-block;
             margin-right: 10px;
             padding: 5px 10px;
+        }
+
+        .cus-btn {
+            background-color: #05093a !important;
+            border-color: #05093a !important;
         }
 
         @media only screen and (max-width: 768px) {
@@ -28,21 +25,20 @@
             .shihab-btn-mbl-scroll button {
                 display: inline-block;
                 position: relative;
-                padding: 6px 15px !important;
-                white-space: pre;
+                padding: 5px 3px !important;
             }
         }
 
-        .circle {
+        .t-circle {
             background: #626ef2;
-            width: 30px;
+            width: 35px;
             height: 5px;
             border-radius: 100%;
             display: flex;
             align-items: center;
-            text-align: center;
-            color: aliceblue;
-            margin: 40%;
+            color: white;
+            margin: 50% 20%;
+            font-weight: bold;
         }
 
         .t-data {
@@ -92,69 +88,61 @@
             </div>
 
             <div class="card-block shihab-btn-mbl-scroll mt-4">
-                <a href="{{ route('public_referrals') }}?rank=null" class="btn btn-success rounded-pill mx-1">Direct</a>
-                <a href="{{ route('public_referrals') }}?rank=1" class="btn btn-success rounded-pill mx-1">IB</a>
-                <a href="{{ route('public_referrals') }}?rank=2" class="btn btn-success rounded-pill mx-1">Pro-IB</a>
-                <a href="{{ route('public_referrals') }}?rank=3" class="btn btn-success rounded-pill mx-1">Master-IB</a>
-                <a href="{{ route('public_referrals') }}?rank=4" class="btn btn-success rounded-pill mx-1">Corporate-IB</a>
-            </div>
-            <div class="table-responsive mt-4">
-                <table class="table table-responsive">
-                    <thead>
-                        <tr>
+                <a href="{{ route('public_referrals') }}?rank=null">
+                    <button type="button"
+                        class="btn btn-success {{ isset($_GET['rank']) && $_GET['rank'] == 'null' ? 'cus-btn' : '' }} rounded-pill mx-1">
+                        Direct
+                    </button>
+                </a>
+                <a href="{{ route('public_referrals') }}?rank=1">
+                    <button type="button"
+                        class="btn btn-success {{ isset($_GET['rank']) && $_GET['rank'] == '1' ? 'cus-btn' : '' }} rounded-pill mx-1">
+                        IB
+                    </button>
+                </a>
+                <a href="{{ route('public_referrals') }}?rank=2">
+                    <button type="button"
+                        class="btn btn-success {{ isset($_GET['rank']) && $_GET['rank'] == '2' ? 'cus-btn' : '' }} rounded-pill mx-1">
+                        Pro-IB
+                    </button>
+                </a>
+                <a href="{{ route('public_referrals') }}?rank=3">
+                    <button type="button"
+                        class="btn btn-success {{ isset($_GET['rank']) && $_GET['rank'] == '3' ? 'cus-btn' : '' }} rounded-pill mx-1">
+                        Master-IB
+                    </button>
+                </a>
 
-                        </tr>
-                    </thead>
+                <a href="{{ route('public_referrals') }}?rank=4">
+                    <button
+                        class="btn btn-success {{ isset($_GET['rank']) && $_GET['rank'] == '4' ? 'cus-btn' : '' }} rounded-pill mx-1">
+                        Corporate-IB
+                    </button>
+                </a>
+            </div>
+            <div class="table-responsive mt-4 d-block d-lg-none">
+                <table class="table">
                     <tbody>
-                        <tr>
-                            <td class="circle">1</td>
-                            <td>
-                                <h4 class="t-data">Danial001</h4>
-                                <h6 class="t-data">Diana Joshep Padex</h6>
-                            </td>
-                            <td>
-                                <h4 class="t-data">Register</h4>
-                                <h6 class="t-data">$10000</h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="circle">2</td>
-                            <td>
-                                <h4 class="t-data">Danial001</h4>
-                                <h6 class="t-data">Diana Joshep Padex</h6>
-                            </td>
-                            <td>
-                                <h4 class="t-data">IB</h4>
-                                <h6 class="t-data">$1000</h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="circle">3</td>
-                            <td>
-                                <h4 class="t-data">Danial001</h4>
-                                <h6 class="t-data">Diana Joshep Padex</h6>
-                            </td>
-                            <td>
-                                <h4 class="t-data">Master IB</h4>
-                                <h6 class="t-data">$1000</h6>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="circle">4</td>
-                            <td>
-                                <h4 class="t-data">Danial001</h4>
-                                <h6 class="t-data">Diana Joshep Padex</h6>
-                            </td>
-                            <td>
-                                <h4 class="t-data">Pro IB</h4>
-                                <h6 class="t-data">$1000</h6>
-                            </td>
-                        </tr>
+                        @foreach ($user_list as $key => $child)
+                            <tr>
+                                <td class="t-circle">{{ $key + 1 }}</td>
+                                <td>
+                                    <h4 class="t-data">{{ $child->username }}</h4>
+                                    <h6 class="t-data">{{ $child->name }}</h6>
+                                </td>
+                                <td class="text-right">
+                                    <h4 class="t-data">
+                                        {{ isset($child->userToRank->rank_id) ? $child->userToRank->rankToRankReward->title : 'Register' }}
+                                    </h4>
+                                    <h6 class="t-data">${{ $child->total_investment }}</h6>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
 
-            <div class="table-responsive mt-4">
+            <div class="table-responsive mt-4 d-none d-lg-block">
                 <table class="table table-framed">
                     <thead>
                         <tr>
