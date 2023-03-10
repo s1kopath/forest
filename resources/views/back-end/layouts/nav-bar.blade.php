@@ -7,17 +7,23 @@
 <nav class="navbar header-navbar pcoded-header" style="background: #FCB42D;">
     <div class="navbar-wrapper">
         <div class="navbar-logo">
-            <a href="/" class="d-none d-lg-block">
-                <img class="img-fluid" src="{{ asset('back-end/img/WF.png') }}" alt="logo" width="100px">
-            </a>
-            <div class="d-block d-lg-none text-white pt-2">
-                @yield('page-title')
-            </div>
-
-            @if (request()->route()->getName() == 'public_dashboard')
-                <div class="d-block d-lg-none text-white">
-                    Dashboard
+            @if (auth()->user()->user_type == 'public')
+                <a href="/" class="d-none d-lg-block">
+                    <img class="img-fluid" src="{{ asset('back-end/img/WF.png') }}" alt="logo" width="100px">
+                </a>
+                <div class="d-block d-lg-none text-white pt-2">
+                    @yield('page-title')
                 </div>
+
+                @if (request()->route()->getName() == 'public_dashboard')
+                    <div class="d-block d-lg-none text-white">
+                        Dashboard
+                    </div>
+                @endif
+            @else
+                <a href="/">
+                    <img class="img-fluid" src="{{ asset('back-end/img/WF.png') }}" alt="logo" width="100px">
+                </a>
             @endif
             {{-- <a href="" class=""
                 style="
