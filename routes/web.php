@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\Dashboard\PublicDashboardController;
 use App\Http\Controllers\StackingRoisController;
 use App\Http\Controllers\IbRoyalityController;
@@ -13,12 +14,13 @@ use App\Http\Controllers\User\StakeController;
 use App\Http\Controllers\MonthlyContestController;
 use App\Http\Controllers\Otp\OtpController;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\ProfileController;
 
+Route::get('/test', [TestController::class, 'test'])->name('test');
 
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
-Route::get('/test', [HomeController::class, 'test'])->name('test');
 Route::get('markets', [HomeController::class, 'markets'])->name('markets');
 Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('blog', [HomeController::class, 'blog'])->name('blog');
@@ -39,10 +41,12 @@ Route::match(['get', 'post'], 'register', [AuthController::class, 'register'])->
 Route::get('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 Route::get('ref/{username}', [AuthController::class, 'registerWithRefer'])->name('register_with_refer');
 
-Route::get('otp', [OtpController::class, 'otpPublic'])->name('otp');
-Route::post('otp-verify', [OtpController::class, 'verify'])->name('otp_verify');
-Route::get('email/verify', [AuthController::class, 'verificationNotice'])->middleware('auth')->name('verification.notice');
-Route::get('resend-otp', [AuthController::class, 'resendOtp'])->name('resend_otp');
+// Route::get('otp', [OtpController::class, 'otpPublic'])->name('otp');
+// Route::post('otp-verify', [OtpController::class, 'verify'])->name('otp_verify');
+// Route::get('resend-otp', [AuthController::class, 'resendOtp'])->name('resend_otp');
+Route::post('email/resend', [AuthController::class, 'resendLink'])->name('resend_link');
+Route::get('email/verification', [AuthController::class, 'verificationNotice'])->name('verification.notice');
+Route::get('verify/{token}', [AuthController::class, 'verifyEmail']);
 
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
@@ -81,6 +85,13 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         Route::match(['get', 'post'], '/update-monthly-contest/{id}', 'updateContest')->name('update_monthly_contest');
         Route::get('/delete-contest/{id}', 'destroy')->name('delete_contest');
     });
+
+    Route::prefix('banner')->group(function () {
+        Route::match(['get', 'post'], 'add-banner', [BannerController::class, 'addBanner'])->name('add_banner');
+        Route::get('manage-banner', [BannerController::class, 'manageBanner'])->name('manage_banner');
+        Route::match(['get', 'post'], 'edit-banner/{id}', [BannerController::class, 'editBanner'])->name('edit_banner');
+        Route::get('delete-banner/{id}', [BannerController::class, 'deleteBanner'])->name('delete_banner');
+    });
 });
 
 Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
@@ -89,11 +100,13 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::get('/', [PublicDashboardController::class, 'publicProfile'])->name('public_profile');
         Route::get('update-password', [ProfileController::class, 'updatePassword'])->name('update_password');
 
+        Route::post('upload-profile-picture', [ProfileController::class, 'uploadProfilePicture']);
+
         Route::post('/update', [PublicDashboardController::class, 'updatePublicProfile'])->name('update_public_profile');
         Route::post('/update-location', [PublicDashboardController::class, 'editLocation'])->name('edit_location');
         Route::get('fund', [FundController::class, 'fund'])->name('public_fund');
         // stake
-        Route::post('fund/stake', [StakeController::class, 'stake'])->name('stake');
+        Route::match(['get', 'post'], 'stake', [StakeController::class, 'stake'])->name('stake');
 
         Route::get('history', [PublicDashboardController::class, 'history'])->name('public_history');
         Route::get('referrals', [PublicDashboardController::class, 'referrals'])->name('public_referrals');

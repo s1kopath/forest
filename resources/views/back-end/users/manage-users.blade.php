@@ -6,7 +6,7 @@
         <div class="card-header bg-info">
             <h2 class="text-center">Manage Users</h5>
         </div>
-        <div class="card-block">
+        <div class="card-body">
             <div class="dt-responsive table-responsive">
                 <div id="order-table_wrapper" class="dataTables_wrapper dt-bootstrap4">
                     <div class="row">

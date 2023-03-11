@@ -4,14 +4,30 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\user\FundController;
+use App\Models\Rank;
 use App\Models\User;
+use App\Models\UserStake;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function dashboard()
     {
-        return view('back-end.dashboard');
+        $last_month = now()->subMonth()->month;
+
+        $users = User::where('user_type', 'public');
+        $user_count = $users->count();
+        $user_count_last_month = $users->whereMonth('created_at', $last_month)->count();
+
+
+        $ib = Rank::whereNotNull('rank_id');
+        $ib_count = $ib->count();
+        $ib_count_last_month = $ib->whereMonth('created_at', $last_month)->count();
+
+        $total_staking = UserStake::sum('amount');
+        $total_staking_last_month = UserStake::whereMonth('created_at', $last_month)->sum('amount');
+
+        return view('back-end.dashboard', compact('user_count', 'ib_count', 'total_staking', 'user_count_last_month', 'ib_count_last_month', 'total_staking_last_month'));
     }
 
     public function manageUsers()
@@ -22,7 +38,8 @@ class DashboardController extends Controller
 
     public function inspectUser($user_id)
     {
-        abort(404);
+        $user = User::with('userToUserDetails')->where('id', $user_id)->first();
+        return view('back-end.users.user-details', compact('user'));
     }
 
     public function verifyUser($user_id, $status)

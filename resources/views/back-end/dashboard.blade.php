@@ -8,14 +8,15 @@
                 <div class="card-body">
                     <div class="row align-items-center m-b-30">
                         <div class="col">
-                            <h6 class="m-b-5 text-white">Total Profit</h6>
-                            <h3 class="m-b-0 f-w-700 text-white">$1,783</h3>
+                            <h6 class="m-b-5 text-white">Total User</h6>
+                            <h3 class="m-b-0 f-w-700 text-white">{{ $user_count }}</h3>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-money-bill-alt text-c-red f-18"></i>
                         </div>
                     </div>
-                    <p class="m-b-0 text-white"><span class="label label-danger m-r-10">+11%</span>From
+                    <p class="m-b-0 text-white">
+                        <span class="label label-danger m-r-10">+{{ $user_count_last_month }}</span>
                         Previous Month
                     </p>
                 </div>
@@ -26,15 +27,17 @@
                 <div class="card-body">
                     <div class="row align-items-center m-b-30">
                         <div class="col">
-                            <h6 class="m-b-5 text-white">Total Orders</h6>
-                            <h3 class="m-b-0 f-w-700 text-white">15,830</h3>
+                            <h6 class="m-b-5 text-white">Total IB</h6>
+                            <h3 class="m-b-0 f-w-700 text-white">{{ $ib_count }}</h3>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-database text-c-blue f-18"></i>
                         </div>
                     </div>
-                    <p class="m-b-0 text-white"><span class="label label-primary m-r-10">+12%</span>From
-                        Previous Month</p>
+                    <p class="m-b-0 text-white">
+                        <span class="label label-primary m-r-10">+{{ $ib_count_last_month }}</span>
+                        Previous Month
+                    </p>
                 </div>
             </div>
         </div>
@@ -43,15 +46,17 @@
                 <div class="card-body">
                     <div class="row align-items-center m-b-30">
                         <div class="col">
-                            <h6 class="m-b-5 text-white">Average Price</h6>
-                            <h3 class="m-b-0 f-w-700 text-white">$6,780</h3>
+                            <h6 class="m-b-5 text-white">Total Staking</h6>
+                            <h3 class="m-b-0 f-w-700 text-white">${{ $total_staking }}</h3>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-dollar-sign text-c-green f-18"></i>
                         </div>
                     </div>
-                    <p class="m-b-0 text-white"><span class="label label-success m-r-10">+52%</span>From
-                        Previous Month</p>
+                    <p class="m-b-0 text-white">
+                        <span class="label label-success m-r-10">+{{ $total_staking_last_month }}$</span>
+                        Previous Month
+                    </p>
                 </div>
             </div>
         </div>
@@ -60,15 +65,17 @@
                 <div class="card-body">
                     <div class="row align-items-center m-b-30">
                         <div class="col">
-                            <h6 class="m-b-5 text-white">Product Sold</h6>
-                            <h3 class="m-b-0 f-w-700 text-white">6,784</h3>
+                            <h6 class="m-b-5 text-white">Active Contest</h6>
+                            <h3 class="m-b-0 f-w-700 text-white">0</h3>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-tags text-c-yellow f-18"></i>
                         </div>
                     </div>
-                    <p class="m-b-0 text-white"><span class="label label-warning m-r-10">+52%</span>From
-                        Previous Month</p>
+                    <p class="m-b-0 text-white">
+                        <span class="label label-warning m-r-10">+0%</span>From
+                        Previous Month
+                    </p>
                 </div>
             </div>
         </div>
@@ -93,7 +100,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="card-block">
+                                    <div class="card-body">
                                         <div class="latest-update-box">
                                             <div class="row p-t-20 p-b-30">
                                                 <div class="col-auto text-right update-meta p-r-0">
@@ -165,7 +172,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="card-block">
+                                    <div class="card-body">
                                         <div class="align-middle m-b-35">
                                             <img src="{{ asset('back-end/assets/images/avatar-3.jpg') }}" alt="user image"
                                                 class="img-radius img-40 align-top m-r-15">
@@ -273,7 +280,7 @@
                                     <div class="card-header">
                                         <h5>Total Leads</h5>
                                     </div>
-                                    <div class="card-block">
+                                    <div class="card-body">
                                         <div class="row">
                                             <div class="col-4">
                                                 <p class="text-muted m-b-5">Overall</p>
@@ -297,7 +304,7 @@
                                     <div class="card-header">
                                         <h5>Total Vendors</h5>
                                     </div>
-                                    <div class="card-block">
+                                    <div class="card-body">
                                         <div class="row">
                                             <div class="col-4">
                                                 <p class="text-muted m-b-5">Overall</p>
@@ -321,7 +328,7 @@
                                     <div class="card-header">
                                         <h5>Invoice Generate</h5>
                                     </div>
-                                    <div class="card-block">
+                                    <div class="card-body">
                                         <div class="row">
                                             <div class="col-4">
                                                 <p class="text-muted m-b-5">Overall</p>
@@ -361,7 +368,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="card-block">
+                                    <div class="card-body">
                                         <div class="latest-update-box">
                                             <div class="row p-t-20 p-b-30">
                                                 <div class="col-auto text-right update-meta">
@@ -428,7 +435,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="card-block">
+                                    <div class="card-body">
                                         <div class="row m-b-20 received-chat">
                                             <div class="col-auto p-r-0">
                                                 <img src="{{ asset('back-end/assets/images/avatar-3.jpg') }}" alt="user image"

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use App\Models\UserDetail;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\ImageHandlerController;
 
 class ProfileController extends Controller
 {
@@ -31,4 +34,25 @@ class ProfileController extends Controller
         return redirect()->back()->with('message', 'Password Update successfully.');
     }
 
+    public function uploadProfilePicture(Request $request)
+    {
+        $userDetails = UserDetail::where('user_id', auth()->id())->first();
+
+        $imageHandler = new ImageHandlerController();
+        $file_name = $imageHandler->base64Upload($request->image, 'avatars');
+
+        if ($userDetails) {
+            $imageHandler->secureUnlink($userDetails->image);
+
+            $userDetails->image = $file_name;
+            $userDetails->save();
+        } else {
+            UserDetail::create([
+                'user_id' => auth()->id(),
+                'image' => $file_name
+            ]);
+        }
+
+        return true;
+    }
 }

@@ -3,43 +3,56 @@
         display: none !important;
     }
 </style>
-<nav class="navbar header-navbar pcoded-header">
+
+<nav class="navbar header-navbar pcoded-header" style="background: #FCB42D;">
     <div class="navbar-wrapper">
         <div class="navbar-logo">
-            <a href="/">
-                <img class="img-fluid" src="{{ asset('back-end/img/WF.png') }}" alt="logo" width="100px">
-            </a>
-            <a class="mobile-menu" id="mobile-collapse" href="#!">
-                <i class="feather icon-menu icon-toggle-right"></i>
-            </a>
-            {{-- <a class="mobile-options waves-effect waves-light">
-                <i class="feather icon-more-horizontal"></i>
+            @if (auth()->user()->user_type == 'public')
+                <a href="/" class="d-none d-lg-block">
+                    <img class="img-fluid" src="{{ asset('back-end/img/WF.png') }}" alt="logo" width="100px">
+                </a>
+                <div class="d-block d-lg-none text-white pt-2">
+                    @yield('page-title')
+                </div>
+
+                @if (request()->route()->getName() == 'public_dashboard')
+                    <div class="d-block d-lg-none text-white">
+                        Dashboard
+                    </div>
+                @endif
+            @else
+                <a href="/">
+                    <img class="img-fluid" src="{{ asset('back-end/img/WF.png') }}" alt="logo" width="100px">
+                </a>
+            @endif
+            {{-- <a href="" class=""
+                style="
+                left: auto;
+                right: 0;
+                top: 0;
+                width: 60px;
+            ">
+                <div class="dropdown-primary dropdown">
+                    <div class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="feather icon-bell"></i>
+                        <span class="badge bg-c-red">5</span>
+                    </div>
+                </div>
             </a> --}}
+
+            <a class="mobile-menu" id="mobile-collapse" href="#!">
+                <i class="fas fa-bars"></i>
+            </a>
         </div>
         <div class="navbar-container container-fluid">
-            {{-- <ul class="nav-left">
-                <li class="header-search">
-                    <div class="main-search morphsearch-search">
-                        <div class="input-group">
-                            <span class="input-group-prepend search-close">
-                                <i class="feather icon-x input-group-text"></i>
-                            </span>
-                            <input type="text" class="form-control" placeholder="Enter Keyword">
-                            <span class="input-group-append search-btn">
-                                <i class="feather icon-search input-group-text"></i>
-                            </span>
-                        </div>
-                    </div>
-                </li>
-            </ul> --}}
             <ul class="nav-right">
                 <li>
-                    <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
-                        <i class="full-screen feather icon-maximize"></i>
+                    <a href="{{ route('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i>
                     </a>
                 </li>
             </ul>
-            {{-- <ul class="nav-right">
+            <ul class="nav-right">
                 <li class="header-notification">
                     <div class="dropdown-primary dropdown">
                         <div class="dropdown-toggle" data-toggle="dropdown">
@@ -94,46 +107,17 @@
                         </ul>
                     </div>
                 </li>
+            </ul>
 
-                <li class="user-profile header-notification">
-                    <div class="dropdown-primary dropdown">
-                        <div class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('back-end/assets/images/avatar-4.jpg') }}" class="img-radius"
-                                alt="User-Profile-Image">
-                            <span>{{ auth()->user()->name }}</span>
-                            <i class="feather icon-chevron-down"></i>
-                        </div>
-                        <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn"
-                            data-dropdown-out="fadeOut">
-                            <li>
-                                <a href="#!">
-                                    <i class="feather icon-settings"></i> Settings
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="feather icon-user"></i> Profile
-                                </a>
-                            </li>
-                            <li>
-                                <a href="email-inbox.html">
-                                    <i class="feather icon-mail"></i> My Messages
-                                </a>
-                            </li>
-                            <li>
-                                <a href="auth-lock-screen.html">
-                                    <i class="feather icon-lock"></i> Lock Screen
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('logout') }}">
-                                    <i class="feather icon-log-out"></i> Logout
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul> --}}
+            {{-- onlu for public dashboard --}}
+            @yield('dashboard-navbar')
+            {{-- /onlu for public dashboard --}}
+
+            <ul class="text-center nav-left" style="float: none!important">
+                <h2 class="pt-2">
+                    @yield('page-title')
+                </h2>
+            </ul>
         </div>
     </div>
 </nav>

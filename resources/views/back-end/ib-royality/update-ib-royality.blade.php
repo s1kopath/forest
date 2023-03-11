@@ -8,7 +8,7 @@
                 <div class="card-header bg-info">
                     <h2 class="text-center">Add Royality</h5>
                 </div>
-                <div class="card-block">
+                <div class="card-body">
                     <form action="{{ route('update_ib_royality', $royality->id) }}" method="post">
                         @csrf
                         <div class="form-group">

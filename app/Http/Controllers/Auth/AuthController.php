@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Jobs\SendEmailJob;
-use App\Jobs\TempOtpRemoverJob;
-use App\Models\AmountForIbGain;
-use App\Models\User;
+use Carbon\Carbon;
 use App\Models\Otp;
 use App\Models\Rank;
+use App\Models\User;
 use App\Models\Wallet;
-use Carbon\Carbon;
-use Illuminate\Contracts\Session\Session;
+use App\Jobs\SendEmailJob;
+use App\Jobs\VerifyEmailJob;
 use Illuminate\Http\Request;
+use App\Jobs\TempOtpRemoverJob;
+use App\Models\AmountForIbGain;
+use App\Http\Controllers\Controller;
+use App\Models\UserDetail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Session\Session;
 
 class AuthController extends Controller
 {
@@ -70,10 +72,40 @@ class AuthController extends Controller
 
     public function verificationNotice()
     {
-        // Auth::logout();
-        // session(['verification_notice' => 'Verify your email first.']);
-        // return view('front-end.auth.login');
-        return redirect()->route('otp');
+        return view('front-end.auth.verification-notice');
+    }
+
+    public function resendLink(Request $request)
+    {
+        $user = User::where('email', $request->email)->first();
+
+        if ($user && $user->email_verified_at) {
+            return redirect()->route('public_login')->with('error', 'Email already verified!');
+        } else {
+            $otp = Otp::where('email', $request->email)->first();
+
+            if ($otp) {
+                if ($otp->resent_count >= 3) {
+                    return redirect()->route('forget_password')->with('error', 'Too many attempts, try resetting your account!');
+                } else {
+                    $otp->resent_count++;
+                    $otp->save();
+
+                    session(['resent_count' => $otp->resent_count]);
+
+                    $message = url('/') . '/verify/' . $otp->token;
+
+                    $details['email'] = $request->email;
+                    $details['message'] = $message;
+
+                    dispatch(new VerifyEmailJob($details));
+
+                    return redirect()->back()->with('message', 'Successfully resend!');
+                }
+            } else {
+                return redirect()->route('register')->with('error', 'User not found!');
+            }
+        }
     }
 
     public function logout()
@@ -109,6 +141,10 @@ class AuthController extends Controller
                 'refer_code' => uniqid()
             ]);
 
+            $newDetails = UserDetail::create([
+                'user_id' => $newUser->id,
+            ]);
+
             $newWallet = Wallet::create([
                 'user_id' => $newUser->id,
             ]);
@@ -121,82 +157,79 @@ class AuthController extends Controller
                 'user_id' => $newUser->id,
             ]);
 
-            $otp_code = otp_generator();
-
-            $otp = new Otp();
-            $otp->email = $request->email;
-            $otp->otp = $otp_code;
-            $otp->failed_attempt = 0;
-            $otp->save();
             session(['email' => $request->email]);
-            session()->forget('failed_attempt');
+            session()->forget('resent_count');
 
             $user_data = User::where('email', $request->email)->first();
             $token = hash('sha256', time());
             $user_data->remember_token = $token;
             $user_data->update();
 
-            $message = 'This is your verification code: ' . $otp_code;
+            $otp = new Otp();
+            $otp->email = $request->email;
+            $otp->token = $token;
+            $otp->failed_attempt = 0;
+            $otp->save();
+
+            $message = url('/') . '/verify/' . $token;
 
             $details['email'] = $request->email;
             $details['message'] = $message;
-            $details['subject'] = 'OTP Code';
 
-            dispatch(new SendEmailJob($details));
+            dispatch(new VerifyEmailJob($details));
 
-            return redirect()->route('otp')->with('message', 'Please Check Your Email Address');
+            return redirect()->route('verification.notice')->with('message', 'Email sent!');
         } else {
             return view('front-end.auth.register');
         }
     }
 
-    public function resendOtp()
-    {
-        $otp = Otp::where('email', session('email'))->first();
+    // public function resendOtp()
+    // {
+    //     $otp = Otp::where('email', session('email'))->first();
 
-        if ($otp) {
-            $otp_code = otp_generator();
+    //     if ($otp) {
+    //         $otp_code = otp_generator();
 
-            if ($otp->resent_count > 3) {
+    //         if ($otp->resent_count > 3) {
 
-                $otp->resent_count++;
-                $otp->save();
+    //             $otp->resent_count++;
+    //             $otp->save();
 
-                return back()->with('message', 'Too many attempts, please try again after sometimes.');
-            }
+    //             return back()->with('message', 'Too many attempts, please try again after sometimes.');
+    //         }
 
-            if ($otp->resent_count == 3) {
-                $otpDetails['id'] = $otp->id;
+    //         if ($otp->resent_count == 3) {
+    //             $otpDetails['id'] = $otp->id;
 
-                $otp->resent_count++;
-                $otp->save();
+    //             $otp->resent_count++;
+    //             $otp->save();
 
-                // user can resend again in 30min
-                dispatch(new TempOtpRemoverJob($otpDetails))->delay(1800);
+    //             // user can resend again in 30min
+    //             dispatch(new TempOtpRemoverJob($otpDetails))->delay(1800);
 
-                return back()->with('message', 'Too many attempts, please try again after sometimes.');
-            }
+    //             return back()->with('message', 'Too many attempts, please try again after sometimes.');
+    //         }
 
 
-            $otp->otp = $otp_code;
-            $otp->failed_attempt = 0;
-            $otp->resent_count++;
-            $otp->save();
+    //         $otp->otp = $otp_code;
+    //         $otp->failed_attempt = 0;
+    //         $otp->resent_count++;
+    //         $otp->save();
 
-            $message = 'This is your verification code: ' . $otp_code;
+    //         $message = 'This is your verification code: ' . $otp_code;
 
-            $details['email'] = session('email');
-            $details['message'] = $message;
-            $details['subject'] = 'OTP Code';
+    //         $details['email'] = session('email');
+    //         $details['message'] = $message;
+    //         $details['subject'] = 'OTP Code';
 
-            dispatch(new SendEmailJob($details));
+    //         dispatch(new SendEmailJob($details));
 
-            return redirect()->back()->with('message', 'Your Otp successfully resend!');
-        } else {
-            return redirect()->route('register')->with('message', 'User not found!');
-        }
-    }
-
+    //         return redirect()->back()->with('message', 'Your Otp successfully resend!');
+    //     } else {
+    //         return redirect()->route('register')->with('message', 'User not found!');
+    //     }
+    // }
 
     public function registerWithRefer($username)
     {
@@ -215,5 +248,27 @@ class AuthController extends Controller
     public function forgetPassword()
     {
         return view('front-end.auth.forget-password');
+    }
+
+    public function verifyEmail($token)
+    {
+        $otp = Otp::where('token', $token)->first();
+        if ($otp) {
+            $user = User::where('email', $otp->email)->first();
+            if ($user) {
+                $user->email_verified_at = now();
+                $user->save();
+
+                $otp->delete();
+                session()->forget('resent_count');
+                session()->forget('email');
+
+                Auth::login($user);
+
+                return redirect()->route('public_dashboard')->with('message', 'Email successfully verified!');
+            }
+        } else {
+            return redirect()->route('register')->with('error', 'Invalid url!');
+        }
     }
 }

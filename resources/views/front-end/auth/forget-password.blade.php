@@ -77,7 +77,7 @@
                                     @endif
 
                                     <!-- login form begin -->
-                                    <form class="uk-grid uk-form" action="{{ route('auth_login') }}" method="POST">
+                                    <form class="uk-grid uk-form" action="" method="POST">
                                         @csrf
                                         <div class="uk-margin-small uk-width-1-1 uk-inline">
                                             <span class="uk-form-icon uk-form-icon-flip fas fa-user fa-sm"></span>

@@ -46,11 +46,11 @@
                 <div class="uk-width-1-3@m uk-flex uk-flex-right@m">
                     <!-- social media begin -->
                     <div class="uk-flex uk-flex-column social-media-list">
-                        <div><a href="https://www.facebook.com/indonez"
-                                class="color-facebook text-decoration-none"><i class="fab fa-facebook-square"></i>
+                        <div><a href="https://www.facebook.com/indonez" class="color-facebook text-decoration-none"><i
+                                    class="fab fa-facebook-square"></i>
                                 Facebook</a></div>
-                        <div><a href="https://twitter.com/indonez_tw"
-                                class="color-twitter text-decoration-none"><i class="fab fa-twitter"></i>
+                        <div><a href="https://twitter.com/indonez_tw" class="color-twitter text-decoration-none"><i
+                                    class="fab fa-twitter"></i>
                                 Twitter</a></div>
                         <div><a href="https://www.instagram.com/indonez_ig"
                                 class="color-instagram text-decoration-none"><i class="fab fa-instagram"></i>
@@ -75,7 +75,7 @@
                         <li><a href="#">Customer Agreement</a></li>
                         <li><a href="#">AML policy</a></li>
                     </ul>
-                    <p class="copyright-text">©2021 Equity Markets Incorporated. All Rights Reserved.</p>
+                    <p class="copyright-text">©2023 Development with ❤️ by Global Fast Coder🌎. All Rights Reserved.</p>
                 </div>
                 <div class="uk-width-1-3@m uk-flex uk-flex-right uk-visible@m">
                     <span class="uk-margin-right">

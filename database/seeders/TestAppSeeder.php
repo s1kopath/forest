@@ -8,6 +8,7 @@ use App\Models\Rank;
 use App\Models\RankAndReward;
 use App\Models\StakingRoi;
 use App\Models\User;
+use App\Models\UserDetail;
 use App\Models\UserStake;
 use App\Models\Wallet;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -60,6 +61,9 @@ class TestAppSeeder extends Seeder
             'email_verified_at' => now(),
             'is_verified' => 1,
         ]);
+        UserDetail::create([
+            'user_id' => $newUser->id
+        ]);
         Wallet::create([
             'user_id' => $newUser->id,
             'main_amount' => 500002.00,
@@ -85,6 +89,9 @@ class TestAppSeeder extends Seeder
             'referer_id' => $newUser->id,
             'is_verified' => 1,
         ]);
+        UserDetail::create([
+            'user_id' => $newUser1->id
+        ]);
         Wallet::create([
             'user_id' => $newUser1->id,
             'main_amount' => 62600,
@@ -108,6 +115,9 @@ class TestAppSeeder extends Seeder
             'refer_code' => uniqid(),
             'email_verified_at' => now(),
             'referer_id' => $newUser->id
+        ]);
+        UserDetail::create([
+            'user_id' => $newUser2->id
         ]);
         Wallet::create([
             'user_id' => $newUser2->id,
@@ -133,6 +143,9 @@ class TestAppSeeder extends Seeder
             'email_verified_at' => now(),
             'referer_id' => $newUser2->id
         ]);
+        UserDetail::create([
+            'user_id' => $newUser3->id
+        ]);
         Wallet::create([
             'user_id' => $newUser3->id,
             'main_amount' => 20,
@@ -156,6 +169,9 @@ class TestAppSeeder extends Seeder
             'refer_code' => uniqid(),
             'email_verified_at' => now(),
             'referer_id' => $newUser2->id
+        ]);
+        UserDetail::create([
+            'user_id' => $newUser4->id
         ]);
         Wallet::create([
             'user_id' => $newUser4->id,
@@ -182,6 +198,9 @@ class TestAppSeeder extends Seeder
             'referer_id' => $newUser1->id,
             'is_verified' => 1,
         ]);
+        UserDetail::create([
+            'user_id' => $newUser5->id
+        ]);
         Wallet::create([
             'user_id' => $newUser5->id,
             'main_amount' => 30000,
@@ -206,6 +225,9 @@ class TestAppSeeder extends Seeder
             'email_verified_at' => now(),
             'referer_id' => $newUser5->id,
             'is_verified' => 1,
+        ]);
+        UserDetail::create([
+            'user_id' => $newUser6->id
         ]);
         Wallet::create([
             'user_id' => $newUser6->id,

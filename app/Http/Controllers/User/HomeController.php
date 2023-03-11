@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use Image;
+use App\Models\UserDetail;
+use Illuminate\Support\Facades\Storage;
+use DB;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -61,4 +65,5 @@ class HomeController extends Controller
     {
         return view('front-end.section.content.legal-docs.legal-docs');
     }
+
 }

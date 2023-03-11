@@ -3,13 +3,12 @@
         $route_name = request()
             ->route()
             ->getName();
-
+        
         $url = url()->current();
         $urlArray = explode('-', $url);
         $lastElement = end($urlArray);
     @endphp
-    @push('css')
-    @endpush
+
     @if (auth()->user()->user_type == 'admin')
         <nav class="pcoded-navbar">
             <div class="nav-list">
@@ -154,7 +153,29 @@
                         </li>
                     </ul>
 
-                    <div class="pcoded-navigation-label">SETTING</div>
+                    <div class="pcoded-navigation-label">SETTINGS</div>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu {{ $lastElement == 'banner' ? 'active pcoded-trigger' : '' }}">
+                            <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                <span class="pcoded-micon">
+                                    <i class="feather icon-clipboard"></i>
+                                </span>
+                                <span class="pcoded-mtext">User Dashboard Banner</span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li class="{{ $route_name == 'add_banner' ? 'active' : '' }}">
+                                    <a href="{{ route('add_banner') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Add Banner</span>
+                                    </a>
+                                </li>
+                                <li class="{{ $route_name == 'manage_banner' ? 'active' : '' }}">
+                                    <a href="{{ route('manage_banner') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Manage Banner</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu">
                             <a href="{{ route('logout') }}" class="waves-effect waves-dark">
@@ -204,19 +225,25 @@
         <nav class="pcoded-navbar">
             <div class="nav-list">
                 <div class="pcoded-inner-navbar main-menu">
-                    <div class="d-flex justify-content-between">
-                        <div class="col-4">
-                            <img class="img-fluid rounded-lg shadow"
-                                src="{{ asset('back-end/assets/images/avatar-4.jpg') }}" data-toggle="modal"
-                                data-target="#exampleModal" id="myImg" alt="forest">
-                        </div>
+                    {{-- user details section is hidden in sidebar on mobile and showen in dashobard  --}}
+                    <div class="d-none d-lg-block">
+                        <div class="d-flex justify-content-between">
+                            <div class="col-4">
+                                <img class="img-fluid rounded-lg" src="{{ auth()->user()->userToUserDetails->pic }}"
+                                    data-toggle="modal" data-target="#exampleModal" id="myImg" alt="forest"
+                                    type="button">
+                            </div>
 
-                        <div class="col-8 text-white" style="overflow-wrap: break-word">
-                            <span class="font-weight-bold">Hello, {{ auth()->user()->username }}</span>
-                            <br>
-                            <small>{{ auth()->user()->email }}</small>
-                            <br>
-                            <span class="font-weight-bold text-primary">Verified Account</span>
+                            <div class="col-8 text-white" style="overflow-wrap: break-word">
+                                <span class="font-weight-bold">Hello, {{ auth()->user()->username }}</span>
+                                <br>
+                                <small>{{ auth()->user()->email }}</small>
+                                <br>
+                                <span class="font-weight-bold text-primary">
+                                    {{ auth()->user()->is_verified ? 'Verified' : 'Unverified' }}
+                                    Account
+                                </span>
+                            </div>
                         </div>
                     </div>
 
@@ -241,6 +268,14 @@
                             <a href="{{ route('public_fund') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-micon"><i class="fa fa-briefcase"></i></span>
                                 <span class="pcoded-mtext">Funds</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu {{ $route_name == 'stake' ? 'active' : '' }}">
+                            <a href="{{ route('stake') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-micon"><i class="far fa-money-bill-alt"></i></span>
+                                <span class="pcoded-mtext">Staking</span>
                             </a>
                         </li>
                     </ul>
@@ -290,7 +325,7 @@
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Upload Profile Picture</h5>
@@ -299,17 +334,15 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="#" method="post" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="" class="col-form-label">Profile Picture:</label>
-                                <img id="previewImage" class="w-100 img-fluid">
-                                <input type="file" class="form-control" id="imageInput">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Update</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <div class="form-group">
+                            <label for="" class="col-form-label">Profile Picture:</label>
+                            <img class="cropper-img" id="image">
+                            <div class="cropper-preview"></div>
+                            <input type="file" class="form-control" name="image" id="imageInput">
+                        </div>
+                        <button type="button" class="btn btn-primary" id="upload" data-dismiss="modal">
+                            Upload
+                        </button>
                     </div>
                 </div>
             </div>
@@ -317,27 +350,93 @@
         <!-- modal end -->
     @endif
 @endsection
+
 @push('js')
-    <script>
-        $(document).ready(function() {
+    @if (auth()->user()->user_type == 'public')
+        <script>
             $("#myImg").click(function() {
                 $("#myModal").modal();
             });
-        });
-    </script>
-    <script>
-        const imageInput = document.getElementById('imageInput');
-        const previewImage = document.getElementById('previewImage');
 
-        imageInput.addEventListener('change', function() {
-            const file = this.files[0];
-            const reader = new FileReader();
+            var bs_modal = $('#examplModal');
+            var image = document.getElementById('image');
+            var cropper, reader, file;
 
-            reader.addEventListener('load', function() {
-                previewImage.src = reader.result;
+
+            $("body").on("change", '#imageInput', function(e) {
+                var files = e.target.files;
+                var done = function(url) {
+                    image.src = url;
+                    // bs_modal.modal('show');
+                };
+
+                if (files && files.length > 0) {
+                    file = files[0];
+
+                    if (URL) {
+                        done(URL.createObjectURL(file));
+                    } else if (FileReader) {
+                        reader = new FileReader();
+                        reader.onload = function(e) {
+                            done(reader.result);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                }
+
+                cropper = new Cropper(image, {
+                    aspectRatio: NaN,
+                    viewMode: NaN,
+                    preview: '.cropper-preview'
+                });
             });
 
-            reader.readAsDataURL(file);
-        });
-    </script>
+            $("#upload").click(function() {
+                canvas = cropper.getCroppedCanvas({
+                    width: 100,
+                    height: 100,
+                });
+
+                canvas.toBlob(function(blob) {
+                    url = URL.createObjectURL(blob);
+                    var reader = new FileReader();
+                    reader.readAsDataURL(blob);
+                    reader.onloadend = function() {
+                        var base64data = reader.result;
+
+                        $.ajax({
+                            type: "POST",
+                            url: "/user/profile/upload-profile-picture",
+                            data: {
+                                '_token': $('meta[name="_token"]').attr('content'),
+                                'image': base64data
+                            },
+                            success: function(response) {
+                                // console.log(response);
+                                if (response == 1) {
+                                    cropper.destroy();
+                                    cropper = null;
+
+                                    $('#image').attr('src', '');
+
+                                    // alert('Successfully updated!');
+
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Successfully uploaded!',
+                                    });
+                                    window.location.reload();
+                                } else {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Something went wrong!',
+                                    });
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
+    @endif
 @endpush

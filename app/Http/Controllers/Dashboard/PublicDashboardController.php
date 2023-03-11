@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Models\User;
+use App\Models\Banner;
+use App\Models\Wallet;
+use App\Models\UserStake;
 use App\Models\UserDetail;
+use Illuminate\Http\Request;
+use App\Models\AmountForIbGain;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\RanksController;
 use App\Http\Controllers\User\StakeController;
-use App\Models\AmountForIbGain;
-use App\Models\UserStake;
-use App\Models\Wallet;
-use Illuminate\Http\Request;
 
 class PublicDashboardController extends Controller
 {
@@ -18,8 +19,9 @@ class PublicDashboardController extends Controller
     {
         $wallet = Wallet::where('user_id', auth()->id())->first();
         $totalStake = UserStake::where('user_id', auth()->id())->sum('amount');
+        $banners = Banner::where('status', 1)->orderBy('sl', 'asc')->get();
 
-        return view('back-end.dashboard-public', compact('wallet', 'totalStake'));
+        return view('back-end.dashboard-public', compact('wallet', 'totalStake', 'banners'));
     }
 
     public function publicProfile()
@@ -32,19 +34,21 @@ class PublicDashboardController extends Controller
 
     public function updatePublicProfile(Request $request)
     {
+        $user = User::where('id', auth()->id())->first();
+
         $request->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:users,email,' . $user->id,
+            'username' => 'required|unique:users,username,' . $user->id,
             'phone_number' => 'nullable',
             'identity_number' => 'nullable',
             'date_of_birth' => 'nullable',
         ]);
 
-        $user = User::where('id', auth()->id())->first();
-
         $user->update([
             'name' => $request->name,
-            'email' => $request->email,
+            'username' => $request->username,
+            'email' => $request->email
         ]);
 
         UserDetail::updateOrCreate([
@@ -52,7 +56,7 @@ class PublicDashboardController extends Controller
         ], [
             'phone_number' => $request->phone_number,
             'identity_number' => $request->identity_number,
-            'date_of_birth' => $request->date_of_birth,
+            'date_of_birth' => $request->date_of_birth
         ]);
 
         return back()->with('message', 'updated successfully.');
@@ -60,33 +64,26 @@ class PublicDashboardController extends Controller
 
     public function editLocation(Request $request)
     {
-        if ($request->isMethod('POST')) {
-            $request->validate([
-                'house_no' => 'nullable',
-                'street' => 'nullable',
-                'city' => 'nullable',
-                'country' => 'nullable',
-                'zip_code' => 'nullable'
-            ]);
-            $userDetail = UserDetail::where('user_id', auth()->id())->first();
+        $request->validate([
+            'house_no' => 'nullable',
+            'street' => 'nullable',
+            'city' => 'nullable',
+            'country' => 'nullable',
+            'zip_code' => 'nullable'
+        ]);
 
-            $userDetail->updateOrCreate([
-                'user_id' => auth()->id()
-            ], [
-                'house_no' => $request->house_no,
-                'street' => $request->street,
-                'city' => $request->city,
-                'country' => $request->country,
-                'zip_code' => $request->zip_code,
-            ]);
+        UserDetail::updateOrCreate([
+            'user_id' => auth()->id()
+        ], [
+            'house_no' => $request->house_no,
+            'street' => $request->street,
+            'city' => $request->city,
+            'country' => $request->country,
+            'zip_code' => $request->zip_code,
+        ]);
 
-            return back()->with('message', 'updated successfully.');
-        } else {
-            return view('back-end.public.profile.profile');
-        }
+        return back()->with('message', 'updated successfully.');
     }
-
-
 
     public function history()
     {
@@ -99,10 +96,60 @@ class PublicDashboardController extends Controller
         return view('back-end.public.downloads.downloads');
     }
 
-    public function referrals()
+    public function referrals(Request $request)
     {
-        $user = User::with('children')->where('id', auth()->id())->first();
-        return view('back-end.public.referrals.referrals', compact('user'));
+        $staked_user = UserStake::whereIn('user_id', auth()->user()->total_team)->distinct()->count('user_id');
+
+
+        $list = User::with(['userToRank', 'userToRank.rankToRankReward'])->whereIn('id', auth()->user()->total_team);
+
+        if ($request->rank) {
+            if ($request->rank == 'null') {
+                $list->whereRelation('userToRank', 'rank_id', null);
+            } else {
+                $list->whereRelation('userToRank', 'rank_id', $request->rank);
+            }
+        }
+
+        $user_list = $list->paginate(5);
+
+        return view('back-end.public.referrals.referrals', compact('staked_user', 'user_list'));
+    }
+
+    public function percentCalculation($rank, $ib_gain)
+    {
+        if ($rank == 1) {
+            $self = $this->perCent($ib_gain->self_amount, 50, 40);
+            $direct = $this->perCent($ib_gain->direct_amount, 300, 30);
+            $team = $this->perCent($ib_gain->team_amount, 1000, 30);
+            return $self + $direct + $team;
+        } elseif ($rank == 2) {
+            $self = $this->perCent($ib_gain->self_amount, 100, 40);
+            $direct = $this->perCent($ib_gain->direct_amount, 1000, 30);
+            $team = $this->perCent($ib_gain->team_amount, 5000, 30);
+            return $self + $direct + $team;
+        } elseif ($rank == 3) {
+            $self = $this->perCent($ib_gain->self_amount, 500, 40);
+            $direct = $this->perCent($ib_gain->direct_amount, 5000, 30);
+            $team = $this->perCent($ib_gain->team_amount, 10000, 30);
+            return $self + $direct + $team;
+        } elseif ($rank == 4) {
+            $self = $this->perCent($ib_gain->self_amount, 1000, 40);
+            $direct = $this->perCent($ib_gain->direct_amount, 10000, 30);
+            $team = $this->perCent($ib_gain->team_amount, 50000, 30);
+            return $self + $direct + $team;
+        } else {
+            return 0;
+        }
+    }
+
+    public function perCent($val, $target, $per)
+    {
+        if ($val >= $target) {
+            return $per;
+        } else {
+            return ((($val * 100) / $target) * $per) / 100;
+        }
     }
 
     public function becomeAnIb()
@@ -113,87 +160,11 @@ class PublicDashboardController extends Controller
         $ib_gain = AmountForIbGain::where('user_id', auth()->id())->first();
         $rank = auth()->user()->userToRank->rank_id;
 
-        $gained_percentage1 = 0;
-        if ($ib_gain->self_amount >= 50 && $ib_gain->direct_amount >= 300 && $ib_gain->team_amount >= 1000) {
-            $gained_percentage1 = 100;
-        } elseif ($ib_gain->self_amount >= 50 && $ib_gain->direct_amount < 300 && $ib_gain->team_amount < 1000) {
-            $self = 40;
-            $direct =  ((($ib_gain->direct_amount * 100) / 300) * 30) / 100;
-            $team = ((($ib_gain->team_amount * 100) / 1000) * 30) / 100;
-            $gained_percentage1 = ($self + $direct + $team);
-        } elseif ($ib_gain->self_amount >= 50 && $ib_gain->direct_amount >= 300 && $ib_gain->team_amount < 1000) {
-            $self = 40;
-            $direct = 30;
-            $team = ((($ib_gain->team_amount * 100) / 1000) * 30) / 100;
-            $gained_percentage1 = ($self + $direct + $team);
-        } else {
-            $self = ($ib_gain->self_amount * 100) / 50;
-            $direct = ($ib_gain->direct_amount * 100) / 300;
-            $team = ($ib_gain->team_amount * 100) / 1000;
-            $gained_percentage1 = ($self + $direct + $team);
-        }
+        $percentage['ib'] = $this->percentCalculation(1, $ib_gain);
+        $percentage['pro-ib'] = $this->percentCalculation(2, $ib_gain);
+        $percentage['master-ib'] = $this->percentCalculation(3, $ib_gain);
+        $percentage['corporate-ib'] = $this->percentCalculation(4, $ib_gain);
 
-
-        $gained_percentage2 = 0;
-        if ($ib_gain->self_amount >= 100 && $ib_gain->direct_amount >= 1000 && $ib_gain->team_amount >= 5000) {
-            $gained_percentage2 = 100;
-        } elseif ($ib_gain->self_amount >= 100 && $ib_gain->direct_amount < 1000 && $ib_gain->team_amount < 5000) {
-            $self = 40;
-            $direct = ((($ib_gain->direct_amount * 100) / 1000) * 30) /100;
-            $team = ((($ib_gain->team_amount * 100) / 5000)*30)/100;
-            $gained_percentage2 = ($self + $direct + $team);
-        } elseif ($ib_gain->self_amount >= 100 && $ib_gain->direct_amount >= 1000 && $ib_gain->team_amount < 5000) {
-            $self = 40;
-            $direct = 30;
-            $team = ((($ib_gain->team_amount * 100) / 5000)*30)/100;
-            $gained_percentage2 = ($self + $direct + $team);
-        } else {
-            $self = ($ib_gain->self_amount * 100) / 100;
-            $direct = ($ib_gain->direct_amount * 100) / 1000;
-            $team = ($ib_gain->team_amount * 100) / 5000;
-            $gained_percentage2 = ($self + $direct + $team);
-        }
-
-        $gained_percentage3 = 0;
-        if ($ib_gain->self_amount >= 500 && $ib_gain->direct_amount >= 5000 && $ib_gain->team_amount >= 10000) {
-            $gained_percentage3 = 100;
-        } elseif ($ib_gain->self_amount >= 500 && $ib_gain->direct_amount < 5000 && $ib_gain->team_amount < 10000) {
-            $self = 40;
-            $direct = ((($ib_gain->direct_amount * 100) / 5000)*30)/100;
-            $team = ((($ib_gain->team_amount * 100) / 10000)*30)/100;
-            $gained_percentage3 = ($self + $direct + $team);
-        } elseif ($ib_gain->self_amount >= 500 && $ib_gain->direct_amount >= 5000 && $ib_gain->team_amount < 10000) {
-            $self = 40;
-            $direct = 30;
-            $team = ((($ib_gain->team_amount * 100) / 10000)*30)/100;
-            $gained_percentage3 = ($self + $direct + $team);
-        } else {
-            $self = ($ib_gain->self_amount * 100) / 500;
-            $direct = ($ib_gain->direct_amount * 100) / 5000;
-            $team = ($ib_gain->team_amount * 100) / 10000;
-            $gained_percentage3 = ($self + $direct + $team);
-        }
-
-        $gained_percentage4 = 0;
-        if ($ib_gain->self_amount >= 1000 && $ib_gain->direct_amount >= 10000 && $ib_gain->team_amount >= 50000) {
-            $gained_percentage4 = 100;
-        } elseif ($ib_gain->self_amount >= 1000 && $ib_gain->direct_amount < 10000 && $ib_gain->team_amount < 50000) {
-            $self = 40;
-            $direct = ((($ib_gain->direct_amount * 100) / 10000)*30)/100;
-            $team = ((($ib_gain->team_amount * 100) / 50000)*30)/100;
-            $gained_percentage4 = ($self + $direct + $team);
-        } elseif ($ib_gain->self_amount >= 1000 && $ib_gain->direct_amount >= 10000 && $ib_gain->team_amount < 50000) {
-            $self = 40;
-            $direct = 30;
-            $team = ((($ib_gain->team_amount * 100) / 50000)*30)/100;
-            $gained_percentage4 = ($self + $direct + $team);
-        } else {
-            $self = ($ib_gain->self_amount * 100) / 1000;
-            $direct = ($ib_gain->direct_amount * 100) / 10000;
-            $team = ($ib_gain->team_amount * 100) / 50000;
-            $gained_percentage4 = ($self + $direct + $team);
-        }
-
-        return view('back-end.public.become-an-ib.become-an-ib', compact('ib_gain', 'rank', 'gained_percentage1', 'gained_percentage2', 'gained_percentage3', 'gained_percentage4'));
+        return view('back-end.public.become-an-ib.become-an-ib', compact('ib_gain', 'rank', 'percentage'));
     }
 }

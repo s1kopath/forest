@@ -6,7 +6,7 @@
         <div class="card-header bg-info">
             <h2 class="text-center">Monthly Contest List</h5>
         </div>
-        <div class="card-block">
+        <div class="card-body">
             <div class="text-right">
                 <a href="{{ route('add_monthly_contest') }}" class="btn btn-success btn-round waves-effect waves-light">
                     Add New
