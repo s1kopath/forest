@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Events\JoiningBonusEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\user\FundController;
 use App\Models\Rank;
@@ -49,8 +50,8 @@ class DashboardController extends Controller
             if ($user->is_verified) {
                 return back()->with('error', 'Already verified.');
             } else {
-                $fundController = new FundController();
-                $fundController->joiningBonus($user_id);
+                JoiningBonusEvent::dispatch($user_id);
+
                 $user->is_verified = 1;
                 $user->save();
 

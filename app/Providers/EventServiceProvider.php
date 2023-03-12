@@ -2,12 +2,24 @@
 
 namespace App\Providers;
 
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
-use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use App\Models\User;
+use App\Observers\UserObserver;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Auth\Events\Registered;
 use App\Events\DepositTransactionEvent;
 use App\Listeners\DepositTransactionListener;
+use App\Events\StakingTransactionEvent;
+use App\Listeners\StakingTransactionListener;
+use App\Events\RoyaltyTransactionEvent;
+use App\Listeners\RoyaltyTransactionListener;
+use App\Events\RewardTransactionEvent;
+use App\Listeners\RewardTransactionListener;
+use App\Events\ContestTransactionEvent;
+use App\Listeners\ContestTransactionListener;
+use App\Events\JoiningBonusEvent;
+use App\Listeners\JoiningBonusListener;
+use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -23,6 +35,30 @@ class EventServiceProvider extends ServiceProvider
         DepositTransactionEvent::class => [
             DepositTransactionListener::class,
         ],
+        JoiningBonusEvent::class => [
+            JoiningBonusListener::class,
+        ],
+        StakingTransactionEvent::class => [
+            StakingTransactionListener::class,
+        ],
+        RoyaltyTransactionEvent::class => [
+            RoyaltyTransactionListener::class,
+        ],
+        RewardTransactionEvent::class => [
+            RewardTransactionListener::class,
+        ],
+        ContestTransactionEvent::class => [
+            ContestTransactionListener::class,
+        ],
+    ];
+
+    /**
+     * The model observers for your application.
+     *
+     * @var array
+     */
+    protected $observers = [
+        User::class => [UserObserver::class],
     ];
 
     /**

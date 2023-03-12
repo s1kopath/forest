@@ -93,6 +93,13 @@ class AuthController extends Controller
 
                     session(['resent_count' => $otp->resent_count]);
 
+                    $message = url('/') . '/verify/' . $otp->token;
+
+                    $details['email'] = $request->email;
+                    $details['message'] = $message;
+
+                    dispatch(new VerifyEmailJob($details));
+
                     return redirect()->back()->with('message', 'Successfully resend!');
                 }
             } else {
@@ -124,6 +131,14 @@ class AuthController extends Controller
                 'password' => 'required|min:6|confirmed',
             ]);
 
+            $token = hash('sha256', time());
+
+            $otp = new Otp();
+            $otp->email = $request->email;
+            $otp->token = $token;
+            $otp->failed_attempt = 0;
+            $otp->save();
+
             $newUser = User::create([
                 'name' => $request->name,
                 'username' => $request->username,
@@ -152,24 +167,6 @@ class AuthController extends Controller
 
             session(['email' => $request->email]);
             session()->forget('resent_count');
-
-            $user_data = User::where('email', $request->email)->first();
-            $token = hash('sha256', time());
-            $user_data->remember_token = $token;
-            $user_data->update();
-
-            $otp = new Otp();
-            $otp->email = $request->email;
-            $otp->token = $token;
-            $otp->failed_attempt = 0;
-            $otp->save();
-
-            $message = url('/') . '/verify/' . $token;
-
-            $details['email'] = $request->email;
-            $details['message'] = $message;
-
-            dispatch(new VerifyEmailJob($details));
 
             return redirect()->route('verification.notice')->with('message', 'Email sent!');
         } else {

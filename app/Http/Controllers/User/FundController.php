@@ -29,25 +29,4 @@ class FundController extends Controller
         
         return true;
     }
-
-    public function joiningBonus($user_id)
-    {
-        $userWallet = Wallet::where('user_id', $user_id)->first();
-
-        $userWallet->main_amount += 20;
-        $userWallet->bonus_amount += 20;
-
-        $userWallet->save();
-
-        if (auth()->user()->userToReferer) {
-            $refererWallet = Wallet::where('user_id', auth()->user()->userToReferer->id)->first();
-
-            $refererWallet->main_amount += 1;
-            $refererWallet->bonus_amount += 1;
-
-            $refererWallet->save();
-        }
-
-        return 1;
-    }
 }
