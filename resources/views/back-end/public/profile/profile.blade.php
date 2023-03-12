@@ -160,58 +160,108 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="verification" role="tabpanel">
-                        <h3 class="text-primary font-weight-bold text-center">
-                            <span>Identity Verification:</span>
-                        </h3>
-                        <div class="form-group">
+                        <div id="identity_verification">
+                            <h3 class="text-primary font-weight-bold text-center">
+                                <span>Identity Verification:</span>
+                            </h3>
                             <div class="row align-items-center">
                                 <div class="col-md-4 offset-md-2">
-                                    <label for="" class="form-label mb-0 font-weight-bold h3 text-primary">Select
-                                        Identity:</label>
+                                    <label for="" class="form-label mb-0 font-weight-bold h3 text-primary">
+                                        Select Identity:
+                                    </label>
                                 </div>
                                 <div class="col-md-4">
                                     <fieldset class="form-group p-2 rounded ms-fieldset">
-                                        <legend class="w-auto px-2 ms-legend">Account Nickname</legend>
-                                        <select class="form-control ms-input">
-                                            <option value="">Choose Identity...</option>
-                                            <option value="Passport">Passport</option>
-                                            <option value="Driving License">Driving License</option>
-                                            <option value="National ID">National ID</option>
-                                        </select>
+                                        <legend class="w-auto px-2 ms-legend">Identity Type</legend>
+                                        @if (isset($user->userToUserDetails->kyc_type))
+                                            <select class="form-control ms-input" disabled>
+                                                <option value="">{{ $user->userToUserDetails->kyc_type }}
+                                                </option>
+                                            </select>
+                                        @else
+                                            <select class="form-control ms-input" id="identity-choose">
+                                                <option value="">Choose Identity...</option>
+                                                <option value="Passport">Passport</option>
+                                                <option value="Driving License">Driving License</option>
+                                                <option value="National ID">National ID</option>
+                                            </select>
+                                        @endif
                                     </fieldset>
                                 </div>
                             </div>
-                        </div>
-                        <form action="#" method="post">
                             <div class="d-lg-flex justify-content-center">
-                                <div class="col-md-4 dropzone m-1">
-                                    <input type="file" class="dropify" data-max-file-size="1M" name="image1">
+                                <div class="col-md-4">
+                                    @if (isset($user->userToUserDetails->kyc_image_1))
+                                        <div class="col-md-12">
+                                            <img src="{{ $user->userToUserDetails->kyc_pic_1 }}"
+                                                class="w-100 img-fluid rounded">
+                                        </div>
+                                    @else
+                                        <img class="cropper-img" id="image_1">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Front Image</legend>
+                                            <input type="file" class="form-control ms-input" name="image_1"
+                                                id="v1_img_input" required>
+                                            <input type="hidden" name="" id="v1_img_output">
+                                        </fieldset>
+                                    @endif
                                 </div>
-                                <div class="col-md-4 dropzone m-1">
-                                    <input type="file" class="dropify" data-max-file-size="1M" name="image2">
+                                <div class="col-md-4">
+                                    @if (isset($user->userToUserDetails->kyc_image_2))
+                                        <div class="col-md-12">
+                                            <img src="{{ $user->userToUserDetails->kyc_pic_2 }}"
+                                                class="w-100 img-fluid rounded">
+                                        </div>
+                                    @else
+                                        <img class="cropper-img" id="image_2">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Back Image</legend>
+                                            <input type="file" class="form-control ms-input" name="image_2"
+                                                id="v2_img_input" required>
+                                        </fieldset>
+                                    @endif
                                 </div>
                             </div>
-                        </form>
-                        <div class="text-center m-t-20 m-b-20">
-                            <button class="btn btn-primary rounded-pill">
-                                UPDATE & NEXT
-                            </button>
+                            <div class="text-center m-t-20 m-b-20">
+                                @if (isset($user->userToUserDetails->kyc_type) ||
+                                        isset($user->userToUserDetails->kyc_image_1) ||
+                                        isset($user->userToUserDetails->kyc_image_2))
+                                    {{-- <button class="btn btn-primary rounded-pill" disabled>
+                                        UPDATE & NEXT
+                                    </button> --}}
+                                @else
+                                    <button class="btn btn-primary rounded-pill" id="upload_kyc">
+                                        UPDATE & NEXT
+                                    </button>
+                                @endif
+                            </div>
                         </div>
 
-                        <div>
+                        <div class="d-none" id="photo_verification">
                             <h3 class="text-primary font-weight-bold text-center">
                                 <span>Photo Verification :</span>
                             </h3>
-
                             <div class="col d-flex justify-content-center">
-                                <form action="#" class="dropzone">
-                                    <div class="fallback">
-                                        <input name="file" type="file" class="dropify" />
+                                <form action="#" class="">
+                                    <div class="">
+                                        <img class="cropper-img" id="image_3">
+                                        <div class="cropper-preview-1" style="overflow: hidden">
+                                            @if (isset($user->userToUserDetails->image))
+                                                <img src="{{ $user->userToUserDetails->pic }}"
+                                                    class="w-100 img-fluid rounded">
+                                            @endif
+                                        </div>
+
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Profile Picture</legend>
+                                            <input type="file" class="form-control ms-input" name="image_3"
+                                                id="v3_img_input" required>
+                                        </fieldset>
                                     </div>
                                 </form>
                             </div>
                             <div class="text-center m-t-20 m-b-20">
-                                <button class="btn btn-primary rounded-pill">
+                                <button class="btn btn-primary rounded-pill" id="upload_pic">
                                     UPDATE
                                 </button>
                             </div>
@@ -292,5 +342,214 @@
             $("#location_form :input").prop('readonly', true);
             $('#location_submit').addClass('d-none');
         }
+    </script>
+
+    <script>
+        var image_1 = document.getElementById('image_1');
+        var image_2 = document.getElementById('image_2');
+        var image_3 = document.getElementById('image_3');
+        var cropper, reader, file;
+        var cropper2, reader2, file2;
+        var cropper3, reader3, file3;
+
+        $("#v1_img_input").on("change", function(e) {
+            var files = e.target.files;
+            var done = function(url) {
+                image_1.src = url;
+            };
+
+            if (files && files.length > 0) {
+                file = files[0];
+
+                if (URL) {
+                    done(URL.createObjectURL(file));
+                } else if (FileReader) {
+                    reader = new FileReader();
+                    reader.onload = function(e) {
+                        done(reader.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            cropper = new Cropper(image_1, {
+                aspectRatio: NaN,
+                viewMode: NaN,
+                // preview: '.cropper-preview'
+            });
+        });
+        $("#v2_img_input").on("change", function(e) {
+            var files2 = e.target.files;
+            var done2 = function(url) {
+                image_2.src = url;
+            };
+
+            if (files2 && files2.length > 0) {
+                file2 = files2[0];
+
+                if (URL) {
+                    done2(URL.createObjectURL(file2));
+                } else if (FileReader2) {
+                    reader2 = new FileReader();
+                    reader2.onload = function(e) {
+                        done2(reader2.result);
+                    };
+                    reader2.readAsDataURL(file2);
+                }
+            }
+
+            cropper2 = new Cropper(image_2, {
+                aspectRatio: NaN,
+                viewMode: NaN,
+                // preview: '.cropper-preview'
+            });
+        });
+        $("#v3_img_input").on("change", function(e) {
+            var files3 = e.target.files;
+            var done3 = function(url) {
+                image_3.src = url;
+            };
+
+            if (files3 && files3.length > 0) {
+                file3 = files3[0];
+
+                if (URL) {
+                    done3(URL.createObjectURL(file3));
+                } else if (FileReader2) {
+                    reader3 = new FileReader();
+                    reader3.onload = function(e) {
+                        done3(reader3.result);
+                    };
+                    reader3.readAsDataURL(file3);
+                }
+            }
+
+            cropper3 = new Cropper(image_3, {
+                aspectRatio: NaN,
+                viewMode: NaN,
+                preview: '.cropper-preview-1'
+            });
+        });
+
+        $("#upload_kyc").click(function() {
+            var id_choose = $('#identity-choose').val();
+            if (id_choose != '') {
+                if (cropper && cropper2) {
+                    canvas = cropper.getCroppedCanvas({
+                        width: NaN,
+                        height: NaN,
+                    });
+                    canvas2 = cropper2.getCroppedCanvas({
+                        width: NaN,
+                        height: NaN,
+                    });
+
+                    canvas.toBlob(function(blob) {
+                        url = URL.createObjectURL(blob);
+                        var reader = new FileReader();
+                        reader.readAsDataURL(blob);
+                        reader.onloadend = function() {
+                            let base_data_1 = reader.result;
+
+                            canvas2.toBlob(function(blob2) {
+                                url2 = URL.createObjectURL(blob2);
+                                var reader2 = new FileReader();
+                                reader2.readAsDataURL(blob2);
+                                reader2.onloadend = function() {
+                                    let base_data_2 = reader2.result;
+
+                                    $.ajax({
+                                        url: "/user/profile/upload-kyc-picture",
+                                        type: "post",
+                                        data: {
+                                            _token: $('meta[name="_token"]').attr(
+                                                'content'),
+                                            image_1: base_data_1,
+                                            image_2: base_data_2,
+                                            identity_type: id_choose
+                                        },
+                                        success(response) {
+                                            // console.log(response);
+                                            if (response == 1) {
+                                                $('#identity_verification')
+                                                    .addClass('d-none');
+                                                $('#photo_verification')
+                                                    .removeClass('d-none');
+                                            } else {
+                                                Swal.fire({
+                                                    icon: 'error',
+                                                    title: 'Something went wrong!',
+                                                });
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Select both images!',
+                    });
+                }
+
+
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Select identity type!',
+                });
+            }
+        });
+
+        $("#upload_pic").click(function() {
+            if (cropper3) {
+                canvas3 = cropper3.getCroppedCanvas({
+                    width: NaN,
+                    height: NaN,
+                });
+
+                canvas3.toBlob(function(blob3) {
+                    url3 = URL.createObjectURL(blob3);
+                    var reader3 = new FileReader();
+                    reader3.readAsDataURL(blob3);
+                    reader3.onloadend = function() {
+                        let base_data_3 = reader3.result;
+
+                        $.ajax({
+                            url: "/user/profile/upload-profile-picture",
+                            type: "post",
+                            data: {
+                                _token: $('meta[name="_token"]').attr(
+                                    'content'),
+                                image: base_data_3
+                            },
+                            success(response) {
+                                // console.log(response);
+                                if (response == 1) {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Successfully uploaded!',
+                                    });
+                                    window.location.reload();
+                                } else {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Something went wrong!',
+                                    });
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Select both images!',
+                });
+            }
+
+        });
     </script>
 @endpush

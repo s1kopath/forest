@@ -408,8 +408,8 @@
                             type: "POST",
                             url: "/user/profile/upload-profile-picture",
                             data: {
-                                '_token': $('meta[name="_token"]').attr('content'),
-                                'image': base64data
+                                _token: $('meta[name="_token"]').attr('content'),
+                                image: base64data
                             },
                             success: function(response) {
                                 // console.log(response);

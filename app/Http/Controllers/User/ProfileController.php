@@ -55,4 +55,32 @@ class ProfileController extends Controller
 
         return true;
     }
+
+    public function uploadKycPicture(Request $request)
+    {
+        $userDetails = UserDetail::where('user_id', auth()->id())->first();
+
+        $imageHandler = new ImageHandlerController();
+        $file_name_1 = $imageHandler->base64Upload($request->image_1, 'kyc');
+        $file_name_2 = $imageHandler->base64Upload($request->image_2, 'kyc');
+
+        if ($userDetails) {
+            $imageHandler->secureUnlink($userDetails->kyc_image_1);
+            $imageHandler->secureUnlink($userDetails->kyc_image_2);
+
+            $userDetails->kyc_type = $request->identity_type;
+            $userDetails->kyc_image_1 = $file_name_1;
+            $userDetails->kyc_image_2 = $file_name_2;
+            $userDetails->save();
+        } else {
+            UserDetail::create([
+                'user_id' => auth()->id(),
+                'kyc_type' => $request->identity_type,
+                'kyc_image_1' => $file_name_1,
+                'kyc_image_2' => $file_name_2,
+            ]);
+        }
+
+        return true;
+    }
 }

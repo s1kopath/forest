@@ -3,47 +3,16 @@
 
 @push('css')
     <style>
-        .button-container button {
+        .custom-btn {
+            min-width: 120px;
             display: inline-block;
             margin-right: 10px;
             padding: 5px 10px;
         }
 
-        .cus-btn {
+        .active-btn {
             background-color: #05093a !important;
             border-color: #05093a !important;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .shihab-btn-mbl-scroll {
-                overflow-x: scroll;
-                width: 100%;
-                display: flex;
-                position: relative;
-            }
-
-            .shihab-btn-mbl-scroll button {
-                display: inline-block;
-                position: relative;
-                padding: 5px 3px !important;
-            }
-        }
-
-        .t-circle {
-            background: #626ef2;
-            width: 35px;
-            height: 5px;
-            border-radius: 100%;
-            display: flex;
-            align-items: center;
-            color: white;
-            margin: 50% 20%;
-            font-weight: bold;
-        }
-
-        .t-data {
-            font-weight: bold;
-            padding-left: 5%;
         }
     </style>
 @endpush
@@ -86,38 +55,26 @@
                     <h3 class="font-weight-bold">Staking</h3>
                 </div>
             </div>
-
-            <div class="card-block shihab-btn-mbl-scroll mt-4">
-                <a href="{{ route('public_referrals') }}?rank=null">
-                    <button type="button"
-                        class="btn btn-success {{ isset($_GET['rank']) && $_GET['rank'] == 'null' ? 'cus-btn' : '' }} rounded-pill mx-1">
-                        Direct
-                    </button>
+            <div class="card-block d-flex overflow-auto mt-2 pb-2">
+                <a href="{{ route('public_referrals') }}?rank=null"
+                    class="btn btn-success custom-btn {{ isset($_GET['rank']) && $_GET['rank'] == 'null' ? 'active-btn' : '' }} rounded-pill mx-1">
+                    Direct
                 </a>
-                <a href="{{ route('public_referrals') }}?rank=1">
-                    <button type="button"
-                        class="btn btn-success {{ isset($_GET['rank']) && $_GET['rank'] == '1' ? 'cus-btn' : '' }} rounded-pill mx-1">
-                        IB
-                    </button>
+                <a href="{{ route('public_referrals') }}?rank=1"
+                    class="btn btn-success custom-btn {{ isset($_GET['rank']) && $_GET['rank'] == '1' ? 'active-btn' : '' }} rounded-pill mx-1">
+                    IB
                 </a>
-                <a href="{{ route('public_referrals') }}?rank=2">
-                    <button type="button"
-                        class="btn btn-success {{ isset($_GET['rank']) && $_GET['rank'] == '2' ? 'cus-btn' : '' }} rounded-pill mx-1">
-                        Pro-IB
-                    </button>
+                <a href="{{ route('public_referrals') }}?rank=2"
+                    class="btn btn-success custom-btn {{ isset($_GET['rank']) && $_GET['rank'] == '2' ? 'active-btn' : '' }} rounded-pill mx-1">
+                    Pro-IB
                 </a>
-                <a href="{{ route('public_referrals') }}?rank=3">
-                    <button type="button"
-                        class="btn btn-success {{ isset($_GET['rank']) && $_GET['rank'] == '3' ? 'cus-btn' : '' }} rounded-pill mx-1">
-                        Master-IB
-                    </button>
+                <a href="{{ route('public_referrals') }}?rank=3"
+                    class="btn btn-success custom-btn {{ isset($_GET['rank']) && $_GET['rank'] == '3' ? 'active-btn' : '' }} rounded-pill mx-1">
+                    Master-IB
                 </a>
-
-                <a href="{{ route('public_referrals') }}?rank=4">
-                    <button
-                        class="btn btn-success {{ isset($_GET['rank']) && $_GET['rank'] == '4' ? 'cus-btn' : '' }} rounded-pill mx-1">
-                        Corporate-IB
-                    </button>
+                <a href="{{ route('public_referrals') }}?rank=4"
+                    class="btn btn-success custom-btn {{ isset($_GET['rank']) && $_GET['rank'] == '4' ? 'active-btn' : '' }} rounded-pill mx-1">
+                    Corporate-IB
                 </a>
             </div>
             <div class="table-responsive mt-4 d-block d-lg-none">
@@ -125,16 +82,21 @@
                     <tbody>
                         @foreach ($user_list as $key => $child)
                             <tr>
-                                <td class="t-circle">{{ $key + 1 }}</td>
                                 <td>
-                                    <h4 class="t-data">{{ $child->username }}</h4>
-                                    <h6 class="t-data">{{ $child->name }}</h6>
+                                    <span class="font-weight-bold rounded-circle text-white py-1 px-2"
+                                        style="background-color: #0548ac;">
+                                        {{ $key + 1 }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <h4 class="font-weight-bold">{{ $child->username }}</h4>
+                                    <h6 class="font-weight-bold">{{ $child->name }}</h6>
                                 </td>
                                 <td class="text-right">
-                                    <h4 class="t-data">
+                                    <h4 class="font-weight-bold">
                                         {{ isset($child->userToRank->rank_id) ? $child->userToRank->rankToRankReward->title : 'Register' }}
                                     </h4>
-                                    <h6 class="t-data">${{ $child->total_investment }}</h6>
+                                    <h6 class="font-weight-bold">${{ $child->total_investment }}</h6>
                                 </td>
                             </tr>
                         @endforeach

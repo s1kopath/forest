@@ -87,7 +87,7 @@ class PublicDashboardController extends Controller
 
     public function history()
     {
-        $stakes = UserStake::where('user_id', auth()->id())->get();
+        $stakes = UserStake::where('user_id', auth()->id())->paginate(3);
         return view('back-end.public.history.history', compact('stakes'));
     }
 
