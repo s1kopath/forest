@@ -112,6 +112,16 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
 
         Route::get('history', [PublicDashboardController::class, 'history'])->name('public_history');
         Route::get('history/fetch_data', [PublicDashboardController::class, 'fetchHistoryData']);
+        // history
+        Route::get('history', [PublicDashboardController::class, 'history'])->name('public_history');
+        Route::get('history/deposit', [PublicDashboardController::class, 'deposit_history'])->name('deposit_history');
+        Route::get('history/withdraw', [PublicDashboardController::class, 'withdrawal_history'])->name('withdrawal_history');
+        Route::get('history/invitation-gift', [PublicDashboardController::class, 'invitation_gift_history'])->name('invitation_gift_history');
+        Route::get('history/staking-roi', [PublicDashboardController::class, 'staking_roi_history'])->name('staking_roi_history');
+        Route::get('history/ib-royality', [PublicDashboardController::class, 'ib_royality_history'])->name('ib_royality_history');
+        Route::get('history/reward', [PublicDashboardController::class, 'reward_history'])->name('reward_history');
+        Route::get('history/contest', [PublicDashboardController::class, 'contest_history'])->name('contest_history');
+        Route::get('history/transaction', [PublicDashboardController::class, 'transaction_history'])->name('transaction_history');
         Route::get('referrals', [PublicDashboardController::class, 'referrals'])->name('public_referrals');
         Route::get('downloads', [PublicDashboardController::class, 'downloads'])->name('public_downloads');
         Route::get('become-an-ib', [PublicDashboardController::class, 'becomeAnIb'])->name('public_become_an_ib');
