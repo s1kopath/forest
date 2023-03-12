@@ -68,7 +68,7 @@
                             Stake Now
                         </button>
                     </div>
-
+                    
                     <!-- Modal -->
                     <div class="modal fade" id="stakeModal" tabindex="-1" role="dialog" aria-labelledby="stakeModalLabel"
                         aria-hidden="true">
@@ -149,6 +149,12 @@
                     </div>
                 </form>
             </div>
+
+            @if ($user->total_investment > 0)
+                <div id="table_data">
+
+                </div>
+            @endif
         </div>
     </div>
 @endsection
@@ -203,6 +209,27 @@
                 date.setDate(0);
             }
             return date;
+        }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            fetch_data(1);
+        });
+
+        $(document).on('click', '.pagination a', function(event) {
+            event.preventDefault();
+            var page = $(this).attr('href').split('page=')[1];
+            fetch_data(page);
+        });
+
+        function fetch_data(page) {
+            $.ajax({
+                url: "/user/profile/stake-history/fetch_data?page=" + page,
+                success(response) {
+                    $('#table_data').html(response);
+                }
+            });
         }
     </script>
 @endpush

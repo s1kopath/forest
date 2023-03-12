@@ -33,7 +33,7 @@
                             </span>
                         @elseif ($stake->status == 1)
                             <span class="text-success">
-                                Success
+                                Active
                             </span>
                         @else
                             <span class="text-warning">
@@ -54,28 +54,26 @@
                 <tr data-toggle="collapse" data-target="#collapse{{ $stake->id }}" aria-expanded="false"
                     aria-controls="collapse{{ $stake->id }}">
                     <td>
-                        <span class="font-weight-bold rounded text-white py-1 px-2" style="background-color: #0548ac;">
-                            {{ $key + 1 }}
-                        </span>
+                        <i class="fas fa-circle mt-3" style="color: #0548ac;"></i>
                     </td>
                     <td>
                         <h4 class="font-weight-bold">${{ $stake->amount }} ({{ $stake->duration }} Months)</h4>
-                        <h6 class="font-weight-bold">{{ $stake->created_at }}</h6>
+                        <h6 class="">{{ $stake->next_payout }}</h6>
                     </td>
                     <td class="text-right">
                         <h4 class="font-weight-bold">
                             ${{ $stake->amount_per_month }}
                         </h4>
                         @if ($stake->status == 2)
-                            <small class="text-info font-weight-bold">
+                            <small class="text-info ">
                                 •&nbsp&nbsp&nbsp Completed
                             </small>
                         @elseif ($stake->status == 1)
-                            <small class="text-success font-weight-bold">
-                                •&nbsp&nbsp&nbsp Success
+                            <small class="text-success ">
+                                •&nbsp&nbsp&nbsp Active
                             </small>
                         @else
-                            <small class="text-warning font-weight-bold">
+                            <small class="text-warning ">
                                 •&nbsp&nbsp&nbsp Pending
                             </small>
                         @endif
@@ -85,7 +83,36 @@
                 <tr>
                     <td colspan="6" class="p-0 border-0">
                         <div class="collapse px-4 pb-3" id="collapse{{ $stake->id }}">
-                            demo
+                            <div class="row">
+                                <div class="col-6">Percentage</div>
+                                <div class="col-2 text-center">-</div>
+                                <div class="col-4 text-right">{{ $stake->percentage }}%</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">Per Month</div>
+                                <div class="col-2 text-center">-</div>
+                                <div class="col-4 text-right">${{ $stake->amount_per_month }}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">Completed</div>
+                                <div class="col-2 text-center">-</div>
+                                <div class="col-4 text-right">{{ $stake->completed }} Months</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">Start Date</div>
+                                <div class="col-2 text-center">-</div>
+                                <div class="col-4 text-right">{{ $stake->start_date }}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">End Date</div>
+                                <div class="col-2 text-center">-</div>
+                                <div class="col-4 text-right">{{ $stake->end_date }}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">Next Payout</div>
+                                <div class="col-2 text-center">-</div>
+                                <div class="col-4 text-right">{{ $stake->next_payout }}</div>
+                            </div>
                         </div>
                     </td>
                 </tr>

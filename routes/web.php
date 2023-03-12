@@ -108,6 +108,7 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::get('fund', [FundController::class, 'fund'])->name('public_fund');
         // stake
         Route::match(['get', 'post'], 'stake', [StakeController::class, 'stake'])->name('stake');
+        Route::get('stake-history/fetch_data', [StakeController::class, 'fetchStakeHistoryData']);
 
         Route::get('history', [PublicDashboardController::class, 'history'])->name('public_history');
         Route::get('history/fetch_data', [PublicDashboardController::class, 'fetchHistoryData']);

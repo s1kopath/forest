@@ -63,6 +63,13 @@ class StakeController extends Controller
         }
     }
 
+    public function fetchStakeHistoryData(Request $request)
+    {
+        if ($request->ajax()) {
+            $stakes = UserStake::where('user_id', auth()->id())->paginate(5);
+            return view('back-end.public.stake.stake-history', compact('stakes'))->render();
+        }
+    }
 
     public function distributeStakingBonusSchedule()
     {
