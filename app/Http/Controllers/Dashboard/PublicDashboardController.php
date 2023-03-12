@@ -102,6 +102,11 @@ class PublicDashboardController extends Controller
     {
         return view('back-end.public.history.invitation-gift');
     }
+    public function staking_roi_history()
+    {
+        $stakes = UserStake::where('user_id', auth()->id())->paginate(3);
+        return view('back-end.public.history.staking-roi', compact('stakes'));
+    }
     public function ib_royality_history()
     {
         return view('back-end.public.history.ib-royality');

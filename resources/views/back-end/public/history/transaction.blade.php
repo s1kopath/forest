@@ -29,7 +29,7 @@
 
         <a href="{{ route('invitation_gift_history') }}"><button type="button" class="btn custom-btn rounded-pill mx-1" id="active3" onclick="msPosition(this)">Invitation Gift</button></a>
 
-        <a href="{{ route('public_history') }}"><button type="button" class="btn custom-btn rounded-pill mx-1" id="active4" onclick="msPosition(this)">Stacking ROI</button></a>
+        <a href="{{ route('staking_roi_history') }}"><button type="button" class="btn custom-btn rounded-pill mx-1" id="active4" onclick="msPosition(this)">Stacking ROI</button></a>
 
         <a href="{{ route('ib_royality_history') }}"><button type="button" class="btn custom-btn rounded-pill mx-1" id="active5" onclick="msPosition(this)">IB Royality</button></a>
 
@@ -113,6 +113,7 @@
                 <table class="table table-framed">
                     <thead>
                         <tr>
+                            <th>SL</th>
                             <th>Name</th>
                             <th>Date</th>
                             <th>Time</th>
@@ -122,6 +123,7 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <td>1</td>
                             <td>Deposit</td>
                             <td>2023-01-11</td>
                             <td>14:12:09</td>
@@ -129,6 +131,7 @@
                             <td class="text-success">. IN</td>
                         </tr>
                         <tr>
+                            <td>2</td>
                             <td>Withdrawal</td>
                             <td>2023-01-11</td>
                             <td>14:12:09</td>
@@ -136,6 +139,7 @@
                             <td class="text-danger">. OUT</td>
                         </tr>
                         <tr>
+                            <td>3</td>
                             <td>Invitation Gift</td>
                             <td>2023-01-01</td>
                             <td>12:12:09</td>

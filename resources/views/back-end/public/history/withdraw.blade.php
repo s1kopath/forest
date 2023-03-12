@@ -36,7 +36,7 @@
 
         <a href="{{ route('invitation_gift_history') }}"><button type="button" class="btn custom-btn rounded-pill mx-1" id="active3" onclick="msPosition(this)">Invitation Gift</button></a>
 
-        <a href="{{ route('public_history') }}"><button type="button" class="btn custom-btn rounded-pill mx-1" id="active4" onclick="msPosition(this)">Stacking ROI</button></a>
+        <a href="{{ route('staking_roi_history') }}"><button type="button" class="btn custom-btn rounded-pill mx-1" id="active4" onclick="msPosition(this)">Stacking ROI</button></a>
 
         <a href="{{ route('ib_royality_history') }}"><button type="button" class="btn custom-btn rounded-pill mx-1" id="active5" onclick="msPosition(this)">IB Royality</button></a>
 
@@ -58,7 +58,7 @@
             <div class="table-responsive mt-4 d-block d-lg-none">
                 <table class="table">
                     <tbody>
-                        <tr>
+                        <tr data-toggle="collapse" data-target="#collapseExample1" class="accordion-toggle">
                             <td>
                                 <span class="font-weight-bold text-white py-1 px-2"
                                     style="background-color: #0548ac;">
@@ -74,7 +74,19 @@
                                 <h6 >. pending</h6>
                             </td>
                         </tr>
-                        <tr data-toggle="collapse" data-target="#collapseExample1" class="accordion-toggle">
+                        <tr>
+                            <td colspan="6" class="hiddenRow">
+                                <div id="collapseExample1" class="accordian-body collapse ml-5 pl-5">
+                                    <ul>
+                                        <li class="mb-2">Withdrawal Fee :</li>
+                                        <li class="mb-2">Net Amount :</li>
+                                        <li class="mb-2">Wallet Address :</li>
+                                        <li class="mb-2">Transaction Hash :</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#collapseExample2" class="accordion-toggle">
                             <td>
                                 <span class="font-weight-bold text-white py-1 px-2"
                                     style="background-color: #0548ac;">
@@ -92,17 +104,17 @@
                         </tr>
                         <tr>
                             <td colspan="6" class="hiddenRow">
-                                <div id="collapseExample1" class="accordian-body collapse ml-5 pl-5">
+                                <div id="collapseExample2" class="accordian-body collapse ml-5 pl-5">
                                     <ul>
                                         <li class="mb-2">Withdrawal Fee :</li>
                                         <li class="mb-2">Net Amount :</li>
-                                        <li class="mb-2">Card Number :</li>
+                                        <li class="mb-2">Wallet Address :</li>
                                         <li class="mb-2">Transaction Hash :</li>
                                     </ul>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
+                        <tr data-toggle="collapse" data-target="#collapseExample3" class="accordion-toggle">
                             <td>
                                 <span class="font-weight-bold text-white py-1 px-2"
                                     style="background-color: #0548ac;">
@@ -118,7 +130,19 @@
                                 <h6 class="text-danger">. cancelled</h6>
                             </td>
                         </tr>
-                        <tr data-toggle="collapse" data-target="#collapseExample2" class="accordion-toggle">
+                        <tr>
+                            <td colspan="6" class="hiddenRow">
+                                <div id="collapseExample3" class="accordian-body collapse ml-5 pl-5">
+                                    <ul>
+                                        <li class="mb-2">Withdrawal Fee :</li>
+                                        <li class="mb-2">Net Amount :</li>
+                                        <li class="mb-2">Wallet Address :</li>
+                                        <li class="mb-2">Transaction Hash :</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr data-toggle="collapse" data-target="#collapseExample4" class="accordion-toggle">
                             <td>
                                 <span class="font-weight-bold text-white py-1 px-2"  style="background-color: #0548ac;"> +
                                 </span>
@@ -135,7 +159,7 @@
                         </tr>
                         <tr>
                             <td colspan="6">
-                                <div id="collapseExample2" class="accordian-body collapse ml-5 pl-5">
+                                <div id="collapseExample4" class="accordian-body collapse ml-5 pl-5">
                                     <ul>
                                         <li class="mb-2">Network : USDT, TRC 20</li>
                                         <li class="mb-2">Withdrawal Fee :</li>
@@ -154,40 +178,65 @@
                 <table class="table table-framed">
                     <thead>
                         <tr>
+                            <th>SL</th>
                             <th>Name</th>
                             <th>Date</th>
-                            <th>Time</th>
                             <th>Amount</th>
+                            <th>Network</th>
+                            <th>Withdrawal Fee</th>
+                            <th>Net Amount</th>
+                            <th>Wallet Address</th>
+                            <th>Transaction Hash</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            <td>1</td>
                             <td>Master</td>
-                            <td>2023-01-11</td>
-                            <td>14:12:09</td>
+                            <td>2023-01-11<br>14:12:09</td>
                             <td>$100</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                             <td>. pending</td>
                         </tr>
                         <tr>
+                            <td>2</td>
                             <td>Visa</td>
-                            <td>2023-01-01</td>
-                            <td>12:12:09</td>
+                            <td>2023-01-01<br>12:12:09</td>
                             <td>$100</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                             <td class="text-warning">. processing</td>
                         </tr>
                         <tr>
+                            <td>3</td>
                             <td>Bank</td>
-                            <td>2023-02-11</td>
-                            <td>18:12:39</td>
+                            <td>2023-02-11<br>18:12:39</td>
                             <td>$100</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                             <td class="text-danger">. cancelled</td>
                         </tr>
                         <tr>
+                            <td>4</td>
                             <td>USDT</td>
-                            <td>2023-01-11</td>
-                            <td>14:12:09</td>
+                            <td>2023-01-11<br>14:12:09</td>
                             <td>$100</td>
+                            <td>USDT, TRC 20</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                             <td class="text-success">. success</td>
                         </tr>
                     </tbody>
