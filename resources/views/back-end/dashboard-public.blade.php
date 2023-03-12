@@ -49,7 +49,7 @@
     <div class="d-block d-lg-none">
         <div class="d-flex justify-content-between pb-2" style="background-color: #091b65;">
             <div class="col-4">
-                <img class="img-fluid rounded-lg" src="{{ auth()->user()->userToUserDetails->pic }}" data-toggle="modal"
+                <img class="profile-header-avatar" src="{{ auth()->user()->userToUserDetails->pic }}" data-toggle="modal"
                     data-target="#exampleModal" id="myImg" alt="forest" type="button">
             </div>
 

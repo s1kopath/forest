@@ -15,7 +15,7 @@
                 <div class="pcoded-inner-navbar main-menu">
                     <div class="d-flex justify-content-between">
                         <div class="col-4">
-                            <img class="img-fluid rounded-lg shadow" src="{{ asset('back-end/assets/images/avatar-4.jpg') }}"
+                            <img class="profile-header-avatar shadow" src="{{ asset('back-end/assets/images/avatar-4.jpg') }}"
                                 alt="forest">
                         </div>
                         <div class="col-8 text-white" style="overflow-wrap: break-word">
@@ -229,7 +229,7 @@
                     <div class="d-none d-lg-block">
                         <div class="d-flex justify-content-between">
                             <div class="col-4">
-                                <img class="img-fluid rounded-lg" src="{{ auth()->user()->userToUserDetails->pic }}"
+                                <img class="profile-header-avatar" src="{{ auth()->user()->userToUserDetails->pic }}"
                                     data-toggle="modal" data-target="#exampleModal" id="myImg" alt="forest"
                                     type="button">
                             </div>
