@@ -3097,7 +3097,7 @@ table thead .border-bottom-info th {
     display: -ms-flexbox;
     display: flex;
     float: left;
-    height: 73px;
+    height: 74px;
     text-align: center;
     text-transform: uppercase;
     width: 250px;
@@ -12290,6 +12290,16 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
         width: 60px
     }
 
+    .header-navbar .navbar-wrapper .navbar-logo .mobile-new {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 16px;
+        line-height: 4.4;
+        width: 60px
+    }
+
     .header-navbar .navbar-container .nav-left,
     .header-navbar .navbar-wrapper .navbar-container .nav-right {
         display: none
@@ -12414,9 +12424,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
     .pcoded .header-navbar .navbar-wrapper .navbar-container .header-notification .show-notification,
     .pcoded .header-navbar .navbar-wrapper .navbar-container .header-notification .profile-notification {
         min-width: 280px;
-        left: -30px;
-        right: auto;
-        width: auto
+        /* left: -30px; */
+        /* right: auto; */
+        width: auto;
+        z-index: 1000;
     }
 
     .pcoded .header-navbar .navbar-wrapper .navbar-container .header-notification .show-notification:before,

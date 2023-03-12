@@ -25,23 +25,15 @@
                     <img class="img-fluid" src="{{ asset('back-end/img/WF.png') }}" alt="logo" width="100px">
                 </a>
             @endif
-            {{-- <a href="" class=""
-                style="
-                left: auto;
-                right: 0;
-                top: 0;
-                width: 60px;
-            ">
-                <div class="dropdown-primary dropdown">
-                    <div class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="feather icon-bell"></i>
-                        <span class="badge bg-c-red">5</span>
-                    </div>
-                </div>
-            </a> --}}
 
             <a class="mobile-menu" id="mobile-collapse" href="#!">
                 <i class="fas fa-bars"></i>
+            </a>
+            <a href="#!" class="mobile-new d-block d-lg-none">
+                <div>
+                    <i class="feather icon-bell"></i>
+                    <span class="badge bg-c-red">5</span>
+                </div>
             </a>
         </div>
         <div class="navbar-container container-fluid">
