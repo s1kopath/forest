@@ -104,8 +104,8 @@
                 </table>
             </div>
 
-            <div class="table-responsive mt-4 d-none d-lg-block">
-                <table class="table table-framed">
+            <div class="mt-4 d-none d-lg-block">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>SL</th>

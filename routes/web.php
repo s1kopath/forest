@@ -110,6 +110,7 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::match(['get', 'post'], 'stake', [StakeController::class, 'stake'])->name('stake');
 
         Route::get('history', [PublicDashboardController::class, 'history'])->name('public_history');
+        Route::get('history/fetch_data', [PublicDashboardController::class, 'fetchHistoryData']);
         Route::get('referrals', [PublicDashboardController::class, 'referrals'])->name('public_referrals');
         Route::get('downloads', [PublicDashboardController::class, 'downloads'])->name('public_downloads');
         Route::get('become-an-ib', [PublicDashboardController::class, 'becomeAnIb'])->name('public_become_an_ib');

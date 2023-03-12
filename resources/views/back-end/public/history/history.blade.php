@@ -56,42 +56,8 @@
                     <i class="fas fa-filter"></i>
                 </div>
             </div>
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Amount</th>
-                            <th>Percentage</th>
-                            <th>Duration</th>
-                            <th>Per Month</th>
-                            <th>Completed</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
-                            <th>Next Payout</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($stakes as $key => $stake)
-                            <tr>
-                                <th scope="row">{{ $key + 1 }}</th>
-                                <td>{{ $stake->amount }}$</td>
-                                <td>{{ $stake->percentage }}%</td>
-                                <td>{{ $stake->duration }} Months</td>
-                                <td>{{ $stake->amount_per_month }}$</td>
-                                <td>{{ $stake->completed }} Months</td>
-                                <td>{{ $stake->start_date }}</td>
-                                <td>{{ $stake->end_date }}</td>
-                                <td>{{ $stake->next_payout }}</td>
-                                <td>{{ $stake->status ? ($stake->status == 2 ? 'Completed' : 'Active') : 'Pending' }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                <div class="col-md-12">
-                    {{ $stakes->links() }}
-                </div>
+            <div id="table_data">
+
             </div>
         </div>
     </div>
@@ -112,5 +78,25 @@
 
             // console.log(localStorage.getItem('active_item'), 'shihab');
         });
+    </script>
+    <script>
+        $(document).ready(function() {
+            fetch_data(1);
+        });
+
+        $(document).on('click', '.pagination a', function(event) {
+            event.preventDefault();
+            var page = $(this).attr('href').split('page=')[1];
+            fetch_data(page);
+        });
+
+        function fetch_data(page) {
+            $.ajax({
+                url: "/user/profile/history/fetch_data?page=" + page,
+                success(response) {
+                    $('#table_data').html(response);
+                }
+            });
+        }
     </script>
 @endpush

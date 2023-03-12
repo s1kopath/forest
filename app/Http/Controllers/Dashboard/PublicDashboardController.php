@@ -87,8 +87,15 @@ class PublicDashboardController extends Controller
 
     public function history()
     {
-        $stakes = UserStake::where('user_id', auth()->id())->paginate(3);
-        return view('back-end.public.history.history', compact('stakes'));
+        return view('back-end.public.history.history');
+    }
+
+    function fetchHistoryData(Request $request)
+    {
+        if ($request->ajax()) {
+            $stakes = UserStake::where('user_id', auth()->id())->paginate(5);
+            return view('back-end.public.history.staking-roi-data', compact('stakes'))->render();
+        }
     }
 
     public function downloads()
