@@ -3,34 +3,17 @@
 
 @push('css')
     <style>
-        .btn:hover {
-            background: linear-gradient(#152B40, #152B40);
-        }
-
-        .btn:focus {
-            background: linear-gradient(#152B40, #152B40);
-        }
-
-        .button-container button {
+        .custom-btn {
             display: inline-block;
             margin-right: 10px;
             padding: 5px 10px;
+            background-color: #133445;
+            color: white;
+            min-width: 130px;
         }
 
-        @media only screen and (max-width: 768px) {
-            .shihab-btn-mbl-scroll {
-                overflow-x: scroll;
-                width: 100%;
-                display: flex;
-                position: relative;
-            }
-
-            .shihab-btn-mbl-scroll button {
-                display: inline-block;
-                position: relative;
-                padding: 6px 15px !important;
-                white-space: pre;
-            }
+        .custom-btn-active {
+            background-color: #1761bf;
         }
     </style>
 @endpush
@@ -38,20 +21,43 @@
 @section('page-title', 'History')
 
 @section('page-content')
+    <div class="d-flex overflow-auto pb-3" id="shihab-btn-mbl-scroll">
+        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active1" onclick="msPosition(this)">
+            Deposit
+        </button>
+        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active2" onclick="msPosition(this)">
+            Withdraw
+        </button>
+        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active3" onclick="msPosition(this)">
+            Invitation Gift
+        </button>
+        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active4" onclick="msPosition(this)">
+            Stacking ROI
+        </button>
+        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active5" onclick="msPosition(this)">
+            IB Royality
+        </button>
+        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active6" onclick="msPosition(this)">
+            Rewards
+        </button>
+        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active7" onclick="msPosition(this)">
+            Transaction
+        </button>
+        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active8" onclick="msPosition(this)">
+            Contest
+        </button>
+    </div>
+
     <div class="card">
-        <div class="card-block shihab-btn-mbl-scroll">
-            <button type="button" class="btn btn-success mx-1">Deposit</button>
-            <button type="button" class="btn btn-success mx-1">Withdraw</button>
-            <button type="button" class="btn btn-success mx-1">Invitation Gift</button>
-            <button type="button" class="btn btn-success mx-1">Stacking ROI</button>
-            <button type="button" class="btn btn-success mx-1">IB Royality</button>
-            <button type="button" class="btn btn-success mx-1">Rewards</button>
-            <button type="button" class="btn btn-success mx-1">Transaction</button>
-            <button type="button" class="btn btn-success mx-1">Contest</button>
-        </div>
         <div class="card-block">
+            <div class="d-flex justify-content-between p-2">
+                <h3 class="font-weight-bold">Stacking ROI History</h3>
+                <div>
+                    <i class="fas fa-filter"></i>
+                </div>
+            </div>
             <div class="table-responsive">
-                <table class="table table-framed">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -83,6 +89,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="col-md-12">
+                    {{ $stakes->links() }}
+                </div>
             </div>
         </div>
     </div>
@@ -90,9 +99,18 @@
 
 @push('js')
     <script>
-        function focusMe(button) {
-            document.getElementsByClassName("button-selected")[0].className = "";
-            button.className = "button-selected";
+        function msPosition(e) {
+            const rect = e.getBoundingClientRect();
+            const position = rect.left + window.scrollX;
+            // console.log(rect);
+            localStorage.setItem('active_item', position);
         }
+
+        $(document).ready(function() {
+            let selector = document.getElementById('shihab-btn-mbl-scroll');
+            selector.scrollLeft = localStorage.getItem('active_item');
+
+            // console.log(localStorage.getItem('active_item'), 'shihab');
+        });
     </script>
 @endpush
