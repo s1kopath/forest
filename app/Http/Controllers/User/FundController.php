@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\StakingRoi;
+use App\Models\Transaction;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,7 @@ class FundController extends Controller
         $wallet->withdrawable_amount += $amount;
 
         $wallet->save();
-
+        
         return true;
     }
 

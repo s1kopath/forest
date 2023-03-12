@@ -16,11 +16,24 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->double('main_amount', 8, 2)->default(0);
-            $table->double('bonus_amount', 8, 2)->default(0);
-            $table->double('withdrawable_amount', 8, 2)->default(0);
-            $table->string('type')->default(1);
-            $table->string('status')->default(1);
+            $table->double('amount', 8, 2)->default(0);
+            $table->string('type')->nullable();
+            $table->string('purpose')->nullable();
+            $table->string('reference_number')->nullable();
+            $table->double('transaction_fee', 8, 2)->default(0);
+            $table->double('net_amount', 8, 2)->default(0);
+            $table->string('wallet_address')->nullable();
+            $table->string('transaction_hash')->nullable();
+            $table->string('card_number')->nullable();
+            $table->string('network')->nullable();
+            $table->string('payment_gateway')->nullable();
+            $table->double('roi_amount', 8, 2)->nullable();
+            $table->string('roi_duration')->nullable();
+            $table->integer('royalty_from_user_id')->nullable();
+            $table->integer('royalty_level')->nullable();
+            $table->string('reward_title')->nullable();
+            $table->string('contest_title')->nullable();
+            $table->smallInteger('status')->default(1);
             $table->timestamps();
         });
     }

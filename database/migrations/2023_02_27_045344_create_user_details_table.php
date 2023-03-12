@@ -24,6 +24,10 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('zip_code')->nullable();
             $table->string('country')->nullable();
+            $table->longText('image')->nullable();
+            $table->string('kyc_type')->nullable();
+            $table->longText('kyc_image_1')->nullable();
+            $table->longText('kyc_image_2')->nullable();
             $table->timestamps();
         });
     }

@@ -93,13 +93,6 @@ class AuthController extends Controller
 
                     session(['resent_count' => $otp->resent_count]);
 
-                    $message = url('/') . '/verify/' . $otp->token;
-
-                    $details['email'] = $request->email;
-                    $details['message'] = $message;
-
-                    dispatch(new VerifyEmailJob($details));
-
                     return redirect()->back()->with('message', 'Successfully resend!');
                 }
             } else {

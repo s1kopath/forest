@@ -40,9 +40,6 @@
         <button type="button" class="btn custom-btn rounded-pill mx-1" id="active6" onclick="msPosition(this)">
             Rewards
         </button>
-        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active7" onclick="msPosition(this)">
-            Transaction
-        </button>
         <button type="button" class="btn custom-btn rounded-pill mx-1" id="active8" onclick="msPosition(this)">
             Contest
         </button>

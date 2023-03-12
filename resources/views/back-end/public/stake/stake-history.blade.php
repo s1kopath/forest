@@ -18,10 +18,10 @@
             @foreach ($stakes as $key => $stake)
                 <tr>
                     <th scope="row">{{ $key + 1 }}</th>
-                    <td>{{ $stake->amount }}$</td>
+                    <td>${{ $stake->amount }}</td>
                     <td>{{ $stake->percentage }}%</td>
                     <td>{{ $stake->duration }} Months</td>
-                    <td>{{ $stake->amount_per_month }}$</td>
+                    <td>${{ $stake->amount_per_month }}</td>
                     <td>{{ $stake->completed }} Months</td>
                     <td>{{ $stake->start_date }}</td>
                     <td>{{ $stake->end_date }}</td>

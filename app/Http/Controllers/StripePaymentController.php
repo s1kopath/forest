@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\DepositTransactionEvent;
 use App\Http\Controllers\User\FundController;
 use Stripe;
 use Illuminate\Http\Request;
@@ -28,6 +29,15 @@ class StripePaymentController extends Controller
 
         $fundController = new FundController();
         $fundController->deposit($newRecord->amount / 100);
+
+        $details['user_id'] = auth()->id();
+        $details['amount'] = $newRecord->amount / 100;
+        $details['payment_gateway'] = 'Stripe';
+        $details['type'] = 'Credit';
+        $details['purpose'] = 'Deposit';
+        $details['reference_number'] = $newRecord->id;
+
+        DepositTransactionEvent::dispatch($details);
 
         return back()->with('message', 'Payment successful!');
     }
