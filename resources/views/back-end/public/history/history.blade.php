@@ -14,6 +14,8 @@
 
         .custom-btn-active {
             background-color: #1761bf;
+            color: white;
+            min-width: 130px;
         }
     </style>
 @endpush
@@ -22,30 +24,21 @@
 
 @section('page-content')
     <div class="d-flex overflow-auto pb-3" id="shihab-btn-mbl-scroll">
-        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active1" onclick="msPosition(this)">
-            Deposit
-        </button>
-        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active2" onclick="msPosition(this)">
-            Withdraw
-        </button>
-        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active3" onclick="msPosition(this)">
-            Invitation Gift
-        </button>
-        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active4" onclick="msPosition(this)">
-            Stacking ROI
-        </button>
-        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active5" onclick="msPosition(this)">
-            IB Royality
-        </button>
-        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active6" onclick="msPosition(this)">
-            Rewards
-        </button>
-        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active7" onclick="msPosition(this)">
-            Transaction
-        </button>
-        <button type="button" class="btn custom-btn rounded-pill mx-1" id="active8" onclick="msPosition(this)">
-            Contest
-        </button>
+        <a href="{{ route('deposit_history') }}"><button type="button" class="btn custom-btn rounded-pill mx-1" id="active1" onclick="msPosition(this)">Deposit</button></a>
+
+        <a href="{{ route('withdrawal_history') }}"><button type="button" class="btn custom-btn rounded-pill mx-1" id="active2" onclick="msPosition(this)">Withdraw</button></a>
+
+        <a href="{{ route('invitation_gift_history') }}"><button type="button" class="btn custom-btn rounded-pill mx-1" id="active3" onclick="msPosition(this)">Invitation Gift</button></a>
+
+        <a href="{{ route('public_history') }}"><button type="button" class="btn custom-btn-active rounded-pill mx-1" id="active4" onclick="msPosition(this)">Stacking ROI</button></a>
+
+        <a href="{{ route('ib_royality_history') }}"><button type="button" class="btn custom-btn rounded-pill mx-1" id="active5" onclick="msPosition(this)">IB Royality</button></a>
+
+        <a href="{{ route('reward_history') }}"><button type="button" class="btn custom-btn rounded-pill mx-1" id="active6" onclick="msPosition(this)">Rewards</button></a>
+
+        <a href="{{ route('transaction_history') }}"><button type="button" class="btn custom-btn rounded-pill mx-1" id="active7" onclick="msPosition(this)">Transaction</button></a>
+
+        <a href="{{ route('contest_history') }}"><button type="button" class="btn custom-btn rounded-pill mx-1" id="active8" onclick="msPosition(this)">Contest</button></a>
     </div>
 
     <div class="card">

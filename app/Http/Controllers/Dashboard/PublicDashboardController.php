@@ -90,7 +90,34 @@ class PublicDashboardController extends Controller
         $stakes = UserStake::where('user_id', auth()->id())->paginate(3);
         return view('back-end.public.history.history', compact('stakes'));
     }
-
+    public function deposit_history()
+    {
+        return view('back-end.public.history.deposit');
+    }
+    public function withdrawal_history()
+    {
+        return view('back-end.public.history.withdraw');
+    }
+    public function invitation_gift_history()
+    {
+        return view('back-end.public.history.invitation-gift');
+    }
+    public function ib_royality_history()
+    {
+        return view('back-end.public.history.ib-royality');
+    }
+    public function reward_history()
+    {
+        return view('back-end.public.history.reward');
+    }
+    public function contest_history()
+    {
+        return view('back-end.public.history.contest');
+    }
+    public function transaction_history()
+    {
+        return view('back-end.public.history.transaction');
+    }
     public function downloads()
     {
         return view('back-end.public.downloads.downloads');
