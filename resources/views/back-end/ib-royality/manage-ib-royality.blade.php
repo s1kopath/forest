@@ -4,7 +4,7 @@
 @section('page-content')
     <div class="card">
         <div class="card-header bg-info">
-            <h2 class="text-center">Royality List</h5>
+            <h2 class="text-center">Royalty List</h5>
         </div>
         <div class="card-body">
             <div class="text-right">

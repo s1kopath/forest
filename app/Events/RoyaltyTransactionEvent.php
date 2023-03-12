@@ -13,15 +13,20 @@ use Illuminate\Queue\SerializesModels;
 class RoyaltyTransactionEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
+    public $user_id, $amount, $reference_number, $from_user_id, $royalty_gen, $royalty_level;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($bonus)
     {
-        //
+        $this->user_id = $bonus['user_id'];
+        $this->amount = $bonus['amount_per_month'];
+        $this->reference_number = $bonus['id'];
+        $this->from_user_id = $bonus['from_user_id'];
+        $this->royalty_gen = $bonus['royalty_gen'];
+        $this->royalty_level = $bonus['royalty_level'];
     }
 
     /**

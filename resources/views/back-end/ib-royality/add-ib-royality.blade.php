@@ -3,7 +3,7 @@
 @section('page-content')
     <div class="card">
         <div class="card-header bg-info">
-            <h2 class="text-center">Add Royality</h5>
+            <h2 class="text-center">Add Royalty</h5>
         </div>
         <div class="card-body">
             <form action="{{ route('add_ib_royality') }}" method="post">

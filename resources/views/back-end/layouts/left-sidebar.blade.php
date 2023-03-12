@@ -88,17 +88,17 @@
                                 <span class="pcoded-micon">
                                     <i class="feather icon-clipboard"></i>
                                 </span>
-                                <span class="pcoded-mtext">Ib Royality</span>
+                                <span class="pcoded-mtext">Ib Royalty</span>
                             </a>
                             <ul class="pcoded-submenu">
                                 <li class="{{ $route_name == 'add_ib_royality' ? 'active' : '' }}">
                                     <a href="{{ route('add_ib_royality') }}" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Add Ib Royality</span>
+                                        <span class="pcoded-mtext">Add Ib Royalty</span>
                                     </a>
                                 </li>
                                 <li class="{{ $route_name == 'manage_ib_royality' ? 'active' : '' }}">
                                     <a href="{{ route('manage_ib_royality') }}" class="waves-effect waves-dark">
-                                        <span class="pcoded-mtext">Manage Ib Royality</span>
+                                        <span class="pcoded-mtext">Manage Ib Royalty</span>
                                     </a>
                                 </li>
                             </ul>

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('user_stake_id');
             $table->double('amount', 8, 2);
             $table->date('date');
-            $table->date('next_payout');
+            $table->date('next_payout')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });

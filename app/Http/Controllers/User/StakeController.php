@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\user;
 
+use App\Events\RoyaltyTransactionEvent;
+use App\Events\StakingTransactionEvent;
 use App\Models\Rank;
 use App\Models\User;
 use App\Models\Wallet;
@@ -14,6 +16,8 @@ use App\Models\StakingRebate;
 use App\Models\StakingRebateBonus;
 use App\Http\Controllers\Controller;
 use App\Jobs\LeadMemberRankRefreshJob;
+use App\Models\Transaction;
+use Stripe\Transfer;
 
 class StakeController extends Controller
 {
@@ -83,7 +87,7 @@ class StakeController extends Controller
             $stakeRebate->date = today();
 
             $stake->completed++;
-            if ($stake->completed = $stake->duration) {
+            if ($stake->completed == $stake->duration) {
                 $stake->status = 2;
                 $stake->next_payout = null;
                 $stakeRebate->next_payout = null;
@@ -102,6 +106,8 @@ class StakeController extends Controller
             $stake->save();
             $stakeRebate->save();
             $wallet->save();
+
+            StakingTransactionEvent::dispatch($stake);
 
             $this->genBonusDispatch($stakeRebate, $stake->user_id);
         }
@@ -134,6 +140,16 @@ class StakeController extends Controller
                 $wallet->withdrawable_amount += $bonus_amount;
                 $wallet->total_earning += $bonus_amount;
                 $wallet->save();
+
+                $bonus['user_id'] = $stakeRebateBonus->user_id;
+                $bonus['amount_per_month'] = $stakeRebateBonus->amount;
+                $bonus['id'] = $stakeRebateBonus->id;
+                $bonus['from_user_id'] = $stakeRebateBonus->bonus_from;
+                $bonus['royalty_gen'] = $stakeRebateBonus->generation;
+                $bonus['royalty_level'] = $stakeRebateBonus->level;
+
+                RoyaltyTransactionEvent::dispatch($bonus);
+
                 $gen++;
             }
             $level++;

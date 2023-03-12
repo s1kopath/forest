@@ -31,7 +31,7 @@ class IbRoyalityController extends Controller
                 'status' => $request->status,
             ]);
 
-            return redirect()->route('manage_ib_royality')->with('message', 'Royality Added Successfully.');
+            return redirect()->route('manage_ib_royality')->with('message', 'Royalty Added Successfully.');
         } else {
             $ranks = RankAndReward::all();
             return view('back-end.ib-royality.add-ib-royality', compact('ranks'));
@@ -56,7 +56,7 @@ class IbRoyalityController extends Controller
                 'status' => $request->status,
             ]);
 
-            return redirect()->route('manage_ib_royality')->with('message', 'Royality Update Successfully.');
+            return redirect()->route('manage_ib_royality')->with('message', 'Royalty Update Successfully.');
         } else {
             $royality = IbRoyality::find($id);
             $ranks = RankAndReward::all();
@@ -67,6 +67,6 @@ class IbRoyalityController extends Controller
     public function destroy($id)
     {
         IbRoyality::find($id)->delete();
-        return redirect()->back()->with('message', 'Royality Deleted Successfully.');
+        return redirect()->back()->with('message', 'Royalty Deleted Successfully.');
     }
 }

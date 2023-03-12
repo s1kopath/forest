@@ -13,11 +13,15 @@ use App\Models\StakingRebate;
 use App\Models\AmountForIbGain;
 use App\Models\StakingRebateBonus;
 use App\Http\Controllers\RanksController;
+use App\Http\Controllers\user\StakeController;
 
 class TestController extends Controller
 {
     public function test(){
 
+        $stakeController = new StakeController();
+        $data = $stakeController->distributeStakingBonusSchedule();
+        dd($data);
         return view('test');
         $random = Str::random(10);
         // dd($random);

@@ -35,7 +35,7 @@
             Stacking ROI
         </button>
         <button type="button" class="btn custom-btn rounded-pill mx-1" id="active5" onclick="msPosition(this)">
-            IB Royality
+            IB Royalty
         </button>
         <button type="button" class="btn custom-btn rounded-pill mx-1" id="active6" onclick="msPosition(this)">
             Rewards

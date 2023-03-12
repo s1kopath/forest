@@ -27,9 +27,10 @@ return new class extends Migration
             $table->string('card_number')->nullable();
             $table->string('network')->nullable();
             $table->string('payment_gateway')->nullable();
-            $table->double('roi_amount', 8, 2)->nullable();
-            $table->string('roi_duration')->nullable();
+            $table->double('stake_amount', 8, 2)->nullable();
+            $table->integer('stake_duration')->nullable();
             $table->integer('from_user_id')->nullable();
+            $table->integer('royalty_gen')->nullable();
             $table->integer('royalty_level')->nullable();
             $table->string('reward_title')->nullable();
             $table->string('contest_title')->nullable();

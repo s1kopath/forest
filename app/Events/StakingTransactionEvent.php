@@ -13,15 +13,19 @@ use Illuminate\Queue\SerializesModels;
 class StakingTransactionEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
+    public $user_id, $amount, $reference_number, $stake_amount, $stake_duration;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($stake)
     {
-        //
+        $this->user_id = $stake['user_id'];
+        $this->amount = $stake['amount_per_month'];
+        $this->reference_number = $stake['id'];
+        $this->stake_amount = $stake['amount'];
+        $this->stake_duration = $stake['duration'];
     }
 
     /**

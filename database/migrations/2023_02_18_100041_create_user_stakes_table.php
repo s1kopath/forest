@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('completed')->default(0);
             $table->date('start_date');
             $table->date('end_date');
-            $table->date('next_payout');
+            $table->date('next_payout')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
