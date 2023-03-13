@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class TestUsersTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
 
     /**
@@ -161,6 +161,22 @@ class TestUsersTableSeeder extends Seeder
                 'updated_at' => '2023-03-02 11:51:45',
                 'referer_id' => 8,
                 'refer_code' => '64008dd1230f9',
+                'is_verified' => 1,
+            ),
+            9 => 
+            array (
+                'id' => 10,
+                'username' => 'kobizy',
+                'name' => 'Isabelle Wright',
+                'email' => 'hujixif@mailinator.com',
+                'email_verified_at' => '2023-03-13 11:21:23',
+                'password' => '$2y$10$1Qfy8D4WTQ2E7XFdOT1lkeOwPr2CStL8cvGovJvnWCTq4pgxowi7a',
+                'user_type' => 'public',
+                'remember_token' => NULL,
+                'created_at' => '2023-03-13 11:20:52',
+                'updated_at' => '2023-03-13 11:21:48',
+                'referer_id' => 3,
+                'refer_code' => '640f07143c417',
                 'is_verified' => 1,
             ),
         ));

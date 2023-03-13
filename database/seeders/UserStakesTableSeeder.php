@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class TestUserStakesTableSeeder extends Seeder
+class UserStakesTableSeeder extends Seeder
 {
 
     /**
@@ -79,13 +79,13 @@ class TestUserStakesTableSeeder extends Seeder
                 'percentage' => 3.0,
                 'duration' => 6,
                 'amount_per_month' => 15.0,
-                'completed' => 0,
+                'completed' => 2,
                 'start_date' => '2023-03-04',
                 'end_date' => '2023-09-04',
-                'next_payout' => '2023-04-04',
+                'next_payout' => '2023-04-12',
                 'status' => 1,
                 'created_at' => '2023-03-04 07:47:14',
-                'updated_at' => '2023-03-04 07:47:14',
+                'updated_at' => '2023-03-12 13:52:20',
             ),
             4 => 
             array (

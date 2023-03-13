@@ -8,8 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 
-    protected $table = 'transactions';
+    // only possible values on "purpose" column are :: 'Deposit','Withdraw','Invitation Gift','Staking ROI','IB Royalty','Rewards','Contest'.
 
-    protected $guarded = ['id'];
+    public function bonusFrom()
+    {
+        return $this->belongsTo(User::class, 'from_user_id');
+    }
 }
