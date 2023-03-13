@@ -76,11 +76,11 @@
             <div class="table-responsive mt-4 d-block d-lg-none">
                 <table class="table">
                     <tbody>
-                        <tr data-toggle="collapse" data-target="#collapseExample1" class="accordion-toggle">
+                        <tr data-toggle="collapse" data-target="#collapseExample1" class="accordion-toggle" id="btn-collapse">
                             <td>
-                                <span class="font-weight-bold text-white py-1 px-2" style="background-color: #0548ac;">
-                                    +
-                                </span>
+                                <a href="" id="toggle_icon"><span class="font-weight-bold text-white py-1 px-2" style="background-color: #0548ac;">
+                                    <i class="fas fa-plus fa-xs"></i>
+                                </span></a>
                             </td>
                             <td>
                                 <h4 class="font-weight-bold">Master</h4>
@@ -88,7 +88,7 @@
                             </td>
                             <td class="text-right">
                                 <h4 class="font-weight-bold">$100</h4>
-                                <h6>. pending</h6>
+                                <h6><i class="fas fa-circle fa-xs" style="font-size: 0.3rem; margin-right:4px"></i> pending</h6>
                             </td>
                         </tr>
                         <tr>
@@ -103,10 +103,10 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr data-toggle="collapse" data-target="#collapseExample2" class="accordion-toggle">
+                        <tr data-toggle="collapse" data-target="#collapseExample2" class="accordion-toggle" id="btn-collapse-2">
                             <td>
                                 <span class="font-weight-bold text-white py-1 px-2" style="background-color: #0548ac;">
-                                    +
+                                    <i class="fas fa-plus fa-xs"></i>
                                 </span>
                             </td>
                             <td>
@@ -115,7 +115,7 @@
                             </td>
                             <td class="text-right">
                                 <h4 class="font-weight-bold">$100</h4>
-                                <h6 class="text-warning">. processing</h6>
+                                <h6 class="text-warning"><i class="fas fa-circle fa-xs" style="font-size: 0.3rem; margin-right:4px"></i> processing</h6>
                             </td>
                         </tr>
                         <tr>
@@ -130,10 +130,10 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr data-toggle="collapse" data-target="#collapseExample3" class="accordion-toggle">
+                        <tr data-toggle="collapse" data-target="#collapseExample3" class="accordion-toggle" id="btn-collapse-3">
                             <td>
                                 <span class="font-weight-bold text-white py-1 px-2" style="background-color: #0548ac;">
-                                    +
+                                    <i class="fas fa-plus fa-xs"></i>
                                 </span>
                             </td>
                             <td>
@@ -142,7 +142,7 @@
                             </td>
                             <td class="text-right">
                                 <h4 class="font-weight-bold">$100</h4>
-                                <h6 class="text-danger">. cancelled</h6>
+                                <h6 class="text-danger"><i class="fas fa-circle fa-xs" style="font-size: 0.3rem; margin-right:4px"></i> cancelled</h6>
                             </td>
                         </tr>
                         <tr>
@@ -157,9 +157,9 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr data-toggle="collapse" data-target="#collapseExample4" class="accordion-toggle">
+                        <tr data-toggle="collapse" data-target="#collapseExample4" class="accordion-toggle" id="btn-collapse-4">
                             <td>
-                                <span class="font-weight-bold text-white py-1 px-2" style="background-color: #0548ac;"> +
+                                <span class="font-weight-bold text-white py-1 px-2" style="background-color: #0548ac;"><i class="fas fa-plus fa-xs"></i>
                                 </span>
                             </td>
                             <td>
@@ -168,7 +168,7 @@
                             </td>
                             <td class="text-right">
                                 <h4 class="font-weight-bold">$100</h4>
-                                <h6 class="text-success">. success</h6>
+                                <h6 class="text-success"><i class="fas fa-circle fa-xs" style="font-size: 0.3rem; margin-right:4px"></i> success</h6>
                             </td>
                         </tr>
                         <tr>
@@ -212,7 +212,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>. pending</td>
+                            <td><i class="fas fa-circle fa-xs" style="font-size: 0.3rem; margin-right:4px"></i> pending</td>
                         </tr>
                         <tr>
                             <td>2</td>
@@ -223,7 +223,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td class="text-warning">. processing</td>
+                            <td class="text-warning"><i class="fas fa-circle fa-xs" style="font-size: 0.3rem; margin-right:4px"></i> processing</td>
                         </tr>
                         <tr>
                             <td>3</td>
@@ -234,7 +234,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td class="text-danger">. cancelled</td>
+                            <td class="text-danger"><i class="fas fa-circle fa-xs" style="font-size: 0.3rem; margin-right:4px"></i> cancelled</td>
                         </tr>
                         <tr>
                             <td>4</td>
@@ -245,7 +245,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td class="text-success">. success</td>
+                            <td class="text-success"><i class="fas fa-circle fa-xs" style="font-size: 0.3rem; margin-right:4px"></i> success</td>
                         </tr>
                     </tbody>
                 </table>
@@ -268,6 +268,20 @@
             selector.scrollLeft = localStorage.getItem('active_item');
 
             // console.log(localStorage.getItem('active_item'), 'shihab');
+        });
+    </script>
+    <script>
+        $( "#btn-collapse" ).click(function() {
+            $(this).find("i").toggleClass('fa-plus fa-minus');
+        });
+        $( "#btn-collapse-2" ).click(function() {
+            $(this).find("i").toggleClass('fa-plus fa-minus');
+        });
+        $( "#btn-collapse-3" ).click(function() {
+            $(this).find("i").toggleClass('fa-plus fa-minus');
+        });
+        $( "#btn-collapse-4" ).click(function() {
+            $(this).find("i").toggleClass('fa-plus fa-minus');
         });
     </script>
 @endpush

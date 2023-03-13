@@ -29,7 +29,7 @@
                     <td>
                         @if ($stake->status == 2)
                             <span class="text-info">
-                                Completed
+                              Completed
                             </span>
                         @elseif ($stake->status == 1)
                             <span class="text-success">

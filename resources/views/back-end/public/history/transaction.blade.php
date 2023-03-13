@@ -80,7 +80,7 @@
                             </td>
                             <td class="text-right">
                                 <h4 class="font-weight-bold">$20</h4>
-                                <h6 class="text-success">. IN</h6>
+                                <h6 class="text-success"><i class="fas fa-circle fa-xs" style="font-size: 0.3rem; margin-right:4px"></i> IN</h6>
                             </td>
                         </tr>
                         <tr>
@@ -95,7 +95,7 @@
                             </td>
                             <td class="text-right">
                                 <h4 class="font-weight-bold">$40</h4>
-                                <h6 class="text-danger">. OUT</h6>
+                                <h6 class="text-danger"><i class="fas fa-circle fa-xs" style="font-size: 0.3rem; margin-right:4px"></i> OUT</h6>
                             </td>
                         </tr>
                         <tr>
@@ -110,7 +110,7 @@
                             </td>
                             <td class="text-right">
                                 <h4 class="font-weight-bold">$10</h4>
-                                <h6 class="text-success">. IN</h6>
+                                <h6 class="text-success"><i class="fas fa-circle fa-xs" style="font-size: 0.3rem; margin-right:4px"></i> IN</h6>
                             </td>
                         </tr>
                     </tbody>
@@ -142,7 +142,7 @@
                             <td>2023-01-11</td>
                             <td>14:12:09</td>
                             <td>$20</td>
-                            <td class="text-success">. IN</td>
+                            <td class="text-success"><i class="fas fa-circle fa-xs" style="font-size: 0.3rem; margin-right:4px"></i> IN</td>
                         </tr>
                         <tr>
                             <td>2</td>
@@ -150,7 +150,7 @@
                             <td>2023-01-11</td>
                             <td>14:12:09</td>
                             <td>$40</td>
-                            <td class="text-danger">. OUT</td>
+                            <td class="text-danger"><i class="fas fa-circle fa-xs" style="font-size: 0.3rem; margin-right:4px"></i> OUT</td>
                         </tr>
                         <tr>
                             <td>3</td>
@@ -158,7 +158,7 @@
                             <td>2023-01-01</td>
                             <td>12:12:09</td>
                             <td>$10</td>
-                            <td class="text-success">. IN</td>
+                            <td class="text-success"><i class="fas fa-circle fa-xs" style="font-size: 0.3rem; margin-right:4px"></i> IN</td>
                         </tr>
                     </tbody>
                 </table>
