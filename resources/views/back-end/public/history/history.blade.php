@@ -23,7 +23,7 @@
 
 @section('page-content')
     <div class="d-flex overflow-auto pb-3" id="shihab-btn-mbl-scroll">
-        <button type="button" class="btn custom-btn rounded-pill mx-1" onclick="fetch_data(1, 'Deposit')">
+        <button type="button" class="btn custom-btn custom-btn-active rounded-pill mx-1" onclick="fetch_data(1, 'Deposit')">
             Deposit
         </button>
         <button type="button" class="btn custom-btn rounded-pill mx-1" onclick="fetch_data(1, 'Withdraw')">
