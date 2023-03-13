@@ -8,4 +8,5 @@
 <link rel="preload" href="{{ asset('front-end/fonts/archivo-v9-latin-700.woff2') }}" as="font" type="font/woff2">
 <!-- Stylesheet -->
 <link rel="stylesheet" href="{{ asset('front-end/css/style.css') }}">
-
+{{-- bootstrap --}}
+<link rel="stylesheet" type="text/css" href="{{ asset('back-end/bower_components/bootstrap/css/bootstrap.min.css') }}">

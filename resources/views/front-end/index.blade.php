@@ -14,10 +14,11 @@
                                         class="uk-label uk-label-success in-label-small">New</span>Trade the
                                     markets directly with
                                     leading trading platforms.</p>
-                                <h1 class="uk-heading-small">The world's most <span class="in-highlight">powerful</span>
-                                    trade app.</h1>
-                                <p class="uk-text-lead uk-visible@m">Get the most accurate market data, alerts,
-                                    conversions, tools and more — all within the same app.</p>
+                                <h1 class="uk-heading-small">Demo <span class="in-highlight">page</span>
+                                    1.</h1>
+                                <p class="uk-text-lead uk-visible@m">Lorem ipsum dolor sit amet consectetur adipisicing
+                                    elit. Sint fugit expedita inventore quos asperiores quis officiis quibusdam laudantium?
+                                    Nobis a odio culpa praesentium? Est eos commodi quisquam ullam eius eligendi?</p>
                                 <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-medium-top uk-visible@s"
                                     data-uk-grid>
                                     <div>
@@ -86,10 +87,10 @@
                                         class="uk-label uk-label-success in-label-small">New</span>Trade the
                                     markets directly with
                                     leading trading platforms.</p>
-                                <h1 class="uk-heading-small">Reach out to new trading <span
-                                        class="in-highlight">experience</span>.</h1>
-                                <p class="uk-text-lead uk-visible@m">Bring your trading ventures go around the
-                                    world, way beyond the space of your trading account.</p>
+                                <h1 class="uk-heading-small">Demo <span class="in-highlight">page</span> 2.</h1>
+                                <p class="uk-text-lead uk-visible@m">Lorem ipsum dolor sit amet consectetur adipisicing
+                                    elit. Sint fugit expedita inventore quos asperiores quis officiis quibusdam laudantium?
+                                    Nobis a odio culpa praesentium? Est eos commodi quisquam ullam eius eligendi?</p>
                                 <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-medium-top uk-visible@s"
                                     data-uk-grid>
                                     <div>
@@ -313,9 +314,9 @@
                     <div class="uk-card uk-card-body uk-card-default uk-border-rounded">
                         <div class="uk-flex uk-flex-middle">
                             <span class="in-product-name red">EQ</span>
-                            <h5 class="uk-margin-remove">Stocks</h5>
+                            <h5 class="uk-margin-remove">Staking</h5>
                         </div>
-                        <p>Access 19,000+ stocks across core and emerging markets on 40+ exchanges worldwide.</p>
+                        <p>Access 19,000+ Staking across core and emerging markets on 40+ exchanges worldwide.</p>
                         <a href="#"
                             class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
                                 class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
@@ -325,10 +326,10 @@
                     <div class="uk-card uk-card-body uk-card-default uk-border-rounded">
                         <div class="uk-flex uk-flex-middle">
                             <span class="in-product-name green">LQ</span>
-                            <h5 class="uk-margin-remove">Listed Options</h5>
+                            <h5 class="uk-margin-remove">Forex Trading</h5>
                         </div>
-                        <p>Access 1,200+ listed options across equities, indices, interest rates, energy, metals and
-                            more.</p>
+                        <p>Access 1,200+ listed options across the highest level of liquidity, which means even large orders
+                            of currency trades are easily filled efficiently without any large price deviations.</p>
                         <a href="#"
                             class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
                                 class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
@@ -338,9 +339,10 @@
                     <div class="uk-card uk-card-body uk-card-default uk-border-rounded">
                         <div class="uk-flex uk-flex-middle">
                             <span class="in-product-name blue">FU</span>
-                            <h5 class="uk-margin-remove">Futures</h5>
+                            <h5 class="uk-margin-remove">E-Commerce</h5>
                         </div>
-                        <p>Access 300+ futures covering equity indices, energy, metals, agriculture, rates and more.
+                        <p>Access 300+ futures covering businesses with the tools and services they need to buy and sell
+                            products and services over the Internet and manage their online enterprises.
                         </p>
                         <a href="#"
                             class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
@@ -350,10 +352,11 @@
                 <div>
                     <div class="uk-card uk-card-body uk-card-default uk-border-rounded">
                         <div class="uk-flex uk-flex-middle">
-                            <span class="in-product-name"><i class="fas fa-ellipsis-h fa-xs"></i></span>
-                            <h5 class="uk-margin-remove">More products</h5>
+                            <span class="in-product-name">RS</span>
+                            <h5 class="uk-margin-remove">Real Estate</h5>
                         </div>
-                        <p>Explore the full range of cash and leveraged products</p>
+                        <p>Explore the full range of buying, selling and renting of commercial and residential properties or
+                            land.</p>
                         <a href="#"
                             class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
                                 class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
@@ -369,18 +372,63 @@
         data-src="{{ asset('front-end/img/in-equity-2-bg.png') }}" data-uk-img>
         <div class="uk-container uk-margin-top">
             <div class="uk-grid uk-flex uk-flex-center">
-                <div class="uk-width-2xlarge@m uk-text-center">
-                    <span class="uk-label uk-label-warning">Fast execution, low latency<i
-                            class="fas fa-arrow-right fa-xs uk-margin-small-left"></i></span>
-                    <h1 class="uk-margin-top">Your premium choice for trading currencies & stocks online</h1>
-                    <p class="uk-text-lead uk-margin-medium-top">Harness the power of technology to make a quicker,
-                        smarter and more precise decision on CFD currency pairs, stocks, commodities and more</p>
+
+                <div class="row shadow-lg">
+                    <div class="col-md-4 rounded px-5 py-3">
+                        <table>
+                            <thead>
+                                <th colspan="3" class="text-center">New Registration</th>
+                            </thead>
+                            <tbody>
+                                @for ($i = 0; $i < 5; $i++)
+                                    <tr>
+                                        <td style="width: 50px">&#127988</td>
+                                        <td style="width: 100px">fr*****e0</td>
+                                        <td style="width: 100px" class="text-right">Mr Frankie</td>
+                                    </tr>
+                                @endfor
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-4 rounded px-5 py-3">
+                        <table>
+                            <thead>
+                                <th colspan="3" class="text-center">Deposit</th>
+                            </thead>
+                            <tbody>
+                                @for ($i = 0; $i < 5; $i++)
+                                    <tr>
+                                        <td style="width: 50px">&#12798</td>
+                                        <td style="width: 100px">Mr Frankie</td>
+                                        <td style="width: 100px" class="text-right">${{ $i * 6 + 150 }}</td>
+                                    </tr>
+                                @endfor
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-4 rounded px-5 py-3">
+                        <table>
+                            <thead>
+                                <th colspan="3" class="text-center">Withdrawal</th>
+                            </thead>
+                            <tbody>
+                                @for ($i = 0; $i < 5; $i++)
+                                    <tr>
+                                        <td style="width: 50px">&#128681</td>
+                                        <td style="width: 100px">Mr Donkey</td>
+                                        <td style="width: 100px" class="text-right">${{ $i * 5 + 150 }}</td>
+                                    </tr>
+                                @endfor
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="uk-width-3-4@m uk-margin-medium-top">
-                    <img class="uk-align-center" src="{{ asset('front-end/img/in-lazy.gif') }}"
-                        data-src="{{ asset('front-end/img/in-equity-2-img.png') }}" alt="image" width="758"
-                        height="334" data-uk-img>
+
+                    {{-- section --}}
+
                 </div>
+
                 <div class="uk-width-2xlarge@m uk-margin-medium-top">
                     <div class="uk-grid uk-child-width-1-4@m uk-child-width-1-4@s uk-text-center in-feature-box"
                         data-uk-grid>

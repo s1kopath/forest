@@ -11455,6 +11455,7 @@ iframe[data-uk-cover] {
 
 .uk-light .uk-dotnav>.uk-active>*, .uk-section-primary:not(.uk-preserve-color) .uk-dotnav>.uk-active>*, .uk-section-secondary:not(.uk-preserve-color) .uk-dotnav>.uk-active>*, .uk-tile-primary:not(.uk-preserve-color) .uk-dotnav>.uk-active>*, .uk-tile-secondary:not(.uk-preserve-color) .uk-dotnav>.uk-active>*, .uk-card-primary.uk-card-body .uk-dotnav>.uk-active>*, .uk-card-primary> :not([class*=uk-card-media]) .uk-dotnav>.uk-active>*, .uk-card-secondary.uk-card-body .uk-dotnav>.uk-active>*, .uk-card-secondary> :not([class*=uk-card-media]) .uk-dotnav>.uk-active>*, .uk-overlay-primary .uk-dotnav>.uk-active>*, .uk-offcanvas-bar .uk-dotnav>.uk-active>* {
     background-color: #FCB42D;
+    height: 14px;
 }
 
 .uk-light .uk-accordion-title, .uk-section-primary:not(.uk-preserve-color) .uk-accordion-title, .uk-section-secondary:not(.uk-preserve-color) .uk-accordion-title, .uk-tile-primary:not(.uk-preserve-color) .uk-accordion-title, .uk-tile-secondary:not(.uk-preserve-color) .uk-accordion-title, .uk-card-primary.uk-card-body .uk-accordion-title, .uk-card-primary> :not([class*=uk-card-media]) .uk-accordion-title, .uk-card-secondary.uk-card-body .uk-accordion-title, .uk-card-secondary> :not([class*=uk-card-media]) .uk-accordion-title, .uk-overlay-primary .uk-accordion-title, .uk-offcanvas-bar .uk-accordion-title {
@@ -22849,7 +22850,7 @@ header .in-optional-nav .uk-button-text {
 
 .in-slideshow {
     padding-top: 92px;
-    height: 580px;
+    height: 680px;
 }
 
 .in-slideshow.uk-background-contain {
