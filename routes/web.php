@@ -31,6 +31,10 @@ Route::get('help-center', [HomeController::class, 'helpCenter'])->name('help_cen
 Route::get('customers', [HomeController::class, 'customers'])->name('customers');
 Route::get('road-map', [HomeController::class, 'roadMap'])->name('road_map');
 Route::get('legal-docs', [HomeController::class, 'legalDocs'])->name('legal_docs');
+Route::get('staking', [HomeController::class, 'staking'])->name('staking');
+Route::get('forex-trading', [HomeController::class, 'forexTrading'])->name('forex_trading');
+Route::get('e-commerce', [HomeController::class, 'ECommerce'])->name('e_commerce');
+Route::get('forex-broker', [HomeController::class, 'forexBroker'])->name('forex_broker');
 
 // Auth Routes
 Route::match(['get', 'post'], 'admin-login', [AuthController::class, 'login'])->name('auth_login');

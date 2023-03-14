@@ -317,7 +317,7 @@
                             <h5 class="uk-margin-remove">Staking</h5>
                         </div>
                         <p>Access 19,000+ Staking across core and emerging markets on 40+ exchanges worldwide.</p>
-                        <a href="#"
+                        <a href="{{ route('staking') }}"
                             class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
                                 class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                     </div>
@@ -330,7 +330,20 @@
                         </div>
                         <p>Access 1,200+ listed options across the highest level of liquidity, which means even large orders
                             of currency trades are easily filled efficiently without any large price deviations.</p>
-                        <a href="#"
+                        <a href="{{ route('forex_trading') }}"
+                            class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
+                                class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-card uk-card-body uk-card-default uk-border-rounded">
+                        <div class="uk-flex uk-flex-middle">
+                            <span class="in-product-name orange">FB</span>
+                            <h5 class="uk-margin-remove">Forex Broker</h5>
+                        </div>
+                        <p>A forex broker is a financial services company that provides traders access to a platform for buying and selling foreign currencies.
+                        </p>
+                        <a href="{{ route('forex_broker') }}"
                             class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
                                 class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                     </div>
@@ -344,20 +357,7 @@
                         <p>Access 300+ futures covering businesses with the tools and services they need to buy and sell
                             products and services over the Internet and manage their online enterprises.
                         </p>
-                        <a href="#"
-                            class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
-                                class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-body uk-card-default uk-border-rounded">
-                        <div class="uk-flex uk-flex-middle">
-                            <span class="in-product-name">RS</span>
-                            <h5 class="uk-margin-remove">Real Estate</h5>
-                        </div>
-                        <p>Explore the full range of buying, selling and renting of commercial and residential properties or
-                            land.</p>
-                        <a href="#"
+                        <a href="{{ route('e_commerce') }}"
                             class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
                                 class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                     </div>
@@ -381,11 +381,11 @@
                             </thead>
                             <tbody>
                                 @for ($i = 0; $i < 5; $i++)
-                                <tr>
-                                    <td style="width: 50px">&#127988</td>
-                                    <td style="width: 100px" id="username">fr*****e0</td>
-                                    <td style="width: 280px" class="text-right" id="fullname">Mr Frankie</td>
-                                </tr>
+                                    <tr>
+                                        <td style="width: 50px">&#127988</td>
+                                        <td style="width: 100px">fr*****e0</td>
+                                        <td style="width: 100px" class="text-right">Mr Frankie</td>
+                                    </tr>
                                 @endfor
                             </tbody>
                         </table>
@@ -399,8 +399,8 @@
                                 @for ($i = 0; $i < 5; $i++)
                                     <tr>
                                         <td style="width: 50px">&#12798</td>
-                                        <td style="width: 280px" id="name">Mr Frankie</td>
-                                        <td style="width: 100px" class="text-right" id="number"></td>
+                                        <td style="width: 100px">Mr Frankie</td>
+                                        <td style="width: 100px" class="text-right">${{ $i * 6 + 150 }}</td>
                                     </tr>
                                 @endfor
                             </tbody>
@@ -415,8 +415,8 @@
                                 @for ($i = 0; $i < 5; $i++)
                                     <tr>
                                         <td style="width: 50px">&#128681</td>
-                                        <td style="width: 280px" id="Name">Mr Donkey</td>
-                                        <td style="width: 100px" class="text-right"></td>
+                                        <td style="width: 100px">Mr Donkey</td>
+                                        <td style="width: 100px" class="text-right">${{ $i * 5 + 150 }}</td>
                                     </tr>
                                 @endfor
                             </tbody>

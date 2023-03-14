@@ -23,82 +23,58 @@
                         Company, you don’t need to compromise. Whether you invest on your own, with an advisor, or a
                         little of both — we can support you.</p>
                 </div>
-                <div>
+                <div style="width: 25%">
                     <div
                         class="uk-card uk-card-default uk-card-body uk-box-shadow-small uk-border-rounded uk-light in-card-green">
                         <div class="in-icon-wrap uk-margin-bottom">
-                            <i class="fas fa-seedling fa-lg"></i>
+                            <i class="fa-solid fa-coins fa-lg"></i>
                         </div>
                         <h4 class="uk-margin-top">
-                            <a href="#">Investing<i class="fas fa-chevron-right uk-float-right"></i></a>
+                            <a href="{{ route('staking') }}">Staking<i class="fas fa-chevron-right uk-float-right"></i></a>
                         </h4>
                         <hr>
-                        <p>A wide selection of investment product to help build diversified portfolio</p>
+                        <p>Access 19,000+ Staking across core and emerging markets on 40+ exchanges worldwide.</p>
                     </div>
                 </div>
-                <div>
+                <div style="width: 25%">
                     <div
                         class="uk-card uk-card-default uk-card-body uk-box-shadow-small uk-border-rounded uk-light in-card-blue">
                         <div class="in-icon-wrap uk-margin-bottom">
                             <i class="fas fa-chart-bar fa-lg"></i>
                         </div>
                         <h4 class="uk-margin-top">
-                            <a href="#">Trading<i class="fas fa-chevron-right uk-float-right"></i></a>
+                            <a href="{{ route('forex_trading') }}">Forex Trading<i class="fas fa-chevron-right uk-float-right"></i></a>
                         </h4>
                         <hr>
-                        <p>Powerful trading tools, resources, insight and support</p>
+                        <p>Access 1,200+ listed options across the highest level of liquidity, which means even large orders
+                            of currency trades are easily filled efficiently without any large price deviations.</p>
                     </div>
                 </div>
-                <div>
+                <div style="width: 25%">
                     <div
                         class="uk-card uk-card-default uk-card-body uk-box-shadow-small uk-border-rounded uk-light in-card-purple">
                         <div class="in-icon-wrap uk-margin-bottom">
-                            <i class="fas fa-chart-pie fa-lg"></i>
+                            <i class="fas fa-user-tie fa-lg"></i>
                         </div>
                         <h4 class="uk-margin-top">
-                            <a href="#">Wealth management<i class="fas fa-chevron-right uk-float-right"></i></a>
+                            <a href="{{ route('forex_broker') }}">Forex Broker<i class="fas fa-chevron-right uk-float-right"></i></a>
                         </h4>
                         <hr>
-                        <p>Dedicated financial consultant to help reach your own specific goals</p>
+                        <p>A forex broker is a financial services company that provides traders access to a platform for buying and selling foreign currencies.</p>
                     </div>
                 </div>
-                <div>
+                <div style="width: 25%">
                     <div
                         class="uk-card uk-card-default uk-card-body uk-box-shadow-small uk-border-rounded uk-light in-card-navy">
                         <div class="in-icon-wrap uk-margin-bottom">
-                            <i class="fas fa-chalkboard-teacher fa-lg"></i>
+                            <i class="fa-solid fa-business-time fa-lg"></i>
                         </div>
                         <h4 class="uk-margin-top">
-                            <a href="#">Investment advisory<i class="fas fa-chevron-right uk-float-right"></i></a>
+                            <a href="{{ route('e_commerce') }}">E-Commerce<i class="fas fa-chevron-right uk-float-right"></i></a>
                         </h4>
                         <hr>
-                        <p>A wide selection of investing strategies from seasoned portfolio managers</p>
-                    </div>
-                </div>
-                <div>
-                    <div
-                        class="uk-card uk-card-default uk-card-body uk-box-shadow-small uk-border-rounded uk-light in-card-grey">
-                        <div class="in-icon-wrap uk-margin-bottom">
-                            <i class="fas fa-funnel-dollar fa-lg"></i>
-                        </div>
-                        <h4 class="uk-margin-top">
-                            <a href="#">Smart portfolio<i class="fas fa-chevron-right uk-float-right"></i></a>
-                        </h4>
-                        <hr>
-                        <p>A revolutionary, fully-automated investmend advisory services</p>
-                    </div>
-                </div>
-                <div>
-                    <div
-                        class="uk-card uk-card-default uk-card-body uk-box-shadow-small uk-border-rounded uk-light in-card-orange">
-                        <div class="in-icon-wrap uk-margin-bottom">
-                            <i class="fas fa-handshake fa-lg"></i>
-                        </div>
-                        <h4 class="uk-margin-top">
-                            <a href="#">Mutual fund advisor<i class="fas fa-chevron-right uk-float-right"></i></a>
-                        </h4>
-                        <hr>
-                        <p>Specialized guidance from independent local advisor for hight-net-worth investors</p>
+                        <p>Access 300+ futures covering businesses with the tools and services they need to buy and sell
+                            products and services over the Internet and manage their online enterprises.</p>
                     </div>
                 </div>
             </div>

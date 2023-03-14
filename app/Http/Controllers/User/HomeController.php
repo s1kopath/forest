@@ -65,5 +65,20 @@ class HomeController extends Controller
     {
         return view('front-end.section.content.legal-docs.legal-docs');
     }
-
+    public function staking()
+    {
+        return view('front-end.section.content.product.staking');
+    }
+    public function forexTrading()
+    {
+        return view('front-end.section.content.product.forex_trading');
+    }
+    public function ECommerce()
+    {
+        return view('front-end.section.content.product.ecommerce');
+    }
+    public function forexBroker()
+    {
+        return view('front-end.section.content.product.forex_broker');
+    }
 }
