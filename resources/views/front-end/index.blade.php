@@ -380,13 +380,13 @@
                                 <th colspan="3" class="text-center">New Registration</th>
                             </thead>
                             <tbody>
-                                {{--  @for ($i = 0; $i < 5; $i++)  --}}
+                                @for ($i = 0; $i < 5; $i++)
                                 <tr>
                                     <td style="width: 50px">&#127988</td>
                                     <td style="width: 100px" id="username">fr*****e0</td>
                                     <td style="width: 280px" class="text-right" id="fullname">Mr Frankie</td>
                                 </tr>
-                                {{--  @endfor  --}}
+                                @endfor
                             </tbody>
                         </table>
                     </div>
@@ -396,13 +396,13 @@
                                 <th colspan="3" class="text-center">Deposit</th>
                             </thead>
                             <tbody>
-                                {{--  @for ($i = 0; $i < 5; $i++)  --}}
+                                @for ($i = 0; $i < 5; $i++)
                                     <tr>
                                         <td style="width: 50px">&#12798</td>
                                         <td style="width: 280px" id="name">Mr Frankie</td>
                                         <td style="width: 100px" class="text-right" id="number"></td>
                                     </tr>
-                                {{--  @endfor  --}}
+                                @endfor
                             </tbody>
                         </table>
                     </div>
@@ -412,13 +412,13 @@
                                 <th colspan="3" class="text-center">Withdrawal</th>
                             </thead>
                             <tbody>
-                                {{--  @for ($i = 0; $i < 5; $i++)  --}}
+                                @for ($i = 0; $i < 5; $i++)
                                     <tr>
                                         <td style="width: 50px">&#128681</td>
                                         <td style="width: 280px" id="Name">Mr Donkey</td>
                                         <td style="width: 100px" class="text-right"></td>
                                     </tr>
-                                {{--  @endfor  --}}
+                                @endfor
                             </tbody>
                         </table>
                     </div>
@@ -644,51 +644,4 @@
         </div>
     </div>
     <!-- section content end -->
-@endsection
-
-@section('page-script')
-    <script>
-        const url = ' https://randomuser.me/api/ ';
-
-        let fullname = document.getElementById('fullname');
-        let username = document.getElementById('username');
-        let name = document.getElementById('name');
-        let number = document.getElementById('number');
-        let Name = document.getElementById('Name');
-        function customuser() {
-            fetch(url)
-                .then(handleErrors)
-                .then(parseJSON)
-                .then(updateProfile)
-                .catch(printError)
-        }
-
-        function handleErrors(res) {
-            if (!res.ok) {
-                throw error(res.status);
-            }
-            return res;
-        }
-
-        function parseJSON(res) {
-            return res.json();
-        }
-
-        function updateProfile(profile) {
-            fullname.innerHTML = profile.results[0].name.first + " " + profile.results[0].name.last;
-            username.innerHTML = profile.results[0].login.username;
-            name.innerHTML = profile.results[0].name.first + " " + profile.results[0].name.last;
-            number.innerHTML = profile.results[0].number;
-            Name.innerHTML = profile.results[0].name.first + " " + profile.results[0].name.last;
-
-            return 1;
-        }
-
-        function printError(error) {
-            console.log(error);
-        }
-
-        setInterval(customuser, 2000);
-    </script>
-
 @endsection
