@@ -571,9 +571,9 @@
                                 width="91" height="82" data-uk-img>
                         </div>
                         <div>
-                            <h6>Best Mobile Trading App</h6>
-                            <p class="provider">European CEO Magazine</p>
-                            <p class="year">2019</p>
+                            <h6>Reliable</h6>
+                            <p class="provider">Someone that you can trust</p>
+                            <p class="year">100%</p>
                         </div>
                     </div>
                 </div>
@@ -585,9 +585,9 @@
                                 width="91" height="82" data-uk-img>
                         </div>
                         <div>
-                            <h6>Best Forex Ecn Broker</h6>
-                            <p class="provider">UK Forex awards</p>
-                            <p class="year">2020</p>
+                            <h6>Transparency</h6>
+                            <p class="provider">Open, Communicative, and Accountabile</p>
+                            <p class="year">100%</p>
                         </div>
                     </div>
                 </div>
@@ -599,9 +599,9 @@
                                 width="91" height="82" data-uk-img>
                         </div>
                         <div>
-                            <h6>Best Trading Conditions</h6>
-                            <p class="provider">Forex report magazine</p>
-                            <p class="year">2021</p>
+                            <h6>Secure</h6>
+                            <p class="provider">Keeping you safe financially and mentally.</p>
+                            <p class="year">100%</p>
                         </div>
                     </div>
                 </div>

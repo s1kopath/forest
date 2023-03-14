@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class TestUserDetailsTableSeeder extends Seeder
+class UserDetailsTableSeeder extends Seeder
 {
 
     /**
@@ -31,9 +31,12 @@ class TestUserDetailsTableSeeder extends Seeder
                 'city' => NULL,
                 'zip_code' => NULL,
                 'country' => NULL,
+                'image' => 'avatars/640de465ab033.png',
+                'kyc_type' => NULL,
+                'kyc_image_1' => NULL,
+                'kyc_image_2' => NULL,
                 'created_at' => '2023-03-02 11:51:44',
-                'updated_at' => '2023-03-02 11:55:53',
-                'image' => 'avatars/64008ec96f906.png',
+                'updated_at' => '2023-03-12 14:40:37',
             ),
             1 => 
             array (
@@ -47,9 +50,12 @@ class TestUserDetailsTableSeeder extends Seeder
                 'city' => NULL,
                 'zip_code' => NULL,
                 'country' => NULL,
+                'image' => NULL,
+                'kyc_type' => NULL,
+                'kyc_image_1' => NULL,
+                'kyc_image_2' => NULL,
                 'created_at' => '2023-03-02 11:51:44',
                 'updated_at' => '2023-03-02 11:51:44',
-                'image' => NULL,
             ),
             2 => 
             array (
@@ -63,9 +69,12 @@ class TestUserDetailsTableSeeder extends Seeder
                 'city' => NULL,
                 'zip_code' => NULL,
                 'country' => NULL,
+                'image' => NULL,
+                'kyc_type' => NULL,
+                'kyc_image_1' => NULL,
+                'kyc_image_2' => NULL,
                 'created_at' => '2023-03-02 11:51:44',
                 'updated_at' => '2023-03-02 11:51:44',
-                'image' => NULL,
             ),
             3 => 
             array (
@@ -79,9 +88,12 @@ class TestUserDetailsTableSeeder extends Seeder
                 'city' => NULL,
                 'zip_code' => NULL,
                 'country' => NULL,
+                'image' => NULL,
+                'kyc_type' => NULL,
+                'kyc_image_1' => NULL,
+                'kyc_image_2' => NULL,
                 'created_at' => '2023-03-02 11:51:44',
                 'updated_at' => '2023-03-02 11:51:44',
-                'image' => NULL,
             ),
             4 => 
             array (
@@ -95,9 +107,12 @@ class TestUserDetailsTableSeeder extends Seeder
                 'city' => NULL,
                 'zip_code' => NULL,
                 'country' => NULL,
+                'image' => NULL,
+                'kyc_type' => NULL,
+                'kyc_image_1' => NULL,
+                'kyc_image_2' => NULL,
                 'created_at' => '2023-03-02 11:51:45',
                 'updated_at' => '2023-03-02 11:51:45',
-                'image' => NULL,
             ),
             5 => 
             array (
@@ -111,9 +126,12 @@ class TestUserDetailsTableSeeder extends Seeder
                 'city' => NULL,
                 'zip_code' => NULL,
                 'country' => NULL,
+                'image' => NULL,
+                'kyc_type' => NULL,
+                'kyc_image_1' => NULL,
+                'kyc_image_2' => NULL,
                 'created_at' => '2023-03-02 11:51:45',
                 'updated_at' => '2023-03-02 11:51:45',
-                'image' => NULL,
             ),
             6 => 
             array (
@@ -127,9 +145,31 @@ class TestUserDetailsTableSeeder extends Seeder
                 'city' => NULL,
                 'zip_code' => NULL,
                 'country' => NULL,
+                'image' => NULL,
+                'kyc_type' => NULL,
+                'kyc_image_1' => NULL,
+                'kyc_image_2' => NULL,
                 'created_at' => '2023-03-02 11:51:45',
                 'updated_at' => '2023-03-02 11:51:45',
+            ),
+            7 => 
+            array (
+                'id' => 8,
+                'user_id' => 10,
+                'phone_number' => NULL,
+                'date_of_birth' => NULL,
+                'identity_number' => NULL,
+                'house_no' => NULL,
+                'street' => NULL,
+                'city' => NULL,
+                'zip_code' => NULL,
+                'country' => NULL,
                 'image' => NULL,
+                'kyc_type' => NULL,
+                'kyc_image_1' => NULL,
+                'kyc_image_2' => NULL,
+                'created_at' => '2023-03-13 11:20:58',
+                'updated_at' => '2023-03-13 11:20:58',
             ),
         ));
         

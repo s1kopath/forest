@@ -85,32 +85,32 @@
                         <div class="collapse px-4 pb-3" id="collapse{{ $stake->id }}">
                             <div class="row">
                                 <div class="col-6">Percentage</div>
-                                <div class="col-2 text-center">-</div>
+                                <div class="col-2 text-center">•</div>
                                 <div class="col-4 text-right">{{ $stake->percentage }}%</div>
                             </div>
                             <div class="row">
                                 <div class="col-6">Per Month</div>
-                                <div class="col-2 text-center">-</div>
+                                <div class="col-2 text-center">•</div>
                                 <div class="col-4 text-right">${{ $stake->amount_per_month }}</div>
                             </div>
                             <div class="row">
                                 <div class="col-6">Completed</div>
-                                <div class="col-2 text-center">-</div>
+                                <div class="col-2 text-center">•</div>
                                 <div class="col-4 text-right">{{ $stake->completed }} Months</div>
                             </div>
                             <div class="row">
                                 <div class="col-6">Start Date</div>
-                                <div class="col-2 text-center">-</div>
+                                <div class="col-2 text-center">•</div>
                                 <div class="col-4 text-right">{{ $stake->start_date }}</div>
                             </div>
                             <div class="row">
                                 <div class="col-6">End Date</div>
-                                <div class="col-2 text-center">-</div>
+                                <div class="col-2 text-center">•</div>
                                 <div class="col-4 text-right">{{ $stake->end_date }}</div>
                             </div>
                             <div class="row">
                                 <div class="col-6">Next Payout</div>
-                                <div class="col-2 text-center">-</div>
+                                <div class="col-2 text-center">•</div>
                                 <div class="col-4 text-right">{{ $stake->next_payout }}</div>
                             </div>
                         </div>

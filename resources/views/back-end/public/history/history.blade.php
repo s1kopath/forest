@@ -14,8 +14,7 @@
 
         .custom-btn-active {
             background-color: #1761bf;
-            color: white;
-            min-width: 130px;
+            color: white !important;
         }
     </style>
 @endpush
@@ -24,44 +23,33 @@
 
 @section('page-content')
     <div class="d-flex overflow-auto pb-3" id="shihab-btn-mbl-scroll">
-        <a href="{{ route('deposit_history') }}" class="btn custom-btn rounded-pill mx-1" id="active1"
-            onclick="msPosition(this)">
+        <button type="button" class="btn custom-btn custom-btn-active rounded-pill mx-1" onclick="fetch_data(1, 'Deposit')">
             Deposit
-        </a>
-        <a href="{{ route('withdrawal_history') }}" class="btn custom-btn rounded-pill mx-1" id="active2"
-            onclick="msPosition(this)">
+        </button>
+        <button type="button" class="btn custom-btn rounded-pill mx-1" onclick="fetch_data(1, 'Withdraw')">
             Withdraw
-        </a>
-        <a href="{{ route('invitation_gift_history') }}" class="btn custom-btn rounded-pill mx-1" id="active3"
-            onclick="msPosition(this)">
+        </button>
+        <button type="button" class="btn custom-btn rounded-pill mx-1" onclick="fetch_data(1, 'Invitation Gift')">
             Invitation Gift
-        </a>
-        <a href="{{ route('staking_roi_history') }}" class="btn custom-btn rounded-pill mx-1" id="active4"
-            onclick="msPosition(this)">
-            Stacking ROI
-        </a>
-        <a href="{{ route('ib_royality_history') }}" class="btn custom-btn rounded-pill mx-1" id="active5"
-            onclick="msPosition(this)">
-            IB Royality
-        </a>
-        <a href="{{ route('reward_history') }}" class="btn custom-btn rounded-pill mx-1" id="active6"
-            onclick="msPosition(this)">
+        </button>
+        <button type="button" class="btn custom-btn rounded-pill mx-1" onclick="fetch_data(1, 'Staking ROI')">
+            Staking ROI
+        </button>
+        <button type="button" class="btn custom-btn rounded-pill mx-1" onclick="fetch_data(1, 'IB Royalty')">
+            IB Royalty
+        </button>
+        <button type="button" class="btn custom-btn rounded-pill mx-1" onclick="fetch_data(1, 'Rewards')">
             Rewards
-        </a>
-        <a href="{{ route('transaction_history') }}" class="btn custom-btn rounded-pill mx-1" id="active7"
-            onclick="msPosition(this)">
-            Transaction
-        </a>
-        <a href="{{ route('contest_history') }}" class="btn custom-btn rounded-pill mx-1" id="active8"
-            onclick="msPosition(this)">
+        </button>
+        <button type="button" class="btn custom-btn rounded-pill mx-1" onclick="fetch_data(1, 'Contest')">
             Contest
-        </a>
+        </button>
     </div>
 
     <div class="card">
         <div class="card-block">
             <div class="d-flex justify-content-between p-2">
-                <h3 class="font-weight-bold">Stacking ROI History</h3>
+                <h3 class="font-weight-bold" id="section-title">Deposit History</h3>
                 <div>
                     <i class="fas fa-filter"></i>
                 </div>
@@ -75,38 +63,37 @@
 
 @push('js')
     <script>
-        function msPosition(e) {
-            const rect = e.getBoundingClientRect();
-            const position = rect.left + window.scrollX;
-            // console.log(rect);
-            localStorage.setItem('active_item', position);
-        }
-
+        let _purpose = 'Deposit';
+        
         $(document).ready(function() {
-            let selector = document.getElementById('shihab-btn-mbl-scroll');
-            selector.scrollLeft = localStorage.getItem('active_item');
-
-            // console.log(localStorage.getItem('active_item'), 'shihab');
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            fetch_data(1);
+            fetch_data(1, _purpose);
         });
 
         $(document).on('click', '.pagination a', function(event) {
             event.preventDefault();
             var page = $(this).attr('href').split('page=')[1];
-            fetch_data(page);
+            fetch_data(page, _purpose);
         });
 
-        function fetch_data(page) {
+        function fetch_data(page, purpose) {
+            if (page == 1) {
+                _purpose = purpose;
+                $('#section-title').html(purpose + ' History');
+            }
+
             $.ajax({
-                url: "/user/profile/history/fetch_data?page=" + page,
+                url: "/user/profile/history/fetch_data?purpose=" + purpose + "&page=" + page,
                 success(response) {
+                    // console.log(response);
                     $('#table_data').html(response);
                 }
             });
         }
+    </script>
+    <script>
+        $('.custom-btn').click(function() {
+            $('.custom-btn').removeClass('custom-btn-active');
+            $(this).addClass('custom-btn-active');
+        });
     </script>
 @endpush

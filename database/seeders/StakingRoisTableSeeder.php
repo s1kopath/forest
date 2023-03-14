@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class TestStakingRoisTableSeeder extends Seeder
+class StakingRoisTableSeeder extends Seeder
 {
 
     /**

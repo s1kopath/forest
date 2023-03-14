@@ -7,6 +7,7 @@ use App\Models\Banner;
 use App\Models\Wallet;
 use App\Models\UserStake;
 use App\Models\UserDetail;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Models\AmountForIbGain;
 use App\Http\Controllers\Controller;
@@ -93,8 +94,29 @@ class PublicDashboardController extends Controller
     function fetchHistoryData(Request $request)
     {
         if ($request->ajax()) {
-            $stakes = UserStake::where('user_id', auth()->id())->paginate(5);
-            return view('back-end.public.history.staking-roi-data', compact('stakes'))->render();
+
+            $transactions = Transaction::with(['bonusFrom'])->where('user_id', auth()->id())
+                ->where('purpose', $request->purpose)
+                ->orderBy('id', 'desc')
+                ->paginate(5);
+                
+            if ($request->purpose == 'Deposit') {
+                return view('back-end.public.history.data.deposit', compact('transactions'))->render();
+            } elseif ($request->purpose == 'Withdraw') {
+                return view('back-end.public.history.data.withdraw', compact('transactions'))->render();
+            } elseif ($request->purpose == 'Invitation Gift') {
+                return view('back-end.public.history.data.invitation-gift', compact('transactions'))->render();
+            } elseif ($request->purpose == 'Staking ROI') {
+                return view('back-end.public.history.data.staking-roi', compact('transactions'))->render();
+            } elseif ($request->purpose == 'IB Royalty') {
+                return view('back-end.public.history.data.ib-royalty', compact('transactions'))->render();
+            } elseif ($request->purpose == 'Rewards') {
+                return view('back-end.public.history.data.rewards', compact('transactions'))->render();
+            }elseif ($request->purpose == 'Contest') {
+                return view('back-end.public.history.data.contest', compact('transactions'))->render();
+            } else {
+                return '&nbsp&nbsp&nbspNot found';
+            }
         }
     }
     public function deposit_history()

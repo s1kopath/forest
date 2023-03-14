@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class TestWalletsTableSeeder extends Seeder
+class WalletsTableSeeder extends Seeder
 {
 
     /**
@@ -23,25 +23,25 @@ class TestWalletsTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'user_id' => 3,
-                'main_amount' => 500002.0,
-                'bonus_amount' => 202.0,
-                'withdrawable_amount' => 499860.0,
-                'total_earning' => 22.0,
+                'main_amount' => 500362.0,
+                'bonus_amount' => 203.0,
+                'withdrawable_amount' => 500219.0,
+                'total_earning' => 31.0,
                 'status' => '1',
                 'created_at' => '2023-03-02 11:51:44',
-                'updated_at' => '2023-03-04 07:46:39',
+                'updated_at' => '2023-03-13 11:21:48',
             ),
             1 => 
             array (
                 'id' => 2,
                 'user_id' => 4,
-                'main_amount' => 62298.0,
+                'main_amount' => 62328.0,
                 'bonus_amount' => 20.0,
-                'withdrawable_amount' => 0.0,
-                'total_earning' => 0.0,
+                'withdrawable_amount' => 30.0,
+                'total_earning' => 30.0,
                 'status' => '1',
                 'created_at' => '2023-03-02 11:51:44',
-                'updated_at' => '2023-03-04 07:49:08',
+                'updated_at' => '2023-03-12 13:52:20',
             ),
             2 => 
             array (
@@ -102,6 +102,18 @@ class TestWalletsTableSeeder extends Seeder
                 'status' => '1',
                 'created_at' => '2023-03-02 11:51:45',
                 'updated_at' => '2023-03-04 07:48:22',
+            ),
+            7 => 
+            array (
+                'id' => 8,
+                'user_id' => 10,
+                'main_amount' => 20.0,
+                'bonus_amount' => 20.0,
+                'withdrawable_amount' => 0.0,
+                'total_earning' => 0.0,
+                'status' => '1',
+                'created_at' => '2023-03-13 11:20:58',
+                'updated_at' => '2023-03-13 11:21:48',
             ),
         ));
         
