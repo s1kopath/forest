@@ -28,7 +28,9 @@
                     </div>
                 </div>
                 <div class="uk-width-1-1 uk-flex uk-flex-center ml-5 ms-5">
+                    <blockquote>
                     <p class="uk-margin-small-top ml-5 ms-5">Foreign exchange trading—also commonly called forex trading or FX—is the global market for exchanging foreign currencies. Forex is the largest market in the world, and the trades that happen in it affect everything from the price of clothing imported from China to the amount you pay for a margarita while vacationing in Mexico.</p>
+                    </blockquote>
                 </div>
             </div>
             <div class="uk-grid uk-flex uk-flex-center">
@@ -37,7 +39,7 @@
                         <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
                             <div class="uk-grid" data-uk-grid>
                                 <div class="uk-width-expand@m in-margin-top-10@s">
-                                    <h4 class="uk-margin-small-bottom">What Is Forex Trading?</h4>
+                                    <h4 class="uk-margin-small-bottom font-weight-bold"><i class="fas fa-chart-bar fa-sm"></i>&nbsp&nbsp What Is Forex Trading?</h4>
                                     <p class="uk-text-medium uk-margin-remove-bottom">At its simplest, forex trading is similar to the currency exchange you may do while traveling abroad: A trader buys one currency and sells another, and the exchange rate constantly fluctuates based on supply and demand.
                                         <br>
                                         <br>
@@ -48,7 +50,7 @@
                         <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
                             <div class="uk-grid" data-uk-grid>
                                 <div class="uk-width-expand@m in-margin-top-10@s">
-                                    <h4 class="uk-margin-small-bottom">How Currencies Are Traded</h4>
+                                    <h4 class="uk-margin-small-bottom font-weight-bold"><i class="fas fa-chart-bar fa-sm"></i>&nbsp&nbsp How Currencies Are Traded</h4>
                                     <p class="uk-text-medium uk-margin-remove-bottom">All currencies are assigned a three-letter code much like a stock’s ticker symbol. While there are more than 170 currencies worldwide, the U.S. dollar is involved in a vast majority of forex trading, so it’s especially helpful to know its code: USD. The second most popular currency in the forex market is the euro, the currency accepted in 19 countries in the European Union (code: EUR).
                                         <br>
                                         <br>
@@ -71,7 +73,7 @@
                         <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
                             <div class="uk-grid" data-uk-grid>
                                 <div class="uk-width-expand@m in-margin-top-10@s">
-                                    <h4 class="uk-margin-small-bottom">Three Ways to Trade Forex</h4>
+                                    <h4 class="uk-margin-small-bottom font-weight-bold"><i class="fas fa-chart-bar fa-sm"></i>&nbsp&nbsp Three Ways to Trade Forex</h4>
                                     <p class="uk-text-medium uk-margin-remove-bottom">Most forex trades aren’t made for the purpose of exchanging currencies (as you might at a currency exchange while traveling) but rather to speculate about future price movements, much like you would with stock trading. Similar to stock traders, forex traders are attempting to buy currencies whose values they think will increase relative to other currencies or to get rid of currencies whose purchasing power they anticipate will decrease.
                                         <br>
                                         <br>
@@ -88,7 +90,7 @@
                         <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
                             <div class="uk-grid" data-uk-grid>
                                 <div class="uk-width-expand@m in-margin-top-10@s">
-                                    <h4 class="uk-margin-small-bottom">What Moves the Forex Market?</h4>
+                                    <h4 class="uk-margin-small-bottom font-weight-bold"><i class="fas fa-chart-bar fa-sm"></i>&nbsp&nbsp What Moves the Forex Market?</h4>
                                     <p class="uk-text-medium uk-margin-remove-bottom">Like any other market, currency prices are set by the supply and demand of sellers and buyers. However, there are other macro forces at play in this market. Demand for particular currencies can also be influenced by interest rates, central bank policy, the pace of economic growth and the political environment in the country in question.
                                         <br>
                                         <br>
@@ -99,7 +101,7 @@
                         <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
                             <div class="uk-grid" data-uk-grid>
                                 <div class="uk-width-expand@m in-margin-top-10@s">
-                                    <h4 class="uk-margin-small-bottom">Risks of Forex Trading</h4>
+                                    <h4 class="uk-margin-small-bottom font-weight-bold"><i class="fas fa-chart-bar fa-sm"></i>&nbsp&nbsp Risks of Forex Trading</h4>
                                     <p class="uk-text-medium uk-margin-remove-bottom">Because forex trading requires leverage and traders use margin, there are additional risks to forex trading than other types of assets. Currency prices are constantly fluctuating, but at very small amounts, which means traders need to execute large trades (using leverage) to make money.
                                         <br>
                                         <br>
