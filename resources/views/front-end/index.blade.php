@@ -499,12 +499,11 @@
 
     <!-- section content begin -->
     <div class="uk-section in-equity-4">
-        <div class="uk-width-1-1@m uk-text-center">
-            <h1>More than <span class="in-highlight">23,000</span> traders joined</h1>
-        </div>
         <div class="uk-container uk-margin-top uk-margin-medium-bottom">
             <div class="uk-grid uk-child-width-1-4@m in-testimonial-2" data-uk-grid>
-
+                <div class="uk-width-1-1@m uk-text-center">
+                    <h1>More than <span class="in-highlight">23,000</span> traders joined</h1>
+                </div>
                 <div>
                     <div class="uk-background-contain uk-background-top-left"
                         data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
@@ -559,7 +558,7 @@
                                 <div class="uk-background-primary uk-border-pill">
                                     <img class="uk-align-center uk-border-pill"
                                         src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                        data-src="{{ asset('front-end/img/blockit/in-team-1.png') }}" alt="client-1"
+                                        data-src="{{ asset('front-end/img/blockit/in-team-3.png') }}" alt="client-1"
                                         width="100" height="100" data-uk-img>
                                 </div>
                             </div>
@@ -582,7 +581,7 @@
                                 <div class="uk-background-primary uk-border-pill">
                                     <img class="uk-align-center uk-border-pill"
                                         src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                        data-src="{{ asset('front-end/img/blockit/in-team-8.png') }}" alt="client-2"
+                                        data-src="{{ asset('front-end/img/blockit/in-team-4.png') }}" alt="client-2"
                                         width="100" height="100" data-uk-img>
                                 </div>
                             </div>
