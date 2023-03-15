@@ -499,11 +499,12 @@
 
     <!-- section content begin -->
     <div class="uk-section in-equity-4">
+        <div class="uk-width-1-1@m uk-text-center">
+            <h1>More than <span class="in-highlight">23,000</span> traders joined</h1>
+        </div>
         <div class="uk-container uk-margin-top uk-margin-medium-bottom">
-            <div class="uk-grid uk-child-width-1-2@m in-testimonial-2" data-uk-grid>
-                <div class="uk-width-1-1@m uk-text-center">
-                    <h1>More than <span class="in-highlight">23,000</span> traders joined</h1>
-                </div>
+            <div class="uk-grid uk-child-width-1-4@m in-testimonial-2" data-uk-grid>
+
                 <div>
                     <div class="uk-background-contain uk-background-top-left"
                         data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
@@ -522,7 +523,7 @@
                             </div>
                         </div>
                         <blockquote>
-                            <p>Very convenience for trader, spread for gold is relatively low compare to other
+                            <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low compare to other
                                 broker</p>
                         </blockquote>
                     </div>
@@ -545,13 +546,59 @@
                             </div>
                         </div>
                         <blockquote>
-                            <p>One of the best FX brokers, I have been using! their trading conditions are excellent
+                            <p style="font-size: 18px">One of the best FX brokers, I have been using! their trading conditions are excellent
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-background-contain uk-background-top-left"
+                        data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                        <div class="uk-flex uk-flex-middle">
+                            <div class="uk-margin-right">
+                                <div class="uk-background-primary uk-border-pill">
+                                    <img class="uk-align-center uk-border-pill"
+                                        src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                        data-src="{{ asset('front-end/img/blockit/in-team-1.png') }}" alt="client-1"
+                                        width="100" height="100" data-uk-img>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
+                                <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                            </div>
+                        </div>
+                        <blockquote>
+                            <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low compare to other
+                                broker</p>
+                        </blockquote>
+                    </div>
+                </div>
+                <div>
+                    <div class="uk-background-contain uk-background-top-left"
+                        data-src="{{ asset('front-end/img/in-equity-4-blob-2.svg') }}" data-uk-img>
+                        <div class="uk-flex uk-flex-middle">
+                            <div class="uk-margin-right">
+                                <div class="uk-background-primary uk-border-pill">
+                                    <img class="uk-align-center uk-border-pill"
+                                        src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                        data-src="{{ asset('front-end/img/blockit/in-team-8.png') }}" alt="client-2"
+                                        width="100" height="100" data-uk-img>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="uk-margin-remove-bottom">Wade Palmer</h5>
+                                <p class="uk-text-muted uk-margin-remove-top">from Germany</p>
+                            </div>
+                        </div>
+                        <blockquote>
+                            <p style="font-size: 18px">One of the best FX brokers, I have been using! their trading conditions are excellent
                             </p>
                         </blockquote>
                     </div>
                 </div>
                 <div class="uk-width-1-1@m uk-text-center">
-                    <a href="#" class="uk-button uk-button-text">See more traders stories from all over the
+                    <a href="{{ route('all_traders')}}" class="uk-button uk-button-text">See more traders stories from all over the
                         world<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                 </div>
             </div>

@@ -81,4 +81,8 @@ class HomeController extends Controller
     {
         return view('front-end.section.content.product.forex_broker');
     }
+    public function allTraders()
+    {
+        return view('front-end.section.content.traders.all-traders');
+    }
 }
