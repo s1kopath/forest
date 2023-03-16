@@ -1,7 +1,6 @@
 @extends('front-end.master')
 
 @section('content')
-
     <!-- slideshow content begin -->
     <div class="uk-section uk-padding-remove-vertical in-slideshow-gradient">
         <div id="particles-js" class="uk-light in-slideshow uk-background-contain"
@@ -303,11 +302,11 @@
     <!-- slideshow content end -->
 
     <!-- section content begin -->
-    <div class="uk-section uk-section-primary uk-preserve-color in-equity-1">
+    <div class="uk-section uk-section-primary uk-preserve-color in-equity-1" id="markets">
         <div class="uk-container">
             <div class="uk-grid">
                 <div class="uk-width-1-1">
-                    <h4>Popular products</h4>
+                    <h4>Popular Products</h4>
                 </div>
             </div>
             <div class="uk-grid-match uk-grid-medium uk-child-width-1-4@m uk-child-width-1-2@s uk-margin-bottom"
@@ -375,9 +374,8 @@
         data-src="{{ asset('front-end/img/in-equity-2-bg.png') }}" data-uk-img>
         <div class="uk-container uk-margin-top">
             <div class="uk-grid uk-flex uk-flex-center">
-
-                <div class="row shadow-lg">
-                    <div class="col-md-4 rounded px-5 py-3">
+                <div class="row">
+                    <div class="col-md-4 rounded px-5 py-3 border">
                         <table>
                             <thead>
                                 <th colspan="3" class="text-center">New Registration</th>
@@ -393,7 +391,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-md-4 rounded px-5 py-3">
+                    <div class="col-md-4 rounded px-5 py-3 border">
                         <table>
                             <thead>
                                 <th colspan="3" class="text-center">Deposit</th>
@@ -409,7 +407,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-md-4 rounded px-5 py-3">
+                    <div class="col-md-4 rounded px-5 py-3 border">
                         <table>
                             <thead>
                                 <th colspan="3" class="text-center">Withdrawal</th>
@@ -424,49 +422,6 @@
                                 @endfor
                             </tbody>
                         </table>
-                    </div>
-                </div>
-                <div class="uk-width-3-4@m uk-margin-medium-top">
-
-                    {{-- section --}}
-
-                </div>
-
-                <div class="uk-width-2xlarge@m uk-margin-medium-top">
-                    <div class="uk-grid uk-child-width-1-4@m uk-child-width-1-4@s uk-text-center in-feature-box"
-                        data-uk-grid>
-                        <a href="#">
-                            <span class="in-icon-wrap">
-                                <img src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                    data-src="{{ asset('front-end/img/in-equity-2-icon-1.svg') }}" alt="icon-1"
-                                    width="35" height="42" data-uk-img>
-                            </span>
-                            <p class="uk-margin-top">Trading calculators</p>
-                        </a>
-                        <a href="#">
-                            <span class="in-icon-wrap">
-                                <img src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                    data-src="{{ asset('front-end/img/in-equity-2-icon-2.svg') }}" alt="icon-2"
-                                    width="38" height="42" data-uk-img>
-                            </span>
-                            <p class="uk-margin-top">Market analysis</p>
-                        </a>
-                        <a href="#">
-                            <span class="in-icon-wrap">
-                                <img src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                    data-src="{{ asset('front-end/img/in-equity-2-icon-3.svg') }}" alt="icon-3"
-                                    width="42" height="42" data-uk-img>
-                            </span>
-                            <p class="uk-margin-top">Market reviews</p>
-                        </a>
-                        <a href="#">
-                            <span class="in-icon-wrap">
-                                <img src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                    data-src="{{ asset('front-end/img/in-equity-2-icon-4.svg') }}" alt="icon-4"
-                                    width="42" height="42" data-uk-img>
-                            </span>
-                            <p class="uk-margin-top">Trading academy</p>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -500,6 +455,120 @@
     </div>
     <!-- section content end -->
 
+
+    <!-- section content begin -->
+    <div class="uk-section uk-section-primary uk-preserve-color in-equity-1" id="about">
+        <div class="uk-container">
+            <div class="uk-grid">
+                <div class="uk-width-1-1 uk-flex uk-flex-center">
+                    <div class="uk-width-3-5@m uk-text-center">
+                        <h1 class="uk-margin-remove-bottom">Putting our clients first <span class="in-highlight">since
+                                1986</span></h1>
+                        <p class="uk-text-lead text-white uk-margin-small-top">For more than 30 years, we’ve been
+                            empowering clients by helping them take control of their financial lives.</p>
+                    </div>
+                </div>
+                <div class="uk-grid uk-grid-large uk-child-width-1-3@m uk-margin-medium-top" data-uk-grid>
+                    <div class="uk-flex uk-flex-left">
+                        <div class="uk-margin-right">
+                            <div class="in-icon-wrap secondary-color">
+                                <i class="fas fa-leaf fa-lg"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Philosophy</h3>
+                            <p class="uk-margin-remove-bottom">At vero eos etme accusamus iusto odio ent dignissimos
+                                deleniti atque corrupti quos ducimus moll quilla blanditiis expedita est distinctio.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="uk-flex uk-flex-left">
+                        <div class="uk-margin-right">
+                            <div class="in-icon-wrap secondary-color">
+                                <i class="fas fa-hourglass-end fa-lg"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>History</h3>
+                            <p class="uk-margin-remove-bottom">At vero eos etme accusamus iusto odio ent dignissimos
+                                deleniti atque corrupti quos ducimus moll quilla blanditiis expedita est distinctio.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="uk-flex uk-flex-left">
+                        <div class="uk-margin-right">
+                            <div class="in-icon-wrap secondary-color">
+                                <i class="fas fa-flag fa-lg"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Culture</h3>
+                            <p class="uk-margin-remove-bottom">At vero eos etme accusamus iusto odio ent dignissimos
+                                deleniti atque corrupti quos ducimus moll quilla blanditiis expedita est distinctio.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- section content end -->
+
+    <!-- section content begin -->
+    <div class="uk-section">
+        <div class="uk-container">
+            <div class="uk-grid">
+                <div class="uk-width-1-2@m">
+                    <div class="uk-grid uk-grid-small" data-uk-grid>
+                        <div class="uk-width-auto@m">
+                            <div class="in-icon-wrap large primary-color uk-margin-right">
+                                <i class="fas fa-money-bill-wave fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="uk-width-expand">
+                            <h3>Why trade with our Company?</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                exercitation repudiandae ullamco.</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-1-2@m">
+                    <h3>Our Shares offer</h3>
+                    <div class="uk-grid uk-child-width-1-1 uk-child-width-1-3@m">
+                        <div>
+                            <ul class="uk-list in-list-check">
+                                <li>Direct Market Access (DMA)</li>
+                                <li>Leverage up to 1:500</li>
+                                <li>T+0 settlement</li>
+                                <li>Dividends paid in cash</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="uk-list in-list-check">
+                                <li>Free from UK Stamp Duty</li>
+                                <li>Short selling available</li>
+                                <li>Commissions from 0.08%</li>
+                                <li>Access to 1500 global shares</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="uk-list in-list-check">
+                                <li>Free from UK Stamp Duty</li>
+                                <li>Short selling available</li>
+                                <li>Commissions from 0.08%</li>
+                                <li>Access to 1500 global shares</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- section content end -->
+
+
     <!-- section content begin -->
     <div class="uk-section in-equity-4 container">
         <div class="uk-width-1-1@m uk-text-center uk-margin-bottom mb-5">
@@ -517,8 +586,8 @@
                                         <div class="uk-background-primary uk-border-pill">
                                             <img class="uk-align-center uk-border-pill"
                                                 src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-1.png') }}" alt="client-1"
-                                                width="100" height="100" data-uk-img>
+                                                data-src="{{ asset('front-end/img/blockit/in-team-1.png') }}"
+                                                alt="client-1" width="100" height="100" data-uk-img>
                                         </div>
                                     </div>
                                     <div>
@@ -527,7 +596,8 @@
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
+                                        low
                                         compare to other
                                         broker</p>
                                 </blockquote>
@@ -543,8 +613,8 @@
                                         <div class="uk-background-primary uk-border-pill">
                                             <img class="uk-align-center uk-border-pill"
                                                 src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-2.png') }}" alt="client-1"
-                                                width="100" height="100" data-uk-img>
+                                                data-src="{{ asset('front-end/img/blockit/in-team-2.png') }}"
+                                                alt="client-1" width="100" height="100" data-uk-img>
                                         </div>
                                     </div>
                                     <div>
@@ -553,7 +623,8 @@
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
+                                        low
                                         compare to other
                                         broker</p>
                                 </blockquote>
@@ -569,8 +640,8 @@
                                         <div class="uk-background-primary uk-border-pill">
                                             <img class="uk-align-center uk-border-pill"
                                                 src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-3.png') }}" alt="client-1"
-                                                width="100" height="100" data-uk-img>
+                                                data-src="{{ asset('front-end/img/blockit/in-team-3.png') }}"
+                                                alt="client-1" width="100" height="100" data-uk-img>
                                         </div>
                                     </div>
                                     <div>
@@ -579,7 +650,8 @@
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
+                                        low
                                         compare to other
                                         broker</p>
                                 </blockquote>
@@ -595,8 +667,8 @@
                                         <div class="uk-background-primary uk-border-pill">
                                             <img class="uk-align-center uk-border-pill"
                                                 src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-4.png') }}" alt="client-1"
-                                                width="100" height="100" data-uk-img>
+                                                data-src="{{ asset('front-end/img/blockit/in-team-4.png') }}"
+                                                alt="client-1" width="100" height="100" data-uk-img>
                                         </div>
                                     </div>
                                     <div>
@@ -605,7 +677,8 @@
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
+                                        low
                                         compare to other
                                         broker</p>
                                 </blockquote>
@@ -621,8 +694,8 @@
                                         <div class="uk-background-primary uk-border-pill">
                                             <img class="uk-align-center uk-border-pill"
                                                 src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-5.png') }}" alt="client-1"
-                                                width="100" height="100" data-uk-img>
+                                                data-src="{{ asset('front-end/img/blockit/in-team-5.png') }}"
+                                                alt="client-1" width="100" height="100" data-uk-img>
                                         </div>
                                     </div>
                                     <div>
@@ -631,7 +704,8 @@
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
+                                        low
                                         compare to other
                                         broker</p>
                                 </blockquote>
@@ -647,8 +721,8 @@
                                         <div class="uk-background-primary uk-border-pill">
                                             <img class="uk-align-center uk-border-pill"
                                                 src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-6.png') }}" alt="client-1"
-                                                width="100" height="100" data-uk-img>
+                                                data-src="{{ asset('front-end/img/blockit/in-team-6.png') }}"
+                                                alt="client-1" width="100" height="100" data-uk-img>
                                         </div>
                                     </div>
                                     <div>
@@ -657,7 +731,8 @@
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
+                                        low
                                         compare to other
                                         broker</p>
                                 </blockquote>
@@ -673,8 +748,8 @@
                                         <div class="uk-background-primary uk-border-pill">
                                             <img class="uk-align-center uk-border-pill"
                                                 src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-7.png') }}" alt="client-1"
-                                                width="100" height="100" data-uk-img>
+                                                data-src="{{ asset('front-end/img/blockit/in-team-7.png') }}"
+                                                alt="client-1" width="100" height="100" data-uk-img>
                                         </div>
                                     </div>
                                     <div>
@@ -683,7 +758,8 @@
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
+                                        low
                                         compare to other
                                         broker</p>
                                 </blockquote>
@@ -699,8 +775,8 @@
                                         <div class="uk-background-primary uk-border-pill">
                                             <img class="uk-align-center uk-border-pill"
                                                 src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-8.png') }}" alt="client-1"
-                                                width="100" height="100" data-uk-img>
+                                                data-src="{{ asset('front-end/img/blockit/in-team-8.png') }}"
+                                                alt="client-1" width="100" height="100" data-uk-img>
                                         </div>
                                     </div>
                                     <div>
@@ -709,7 +785,8 @@
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
+                                        low
                                         compare to other
                                         broker</p>
                                 </blockquote>
@@ -725,8 +802,8 @@
                                         <div class="uk-background-primary uk-border-pill">
                                             <img class="uk-align-center uk-border-pill"
                                                 src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-9.png') }}" alt="client-1"
-                                                width="100" height="100" data-uk-img>
+                                                data-src="{{ asset('front-end/img/blockit/in-team-9.png') }}"
+                                                alt="client-1" width="100" height="100" data-uk-img>
                                         </div>
                                     </div>
                                     <div>
@@ -735,7 +812,8 @@
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
+                                        low
                                         compare to other
                                         broker</p>
                                 </blockquote>
@@ -751,8 +829,8 @@
                                         <div class="uk-background-primary uk-border-pill">
                                             <img class="uk-align-center uk-border-pill"
                                                 src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-5.png') }}" alt="client-1"
-                                                width="100" height="100" data-uk-img>
+                                                data-src="{{ asset('front-end/img/blockit/in-team-5.png') }}"
+                                                alt="client-1" width="100" height="100" data-uk-img>
                                         </div>
                                     </div>
                                     <div>
@@ -761,7 +839,8 @@
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
+                                        low
                                         compare to other
                                         broker</p>
                                 </blockquote>
@@ -770,14 +849,86 @@
                     </li>
                 </ul>
 
-                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+                    uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                    uk-slider-item="next"></a>
 
             </div>
         </div>
         <div class="uk-width-1-1@m uk-text-center">
-            <a href="{{ route('all_traders')}}" class="uk-button uk-button-text">See more traders stories from all over the
+            <a href="{{ route('all_traders') }}" class="uk-button uk-button-text">See more traders stories from all over
+                the
                 world<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+        </div>
+    </div>
+    <!-- section content end -->
+
+
+
+    <!-- section content begin -->
+    <div class="uk-section" id="contact">
+        <div class="uk-container">
+            <div class="uk-grid uk-flex uk-flex-center in-contact-6">
+                <div class="uk-width-1-2">
+                    <iframe class="uk-width-1-1 uk-height-medium uk-border-rounded"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10600.5248164368!2d144.95966577016594!3d-37.81707816290683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sid!4v1645280096951!5m2!1sen!2sid">
+                    </iframe>
+                    
+                    <hr class="uk-margin-medium">
+                    <div class="uk-grid uk-child-width-1-3@m uk-margin-medium-top uk-text-center" data-uk-grid="">
+                        <div>
+                            <h5 class="uk-margin-remove-bottom"><i
+                                    class="fas fa-map-marker-alt fa-sm uk-margin-small-right"></i>Address</h5>
+                            <p class="uk-margin-small-top">Satrio Tower 16th, Jl. Dr Satrio Kuningan, Jakarta</p>
+                        </div>
+                        <div>
+                            <h5 class="uk-margin-remove-bottom"><i
+                                    class="fas fa-envelope fa-sm uk-margin-small-right"></i>Email</h5>
+                            <p class="uk-margin-small-top uk-margin-remove-bottom">hello@company.com</p>
+                            <p class="uk-text-small uk-text-muted uk-text-uppercase uk-margin-remove-top">for public
+                                inquiries</p>
+                        </div>
+                        <div>
+                            <h5 class="uk-margin-remove-bottom"><i
+                                    class="fas fa-phone-alt fa-sm uk-margin-small-right"></i>Call</h5>
+                            <p class="uk-margin-small-top uk-margin-remove-bottom">(888)234-5686</p>
+                            <p class="uk-text-small uk-text-muted uk-text-uppercase uk-margin-remove-top">Mon - Fri,
+                                9am - 5pm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-1-2@m">
+                    <p class="uk-margin-remove-bottom uk-text-lead uk-text-muted uk-text-center">Have a questions?
+                    </p>
+                    <h1 class="uk-margin-small-top uk-text-center">Let's <span class="in-highlight">get in
+                            touch</span></h1>
+                    <form id="contact-form" class="uk-form uk-grid-small uk-margin-medium-top" data-uk-grid="">
+                        <div class="uk-width-1-2@s uk-inline">
+                            <span class="uk-form-icon fas fa-user fa-sm"></span>
+                            <input class="uk-input uk-border-rounded" id="name" name="name" type="text"
+                                placeholder="Full name">
+                        </div>
+                        <div class="uk-width-1-2@s uk-inline">
+                            <span class="uk-form-icon fas fa-envelope fa-sm"></span>
+                            <input class="uk-input uk-border-rounded" id="email" name="email" type="email"
+                                placeholder="Email address">
+                        </div>
+                        <div class="uk-width-1-1 uk-inline">
+                            <span class="uk-form-icon fas fa-pen fa-sm"></span>
+                            <input class="uk-input uk-border-rounded" id="subject" name="subject" type="text"
+                                placeholder="Subject">
+                        </div>
+                        <div class="uk-width-1-1">
+                            <textarea class="uk-textarea uk-border-rounded" id="message" name="message" rows="6" placeholder="Message"></textarea>
+                        </div>
+                        <div class="uk-width-1-1">
+                            <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded" id="sendemail"
+                                type="submit" name="submit">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <!-- section content end -->
