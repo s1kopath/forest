@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="uk-visible@m">
+                        <div>
                             <h3 class="uk-heading-bullet"><a class="uk-link-text uk-text-decoration-none" href="#content2">Types of Ecommerce</a>
                             </h3>
                             <div class="uk-grid uk-grid-small" data-uk-grid>
@@ -97,7 +97,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="uk-width-1-3@m">
+                <div class="uk-width-1-3@m mt-3">
                     <img src="{{ asset('front-end/content/sizes of e-commerce.jpg') }}">
                 </div>
             </div>
@@ -174,7 +174,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="uk-width-1-3@m">
+                <div class="uk-width-1-3@m mt-3">
                     <img src="{{ asset('front-end/content/example of e-commerce.jpg') }}">
                 </div>
             </div>

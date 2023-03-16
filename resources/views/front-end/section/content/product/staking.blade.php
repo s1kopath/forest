@@ -6,10 +6,11 @@
 @section('page-style')
     <style>
         #fixed_div {
-            width: 400px;
             position: fixed;
             top: 10%;
             right: 40px;
+            width: 30vw;
+            height: 50vh;
         }
 
         .uk-card-body {
@@ -21,6 +22,7 @@
             position: relative;
             background: #fff
         }
+
     </style>
 @endsection
 
@@ -36,23 +38,22 @@
                 <div class="uk-width-2-3@m">
                     <div class="in-blog-1" data-uk-grid>
                         <div class="in-stretch">
-                            <h3>
-                                <a href="#" class="text-decoration-none font-weight-bold"
-                                    style="color:black; font-size:50px">What is staking?</a>
-                            </h3>
+                            <h1 class="font-weight-bold">
+                                What is staking?
+                            </h1>
                             <article class="uk-card uk-card-default uk-border-rounded mt-3">
                                 <div class="uk-card-media-top">
-                                    <img src="{{ asset('front-end/content/staking.jpeg') }}" width="800px">
+                                    <img src="{{ asset('front-end/content/staking.jpeg') }}" width="900px">
                                 </div>
                                 <div class="uk-card-body">
-                                    <blockquote>
+
                                         <p>Like a lot of things in crypto, staking can be a complicated idea or a simple one
                                             depending on how many levels of understanding you want to unlock. For a lot of
                                             crypto users, knowing that staking is a way of earning rewards while holding
                                             onto certain cryptocurrencies is the key takeaway. But even if you’re just
                                             looking to earn some staking rewards, it’s useful to understand at least a
                                             little bit about how and why it works the way it does.</p>
-                                    </blockquote>
+
                                 </div>
 
                             </article>
@@ -61,10 +62,10 @@
                             <article class="uk-card uk-card-default uk-border-rounded">
                                 <div class="uk-card-body" id="q1">
                                     <h3>
-                                        <a href="#" class="link-primary text-decoration-none"><i class="fa-solid fa-coins fa-sm"></i>&nbsp&nbsp How does staking
-                                            work?</a>
+                                        <i class="fa-solid fa-coins fa-sm"></i>&nbsp&nbsp How does staking
+                                            work?
                                     </h3>
-                                    <blockquote>
+
                                         <p>If you own a cryptocurrency that uses a proof of stake blockchain, you are
                                             eligible to stake your tokens.
                                             <br>
@@ -80,7 +81,7 @@
                                             directly on the exchange for slightly more convenience, in return for the
                                             exchange taking a portion of the staking yields,” says Trakulhoon.
                                         </p>
-                                    </blockquote>
+
                                 </div>
 
                             </article>
@@ -89,10 +90,10 @@
                             <article class="uk-card uk-card-default uk-border-rounded">
                                 <div class="uk-card-body" id="q2">
                                     <h3>
-                                        <a href="#" class="link-primary text-decoration-none"><i class="fa-solid fa-coins fa-sm"></i>&nbsp&nbsp What is Proof of
-                                            Stake?</a>
+                                        <i class="fa-solid fa-coins fa-sm"></i>&nbsp&nbsp What is Proof of
+                                            Stake?
                                     </h3>
-                                    <blockquote>
+
                                         <p>A newer consensus mechanism called Proof of Stake has emerged — with the idea of
                                             increasing speed and efficiency while lowering fees. A major way Proof of Stake
                                             reduces costs is by not requiring all those miners to churn through math
@@ -111,7 +112,7 @@
                                             staked tokens act as a guarantee that they are acting in good faith and as a
                                             disincentive to violating the protocol rules.
                                         </p>
-                                    </blockquote>
+
                                 </div>
                             </article>
                         </div>
@@ -119,10 +120,10 @@
                             <article class="uk-card uk-card-default uk-border-rounded">
                                 <div class="uk-card-body" id="q3">
                                     <h3>
-                                        <a href="#" class="link-primary text-decoration-none"><i class="fa-solid fa-coins fa-sm"></i>&nbsp&nbsp What are the advantages
-                                            of staking?</a>
+                                        <i class="fa-solid fa-coins fa-sm"></i>&nbsp&nbsp What are the advantages
+                                            of staking?
                                     </h3>
-                                    <blockquote>
+
                                         <p>Many long-term crypto holders look at staking as a way of making their assets
                                             work for them by generating rewards, rather than collecting dust in their crypto
                                             wallets.
@@ -133,7 +134,7 @@
                                             blockchain more resistant to attacks and strengthen its ability to process
                                             transactions.
                                         </p>
-                                    </blockquote>
+
                                 </div>
                             </article>
                         </div>
@@ -141,22 +142,22 @@
                             <article class="uk-card uk-card-default uk-border-rounded">
                                 <div class="uk-card-body" id="q4">
                                     <h3>
-                                        <a href="#" class="link-primary text-decoration-none"><i class="fa-solid fa-coins fa-sm"></i>&nbsp&nbsp What are some staking
-                                            risks?</a>
+                                        <i class="fa-solid fa-coins fa-sm"></i>&nbsp&nbsp What are some staking
+                                            risks?
                                     </h3>
-                                    <blockquote>
+
                                         <p>Staking often requires a lockup or “vesting” period, where your crypto can’t be
                                             transferred for a certain period of time. This can be a drawback, as you won’t
                                             be able to trade staked tokens during this period even if prices shift. Before
                                             staking, it is important to research the specific staking requirements and rules
                                             for each project you are looking to get involved with.</p>
-                                    </blockquote>
+
                                 </div>
                             </article>
                         </div>
                     </div>
                 </div>
-                <div class="uk-width-expand@m mt-5" id="fixed_div">
+                <div class="uk-width-expand@m uk-visible@s uk-visible@m mt-5" id="fixed_div">
                     <div class="uk-card uk-card-default uk-box-shadow-small uk-border-rounded mt-5">
 
                         <aside>

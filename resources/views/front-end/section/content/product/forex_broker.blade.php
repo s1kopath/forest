@@ -55,7 +55,7 @@
                             <h3>
                                 <a href="#" class="link-primary text-decoration-none">Opening a Forex Account</a>
                             </h3>
-                            <blockquote>
+
                                 <p>Opening a forex trading account these days is quite simple and can be done online. Before trading, the forex broker will require a customer to deposit money into the new account as collateral.
                                     <br>
                                     <br>
@@ -63,7 +63,7 @@
                                     <br>
                                     <br>
                                     High leverage makes forex trading very risky and most traders lose money attempting it.</p>
-                            </blockquote>
+
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                             <h3>
                                 <a href="#" class="link-primary text-decoration-none">How Forex Brokers Make Money</a>
                             </h3>
-                            <blockquote>
+
                                 <p>Forex brokers are compensated two ways. The first is through the bid-ask spread of a currency pair.
                                     <br>
                                     <br>
@@ -83,7 +83,7 @@
 
                                     Secondly, some brokers charge additional fees. Some charge a fee per transaction or a monthly fee for access to a particular software interface or fees for access to special trading products such as exotic options.
                                     </p>
-                            </blockquote>
+                            
                         </div>
                     </div>
                 </div>

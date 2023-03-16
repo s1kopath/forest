@@ -70,7 +70,7 @@
     <!-- section content begin -->
     <div class="uk-section uk-padding-remove-top">
         <div class="uk-container">
-            <div class="uk-grid uk-child-width-1-4@m in-testimonial-7" data-uk-grid>
+            <div class="uk-grid uk-child-width-1-2@s uk-child-width-1-4@m in-testimonial-7" data-uk-grid>
                 <div>
                     <div class="uk-card uk-card-default uk-box-shadow-small uk-border-rounded">
                         <div class="uk-card-header uk-text-center">

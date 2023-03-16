@@ -4,6 +4,13 @@
 @endsection
 
 @section('page-style')
+<style>
+    .uk-grid-small, .uk-grid-column-small {
+        margin-left: 0px;
+    }
+
+
+</style>
 @endsection
 
 @section('breadcrumb')
@@ -27,10 +34,9 @@
                         <img src="{{ asset('front-end/content/forex-trading.jpg') }}">
                     </div>
                 </div>
-                <div class="uk-width-1-1 uk-flex uk-flex-center ml-5 ms-5">
-                    <blockquote>
-                    <p class="uk-margin-small-top ml-5 ms-5">Foreign exchange trading—also commonly called forex trading or FX—is the global market for exchanging foreign currencies. Forex is the largest market in the world, and the trades that happen in it affect everything from the price of clothing imported from China to the amount you pay for a margarita while vacationing in Mexico.</p>
-                    </blockquote>
+                <div class="uk-width-1-1 uk-text-center">
+                    <p class="uk-margin-small-top">Foreign exchange trading—also commonly called forex trading or FX—is the global market for exchanging foreign currencies. Forex is the largest market in the world, and the trades that happen in it affect everything from the price of clothing imported from China to the amount you pay for a margarita while vacationing in Mexico.</p>
+
                 </div>
             </div>
             <div class="uk-grid uk-flex uk-flex-center">

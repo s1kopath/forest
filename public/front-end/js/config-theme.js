@@ -4,7 +4,7 @@
  * Author URI  : http://www.indonez.com
  *
  * Indonez Copyright 2020 All Rights Reserved.
- * -------------------------------------------------------------------------- 
+ * --------------------------------------------------------------------------
  * javascript handle initialization
     1. Slideshow
     2. Mobile nav button
@@ -23,7 +23,7 @@
                 pauseOnHover: false,
                 animation: 'slide',
                 minHeight: 440,
-                maxHeight: 580
+                maxHeight: 580,
             });
         },
         //---------- 2. Mobile nav button -----------
@@ -95,7 +95,7 @@
             HomepageApp.theme_stephover();
         }
     }
-    
+
     document.addEventListener('DOMContentLoaded', function() {
         HomepageApp.theme_init();
     });

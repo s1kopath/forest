@@ -1,5 +1,7 @@
 @extends('front-end.master')
+
 @section('content')
+
     <!-- slideshow content begin -->
     <div class="uk-section uk-padding-remove-vertical in-slideshow-gradient">
         <div id="particles-js" class="uk-light in-slideshow uk-background-contain"
@@ -341,7 +343,8 @@
                             <span class="in-product-name orange">FB</span>
                             <h5 class="uk-margin-remove">Forex Broker</h5>
                         </div>
-                        <p>A forex broker is a financial services company that provides traders access to a platform for buying and selling foreign currencies.
+                        <p>A forex broker is a financial services company that provides traders access to a platform for
+                            buying and selling foreign currencies.
                         </p>
                         <a href="{{ route('forex_broker') }}"
                             class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
@@ -499,107 +502,277 @@
 
     <!-- section content begin -->
     <div class="uk-section in-equity-4">
-        <div class="uk-container uk-margin-top uk-margin-medium-bottom">
-            <div class="uk-grid uk-child-width-1-4@m in-testimonial-2" data-uk-grid>
-                <div class="uk-width-1-1@m uk-text-center">
-                    <h1>More than <span class="in-highlight">23,000</span> traders joined</h1>
-                </div>
-                <div>
-                    <div class="uk-background-contain uk-background-top-left"
-                        data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
-                        <div class="uk-flex uk-flex-middle">
-                            <div class="uk-margin-right">
-                                <div class="uk-background-primary uk-border-pill">
-                                    <img class="uk-align-center uk-border-pill"
-                                        src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                        data-src="{{ asset('front-end/img/blockit/in-team-1.png') }}" alt="client-1"
-                                        width="100" height="100" data-uk-img>
+        <div class="uk-width-1-1@m uk-text-center uk-margin-bottom mb-5">
+            <h1>More than <span class="in-highlight">23,000</span> traders joined</h1>
+        </div>
+        <div class="uk-slider-container uk-margin-bottom" uk-slider="autoplay: true">
+            <div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider>
+                <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-4@m uk-grid">
+                    <li>
+                        <div>
+                            <div class="uk-background-contain uk-background-top-left"
+                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                                <div class="uk-flex uk-flex-middle">
+                                    <div class="uk-margin-right">
+                                        <div class="uk-background-primary uk-border-pill">
+                                            <img class="uk-align-center uk-border-pill"
+                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                data-src="{{ asset('front-end/img/blockit/in-team-1.png') }}" alt="client-1"
+                                                width="100" height="100" data-uk-img>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
-                                <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                <blockquote>
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                        compare to other
+                                        broker</p>
+                                </blockquote>
                             </div>
                         </div>
-                        <blockquote>
-                            <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low compare to other
-                                broker</p>
-                        </blockquote>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-background-contain uk-background-top-left"
-                        data-src="{{ asset('front-end/img/in-equity-4-blob-2.svg') }}" data-uk-img>
-                        <div class="uk-flex uk-flex-middle">
-                            <div class="uk-margin-right">
-                                <div class="uk-background-primary uk-border-pill">
-                                    <img class="uk-align-center uk-border-pill"
-                                        src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                        data-src="{{ asset('front-end/img/blockit/in-team-8.png') }}" alt="client-2"
-                                        width="100" height="100" data-uk-img>
+                    </li>
+                    <li>
+                        <div>
+                            <div class="uk-background-contain uk-background-top-left"
+                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                                <div class="uk-flex uk-flex-middle">
+                                    <div class="uk-margin-right">
+                                        <div class="uk-background-primary uk-border-pill">
+                                            <img class="uk-align-center uk-border-pill"
+                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                data-src="{{ asset('front-end/img/blockit/in-team-2.png') }}" alt="client-1"
+                                                width="100" height="100" data-uk-img>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <h5 class="uk-margin-remove-bottom">Wade Palmer</h5>
-                                <p class="uk-text-muted uk-margin-remove-top">from Germany</p>
+                                <blockquote>
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                        compare to other
+                                        broker</p>
+                                </blockquote>
                             </div>
                         </div>
-                        <blockquote>
-                            <p style="font-size: 18px">One of the best FX brokers, I have been using! their trading conditions are excellent
-                            </p>
-                        </blockquote>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-background-contain uk-background-top-left"
-                        data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
-                        <div class="uk-flex uk-flex-middle">
-                            <div class="uk-margin-right">
-                                <div class="uk-background-primary uk-border-pill">
-                                    <img class="uk-align-center uk-border-pill"
-                                        src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                        data-src="{{ asset('front-end/img/blockit/in-team-3.png') }}" alt="client-1"
-                                        width="100" height="100" data-uk-img>
+                    </li>
+                    <li>
+                        <div>
+                            <div class="uk-background-contain uk-background-top-left"
+                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                                <div class="uk-flex uk-flex-middle">
+                                    <div class="uk-margin-right">
+                                        <div class="uk-background-primary uk-border-pill">
+                                            <img class="uk-align-center uk-border-pill"
+                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                data-src="{{ asset('front-end/img/blockit/in-team-3.png') }}" alt="client-1"
+                                                width="100" height="100" data-uk-img>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
-                                <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                <blockquote>
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                        compare to other
+                                        broker</p>
+                                </blockquote>
                             </div>
                         </div>
-                        <blockquote>
-                            <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low compare to other
-                                broker</p>
-                        </blockquote>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-background-contain uk-background-top-left"
-                        data-src="{{ asset('front-end/img/in-equity-4-blob-2.svg') }}" data-uk-img>
-                        <div class="uk-flex uk-flex-middle">
-                            <div class="uk-margin-right">
-                                <div class="uk-background-primary uk-border-pill">
-                                    <img class="uk-align-center uk-border-pill"
-                                        src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                        data-src="{{ asset('front-end/img/blockit/in-team-4.png') }}" alt="client-2"
-                                        width="100" height="100" data-uk-img>
+                    </li>
+                    <li>
+                        <div>
+                            <div class="uk-background-contain uk-background-top-left"
+                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                                <div class="uk-flex uk-flex-middle">
+                                    <div class="uk-margin-right">
+                                        <div class="uk-background-primary uk-border-pill">
+                                            <img class="uk-align-center uk-border-pill"
+                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                data-src="{{ asset('front-end/img/blockit/in-team-4.png') }}" alt="client-1"
+                                                width="100" height="100" data-uk-img>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div>
-                                <h5 class="uk-margin-remove-bottom">Wade Palmer</h5>
-                                <p class="uk-text-muted uk-margin-remove-top">from Germany</p>
+                                <blockquote>
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                        compare to other
+                                        broker</p>
+                                </blockquote>
                             </div>
                         </div>
-                        <blockquote>
-                            <p style="font-size: 18px">One of the best FX brokers, I have been using! their trading conditions are excellent
-                            </p>
-                        </blockquote>
-                    </div>
-                </div>
-                <div class="uk-width-1-1@m uk-text-center">
-                    <a href="{{ route('all_traders')}}" class="uk-button uk-button-text">See more traders stories from all over the
-                        world<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
-                </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div class="uk-background-contain uk-background-top-left"
+                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                                <div class="uk-flex uk-flex-middle">
+                                    <div class="uk-margin-right">
+                                        <div class="uk-background-primary uk-border-pill">
+                                            <img class="uk-align-center uk-border-pill"
+                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                data-src="{{ asset('front-end/img/blockit/in-team-5.png') }}" alt="client-1"
+                                                width="100" height="100" data-uk-img>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                    </div>
+                                </div>
+                                <blockquote>
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                        compare to other
+                                        broker</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div class="uk-background-contain uk-background-top-left"
+                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                                <div class="uk-flex uk-flex-middle">
+                                    <div class="uk-margin-right">
+                                        <div class="uk-background-primary uk-border-pill">
+                                            <img class="uk-align-center uk-border-pill"
+                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                data-src="{{ asset('front-end/img/blockit/in-team-6.png') }}" alt="client-1"
+                                                width="100" height="100" data-uk-img>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                    </div>
+                                </div>
+                                <blockquote>
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                        compare to other
+                                        broker</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div class="uk-background-contain uk-background-top-left"
+                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                                <div class="uk-flex uk-flex-middle">
+                                    <div class="uk-margin-right">
+                                        <div class="uk-background-primary uk-border-pill">
+                                            <img class="uk-align-center uk-border-pill"
+                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                data-src="{{ asset('front-end/img/blockit/in-team-7.png') }}" alt="client-1"
+                                                width="100" height="100" data-uk-img>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                    </div>
+                                </div>
+                                <blockquote>
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                        compare to other
+                                        broker</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div class="uk-background-contain uk-background-top-left"
+                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                                <div class="uk-flex uk-flex-middle">
+                                    <div class="uk-margin-right">
+                                        <div class="uk-background-primary uk-border-pill">
+                                            <img class="uk-align-center uk-border-pill"
+                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                data-src="{{ asset('front-end/img/blockit/in-team-8.png') }}" alt="client-1"
+                                                width="100" height="100" data-uk-img>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                    </div>
+                                </div>
+                                <blockquote>
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                        compare to other
+                                        broker</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div class="uk-background-contain uk-background-top-left"
+                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                                <div class="uk-flex uk-flex-middle">
+                                    <div class="uk-margin-right">
+                                        <div class="uk-background-primary uk-border-pill">
+                                            <img class="uk-align-center uk-border-pill"
+                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                data-src="{{ asset('front-end/img/blockit/in-team-9.png') }}" alt="client-1"
+                                                width="100" height="100" data-uk-img>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                    </div>
+                                </div>
+                                <blockquote>
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                        compare to other
+                                        broker</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <div class="uk-background-contain uk-background-top-left"
+                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                                <div class="uk-flex uk-flex-middle">
+                                    <div class="uk-margin-right">
+                                        <div class="uk-background-primary uk-border-pill">
+                                            <img class="uk-align-center uk-border-pill"
+                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                                data-src="{{ asset('front-end/img/blockit/in-team-5.png') }}" alt="client-1"
+                                                width="100" height="100" data-uk-img>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                    </div>
+                                </div>
+                                <blockquote>
+                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively low
+                                        compare to other
+                                        broker</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
             </div>
         </div>
     </div>
