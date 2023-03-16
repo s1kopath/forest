@@ -455,7 +455,6 @@
     </div>
     <!-- section content end -->
 
-
     <!-- section content begin -->
     <div class="uk-section uk-section-primary uk-preserve-color in-equity-1" id="about">
         <div class="uk-container">
@@ -559,7 +558,6 @@
         </div>
     </div>
     <!-- section content end -->
-
 
     <!-- section content begin -->
     <div class="uk-section in-equity-4 container">
@@ -855,8 +853,6 @@
         </div>
     </div>
     <!-- section content end -->
-
-
 
     <!-- section content begin -->
     <div class="uk-section" id="contact">

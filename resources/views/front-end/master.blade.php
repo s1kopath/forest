@@ -23,10 +23,10 @@
     @include('front-end.section.header.header-scripts')
 
     <!-- Vendor Styles -->
-    @yield('vendor-style')
+    @stack('vendor-style')
 
     <!-- Page Styles -->
-    @yield('page-style')
+    @stack('page-style')
 
 </head>
 
@@ -65,7 +65,7 @@
     @include('front-end.section.footer.main-scripts')
 
     <!-- Page Script -->
-    @yield('page-script')
+    @stack('page-script')
 </body>
 
 </html>

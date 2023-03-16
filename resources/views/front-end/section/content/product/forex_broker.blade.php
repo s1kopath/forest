@@ -3,8 +3,8 @@
     Forex Broker
 @endsection
 
-@section('page-style')
-@endsection
+@push('page-style')
+@endpush
 
 @section('breadcrumb')
     @include('front-end.breadcrumb')
@@ -164,5 +164,5 @@
     <!-- section content end -->
 @endsection
 
-@section('page-script')
-@endsection
+@push('page-script')
+@endpush

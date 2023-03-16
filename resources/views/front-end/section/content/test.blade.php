@@ -3,8 +3,8 @@
     Test Page
 @endsection
 
-@section('page-style')
-@endsection
+@push('page-style')
+@endpush
 
 @section('breadcrumb')
 @endsection
@@ -12,5 +12,5 @@
 @section('content')
 @endsection
 
-@section('page-script')
-@endsection
+@push('page-script')
+@endpush
