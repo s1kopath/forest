@@ -4,26 +4,7 @@
 @endsection
 
 @section('page-style')
-    <style>
-        #fixed_div {
-            position: fixed;
-            top: 10%;
-            right: 40px;
-            width: 30vw;
-            height: 50vh;
-        }
-
-        .uk-card-body {
-            padding: 40px 30px !important;
-        }
-
-        footer {
-            z-index: 100 !important;
-            position: relative;
-            background: #fff
-        }
-
-    </style>
+    
 @endsection
 
 @section('breadcrumb')
@@ -157,7 +138,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="uk-width-expand@m uk-visible@s uk-visible@m mt-5" id="fixed_div">
+                <div class="uk-width-expand@m uk-visible@s uk-visible@m mt-5">
                     <div class="uk-card uk-card-default uk-box-shadow-small uk-border-rounded mt-5">
 
                         <aside>

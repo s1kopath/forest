@@ -501,13 +501,13 @@
     <!-- section content end -->
 
     <!-- section content begin -->
-    <div class="uk-section in-equity-4">
+    <div class="uk-section in-equity-4 container">
         <div class="uk-width-1-1@m uk-text-center uk-margin-bottom mb-5">
             <h1>More than <span class="in-highlight">23,000</span> traders joined</h1>
         </div>
         <div class="uk-slider-container uk-margin-bottom" uk-slider="autoplay: true">
             <div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider>
-                <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-4@m uk-grid">
+                <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-grid">
                     <li>
                         <div>
                             <div class="uk-background-contain uk-background-top-left"
@@ -774,6 +774,10 @@
                 <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
 
             </div>
+        </div>
+        <div class="uk-width-1-1@m uk-text-center">
+            <a href="{{ route('all_traders')}}" class="uk-button uk-button-text">See more traders stories from all over the
+                world<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
         </div>
     </div>
     <!-- section content end -->

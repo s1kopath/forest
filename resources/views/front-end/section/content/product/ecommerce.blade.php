@@ -30,9 +30,7 @@
                                     <a href="#content1" class="uk-button uk-button-text">More details<i
                                             class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                                 </div>
-                                <div class="uk-width-auto@m">
-                                    <i class="fas fa-question fa-3x in-icon-wrap small transparent uk-margin-left"></i>
-                                </div>
+
                             </div>
                         </div>
                         <div>
@@ -44,9 +42,7 @@
                                     <a href="#content2" class="uk-button uk-button-text">More details<i
                                             class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                                 </div>
-                                <div class="uk-width-auto@m">
-                                    <i class="fas fa-unlock-alt fa-3x in-icon-wrap small transparent uk-margin-left"></i>
-                                </div>
+
                             </div>
                         </div>
                         <div>
@@ -58,9 +54,7 @@
                                     <a href="#content3" class="uk-button uk-button-text">More details<i
                                             class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                                 </div>
-                                <div class="uk-width-auto@m">
-                                    <i class="fas fa-life-ring fa-3x in-icon-wrap small transparent uk-margin-left"></i>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
