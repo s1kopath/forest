@@ -2,7 +2,6 @@
 @extends('back-end.layouts.left-sidebar')
 
 @push('css')
-
 @endpush
 
 @section('page-title', 'My Profile')

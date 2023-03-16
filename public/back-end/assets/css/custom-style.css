@@ -24,7 +24,7 @@
 }
 
 .form-control:disabled, .form-control[readonly] {
-    background-color: #f8f8f8!important;
+    background-color: #f8f8f8 !important;
     opacity: 1;
 }
 
@@ -44,4 +44,9 @@
     float: left;
     background-size: cover;
     background-position: center center;
+}
+
+
+.nav-link {
+    font-size: 18px!important;
 }
