@@ -536,21 +536,13 @@
                 </div>
                 <div class="uk-width-1-2@m">
                     <h3>Our Shares offer</h3>
-                    <div class="uk-grid uk-child-width-1-1 uk-child-width-1-3@m">
+                    <div class="uk-grid uk-child-width-1-1 uk-child-width-1-2@m">
                         <div>
                             <ul class="uk-list in-list-check">
                                 <li>Direct Market Access (DMA)</li>
                                 <li>Leverage up to 1:500</li>
                                 <li>T+0 settlement</li>
                                 <li>Dividends paid in cash</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <ul class="uk-list in-list-check">
-                                <li>Free from UK Stamp Duty</li>
-                                <li>Short selling available</li>
-                                <li>Commissions from 0.08%</li>
-                                <li>Access to 1500 global shares</li>
                             </ul>
                         </div>
                         <div>
