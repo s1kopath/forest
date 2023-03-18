@@ -17,159 +17,84 @@
             <div class="uk-grid">
                 <div class="uk-width-1-1 in-content-10">
                     <div class="uk-text-center mb-5">
-                        <img src="{{ asset('front-end/content/e-commerce.jpg') }}" width="1100px" >
+                        <img src="{{ asset('front-end/content/e-commerce.jpg') }}" width="1100px">
                     </div>
-                    <div class="uk-grid-divider uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-medium-top"
-                        data-uk-grid>
+                    <div class="uk-grid-divider uk-child-width-1-3@m uk-margin-medium-top" data-uk-grid>
                         <div>
-                            <h3 class="uk-heading-bullet"><a class="uk-link-text uk-text-decoration-none" href="#content1">Sizes of Ecommerce Businesses</a>
-                            </h3>
                             <div class="uk-grid uk-grid-small" data-uk-grid>
                                 <div class="uk-width-expand@m">
-                                    <p>From small startups to large enterprises, ecommerce businesses can come in all sizes.</p>
-                                    <a href="#content1" class="uk-button uk-button-text">More details<i
-                                            class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="uk-heading-bullet"><a class="uk-link-text uk-text-decoration-none" href="#content2">Types of Ecommerce</a>
-                            </h3>
-                            <div class="uk-grid uk-grid-small" data-uk-grid>
-                                <div class="uk-width-expand@m">
-                                    <p>Generally, there are seven main models of ecommerce.</p>
-                                    <a href="#content2" class="uk-button uk-button-text">More details<i
-                                            class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                                    <p>
+                                        Our company is focused on maximizing returns for our investors by investing their
+                                        funds in the
+                                        e-commerce market. We carefully analyze the market to identify the most profitable
+                                        opportunities, and invest in these with the aim of generating high returns for our
+                                        investors.
+                                    </p>
                                 </div>
 
                             </div>
                         </div>
                         <div>
-                            <h3 class="uk-heading-bullet"><a class="uk-link-text uk-text-decoration-none" href="#content3">Examples of Ecommerce</a>
-                            </h3>
                             <div class="uk-grid uk-grid-small" data-uk-grid>
                                 <div class="uk-width-expand@m">
-                                    <p>Of course, to run an ecommerce business, you have to have something to sell.</p>
-                                    <a href="#content3" class="uk-button uk-button-text">More details<i
-                                            class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                                    <p>
+                                        In addition to investing in established e-commerce businesses, we also support new
+                                        startups by
+                                        providing them with the funding they need to develop their own projects. By
+                                        investing in these
+                                        startups, we aim to help them grow and become profitable, which in turn benefits our
+                                        investors.
+                                    </p>
                                 </div>
-                                
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- section content end -->
-    <!-- section content begin -->
-    <div class="uk-section">
-        <div class="uk-container">
-            <div class="uk-grid" id="content1">
-                <div class="uk-width-2-3@m">
-                    <div class="uk-grid uk-grid-small" data-uk-grid>
-                        <div class="uk-width-auto@m">
-                            <div class="in-icon-wrap large primary-color uk-margin-right">
-                                <i class="fas fa-circle-dollar-to-slot fa-2x"></i>
-                            </div>
-                        </div>
-                        <div class="uk-width-expand">
-                            <h3>Sizes of Ecommerce Businesses</h3>
-                            <p class="uk-text-lead uk-text-muted uk-margin-small-top">Let’s look at the main four you’re likely to come across.</p>
-                            <div class="uk-grid uk-child-width-1-1">
-                                <div>
-                                    <ul class="uk-list in-list-check">
-                                        <li><strong>Startup</strong> - A startup is a business or project in the first stages of development, often built by an entrepreneur to pursue an innovative business model.</li>
-                                        <li><strong>Small business</strong> - Small businesses are sole proprietorships, partnerships or corporations that sell products or services and make less money and have fewer employees than large multinational corporations.</li>
-                                        <li><strong>Mid market</strong> - According to <strong>Sangoma,</strong> small and medium-sized enterprises (SMEs), also known as “mid-market,” businesses, typically have between 101-500 employees and genrate between $10 million and $1 billion in annual revenue.</li>
-                                        <li><strong>Enterprise</strong> - Large <strong>enterprise businesses</strong> can have over 1000 employees and usually generate over $1 billion in annual revenue.</li>
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="uk-width-1-3@m mt-3">
-                    <img src="{{ asset('front-end/content/sizes of e-commerce.jpg') }}">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- section content end -->
-    <!-- section content begin -->
-    <div class="uk-section">
-        <div class="uk-container">
-            <div class="uk-grid" id="content2">
-                <div class="uk-width-1-3@m">
-                    <img src="{{ asset('front-end/content/types of e-commerce.jpg') }}">
-                </div>
-                <div class="uk-width-2-3@m">
-                    <div class="uk-grid uk-grid-small" data-uk-grid>
-                        <div class="uk-width-auto@m">
-                            <div class="in-icon-wrap large primary-color uk-margin-right">
-                                <i class="fa-sharp fas fa-filter-circle-dollar fa-2x"></i>
-                            </div>
-                        </div>
-                        <div class="uk-width-expand">
-                            <h3>Types of Ecommerce Businesses</h3>
-                            <p class="uk-text-lead uk-text-muted uk-margin-small-top">Generally, there are seven main models of ecommerce that businesses can be categorized into:</p>
-                            <div class="uk-grid uk-child-width-1-1 uk-child-width-1-2@m">
-                                <div>
-                                    <ul class="uk-list in-list-check">
-                                        <li>Business-to-Consumer (B2C)</li>
-                                        <li>Business-to-Business (B2B)</li>
-                                        <li>Consumer-to-Consumer (C2C)</li>
-                                        <li>Direct-to-Consumer (D2C)</li>
-                                    </ul>
-                                </div>
-                                <div class="in-margin-top-10@s in-margin-bottom-30@s">
-                                    <ul class="uk-list in-list-check">
-                                        <li>Consumer-to-Business (C2B)</li>
-                                        <li>Business-to-Administration (B2A)</li>
-                                        <li>Consumer-to-Administration (C2A)</li>
-                                    </ul>
+                        <div>
+                            <div class="uk-grid uk-grid-small" data-uk-grid>
+                                <div class="uk-width-expand@m">
+                                    <p>
+                                        Overall, our goal is to create a win-win situation where our investors benefit from
+                                        the high
+                                        returns generated by our investments in the e-commerce market and in promising
+                                        startups, while
+                                        at the same time supporting the growth of new businesses and helping to drive
+                                        innovation in the
+                                        industry.
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- section content end -->
-    <!-- section content begin -->
-    <div class="uk-section">
-        <div class="uk-container">
-            <div class="uk-grid" id="content3">
-                <div class="uk-width-2-3@m">
-                    <div class="uk-grid uk-grid-small" data-uk-grid>
-                        <div class="uk-width-auto@m">
-                            <div class="in-icon-wrap large primary-color uk-margin-right">
-                                <i class="fas fa-hand-holding-dollar fa-2x"></i>
-                            </div>
-                        </div>
-                        <div class="uk-width-expand">
-                            <h3>Examples of Ecommerce</h3>
-                            <p class="uk-text-lead uk-text-muted uk-margin-small-top">Let’s dive into three examples of what you can sell online:</p>
-                            <div class="uk-grid uk-child-width-1-1">
-                                <div>
-                                    <ul class="uk-list in-list-check">
-                                        <li><strong>Sell physical goods</strong> - Think of your favorite clothing, home decor or electronics brand — these are all prime examples of selling physical goods online. </li>
-                                        <li><strong>Sell digital goods</strong> - Whether you’re a seasoned online merchant or an aspiring entrepreneur, digital products are a promising avenue for selling online.</li>
-                                        <li><strong>Sell services</strong> - Whether you’re a seasoned online merchant or an aspiring entrepreneur, digital products are a promising avenue for selling online.</li>
-
-                                    </ul>
-                                </div>
-
-                            </div>
-                        </div>
+                <div class="uk-card uk-card-default uk-box-shadow-small uk-border-rounded mt-5">
+                    <div class="uk-card-header">
+                        <p>
+                            Certainly! Our company is focused on investing in the e-commerce market to generate high
+                            returns for our investors. We have a team of experienced professionals who carefully analyze the
+                            market to identify the most profitable opportunities. We then invest our investors' funds into
+                            these opportunities, with the aim of maximizing returns. <br><br>
+                            The e-commerce market has grown rapidly in recent years, and there are many opportunities to
+                            invest in both established businesses and new startups. Established businesses may require
+                            funding to expand their operations or launch new products, while startups may need support to
+                            develop their ideas into successful businesses.<br><br>
+                            We also invest in new startups, providing them with the funding they need to build their own
+                            projects and generate profit for us. By investing in these startups, we aim to help them grow
+                            and
+                            become successful, which in turn benefits our investors.<br><br>
+                            We believe that investing in startups is an important way to drive innovation and support the
+                            growth of new businesses. By providing funding and support to these startups, we are helping to
+                            create new products and services that can benefit people around the world.<br><br>
+                            Our overall goal is to create a win-win situation where our investors benefit from the high
+                            returns
+                            generated by our investments in the e-commerce market and in promising startups, while at the
+                            same time supporting the growth of new businesses and driving innovation in the
+                            industry.<br><br>
+                            We take our responsibilities to our investors very seriously and work hard to ensure that we are
+                            making the best possible investments on their behalf. Our team has a wealth of experience and
+                            expertise in the e-commerce market and is committed to delivering the highest possible returns
+                            to
+                            our investors.
+                        </p>
                     </div>
-                </div>
-                <div class="uk-width-1-3@m mt-3">
-                    <img src="{{ asset('front-end/content/example of e-commerce.jpg') }}">
                 </div>
             </div>
         </div>

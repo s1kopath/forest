@@ -24,9 +24,17 @@
                 <div class="uk-width-1-1 uk-flex uk-flex-center">
                     <div class="uk-width-3-5@m uk-text-center">
                         <h1 class="uk-margin-remove-bottom">Forex Trading</h1>
-                        <p class="uk-text-lead uk-text-muted uk-margin-small-top">Access 1,200+ listed options across the
-                            highest level of liquidity, which means even large orders
-                            of currency trades are easily filled efficiently without any large price deviations.</p>
+                        <p class="uk-text-lead uk-text-muted uk-margin-small-top">
+                            Our business model involves raising investment funds from investors and allocating them to a
+                            forex trading account. We then search for the most skilled and successful traders from around
+                            the
+                            world and hire them to manage the account and execute trades on our behalf. Through this
+                            approach, we aim to generate significant profits from the forex market. We will share a portion
+                            of these profits with our investors and traders as a reward for their participation in the
+                            program.
+                            By combining the expertise of top traders with the resources of our investment fund, we believe
+                            we can achieve exceptional returns for all parties involved.
+                        </p>
                     </div>
                 </div>
                 <div class="uk-width-1-1 mt-2">
@@ -35,32 +43,80 @@
                     </div>
                 </div>
                 <div class="uk-width-1-1 uk-text-center">
-                    <p class="uk-margin-small-top">Foreign exchange trading—also commonly called forex trading or FX—is the
-                        global market for exchanging foreign currencies. Forex is the largest market in the world, and the
-                        trades that happen in it affect everything from the price of clothing imported from China to the
-                        amount you pay for a margarita while vacationing in Mexico.</p>
+                    <p class="uk-margin-small-top">
+
+                    </p>
 
                 </div>
             </div>
             <div class="uk-grid uk-flex uk-flex-center">
                 <div class="uk-width-3-4@m">
                     <div class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-1@m in-content-11" data-uk-grid>
+
                         <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
                             <div class="uk-grid" data-uk-grid>
                                 <div class="uk-width-expand@m in-margin-top-10@s">
-                                    <h4 class="uk-margin-small-bottom font-weight-bold"><i
-                                            class="fas fa-chart-bar fa-sm"></i>&nbsp&nbsp What Is Forex Trading?</h4>
-                                    <p class="uk-text-medium uk-margin-remove-bottom">At its simplest, forex trading is
-                                        similar to the currency exchange you may do while traveling abroad: A trader buys
-                                        one currency and sells another, and the exchange rate constantly fluctuates based on
-                                        supply and demand.
+                                    <p class="uk-text-medium uk-margin-remove-bottom">
+                                        Once upon a time, there was a group of investors who were interested in making money
+                                        from the
+                                        forex market. They knew that forex trading could be profitable, but they also knew
+                                        that it was a
+                                        complicated and risky market. So, they came up with a unique plan.
                                         <br>
+                                        Instead of trading themselves, the investors decided to pool their funds together
+                                        and hire the best
+                                        forex traders from around the world. They set up a forex trading account and gave
+                                        the traders full
+                                        control over the investments.
                                         <br>
-                                        Currencies are traded in the foreign exchange market, a global marketplace that’s
-                                        open 24 hours a day Monday through Friday. All forex trading is conducted over the
-                                        counter (OTC), meaning there’s no physical exchange (as there is for stocks) and a
-                                        global network of banks and other financial institutions oversee the market (instead
-                                        of a central exchange, like the New York Stock Exchange).
+                                        The traders were carefully selected based on their experience, expertise, and
+                                        trading strategies.
+                                        Each trader had a unique approach to trading, which helped to diversify the
+                                        investments and
+                                        reduce risk.
+                                        <br><br>
+                                        The results were impressive. The traders were able to generate significant profits
+                                        from the forex
+                                        market, far beyond what the investors could have achieved on their own. The
+                                        investors were
+                                        delighted with the returns they were receiving and were happy to share the profits
+                                        with the
+                                        traders.<br><br>
+                                        As more investors learned about the success of the investment model, they wanted to
+                                        get
+                                        involved. The group expanded the fund, hired more traders, and continued to generate
+                                        impressive
+                                        returns.<br><br>
+                                        The investors and traders formed a strong partnership that benefited everyone
+                                        involved. The
+                                        investors were able to reap the rewards of the forex market without taking on the
+                                        risk of trading
+                                        themselves. The traders were rewarded for their exceptional skills and were able to
+                                        showcase
+                                        their talent on a global stage. And the investment fund continued to grow, creating
+                                        new
+                                        opportunities for everyone involved.<br>
+                                        The story of the investors and traders became well-known in the forex market, and
+                                        they became
+                                        a model for others who were looking to invest in the market. Their innovative
+                                        approach to
+                                        investing showed that with the right team and strategy, it was possible to succeed
+                                        in the forex
+                                        market and achieve impressive returns.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
+                            <div class="uk-grid" data-uk-grid>
+                                <div class="uk-width-expand@m in-margin-top-10@s">
+                                    <h4 class="uk-margin-small-bottom font-weight-bold">
+                                        1. &nbsp&nbsp High Returns:
+                                    </h4>
+                                    <p class="uk-text-medium uk-margin-remove-bottom">
+                                        We offer the potential for high returns through our carefully managed
+                                        forex trading strategies.
                                     </p>
                                 </div>
                             </div>
@@ -68,33 +124,12 @@
                         <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
                             <div class="uk-grid" data-uk-grid>
                                 <div class="uk-width-expand@m in-margin-top-10@s">
-                                    <h4 class="uk-margin-small-bottom font-weight-bold"><i
-                                            class="fas fa-chart-bar fa-sm"></i>&nbsp&nbsp How Currencies Are Traded</h4>
-                                    <p class="uk-text-medium uk-margin-remove-bottom">All currencies are assigned a
-                                        three-letter code much like a stock’s ticker symbol. While there are more than 170
-                                        currencies worldwide, the U.S. dollar is involved in a vast majority of forex
-                                        trading, so it’s especially helpful to know its code: USD. The second most popular
-                                        currency in the forex market is the euro, the currency accepted in 19 countries in
-                                        the European Union (code: EUR).
-                                        <br>
-                                        <br>
-                                        Other major currencies, in order of popularity, are: the Japanese yen (JPY), the
-                                        British pound (GBP), the Australian dollar (AUD), the Canadian dollar (CAD), the
-                                        Swiss franc (CHF) and the New Zealand dollar (NZD).
-                                        <br>
-                                        <br>
-                                        All forex trading is expressed as a combination of the two currencies being
-                                        exchanged. The following seven currency pairs—what are known as the majors—account
-                                        for about 75% of trading in the forex market:
-                                        <br>
-                                        <br>
-                                        •&nbsp&nbsp EUR/USD <br>
-                                        •&nbsp&nbsp USD/JPY <br>
-                                        •&nbsp&nbsp GBP/USD <br>
-                                        •&nbsp&nbsp AUD/USD <br>
-                                        •&nbsp&nbsp USD/CAD <br>
-                                        •&nbsp&nbsp USD/CHF <br>
-                                        •&nbsp&nbsp NZD/USD
+                                    <h4 class="uk-margin-small-bottom font-weight-bold">
+                                        2. &nbsp&nbsp Professional Management:
+                                    </h4>
+                                    <p class="uk-text-medium uk-margin-remove-bottom">
+                                        Our team of experienced forex traders is dedicated to
+                                        generating the best possible returns for our investors.
                                     </p>
                                 </div>
                             </div>
@@ -102,34 +137,12 @@
                         <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
                             <div class="uk-grid" data-uk-grid>
                                 <div class="uk-width-expand@m in-margin-top-10@s">
-                                    <h4 class="uk-margin-small-bottom font-weight-bold"><i
-                                            class="fas fa-chart-bar fa-sm"></i>&nbsp&nbsp Three Ways to Trade Forex</h4>
-                                    <p class="uk-text-medium uk-margin-remove-bottom">Most forex trades aren’t made for the
-                                        purpose of exchanging currencies (as you might at a currency exchange while
-                                        traveling) but rather to speculate about future price movements, much like you would
-                                        with stock trading. Similar to stock traders, forex traders are attempting to buy
-                                        currencies whose values they think will increase relative to other currencies or to
-                                        get rid of currencies whose purchasing power they anticipate will decrease.
-                                        <br>
-                                        <br>
-                                        There are three different ways to trade forex, which will accommodate traders with
-                                        varying goals:
-                                        <br>
-                                        <br>
-                                        <strong> The spot market.</strong> This is the primary forex market where those
-                                        currency pairs are swapped and exchange rates are determined in real-time, based on
-                                        supply and demand. <br>
-                                        <strong>The forward market.</strong> Instead of executing a trade now, forex traders
-                                        can also enter into a binding (private) contract with another trader and lock in an
-                                        exchange rate for an agreed upon amount of currency on a future date. <br>
-                                        <strong>The futures market.</strong> Similarly, traders can opt for a standardized
-                                        contract to buy or sell a predetermined amount of a currency at a specific exchange
-                                        rate at a date in the future. This is done on an exchange rather than privately,
-                                        like the forwards market.
-                                        The forward and futures markets are primarily used by forex traders who want to
-                                        speculate or hedge against future price changes in a currency. The exchange rates in
-                                        these markets are based on what’s happening in the spot market, which is the largest
-                                        of the forex markets and is where a majority of forex trades are executed.
+                                    <h4 class="uk-margin-small-bottom font-weight-bold">
+                                        3. &nbsp&nbsp Diversification:
+                                    </h4>
+                                    <p class="uk-text-medium uk-margin-remove-bottom">
+                                        Our forex trading approach provides a diversification opportunity for
+                                        investors to mitigate risk and achieve greater returns.
                                     </p>
                                 </div>
                             </div>
@@ -137,20 +150,12 @@
                         <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
                             <div class="uk-grid" data-uk-grid>
                                 <div class="uk-width-expand@m in-margin-top-10@s">
-                                    <h4 class="uk-margin-small-bottom font-weight-bold"><i
-                                            class="fas fa-chart-bar fa-sm"></i>&nbsp&nbsp What Moves the Forex Market?</h4>
-                                    <p class="uk-text-medium uk-margin-remove-bottom">Like any other market, currency prices
-                                        are set by the supply and demand of sellers and buyers. However, there are other
-                                        macro forces at play in this market. Demand for particular currencies can also be
-                                        influenced by interest rates, central bank policy, the pace of economic growth and
-                                        the political environment in the country in question.
-                                        <br>
-                                        <br>
-                                        The forex market is open 24 hours a day, five days a week, which gives traders in
-                                        this market the opportunity to react to news that might not affect the stock market
-                                        until much later. Because so much of currency trading focuses on speculation or
-                                        hedging, it’s important for traders to be up to speed on the dynamics that could
-                                        cause sharp spikes in currencies.
+                                    <h4 class="uk-margin-small-bottom font-weight-bold">
+                                        4. &nbsp&nbsp Transparency:
+                                    </h4>
+                                    <p class="uk-text-medium uk-margin-remove-bottom">
+                                        We provide real-time updates and reporting to ensure complete
+                                        transparency in our investment approach.
                                     </p>
                                 </div>
                             </div>
@@ -158,39 +163,79 @@
                         <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
                             <div class="uk-grid" data-uk-grid>
                                 <div class="uk-width-expand@m in-margin-top-10@s">
-                                    <h4 class="uk-margin-small-bottom font-weight-bold"><i
-                                            class="fas fa-chart-bar fa-sm"></i>&nbsp&nbsp Risks of Forex Trading</h4>
-                                    <p class="uk-text-medium uk-margin-remove-bottom">Because forex trading requires
-                                        leverage and traders use margin, there are additional risks to forex trading than
-                                        other types of assets. Currency prices are constantly fluctuating, but at very small
-                                        amounts, which means traders need to execute large trades (using leverage) to make
-                                        money.
-                                        <br>
-                                        <br>
-                                        This leverage is great if a trader makes a winning bet because it can magnify
-                                        profits. However, it can also magnify losses, even exceeding the initial amount
-                                        borrowed. In addition, if a currency falls too much in value, leverage users open
-                                        themselves up to margin calls, which may force them to sell their securities
-                                        purchased with borrowed funds at a loss. Outside of possible losses, transaction
-                                        costs can also add up and possibly eat into what was a profitable trade.
-                                        <br>
-                                        <br>
-                                        On top of all that, you should keep in mind that those who trade foreign currencies
-                                        are little fish swimming in a pond of skilled, professional traders—and the
-                                        Securities and Exchange Commission warns about potential fraud or information that
-                                        could be confusing to new traders.
-                                        <br>
-                                        <br>
-                                        Perhaps it’s a good thing then that forex trading isn’t so common among individual
-                                        investors. In fact, retail trading (a.k.a. trading by non-professionals) accounts
-                                        for just 5.5% of the entire global market, figures from DailyForex show, and some of
-                                        the major online brokers don’t even offer forex trading.
-                                        <br>
-                                        <br>
-                                        What’s more, of the few retailer traders who engage in forex trading, most struggle
-                                        to turn a profit with forex. CompareForexBrokers found that, on average, 71% of
-                                        retail FX traders lost money. This makes forex trading a strategy often best left to
-                                        the professionals.
+                                    <h4 class="uk-margin-small-bottom font-weight-bold">
+                                        5. &nbsp&nbsp Access to Global Markets:
+                                    </h4>
+                                    <p class="uk-text-medium uk-margin-remove-bottom">
+                                        Through our forex trading approach, investors gain access to
+                                        global markets and the opportunity to take advantage of fluctuations in foreign
+                                        currencies.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
+                            <div class="uk-grid" data-uk-grid>
+                                <div class="uk-width-expand@m in-margin-top-10@s">
+                                    <h4 class="uk-margin-small-bottom font-weight-bold">
+                                        6. &nbsp&nbsp Customization:
+                                    </h4>
+                                    <p class="uk-text-medium uk-margin-remove-bottom">
+                                        Our approach to forex trading is highly customizable, allowing us to
+                                        tailor our approach to each individual investor's goals and preferences.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
+                            <div class="uk-grid" data-uk-grid>
+                                <div class="uk-width-expand@m in-margin-top-10@s">
+                                    <h4 class="uk-margin-small-bottom font-weight-bold">
+                                        7. &nbsp&nbsp Low Barrier to Entry:
+                                    </h4>
+                                    <p class="uk-text-medium uk-margin-remove-bottom">
+                                        Our forex trading approach has a low barrier to entry, making it
+                                        accessible to a wide range of investors.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
+                            <div class="uk-grid" data-uk-grid>
+                                <div class="uk-width-expand@m in-margin-top-10@s">
+                                    <h4 class="uk-margin-small-bottom font-weight-bold">
+                                        8. &nbsp&nbsp Time-Saving:
+                                    </h4>
+                                    <p class="uk-text-medium uk-margin-remove-bottom">
+                                        Our professional forex traders handle all aspects of trading, saving
+                                        investors time and allowing them to focus on other areas of their life.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
+                            <div class="uk-grid" data-uk-grid>
+                                <div class="uk-width-expand@m in-margin-top-10@s">
+                                    <h4 class="uk-margin-small-bottom font-weight-bold">
+                                        9. &nbsp&nbsp Passive Income:
+                                    </h4>
+                                    <p class="uk-text-medium uk-margin-remove-bottom">
+                                        Our forex trading approach offers the potential for passive income,
+                                        allowing investors to earn returns without actively trading or managing their
+                                        investments.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card uk-card-small uk-card-default uk-card-body uk-border-rounded uk-display-block">
+                            <div class="uk-grid" data-uk-grid>
+                                <div class="uk-width-expand@m in-margin-top-10@s">
+                                    <h4 class="uk-margin-small-bottom font-weight-bold">
+                                        10. &nbsp&nbsp Exceptional Expertise:
+                                    </h4>
+                                    <p class="uk-text-medium uk-margin-remove-bottom">
+                                        Our team of experienced forex traders is committed to delivering
+                                        exceptional expertise and achieving the best possible returns for our investors.
                                     </p>
                                 </div>
                             </div>

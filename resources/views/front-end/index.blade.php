@@ -317,7 +317,10 @@
                             <span class="in-product-name red">EQ</span>
                             <h5 class="uk-margin-remove">Staking</h5>
                         </div>
-                        <p>Access 19,000+ Staking across core and emerging markets on 40+ exchanges worldwide.</p>
+                        <p>
+                            Investors created a site to invest in stacking NFTs. They acquired and stacked rare NFTs,
+                            monitored the market for trends...
+                        </p>
                         <a href="{{ route('staking') }}"
                             class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
                                 class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
@@ -329,8 +332,10 @@
                             <span class="in-product-name green">LQ</span>
                             <h5 class="uk-margin-remove">Forex Trading</h5>
                         </div>
-                        <p>Access 1,200+ listed options across the highest level of liquidity, which means even large orders
-                            of currency trades are easily filled efficiently without any large price deviations.</p>
+                        <p>
+                            Our business model involves raising investment funds from investors and allocating them to a
+                            forex trading account...
+                        </p>
                         <a href="{{ route('forex_trading') }}"
                             class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
                                 class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
@@ -342,8 +347,9 @@
                             <span class="in-product-name orange">FB</span>
                             <h5 class="uk-margin-remove">Forex Broker</h5>
                         </div>
-                        <p>A forex broker is a financial services company that provides traders access to a platform for
-                            buying and selling foreign currencies.
+                        <p>
+                            Our company is currently accepting investments from individuals and using these funds to
+                            establish a Forex trading platform...
                         </p>
                         <a href="{{ route('forex_broker') }}"
                             class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
@@ -356,8 +362,9 @@
                             <span class="in-product-name blue">FU</span>
                             <h5 class="uk-margin-remove">E-Commerce</h5>
                         </div>
-                        <p>Access 300+ futures covering businesses with the tools and services they need to buy and sell
-                            products and services over the Internet and manage their online enterprises.
+                        <p>
+                            Our company is focused on maximizing returns for our investors by investing their funds in the
+                            e-commerce market....
                         </p>
                         <a href="{{ route('e_commerce') }}"
                             class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i
@@ -566,7 +573,8 @@
         </div>
         <div class="uk-slider-container uk-margin-bottom" uk-slider="autoplay: true">
             <div class="uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider>
-                <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-grid">
+                <ul
+                    class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-grid text-center">
                     <li>
                         <div>
                             <div class="uk-background-contain uk-background-top-left"
@@ -581,15 +589,15 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                        <h5 class="uk-margin-remove-bottom">Marco P</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">Italian</p>
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
-                                        low
-                                        compare to other
-                                        broker</p>
+                                    <p style="font-size: 18px">
+                                        Sono molto soddisfatto degli investimenti che ho fatto con questa azienda. Il team è
+                                        molto professionale e i rendimenti sono eccellenti.
+                                    </p>
                                 </blockquote>
                             </div>
                         </div>
@@ -608,15 +616,15 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                        <h5 class="uk-margin-remove-bottom">Lars H</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">Danish</p>
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
-                                        low
-                                        compare to other
-                                        broker</p>
+                                    <p style="font-size: 18px">
+                                        Jeg er meget tilfreds med mine investeringer i dette firma. Teamet er meget
+                                        kompetent og afkastet er fremragende.
+                                    </p>
                                 </blockquote>
                             </div>
                         </div>
@@ -635,15 +643,15 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                        <h5 class="uk-margin-remove-bottom">Maria S</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">Spanish</p>
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
-                                        low
-                                        compare to other
-                                        broker</p>
+                                    <p style="font-size: 18px">
+                                        Estoy muy contento con las inversiones que he hecho con esta empresa. El equipo es
+                                        muy profesional y los retornos son excelentes
+                                    </p>
                                 </blockquote>
                             </div>
                         </div>
@@ -662,15 +670,15 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                        <h5 class="uk-margin-remove-bottom">Pierre L</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">French</p>
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
-                                        low
-                                        compare to other
-                                        broker</p>
+                                    <p style="font-size: 18px">
+                                        Je suis très satisfait de mes investissements avec cette entreprise. L'équipe est
+                                        très professionnelle et les rendements sont excellents.
+                                    </p>
                                 </blockquote>
                             </div>
                         </div>
@@ -689,15 +697,15 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                        <h5 class="uk-margin-remove-bottom">Katrin W</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">German</p>
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
-                                        low
-                                        compare to other
-                                        broker</p>
+                                    <p style="font-size: 18px">
+                                        Ich bin sehr zufrieden mit den Investitionen, die ich bei diesem Unternehmen
+                                        getätigt habe. Das Team ist sehr kompetent und die Renditen sind ausgezeichnet.
+                                    </p>
                                 </blockquote>
                             </div>
                         </div>
@@ -716,15 +724,15 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                        <h5 class="uk-margin-remove-bottom">Marcos S</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">Portuguese</p>
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
-                                        low
-                                        compare to other
-                                        broker</p>
+                                    <p style="font-size: 18px">
+                                        Eu estou muito satisfeito com os meus investimentos nesta empresa. A equipe é muito
+                                        profissional e os retornos são excelentes.
+                                    </p>
                                 </blockquote>
                             </div>
                         </div>
@@ -743,15 +751,15 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                        <h5 class="uk-margin-remove-bottom">佐藤健太郎</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">Japanese</p>
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
-                                        low
-                                        compare to other
-                                        broker</p>
+                                    <p style="font-size: 18px">
+                                        私はこの会社での投資に非常に満足しています。チームは非常にプロフェッシ
+                                        ョナルで、リターンも優れています。
+                                    </p>
                                 </blockquote>
                             </div>
                         </div>
@@ -770,15 +778,15 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                        <h5 class="uk-margin-remove-bottom">Pieter V</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">Dutch</p>
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
-                                        low
-                                        compare to other
-                                        broker</p>
+                                    <p style="font-size: 18px">
+                                        Ik ben erg tevreden over de investeringen die ik bij dit bedrijf heb gedaan. Het
+                                        team is zeer deskundig en de rendementen zijn uitstekend
+                                    </p>
                                 </blockquote>
                             </div>
                         </div>
@@ -797,15 +805,15 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                        <h5 class="uk-margin-remove-bottom">Anna L</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">Norwegian</p>
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
-                                        low
-                                        compare to other
-                                        broker</p>
+                                    <p style="font-size: 18px">
+                                        Jeg er veldig fornøyd med investeringene mine i dette selskapet. Teamet er veldig
+                                        profesjonelt og avkastningen er utmerket
+                                    </p>
                                 </blockquote>
                             </div>
                         </div>
@@ -824,15 +832,15 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Angela Nannenhorn</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                                        <h5 class="uk-margin-remove-bottom">Hoàng A</h5>
+                                        <p class="uk-text-muted uk-margin-remove-top">Vietnamese</p>
                                     </div>
                                 </div>
                                 <blockquote>
-                                    <p style="font-size: 18px">Very convenience for trader, spread for gold is relatively
-                                        low
-                                        compare to other
-                                        broker</p>
+                                    <p style="font-size: 18px">
+                                        Tôi rất hài lòng với các khoản đầu tư của mình với công ty này. Đội ngũ làm việc rất
+                                        chuyên nghiệp và lợi nhuận rất tốt
+                                    </p>
                                 </blockquote>
                             </div>
                         </div>
@@ -862,7 +870,7 @@
                     <iframe class="uk-width-1-1 uk-height-medium uk-border-rounded"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10600.5248164368!2d144.95966577016594!3d-37.81707816290683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sid!4v1645280096951!5m2!1sen!2sid">
                     </iframe>
-                    
+
                     <hr class="uk-margin-medium">
                     <div class="uk-grid uk-child-width-1-3@m uk-margin-medium-top uk-text-center" data-uk-grid="">
                         <div>
