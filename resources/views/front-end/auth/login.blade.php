@@ -8,7 +8,7 @@
     <meta name="description" content="Forest, an investment platform">
     <meta name="keywords" content="blockit, uikit3, indonez, handlebars, scss, javascript">
     <meta name="author" content="Global fast Coder">
-    <meta name="theme-color" content="#FCB42D" />
+    <meta name="theme-color" content="#091b65" />
     <!-- critical preload -->
     <link rel="preload" href="{{ asset('front-end/js/vendors/uikit.min.js') }}" as="script">
     <link rel="preload" href="{{ asset('front-end/css/style.css') }}" as="style">

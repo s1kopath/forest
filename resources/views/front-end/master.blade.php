@@ -8,7 +8,7 @@
     <meta name="description" content="Forest, an investment platform">
     <meta name="keywords" content="blockit, uikit3, indonez, handlebars, scss, javascript">
     <meta name="author" content="Global fast Coder">
-    <meta name="theme-color" content="#FCB42D" />
+    <meta name="theme-color" content="#091b65" />
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('front-end/img/favicon-32x32.png') }}" type="image/x-icon">

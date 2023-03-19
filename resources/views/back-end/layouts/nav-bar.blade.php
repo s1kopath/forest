@@ -4,7 +4,7 @@
     }
 </style>
 
-<nav class="navbar header-navbar pcoded-header" style="background: #FCB42D;">
+<nav class="navbar header-navbar pcoded-header" style="background: #091b65;">
     <div class="navbar-wrapper">
         <div class="navbar-logo">
             @if (auth()->user()->user_type == 'public')
@@ -36,11 +36,11 @@
                 </div>
             </a>
         </div>
-        <div class="navbar-container container-fluid">
+        <div class="navbar-container container-fluid text-white">
             <ul class="nav-right">
                 <li>
                     <a href="{{ route('logout') }}">
-                        <i class="fas fa-sign-out-alt"></i>
+                        <i class="fas fa-sign-out-alt text-white"></i>
                     </a>
                 </li>
             </ul>

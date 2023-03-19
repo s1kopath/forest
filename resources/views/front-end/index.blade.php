@@ -74,7 +74,7 @@
                             </div>
                             <div class="in-slide-img">
                                 <img src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                    data-src="{{ asset('front-end/img/in-equity-slide-1.png') }}" alt="image-slide"
+                                    data-src="{{ asset('front-end/img/in-equity-slide-3.png') }}" alt="image-slide"
                                     width="652" height="746" data-uk-img>
                             </div>
                         </div>
@@ -146,7 +146,7 @@
                             </div>
                             <div class="in-slide-img">
                                 <img src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                    data-src="{{ asset('front-end/img/in-equity-slide-1.png') }}" alt="image-slide"
+                                    data-src="{{ asset('front-end/img/in-equity-slide-3.png') }}" alt="image-slide"
                                     width="652" height="746" data-uk-img>
                             </div>
                         </div>
@@ -216,7 +216,7 @@
                             </div>
                             <div class="in-slide-img">
                                 <img src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                    data-src="{{ asset('front-end/img/in-equity-slide-1.png') }}" alt="image-slide"
+                                    data-src="{{ asset('front-end/img/in-equity-slide-3.png') }}" alt="image-slide"
                                     width="652" height="746" data-uk-img>
                             </div>
                         </div>
@@ -285,7 +285,7 @@
                             </div>
                             <div class="in-slide-img">
                                 <img src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                    data-src="{{ asset('front-end/img/in-equity-slide-1.png') }}" alt="image-slide"
+                                    data-src="{{ asset('front-end/img/in-equity-slide-3.png') }}" alt="image-slide"
                                     width="652" height="746" data-uk-img>
                             </div>
                         </div>
@@ -317,7 +317,7 @@
                             <span class="in-product-name red">EQ</span>
                             <h5 class="uk-margin-remove">Staking</h5>
                         </div>
-                        <p>
+                        <p style="color: #b4b4cc">
                             Investors created a site to invest in stacking NFTs. They acquired and stacked rare NFTs,
                             monitored the market for trends...
                         </p>
@@ -332,7 +332,7 @@
                             <span class="in-product-name green">LQ</span>
                             <h5 class="uk-margin-remove">Forex Trading</h5>
                         </div>
-                        <p>
+                        <p style="color: #b4b4cc">
                             Our business model involves raising investment funds from investors and allocating them to a
                             forex trading account...
                         </p>
@@ -347,7 +347,7 @@
                             <span class="in-product-name orange">FB</span>
                             <h5 class="uk-margin-remove">Forex Broker</h5>
                         </div>
-                        <p>
+                        <p style="color: #b4b4cc">
                             Our company is currently accepting investments from individuals and using these funds to
                             establish a Forex trading platform...
                         </p>
@@ -362,7 +362,7 @@
                             <span class="in-product-name blue">FU</span>
                             <h5 class="uk-margin-remove">E-Commerce</h5>
                         </div>
-                        <p>
+                        <p style="color: #b4b4cc">
                             Our company is focused on maximizing returns for our investors by investing their funds in the
                             e-commerce market....
                         </p>
@@ -385,7 +385,8 @@
         <div class="uk-container uk-margin-large-bottom">
             <div class="uk-grid uk-flex uk-flex-middle">
                 <div class="uk-width-expand@m">
-                    <h1 class="uk-margin-small-bottom">Tight spreads and <span class="in-highlight">ultra-fast</span>
+                    <h1 class="uk-margin-small-bottom text-dark">Tight spreads and <span
+                            class="in-highlight">ultra-fast</span>
                         execution</h1>
                     <h3 class="uk-margin-top uk-text-warning">Best market prices available so you can receive
                         excellent conditions.</h3>
@@ -414,8 +415,11 @@
                     <div class="uk-width-3-5@m uk-text-center">
                         <h1 class="uk-margin-remove-bottom">Putting our clients first <span class="in-highlight">since
                                 1986</span></h1>
-                        <p class="uk-text-lead text-white uk-margin-small-top">For more than 30 years, we’ve been
-                            empowering clients by helping them take control of their financial lives.</p>
+                        <p class="uk-text-lead text-white uk-margin-small-top">
+                            Welcome to our company, where we strive to provide our investors with high returns while
+                            ensuring their money is always safe in our hands. Our company is dedicated to making investments
+                            in various markets, including Stacking NFT, Forex trading, e-commerce, and Forex broker.
+                        </p>
                     </div>
                 </div>
                 <div class="uk-grid uk-grid-large uk-child-width-1-3@m uk-margin-medium-top" data-uk-grid>
@@ -427,8 +431,11 @@
                         </div>
                         <div>
                             <h3>Philosophy</h3>
-                            <p class="uk-margin-remove-bottom">At vero eos etme accusamus iusto odio ent dignissimos
-                                deleniti atque corrupti quos ducimus moll quilla blanditiis expedita est distinctio.
+                            <p class="uk-margin-remove-bottom text-secondary">At our company, we believe that investment
+                                opportunities
+                                should be accessible to everyone, regardless of their financial background or investment
+                                experience. Therefore, we work hard to provide our clients with the best investment
+                                solutions that meet their needs and goals.
                             </p>
                         </div>
                     </div>
@@ -440,8 +447,10 @@
                         </div>
                         <div>
                             <h3>History</h3>
-                            <p class="uk-margin-remove-bottom">At vero eos etme accusamus iusto odio ent dignissimos
-                                deleniti atque corrupti quos ducimus moll quilla blanditiis expedita est distinctio.
+                            <p class="uk-margin-remove-bottom text-secondary">
+                                We also believe in transparency and accountability, which is why we provide our clients with
+                                regular updates and reports on their investments. Our customer support team is always
+                                available to answer any questions or concerns our clients may have.
                             </p>
                         </div>
                     </div>
@@ -453,10 +462,21 @@
                         </div>
                         <div>
                             <h3>Culture</h3>
-                            <p class="uk-margin-remove-bottom">At vero eos etme accusamus iusto odio ent dignissimos
-                                deleniti atque corrupti quos ducimus moll quilla blanditiis expedita est distinctio.
+                            <p class="uk-margin-remove-bottom text-secondary">
+                                At our company, we are dedicated to providing our clients with exceptional investment
+                                opportunities and services that exceed their expectations. We are committed to building
+                                long-term relationships with our clients and
+                                helping them achieve their financial goals
                             </p>
                         </div>
+                    </div>
+                </div>
+                <div class="uk-width-1-1 uk-flex uk-flex-center">
+                    <div class="uk-width-3-5@m uk-text-center">
+                        <p class="uk-text-lead text-white uk-margin-small-top">
+                            Thank you for considering our company as your investment partner. We look forward to helping you
+                            achieve financial success.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -476,31 +496,58 @@
                             </div>
                         </div>
                         <div class="uk-width-expand">
-                            <h3>Why trade with our Company?</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation repudiandae ullamco.</p>
+                            <h3 class="text-dark">Why trade with our Company?</h3>
+                            <p>
+                                At our company, we believe that investment opportunities should be accessible to everyone,
+                                regardless of their financial background or investment experience. Therefore, we work hard
+                                to provide our clients with the best investment solutions that meet their needs and goals.
+                                <br>
+                                <br>
+                                We understand that the safety of our clients' funds is paramount, and we have implemented
+                                robust security measures to ensure the safety and integrity of their investments. Our
+                                clients can rest assured that their funds are in good hands and that we will always act in
+                                their best interests.
+                            </p>
 
                         </div>
                     </div>
                 </div>
                 <div class="uk-width-1-2@m">
-                    <h3>Our Shares offer</h3>
                     <div class="uk-grid uk-child-width-1-1 uk-child-width-1-2@m">
                         <div>
                             <ul class="uk-list in-list-check">
-                                <li>Direct Market Access (DMA)</li>
-                                <li>Leverage up to 1:500</li>
-                                <li>T+0 settlement</li>
-                                <li>Dividends paid in cash</li>
+                                <li>
+                                    We offer competitive returns on investments, with the potential for high returns
+                                </li>
+                                <li>
+                                    We provide our clients with educational resources and guidance on investment strategies
+                                </li>
+                                <li>
+                                    We believe in a diversified investment strategy that minimizes risks and maximizes
+                                    returns
+                                </li>
+                                <li>
+                                    Our investment solutions are designed to help our clients build wealth over the long
+                                    term
+                                </li>
                             </ul>
                         </div>
                         <div>
                             <ul class="uk-list in-list-check">
-                                <li>Free from UK Stamp Duty</li>
-                                <li>Short selling available</li>
-                                <li>Commissions from 0.08%</li>
-                                <li>Access to 1500 global shares</li>
+                                <li>
+                                    We have a customer support team available to answer any questions or concerns our
+                                    clients may have
+                                </li>
+                                <li>
+                                    We provide excellent customer service, with a focus on meeting our clients' needs and
+                                    expectations
+                                </li>
+                                <li>
+                                    We offer flexible investment options to suit our clients' needs and investment goals
+                                </li>
+                                <li>
+                                    Our investment solutions are designed to generate passive income for our clients
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -533,7 +580,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Marco P</h5>
+                                        <h5 class="uk-margin-remove-bottom text-dark">Marco P</h5>
                                         <p class="uk-text-muted uk-margin-remove-top">Italian</p>
                                     </div>
                                 </div>
@@ -560,7 +607,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Lars H</h5>
+                                        <h5 class="uk-margin-remove-bottom text-dark">Lars H</h5>
                                         <p class="uk-text-muted uk-margin-remove-top">Danish</p>
                                     </div>
                                 </div>
@@ -587,7 +634,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Maria S</h5>
+                                        <h5 class="uk-margin-remove-bottom text-dark">Maria S</h5>
                                         <p class="uk-text-muted uk-margin-remove-top">Spanish</p>
                                     </div>
                                 </div>
@@ -614,7 +661,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Pierre L</h5>
+                                        <h5 class="uk-margin-remove-bottom text-dark">Pierre L</h5>
                                         <p class="uk-text-muted uk-margin-remove-top">French</p>
                                     </div>
                                 </div>
@@ -641,7 +688,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Katrin W</h5>
+                                        <h5 class="uk-margin-remove-bottom text-dark">Katrin W</h5>
                                         <p class="uk-text-muted uk-margin-remove-top">German</p>
                                     </div>
                                 </div>
@@ -668,7 +715,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Marcos S</h5>
+                                        <h5 class="uk-margin-remove-bottom text-dark">Marcos S</h5>
                                         <p class="uk-text-muted uk-margin-remove-top">Portuguese</p>
                                     </div>
                                 </div>
@@ -695,7 +742,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">佐藤健太郎</h5>
+                                        <h5 class="uk-margin-remove-bottom text-dark">佐藤健太郎</h5>
                                         <p class="uk-text-muted uk-margin-remove-top">Japanese</p>
                                     </div>
                                 </div>
@@ -722,7 +769,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Pieter V</h5>
+                                        <h5 class="uk-margin-remove-bottom text-dark">Pieter V</h5>
                                         <p class="uk-text-muted uk-margin-remove-top">Dutch</p>
                                     </div>
                                 </div>
@@ -749,7 +796,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Anna L</h5>
+                                        <h5 class="uk-margin-remove-bottom text-dark">Anna L</h5>
                                         <p class="uk-text-muted uk-margin-remove-top">Norwegian</p>
                                     </div>
                                 </div>
@@ -776,7 +823,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h5 class="uk-margin-remove-bottom">Hoàng A</h5>
+                                        <h5 class="uk-margin-remove-bottom text-dark">Hoàng A</h5>
                                         <p class="uk-text-muted uk-margin-remove-top">Vietnamese</p>
                                     </div>
                                 </div>
@@ -818,19 +865,19 @@
                     <hr class="uk-margin-medium">
                     <div class="uk-grid uk-child-width-1-3@m uk-margin-medium-top uk-text-center" data-uk-grid="">
                         <div>
-                            <h5 class="uk-margin-remove-bottom"><i
+                            <h5 class="uk-margin-remove-bottom text-dark"><i
                                     class="fas fa-map-marker-alt fa-sm uk-margin-small-right"></i>Address</h5>
                             <p class="uk-margin-small-top">Satrio Tower 16th, Jl. Dr Satrio Kuningan, Jakarta</p>
                         </div>
                         <div>
-                            <h5 class="uk-margin-remove-bottom"><i
+                            <h5 class="uk-margin-remove-bottom text-dark"><i
                                     class="fas fa-envelope fa-sm uk-margin-small-right"></i>Email</h5>
                             <p class="uk-margin-small-top uk-margin-remove-bottom">hello@company.com</p>
                             <p class="uk-text-small uk-text-muted uk-text-uppercase uk-margin-remove-top">for public
                                 inquiries</p>
                         </div>
                         <div>
-                            <h5 class="uk-margin-remove-bottom"><i
+                            <h5 class="uk-margin-remove-bottom text-dark"><i
                                     class="fas fa-phone-alt fa-sm uk-margin-small-right"></i>Call</h5>
                             <p class="uk-margin-small-top uk-margin-remove-bottom">(888)234-5686</p>
                             <p class="uk-text-small uk-text-muted uk-text-uppercase uk-margin-remove-top">Mon - Fri,
@@ -885,7 +932,7 @@
                                 width="91" height="82" data-uk-img>
                         </div>
                         <div>
-                            <h6>Reliable</h6>
+                            <h6 class="text-dark">Reliable</h6>
                             <p class="provider">Someone that you can trust</p>
                             <p class="year">100%</p>
                         </div>
@@ -899,7 +946,7 @@
                                 width="91" height="82" data-uk-img>
                         </div>
                         <div>
-                            <h6>Transparency</h6>
+                            <h6 class="text-dark">Transparency</h6>
                             <p class="provider">Open, Communicative, and Accountabile</p>
                             <p class="year">100%</p>
                         </div>
@@ -913,7 +960,7 @@
                                 width="91" height="82" data-uk-img>
                         </div>
                         <div>
-                            <h6>Secure</h6>
+                            <h6 class="text-dark">Secure</h6>
                             <p class="provider">Keeping you safe financially and mentally.</p>
                             <p class="year">100%</p>
                         </div>
@@ -940,7 +987,7 @@
                                 account<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                         </div>
                         <div class="uk-margin-left uk-margin-right">
-                            <p class="uk-margin-remove">And download the app</p>
+                            <p class="uk-margin-remove text-white">And download the app</p>
                         </div>
                         <div class="uk-margin-right">
                             <a href="#"><img src="{{ asset('front-end/img/in-lazy.gif') }}"
