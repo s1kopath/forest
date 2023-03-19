@@ -377,63 +377,7 @@
     <!-- section content end -->
 
     <!-- section content begin -->
-    <div class="uk-section in-equity-2 uk-background-contain uk-background-center"
-        data-src="{{ asset('front-end/img/in-equity-2-bg.png') }}" data-uk-img>
-        <div class="uk-container uk-margin-top">
-            <div class="uk-grid uk-flex uk-flex-center">
-                <div class="row">
-                    <div class="col-md-4 rounded px-5 py-3 border">
-                        <table>
-                            <thead>
-                                <th colspan="3" class="text-center">New Registration</th>
-                            </thead>
-                            <tbody>
-                                @for ($i = 0; $i < 5; $i++)
-                                    <tr>
-                                        <td style="width: 50px">&#127988</td>
-                                        <td style="width: 100px">fr*****e0</td>
-                                        <td style="width: 100px" class="text-right">Mr Frankie</td>
-                                    </tr>
-                                @endfor
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-md-4 rounded px-5 py-3 border">
-                        <table>
-                            <thead>
-                                <th colspan="3" class="text-center">Deposit</th>
-                            </thead>
-                            <tbody>
-                                @for ($i = 0; $i < 5; $i++)
-                                    <tr>
-                                        <td style="width: 50px">&#12798</td>
-                                        <td style="width: 100px">Mr Frankie</td>
-                                        <td style="width: 100px" class="text-right">${{ $i * 6 + 150 }}</td>
-                                    </tr>
-                                @endfor
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-md-4 rounded px-5 py-3 border">
-                        <table>
-                            <thead>
-                                <th colspan="3" class="text-center">Withdrawal</th>
-                            </thead>
-                            <tbody>
-                                @for ($i = 0; $i < 5; $i++)
-                                    <tr>
-                                        <td style="width: 50px">&#128681</td>
-                                        <td style="width: 100px">Mr Donkey</td>
-                                        <td style="width: 100px" class="text-right">${{ $i * 5 + 150 }}</td>
-                                    </tr>
-                                @endfor
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('front-end.section.content.random-user')
     <!-- section content end -->
 
     <!-- section content begin -->
