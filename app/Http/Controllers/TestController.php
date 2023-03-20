@@ -20,7 +20,7 @@ class TestController extends Controller
     public function test()
     {
 
-        return view('test');
+        // return view('test');
         $url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether&vs_currencies=eur,usd,gbp';
         $data = file_get_contents($url);
         $data = json_decode($data, true);

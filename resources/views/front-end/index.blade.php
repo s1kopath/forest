@@ -399,7 +399,8 @@
                 </div>
                 <div class="uk-width-2xlarge uk-flex uk-flex-right uk-flex-center@s">
                     <div class="uk-card uk-card-body uk-card-default uk-border-rounded in-margin-top-60@s">
-                        <div id="tradingview-widget"></div>
+                        {{-- <div id="tradingview-widget"></div> --}}
+                        <x-global-rate />
                     </div>
                 </div>
             </div>

@@ -197,18 +197,15 @@
         </div>
 
         <div class="col-md-12">
-            <div class="bg-white rounded my-3">
-                <div id="tradingview-widget"></div>
+            <div class="bg-white rounded my-3 p-1">
+                {{-- <div id="tradingview-widget"></div> --}}
+                <x-global-rate />
             </div>
         </div>
     </div>
 @endsection
 
 @push('js')
-    <script src="{{ asset('front-end/js/vendors/tradingview-widget.min.js') }}"></script>
-    <script src="{{ asset('front-end/js/vendors/uikit.min.js') }}"></script>
-    <script src="{{ asset('front-end/js/utilities.min.js') }}"></script>
-    <script src="{{ asset('front-end/js/config-theme.js') }}"></script>
     <script>
         function myFunction() {
             // Get the text field
