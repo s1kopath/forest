@@ -179,7 +179,7 @@
                                                 </option>
                                             </select>
                                         @else
-                                            <select class="form-control ms-input" id="identity-choose">
+                                            <select class="form-control form-control-sm ms-input" id="identity-choose">
                                                 <option value="">Choose Identity...</option>
                                                 <option value="Passport">Passport</option>
                                                 <option value="Driving License">Driving License</option>
@@ -200,7 +200,7 @@
                                         <img class="cropper-img" id="image_1">
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
                                             <legend class="w-auto px-2 ms-legend">Front Image</legend>
-                                            <input type="file" class="form-control ms-input" name="image_1"
+                                            <input type="file" class="ms-input" name="image_1"
                                                 id="v1_img_input" required>
                                             <input type="hidden" name="" id="v1_img_output">
                                         </fieldset>
@@ -216,7 +216,7 @@
                                         <img class="cropper-img" id="image_2">
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
                                             <legend class="w-auto px-2 ms-legend">Back Image</legend>
-                                            <input type="file" class="form-control ms-input" name="image_2"
+                                            <input type="file" class="ms-input" name="image_2"
                                                 id="v2_img_input" required>
                                         </fieldset>
                                     @endif
