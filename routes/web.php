@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\BinanceController;
 use App\Http\Controllers\Dashboard\PublicDashboardController;
 use App\Http\Controllers\StackingRoisController;
 use App\Http\Controllers\IbRoyalityController;
@@ -131,6 +132,8 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::get('downloads', [PublicDashboardController::class, 'downloads'])->name('public_downloads');
         Route::get('become-an-ib', [PublicDashboardController::class, 'becomeAnIb'])->name('public_become_an_ib');
     });
+
+    Route::post('deposit-binance', [BinanceController::class, 'test1'])->name('binance_merchant_pay');
 });
 
 Route::controller(StripePaymentController::class)->group(function () {

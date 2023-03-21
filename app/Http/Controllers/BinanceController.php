@@ -2,23 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rank;
-use App\Models\User;
-use App\Models\Wallet;
-use App\Models\UserStake;
-use App\Models\IbRoyality;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Models\StakingRebate;
-use App\Models\AmountForIbGain;
-use App\Models\StakingRebateBonus;
-use App\Http\Controllers\RanksController;
-use App\Http\Controllers\user\StakeController;
+use Illuminate\Support\Facades\Http;
 
-class TestController extends Controller
+class BinanceController extends Controller
 {
-    public function test()
+    public function test1(Request $req)
     {
+        // temporarily diduct amount
+        $amount = $req->amount / 1000;
+
         // Generate nonce string
         $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $nonce = '';
@@ -35,14 +28,14 @@ class TestController extends Controller
                 "terminalType" => "APP"
             ),
             "merchantTradeNo" => mt_rand(982538, 9825382937292),
-            "orderAmount" => 0.01,
+            "orderAmount" => $amount,
             "currency" => "BUSD",
             "goods" => array(
                 "goodsType" => "01",
                 "goodsCategory" => "D000",
-                "referenceGoodsId" => "7876763A3B",
-                "goodsName" => "Ice Cream",
-                "goodsDetail" => "Greentea ice cream cone"
+                "referenceGoodsId" => uniqid(),
+                "goodsName" => "Forest Deposit",
+                "goodsDetail" => "Deposit of $" . $amount
             )
         );
 
@@ -66,14 +59,12 @@ class TestController extends Controller
 
         $result = curl_exec($ch);
         if (curl_errno($ch)) {
-            echo 'Error:' . curl_error($ch);
+            return back()->with('error', 'Error:' . curl_error($ch));
         }
         curl_close($ch);
+        $result = json_decode($result, true);
+        // return $result['data']['checkoutUrl'];
 
-        var_dump($result);
-
-        //Redirect user to the payment page
-        // dd('200');
-        // abort(500);
+        return redirect($result['data']['checkoutUrl']);
     }
 }
