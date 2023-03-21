@@ -9,7 +9,7 @@ class BinanceController extends Controller
 {
     public function test1(Request $req)
     {
-        // temporarily diduct amount
+        // temporarily didact amount
         $amount = $req->amount / 1000;
 
         // Generate nonce string
