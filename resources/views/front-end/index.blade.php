@@ -383,27 +383,28 @@
     <!-- section content begin -->
     <div class="uk-section in-equity-3 in-offset-top-20">
         <div class="uk-container uk-margin-large-bottom">
-            <div class="uk-grid uk-flex uk-flex-middle">
-                <div class="uk-width-expand@m">
-                    <h1 class="uk-margin-small-bottom text-dark">Tight spreads and <span
-                            class="in-highlight">ultra-fast</span>
-                        execution</h1>
-                    <h3 class="uk-margin-top uk-text-warning">Best market prices available so you can receive
-                        excellent conditions.</h3>
-                    <hr class="uk-margin-medium-top uk-margin-medium-bottom">
-                    <ul class="uk-list in-list-check">
+            {{-- <div class="uk-grid uk-flex uk-flex-middle"> --}}
+            <div class="col-md-12 text-center">
+                {{-- <div class="uk-width-expand@m"> --}}
+                <h1 class="uk-margin-small-bottom text-dark">Tight spreads and <span
+                        class="in-highlight">ultra-fast</span>
+                    execution</h1>
+                <h3 class="uk-margin-top uk-text-warning">Best market prices available so you can receive
+                    excellent conditions.</h3>
+                {{-- <ul class="uk-list in-list-check">
                         <li>Negative balance protection</li>
                         <li>Segregated and supervised client funds</li>
                         <li>Instant deposit & fast withdrawal</li>
-                    </ul>
-                </div>
-                <div class="uk-width-2xlarge uk-flex uk-flex-right uk-flex-center@s">
-                    <div class="uk-card uk-card-body uk-card-default uk-border-rounded in-margin-top-60@s">
-                        {{-- <div id="tradingview-widget"></div> --}}
-                        <x-global-rate />
-                    </div>
-                </div>
+                    </ul> --}}
             </div>
+            <x-global-rate-2 />
+            {{-- <div class="col-md-12"> --}}
+            {{-- <div class="uk-width-2xlarge uk-flex uk-flex-right uk-flex-center@s"> --}}
+            {{-- <div class="uk-card uk-card-body uk-card-default uk-border-rounded in-margin-top-60@s"> --}}
+            {{-- <div id="tradingview-widget"></div> --}}
+            {{-- <x-global-rate /> --}}
+            {{-- </div> --}}
+            {{-- </div> --}}
         </div>
     </div>
     <!-- section content end -->

@@ -195,13 +195,15 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-md-12">
-            <div class="bg-white rounded my-3 p-1">
-                {{-- <div id="tradingview-widget"></div> --}}
+        
+        <x-global-rate-2 />
+        
+        {{-- <div class="col-md-12"> --}}
+            {{-- <div id="tradingview-widget"></div> --}}
+            {{-- <div class="bg-white rounded my-3 p-1">
                 <x-global-rate />
-            </div>
-        </div>
+            </div> --}}
+        {{-- </div> --}}
     </div>
 @endsection
 
