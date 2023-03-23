@@ -112,6 +112,8 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::post('/update', [PublicDashboardController::class, 'updatePublicProfile'])->name('update_public_profile');
         Route::post('/update-location', [PublicDashboardController::class, 'editLocation'])->name('edit_location');
         Route::get('fund', [FundController::class, 'fund'])->name('public_fund');
+        Route::post('new-deposit', [FundController::class, 'newDeposit'])->name('new_deposit');
+        
         // stake
         Route::match(['get', 'post'], 'stake', [StakeController::class, 'stake'])->name('stake');
         Route::get('stake-history/fetch_data', [StakeController::class, 'fetchStakeHistoryData']);

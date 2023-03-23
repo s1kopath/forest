@@ -50,3 +50,27 @@
 .nav-link {
     font-size: 18px!important;
 }
+
+.jss619 {
+    color: white;
+    transition: 0.5s;
+    background: linear-gradient(113.45deg, #742DCE 0%, #050B99 51%, #742DCE 100%);
+    font-weight: 700;
+    background-size: 200% auto;
+    background-color: #ffffff;
+    padding: 10px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 186px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.btn-cus-jss619 {
+    color: white;
+    transition: 0.5s;
+    background: linear-gradient(113.45deg, #742DCE 0%, #050B99 51%, #742DCE 100%);
+    background-color: #ffffff;
+    font-weight: 700;
+}

@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-block">
             <div class="col-lg-12 col-xl-12">
-                <ul class="nav nav-tabs md-tabs" role="tablist" id="tab-list">
+                <ul class="nav nav-tabs md-tabs d-flex" role="tablist" id="tab-list">
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#deposit" role="tab">Deposit</a>
                         <div class="slide"></div>
@@ -31,143 +31,216 @@
                             <span>Personal Details:</span>
                             <span>User ID: {{ $user->username }}</span>
                         </h3>
+
+                        <div class="d-flex justify-content-center overflow-auto pb-3">
+                            <img type="button" class="img-fluid rounded mx-1 shadow-sm border" style="width: 100px"
+                                src="{{ asset('front-end/img/deposit/1.png') }}" alt="forest">
+                            <img type="button" class="img-fluid rounded mx-1 shadow-sm border" style="width: 100px"
+                                src="{{ asset('front-end/img/deposit/5.png') }}" alt="forest">
+                            <img type="button" class="img-fluid rounded mx-1 shadow-sm border" style="width: 100px"
+                                src="{{ asset('front-end/img/deposit/6.png') }}" alt="forest">
+                        </div>
+
                         <p class="text-center h3">
                             <span>HOW WOULD YOU LIKE TO PAY?</span>
                         </p>
-                        <div class="container">
-                            <div class="row">
-                                {{-- <div class="col-6 col-md-4 p-1">
-                                    <img class="img-fluid rounded" src="{{ asset('front-end/img/deposit/1.png') }}"
-                                        alt="forest">
-                                </div>
-                                <div class="col-6 col-md-4 p-1">
-                                    <img class="img-fluid rounded" src="{{ asset('front-end/img/deposit/2.png') }}"
-                                        alt="forest">
-                                </div>
-                                <div class="col-6 col-md-4 p-1">
-                                    <img class="img-fluid rounded" src="{{ asset('front-end/img/deposit/3.png') }}"
-                                        alt="forest">
-                                </div>
-                                <div class="col-6 col-md-4 p-1">
-                                    <img class="img-fluid rounded" src="{{ asset('front-end/img/deposit/4.png') }}"
-                                        alt="forest">
-                                </div>
-                                <div class="col-6 col-md-4 p-1">
-                                    <img class="img-fluid rounded" src="{{ asset('front-end/img/deposit/6.png') }}"
-                                        alt="forest">
-                                </div> --}}
 
-                                {{-- <div class="col-6 col-md-4 p-1">
-                                    <img class="img-fluid rounded" src="{{ asset('front-end/img/deposit/5.png') }}"
-                                        alt="forest">
-                                </div> --}}
-                                <div class="col-md-4">
-                                    <fieldset class="form-group p-2 rounded ms-fieldset">
-                                        <legend class="w-auto px-2 ms-legend">Account Nickname</legend>
-                                        <select class="form-control form-control-sm ms-input">
-                                            <option value="">Choose your account...</option>
-                                            <option value="Cripto" selected>Cripto</option>
-                                        </select>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-4">
-                                    <style>
-                                        .jss619 {
-                                            color: white;
-                                            transition: 0.5s;
-                                            background: linear-gradient(113.45deg, #742DCE 0%, #050B99 51%, #742DCE 100%);
-                                            font-weight: 700;
-                                            background-size: 200% auto;
-                                            background-color: #ffffff;
-                                            padding: 10px 24px;
-                                            font-size: 15px;
-                                            font-weight: 700;
-                                            text-transform: uppercase;
-                                            width: 186px;
-                                            margin-top: 10px;
-                                            border-radius: 5px;
-                                        }
-                                    </style>
-                                    <button class="btn jss619 shadow" type="button" data-toggle="modal"
-                                        data-target="#stripeModal">
-                                        PROCEED
-                                    </button>
+                        <form action="{{ route('new_deposit') }}" method="post">
+                            @csrf
+                            <div class="d-flex justify-content-center">
+                                <div class="card col-md-4">
+                                    <div class="card-body">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Currency</legend>
+                                            <select class="form-control form-control-sm ms-input" required name="currency">
+                                                <option value="">Choose Currency</option>
+                                                <option value="USD" selected>USD</option>
+                                            </select>
+                                        </fieldset>
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Amount</legend>
+                                            <input class="form-control ms-input" type="number" name="amount"
+                                                placeholder="Amount" required>
+                                        </fieldset>
+                                        <p>
+                                            <span class="text-danger">*</span> Min-Max Amounts
+                                            <br>
+                                            &nbsp; 20 USD - 50000 USD
+                                        </p>
+                                        <div class="col-md-12 text-center">
+                                            <button class="btn jss619 shadow" type="button" onclick="deposit()">
+                                                DEPOSIT
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- payment Modal -->
-                        <div class="modal fade" id="stripeModal" tabindex="-1" role="dialog"
-                            aria-labelledby="stripeModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="stripeModalLabel">Deposit Amount</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="my-2">
-                                            <img class="img-fluid rounded"
-                                                src="{{ asset('front-end/img/deposit/1-4.jpg') }}" alt="forest">
-                                        </div>
-
-                                        <form action="{{ route('binance_merchant_pay') }}" method="post">
-                                            @csrf
-                                            <div class="container my-3">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <label for="amount">Amount: </label>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <input type="number" step="0.01" class="form-control" required
-                                                            placeholder="Enter Deposit Amount" name="amount">
-                                                    </div>
+                            <hr>
+                            <div class="d-flex justify-content-center">
+                                <div class="card col-md-4">
+                                    <div class="card-body">
+                                        <div class="container rounded p-1 mb-2" style="background-color: #f5f5f5">
+                                            <div class="row m-1">
+                                                <div class="col">
+                                                    <span class="font-weight-bold" id="currency-lvl-2-1">NULL</span>
+                                                </div>
+                                                <div class="col text-right">
+                                                    <span id="amount-after">00</span>
+                                                    <span class="text-muted" id="currency-lvl-2-2">NULL</span>
                                                 </div>
                                             </div>
-
-                                            <div class="text-center m-t-20 m-b-20">
-                                                <button type="submit" class="btn btn-primary rounded-pill">
-                                                    Proceed
-                                                </button>
+                                        </div>
+                                        <hr>
+                                        <div>
+                                            <input type="text" class="form-control" placeholder="🔎 Search coin">
+                                        </div>
+                                        <div class="row my-3">
+                                            <style>
+                                                .coin-type[type="radio"]:checked+label {
+                                                    background-color: #ececec;
+                                                    border-radius: 5px;
+                                                }
+                                            </style>
+                                            <div class="col">
+                                                <input class="d-none coin-type" type="radio" name="coin-type"
+                                                    id="usdt" value="option1" required>
+                                                <label for="usdt" type="button">
+                                                    <img class="rounded-circle"
+                                                        src="{{ asset('back-end/img/trade/tether.png') }}" alt="flag">
+                                                    <span class="font-weight-bold">USDT</span>
+                                                    <small class="text-secondary">Tether</small>
+                                                </label>
                                             </div>
-                                        </form>
+                                            <div class="col text-right">
+                                                <span class="text-secondary">
+                                                    ~199800200 USDT
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row my-3">
+                                            <div class="col">
+                                                <input class="d-none coin-type" type="radio" name="coin-type"
+                                                    id="btc" value="option2" required>
+                                                <label for="btc" type="button">
+                                                    <img class="rounded-circle"
+                                                        src="{{ asset('back-end/img/trade/bitcoin.png') }}"
+                                                        alt="flag">
+                                                    <span class="font-weight-bold">BTC</span>
+                                                    <small class="text-secondary">Bitcoin</small>
+                                                </label>
+                                            </div>
+                                            <div class="col text-right">
+                                                <span class="text-secondary">
+                                                    ~0.0007215 BTC
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row my-3">
+                                            <div class="col">
+                                                <input class="d-none coin-type" type="radio" name="coin-type"
+                                                    id="eth" value="option3" required>
+                                                <label for="eth" type="button">
+                                                    <img class="rounded-circle"
+                                                        src="{{ asset('back-end/img/trade/ethereum.png') }}"
+                                                        alt="flag">
+                                                    <span class="font-weight-bold">ETH</span>
+                                                    <small class="text-secondary">Ethereum</small>
+                                                </label>
+                                            </div>
+                                            <div class="col text-right">
+                                                <span class="text-secondary">
+                                                    ~199800200 ETH
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 text-center">
+                                            <button class="btn btn-outline-dark shadow" type="button">
+                                                CANCEL
+                                            </button>
+                                            <button class="btn btn-cus-jss619 shadow" type="button"
+                                                onclick="depositNext()">
+                                                NEXT
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            <hr>
+                            <div class="d-flex justify-content-center">
+                                <div class="card col-md-4">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Choose network for USDT</p>
+                                        <div class="form-check my-2">
+                                            <input class="form-check-input" type="radio" name="exampleRadios"
+                                                id="eth" value="option1">
+                                            <label class="form-check-label" style="cursor: pointer;" for="eth">
+                                                ETH <small class="text-muted">Ethereum network (ERC20)</small>
+                                            </label>
+                                        </div>
+                                        <div class="form-check my-2">
+                                            <input class="form-check-input" type="radio" name="exampleRadios"
+                                                id="trx" value="option2">
+                                            <label class="form-check-label" style="cursor: pointer;" for="trx">
+                                                TRX <small class="text-muted">TRON network (TRC)</small>
+                                            </label>
+                                        </div>
+                                        <div class="form-check my-2">
+                                            <input class="form-check-input" type="radio" name="exampleRadios"
+                                                id="rsc" value="option3">
+                                            <label class="form-check-label" style="cursor: pointer;" for="rsc">
+                                                BSC <small class="text-muted">BNB Smart Chain network (BEP)</small>
+                                            </label>
+                                        </div>
+                                        <p class="text-info">Not sure what to use?</p>
+                                        <div class="p-2"></div>
+                                        <div class="col-md-12 text-center">
+                                            <button class="btn btn-outline-dark shadow" type="button">
+                                                CANCEL
+                                            </button>
+                                            <button class="btn btn-cus-jss619 shadow" type="button" data-toggle="modal"
+                                                data-target="#stripeModal">
+                                                NEXT
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-center">
+                                <div class="card col-md-4">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Would you like to proceed?</p>
+                                        <p>
+                                            Coin selected: <img class="rounded-circle"
+                                                src="{{ asset('back-end/img/trade/tether.png') }}" alt="flag">
+                                            <span class="font-weight-bold">USDT</span>
+                                            <small class="text-secondary">Tether</small>
+                                        </p>
+                                        <p>
+                                            Blockchain:
+                                            <span class="font-weight-bold">TRX</span>
+                                            <small class="text-secondary">TRON Network (TRC20)</small>
+                                        </p>
+                                        <div class="p-4"></div>
+                                        <p>By proceeding with this deposit, you are agreeing with our
+                                            <a href="#" class="text-primary">
+                                                <u>Terms and Conditions</u>
+                                            </a>
+                                        </p>
+                                        <div class="col-md-12 text-center">
+                                            <button class="btn btn-outline-dark shadow" type="button">
+                                                BACK
+                                            </button>
+                                            <button class="btn btn-cus-jss619 shadow" type="button" data-toggle="modal"
+                                                data-target="#stripeModal">
+                                                YES, PROCEED
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
 
-                        <hr>
-                        <p class="text-center h3 d-none">
-                            <span>PAY WITH CRYPTO</span>
-                        </p>
-                        <div class="container d-none">
-                            <div class="row">
-                                <label for="miningFree" class="form-label col-md-6">
-                                    Currency :
-                                </label>
-                                <div class="col-md-6 form-group">
-                                    <input type="text" class="form-control" placeholder="USD ($)" name=""
-                                        required>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <label for="netAmount" class="form-label col-md-6">
-                                    Amount :
-                                </label>
-                                <div class="col-md-6 form-group">
-                                    <input type="number" step="0.01" class="form-control" placeholder="$ 1000"
-                                        name="" required>
-                                </div>
-                            </div>
-                            <small class="text-danger">* Min 20 USD - Max 50000 USD</small>
-                            <div class="text-center m-t-20 m-b-20">
-                                <button class="btn btn-primary rounded-pill">
-                                    DEPOSIT
-                                </button>
-                            </div>
-                        </div>
                     </div>
                     <div class="tab-pane" id="withdrawal" role="tabpanel">
                         <h3 class="text-primary font-weight-bold text-center">
@@ -175,9 +248,9 @@
                         </h3>
                         <div class="d-flex justify-content-center form-group">
                             <div class="form-check m-2">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                                <input class="form-check-input" type="radio" name="exampleRadios" id=""
                                     value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
+                                <label class="form-check-label" for="">
                                     Visa/Master Card
                                 </label>
                             </div>
@@ -355,5 +428,31 @@
                 $('#tab-list a[href="' + activeTab + '"]').tab('show');
             }
         });
+    </script>
+
+    <script>
+        var _currency = $('[name="currency"]');
+        var _amount = $('[name="amount"]');
+        var _currency_2_1 = $('#currency-lvl-2-1');
+        var _currency_2_2 = $('#currency-lvl-2-2');
+        var _amount_after = $('#amount-after');
+        var _coin_type = $('[name="coin-type"]');
+
+        function deposit() {
+            if (_currency.val() != '' && _amount.val() != '') {
+                _currency_2_1.html(_currency.val());
+                _currency_2_2.html(_currency.val());
+                _amount_after.html(_amount.val());
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Select currency and enter amount!',
+                });
+            }
+        }
+
+        function depositNext() {
+            console.log(_coin_type.find(":checked"));
+        }
     </script>
 @endpush

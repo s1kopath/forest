@@ -29,4 +29,9 @@ class FundController extends Controller
         
         return true;
     }
+
+    public function newDeposit(Request $request)
+    {
+        dd($request->all());
+    }
 }
