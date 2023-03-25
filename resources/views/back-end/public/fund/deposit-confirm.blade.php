@@ -12,7 +12,7 @@
             <div class="col-lg-12 col-xl-12">
                 <div class="card-block">
                     <div class="d-flex justify-content-center">
-                        <div class="card col-md-4">
+                        <div class="card col-md-6">
                             <div class="card-body">
                                 <div class="row my-3 py-3" style="background-color: #feefc6">
                                     <div class="col-8">
