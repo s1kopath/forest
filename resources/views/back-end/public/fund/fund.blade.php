@@ -2,11 +2,47 @@
 @extends('back-end.layouts.left-sidebar')
 
 @push('css')
+    <style>
+        .coin-type[type="radio"]:checked+label {
+            background-color: #ececec;
+            border-radius: 5px;
+        }
+
+        #deposit-section,
+        #deposit-next-section {
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.8) url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/afb8cb36197347.5713616457ee5.gif") center no-repeat;
+        }
+
+        /* Turn off scrollbar when body element has the loading class */
+        body.loading {
+            overflow: hidden;
+        }
+
+        /* Make spinner image visible when body element has the loading class */
+        body.loading .overlay {
+            display: block;
+        }
+    </style>
 @endpush
 
 @section('page-title', 'Funds')
 
 @section('page-content')
+    <div class="overlay"></div>
     <div class="card">
         <div class="card-block">
             <div class="col-lg-12 col-xl-12">
@@ -27,10 +63,10 @@
 
                 <div class="tab-content card-block">
                     <div class="tab-pane active" id="deposit" role="tabpanel">
-                        <h3 class="text-primary font-weight-bold d-flex justify-content-between">
-                            <span>Personal Details:</span>
+                        <h4 class="text-primary font-weight-bold d-flex justify-content-between">
+                            <span>Deposit:</span>
                             <span>User ID: {{ $user->username }}</span>
-                        </h3>
+                        </h4>
 
                         <div class="d-flex justify-content-center overflow-auto pb-3">
                             <img type="button" class="img-fluid rounded mx-1 shadow-sm border" style="width: 100px"
@@ -45,14 +81,14 @@
                             <span>HOW WOULD YOU LIKE TO PAY?</span>
                         </p>
 
-                        <form action="{{ route('new_deposit') }}" method="post">
+                        <form action="{{ route('new_deposit') }}" method="post" id="deposit-form">
                             @csrf
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex justify-content-center" id="deposit-section">
                                 <div class="card col-md-4">
                                     <div class="card-body">
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
                                             <legend class="w-auto px-2 ms-legend">Currency</legend>
-                                            <select class="form-control form-control-sm ms-input" required name="currency">
+                                            <select class="form-control form-control-sm ms-input" name="currency">
                                                 <option value="">Choose Currency</option>
                                                 <option value="USD" selected>USD</option>
                                             </select>
@@ -60,7 +96,7 @@
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
                                             <legend class="w-auto px-2 ms-legend">Amount</legend>
                                             <input class="form-control ms-input" type="number" name="amount"
-                                                placeholder="Amount" required>
+                                                placeholder="Amount">
                                         </fieldset>
                                         <p>
                                             <span class="text-danger">*</span> Min-Max Amounts
@@ -75,8 +111,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <hr>
-                            <div class="d-flex justify-content-center">
+
+                            <div class="d-none justify-content-center" id="deposit-next-section">
                                 <div class="card col-md-4">
                                     <div class="card-body">
                                         <div class="container rounded p-1 mb-2" style="background-color: #f5f5f5">
@@ -95,15 +131,9 @@
                                             <input type="text" class="form-control" placeholder="🔎 Search coin">
                                         </div>
                                         <div class="row my-3">
-                                            <style>
-                                                .coin-type[type="radio"]:checked+label {
-                                                    background-color: #ececec;
-                                                    border-radius: 5px;
-                                                }
-                                            </style>
                                             <div class="col">
-                                                <input class="d-none coin-type" type="radio" name="coin-type"
-                                                    id="usdt" value="option1" required>
+                                                <input class="d-none coin-type" type="radio" name="coin_type"
+                                                    id="usdt" value="USDT Tether">
                                                 <label for="usdt" type="button">
                                                     <img class="rounded-circle"
                                                         src="{{ asset('back-end/img/trade/tether.png') }}" alt="flag">
@@ -119,8 +149,8 @@
                                         </div>
                                         <div class="row my-3">
                                             <div class="col">
-                                                <input class="d-none coin-type" type="radio" name="coin-type"
-                                                    id="btc" value="option2" required>
+                                                <input class="d-none coin-type" type="radio" name="coin_type"
+                                                    id="btc" value="BTC Bitcoin">
                                                 <label for="btc" type="button">
                                                     <img class="rounded-circle"
                                                         src="{{ asset('back-end/img/trade/bitcoin.png') }}"
@@ -137,8 +167,8 @@
                                         </div>
                                         <div class="row my-3">
                                             <div class="col">
-                                                <input class="d-none coin-type" type="radio" name="coin-type"
-                                                    id="eth" value="option3" required>
+                                                <input class="d-none coin-type" type="radio" name="coin_type"
+                                                    id="eth" value="ETH Ethereum">
                                                 <label for="eth" type="button">
                                                     <img class="rounded-circle"
                                                         src="{{ asset('back-end/img/trade/ethereum.png') }}"
@@ -154,8 +184,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 text-center">
-                                            <button class="btn btn-outline-dark shadow" type="button">
-                                                CANCEL
+                                            <button class="btn btn-outline-dark shadow" type="button" onclick="back1()">
+                                                BACK
                                             </button>
                                             <button class="btn btn-cus-jss619 shadow" type="button"
                                                 onclick="depositNext()">
@@ -165,74 +195,77 @@
                                     </div>
                                 </div>
                             </div>
-                            <hr>
-                            <div class="d-flex justify-content-center">
+
+                            <div class="d-none justify-content-center" id="deposit-after-section">
                                 <div class="card col-md-4">
                                     <div class="card-body">
-                                        <p class="font-weight-bold">Choose network for USDT</p>
+                                        <p class="font-weight-bold">Choose network for <span
+                                                id="network-title">NULL</span></p>
                                         <div class="form-check my-2">
-                                            <input class="form-check-input" type="radio" name="exampleRadios"
-                                                id="eth" value="option1">
-                                            <label class="form-check-label" style="cursor: pointer;" for="eth">
+                                            <input class="form-check-input" type="radio" name="network_type"
+                                                id="ERC20" value="Ethereum network (ERC20)">
+                                            <label class="form-check-label" style="cursor: pointer;" for="ERC20">
                                                 ETH <small class="text-muted">Ethereum network (ERC20)</small>
                                             </label>
                                         </div>
                                         <div class="form-check my-2">
-                                            <input class="form-check-input" type="radio" name="exampleRadios"
-                                                id="trx" value="option2">
-                                            <label class="form-check-label" style="cursor: pointer;" for="trx">
+                                            <input class="form-check-input" type="radio" name="network_type"
+                                                id="TRC" value="TRON network (TRC)">
+                                            <label class="form-check-label" style="cursor: pointer;" for="TRC">
                                                 TRX <small class="text-muted">TRON network (TRC)</small>
                                             </label>
                                         </div>
                                         <div class="form-check my-2">
-                                            <input class="form-check-input" type="radio" name="exampleRadios"
-                                                id="rsc" value="option3">
-                                            <label class="form-check-label" style="cursor: pointer;" for="rsc">
+                                            <input class="form-check-input" type="radio" name="network_type"
+                                                id="BEP" value="BNB Smart Chain network (BEP)">
+                                            <label class="form-check-label" style="cursor: pointer;" for="BEP">
                                                 BSC <small class="text-muted">BNB Smart Chain network (BEP)</small>
                                             </label>
                                         </div>
                                         <p class="text-info">Not sure what to use?</p>
                                         <div class="p-2"></div>
                                         <div class="col-md-12 text-center">
-                                            <button class="btn btn-outline-dark shadow" type="button">
-                                                CANCEL
+                                            <button class="btn btn-outline-dark shadow" type="button" onclick="back2()">
+                                                BACK
                                             </button>
-                                            <button class="btn btn-cus-jss619 shadow" type="button" data-toggle="modal"
-                                                data-target="#stripeModal">
+                                            <button class="btn btn-cus-jss619 shadow" type="button"
+                                                onclick="depositAfterNext()">
                                                 NEXT
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <hr>
-                            <div class="d-flex justify-content-center">
+
+                            <div class="d-none justify-content-center" id="deposit-final-section">
                                 <div class="card col-md-4">
                                     <div class="card-body">
                                         <p class="font-weight-bold">Would you like to proceed?</p>
                                         <p>
-                                            Coin selected: <img class="rounded-circle"
+                                            Coin selected: <img class="rounded-circle" id="final-coin-src"
                                                 src="{{ asset('back-end/img/trade/tether.png') }}" alt="flag">
-                                            <span class="font-weight-bold">USDT</span>
-                                            <small class="text-secondary">Tether</small>
+                                            <span class="font-weight-bold" id="final-coin-title">NULL</span>
+                                            <small class="text-secondary" id="final-coin-title-2">NULL</small>
                                         </p>
                                         <p>
                                             Blockchain:
-                                            <span class="font-weight-bold">TRX</span>
-                                            <small class="text-secondary">TRON Network (TRC20)</small>
+                                            <span class="font-weight-bold" id="network-prefix">NULL</span>
+                                            <small class="text-secondary" id="network-suffix">NULL</small>
                                         </p>
+
                                         <div class="p-4"></div>
+
                                         <p>By proceeding with this deposit, you are agreeing with our
                                             <a href="#" class="text-primary">
                                                 <u>Terms and Conditions</u>
                                             </a>
                                         </p>
                                         <div class="col-md-12 text-center">
-                                            <button class="btn btn-outline-dark shadow" type="button">
+                                            <button class="btn btn-outline-dark shadow" type="button" onclick="back3()">
                                                 BACK
                                             </button>
-                                            <button class="btn btn-cus-jss619 shadow" type="button" data-toggle="modal"
-                                                data-target="#stripeModal">
+                                            <button class="btn btn-cus-jss619 shadow" type="button"
+                                                onclick="submitDeposit()">
                                                 YES, PROCEED
                                             </button>
                                         </div>
@@ -240,7 +273,6 @@
                                 </div>
                             </div>
                         </form>
-
                     </div>
                     <div class="tab-pane" id="withdrawal" role="tabpanel">
                         <h3 class="text-primary font-weight-bold text-center">
@@ -275,7 +307,7 @@
                                     <label for="accountNickname" class="form-label mb-0 font-weight-bold">
                                         Account Nickname
                                     </label>
-                                    <select name="rank" class="form-control form-select" required>
+                                    <select name="rank" class="form-control form-select">
                                         <option value="">Choose account...</option>
                                         <option value="Demo 1">Demo 1</option>
                                         <option value="Demo 2">Demo 2</option>
@@ -289,7 +321,7 @@
                                         Amount of Money
                                     </label>
                                     <input type="number" step="0.01" class="form-control" placeholder="0.01"
-                                        name="" required>
+                                        name="">
                                 </div>
                             </div>
                             <div class="row">
@@ -298,14 +330,14 @@
                                         Mining Fee
                                     </label>
                                     <input type="number" step="0.01" class="form-control" placeholder="0.01"
-                                        name="" required>
+                                        name="">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for="netAmount" class="form-label mb-0 font-weight-bold">
                                         Net Amount
                                     </label>
                                     <input type="number" step="0.01" class="form-control" placeholder="0.01"
-                                        name="" required>
+                                        name="">
                                 </div>
                             </div>
 
@@ -436,23 +468,126 @@
         var _currency_2_1 = $('#currency-lvl-2-1');
         var _currency_2_2 = $('#currency-lvl-2-2');
         var _amount_after = $('#amount-after');
-        var _coin_type = $('[name="coin-type"]');
+
+        function loader() {
+            $("body").addClass("loading");
+            setTimeout(function() {
+                $("body").removeClass("loading")
+            }, 100);    
+        }
 
         function deposit() {
             if (_currency.val() != '' && _amount.val() != '') {
                 _currency_2_1.html(_currency.val());
                 _currency_2_2.html(_currency.val());
                 _amount_after.html(_amount.val());
+
+                $("#deposit-section").toggleClass("d-flex d-none");
+                $("#deposit-next-section").toggleClass("d-flex d-none");
+
+                loader();
             } else {
                 Swal.fire({
+                    toast: true,
                     icon: 'error',
+                    position: 'top-end',
                     title: 'Select currency and enter amount!',
+                    showConfirmButton: false,
+                    timer: 1500
                 });
             }
         }
 
         function depositNext() {
-            console.log(_coin_type.find(":checked"));
+            var select_coin = $("input[name='coin_type']:checked");
+            var select_coin_type = select_coin.val();
+            if (select_coin_type) {
+                var id_val = select_coin.attr("id");
+                var img_src = $("label[for='" + id_val + "']").find('img').attr('src');
+                var strSplit = select_coin_type.split(" ");
+
+                $("#network-title").html(strSplit[0]);
+                $("#final-coin-title").html(strSplit[0]);
+                $("#final-coin-title-2").html(strSplit[1]);
+                $("#final-coin-src").attr('src', img_src);
+
+                $("#deposit-next-section").toggleClass("d-flex d-none");
+                $("#deposit-after-section").toggleClass("d-flex d-none");
+
+                loader();
+            } else {
+                Swal.fire({
+                    toast: true,
+                    icon: 'error',
+                    position: 'top-end',
+                    title: 'Select a coin type!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        }
+
+        function depositAfterNext() {
+            var _select_network_type = $("input[name='network_type']:checked").val();
+            if (_select_network_type) {
+
+                var network_prefix = _select_network_type.substring(0, 3);
+                var network_suffix = _select_network_type.substring(4, _select_network_type.length);
+
+                $("#network-prefix").html(network_prefix);
+                $("#network-suffix").html(network_suffix);
+
+                $("#deposit-after-section").toggleClass("d-flex d-none");
+                $("#deposit-final-section").toggleClass("d-flex d-none");
+
+                loader();
+            } else {
+                Swal.fire({
+                    toast: true,
+                    icon: 'error',
+                    position: 'top-end',
+                    title: 'Select a network type!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        }
+
+        function back1() {
+            $("#deposit-section").toggleClass("d-flex d-none");
+            $("#deposit-next-section").toggleClass("d-flex d-none");
+
+            loader();
+        }
+
+        function back2() {
+            $("#deposit-next-section").toggleClass("d-flex d-none");
+            $("#deposit-after-section").toggleClass("d-flex d-none");
+
+            loader();
+        }
+
+        function back3() {
+            $("#deposit-after-section").toggleClass("d-flex d-none");
+            $("#deposit-final-section").toggleClass("d-flex d-none");
+
+            loader();
+        }
+
+        function submitDeposit() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You wont to deposit!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#742DCE',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'YES, DEPOSIT!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $("#deposit-form").submit();
+                }
+            })
         }
     </script>
 @endpush
