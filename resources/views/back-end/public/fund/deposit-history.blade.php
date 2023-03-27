@@ -79,8 +79,16 @@
                         <div class="collapse pb-3" id="collapse{{ $data->id }}">
                             <div class="row">
                                 <div class="col-4">Network Type</div>
-                                <div class="col-8 text-right">
-                                    • {{ $data->network_type }}
+                                <div class="col-2 text-center">•</div>
+                                <div class="col-6 text-right">
+                                    @php
+                                        if (strlen($data->network_type) > 18) {
+                                            $str = str_split($data->network_type, 18);
+                                            echo $str[0] . '<br>' . $str[1];
+                                        } else {
+                                            echo $data->network_type;
+                                        }
+                                    @endphp
                                 </div>
                             </div>
                             <div class="row">
