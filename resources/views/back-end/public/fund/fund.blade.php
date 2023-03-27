@@ -24,7 +24,7 @@
             top: 0;
             left: 0;
             z-index: 999;
-            background: rgba(255, 255, 255, 0.8) url("https://mir-s3-cdn-cf.behance.net/project_modules/disp/afb8cb36197347.5713616457ee5.gif") center no-repeat;
+            background: rgba(255, 255, 255, 0.8) url("{{ asset('back-end/img/loading-spinner.gif') }}") center no-repeat;
         }
 
         /* Turn off scrollbar when body element has the loading class */
@@ -142,9 +142,7 @@
                                                 </label>
                                             </div>
                                             <div class="col text-right">
-                                                <span class="text-secondary">
-                                                    ~199800200 USDT
-                                                </span>
+                                                <span class="text-secondary" id="usdt-usd"> </span>
                                             </div>
                                         </div>
                                         <div class="row my-3">
@@ -160,9 +158,7 @@
                                                 </label>
                                             </div>
                                             <div class="col text-right">
-                                                <span class="text-secondary">
-                                                    ~0.0007215 BTC
-                                                </span>
+                                                <span class="text-secondary" id="btc-usd"> </span>
                                             </div>
                                         </div>
                                         <div class="row my-3">
@@ -178,9 +174,7 @@
                                                 </label>
                                             </div>
                                             <div class="col text-right">
-                                                <span class="text-secondary">
-                                                    ~199800200 ETH
-                                                </span>
+                                                <span class="text-secondary" id="eth-usd"> </span>
                                             </div>
                                         </div>
                                         <div class="col-md-12 text-center">
@@ -255,7 +249,8 @@
 
                                         <div class="p-4"></div>
 
-                                        <p>By proceeding with this deposit, you are agreeing with our
+                                        <p>
+                                            By proceeding with this deposit, you are agreeing with our
                                             <a href="#" class="text-primary">
                                                 <u>Terms and Conditions</u>
                                             </a>
@@ -273,7 +268,14 @@
                                 </div>
                             </div>
                         </form>
+                        @if ($user->total_deposit > 0)
+                            <div id="table_data">
+
+                            </div>
+                        @endif
                     </div>
+
+                    {{-- withdrawal tab --}}
                     <div class="tab-pane" id="withdrawal" role="tabpanel">
                         <h3 class="text-primary font-weight-bold text-center">
                             <span>Select Method:</span>
@@ -473,7 +475,37 @@
             $("body").addClass("loading");
             setTimeout(function() {
                 $("body").removeClass("loading")
-            }, 100);    
+            }, 100);
+        }
+
+        var cryptoCurrencies = ["bitcoin", "ethereum", "tether"];
+
+        function fetchCryptosCurrencies2(amount) {
+            cryptoCurrencies.forEach(element => {
+                var api = "https://api.coingecko.com/api/v3/coins/" + element + "?localization=false";
+                fetch(api)
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(coin => {
+                        displauCryptoCurrencies2(coin, amount);
+                    })
+
+            });
+        }
+
+        function displauCryptoCurrencies2(coin, amount) {
+            var price_usd = coin.market_data.current_price.usd * amount;
+
+            if (coin.name == "Bitcoin") {
+                document.getElementById("btc-usd").innerHTML = "~" + price_usd + " BTC";
+            }
+            if (coin.name == "Ethereum") {
+                document.getElementById("eth-usd").innerHTML = "~" + price_usd + " ETH";
+            }
+            if (coin.name == "Tether") {
+                document.getElementById("usdt-usd").innerHTML = "~" + price_usd + " USDT";
+            }
         }
 
         function deposit() {
@@ -484,6 +516,8 @@
 
                 $("#deposit-section").toggleClass("d-flex d-none");
                 $("#deposit-next-section").toggleClass("d-flex d-none");
+
+                fetchCryptosCurrencies2(_amount.val());
 
                 loader();
             } else {
@@ -588,6 +622,27 @@
                     $("#deposit-form").submit();
                 }
             })
+        }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            fetch_data(1);
+        });
+
+        $(document).on('click', '.pagination a', function(event) {
+            event.preventDefault();
+            var page = $(this).attr('href').split('page=')[1];
+            fetch_data(page);
+        });
+
+        function fetch_data(page) {
+            $.ajax({
+                url: "/user/profile/deposit-history/fetch-data?page=" + page,
+                success(response) {
+                    $('#table_data').html(response);
+                }
+            });
         }
     </script>
 @endpush

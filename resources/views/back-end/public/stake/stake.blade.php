@@ -225,7 +225,7 @@
 
         function fetch_data(page) {
             $.ajax({
-                url: "/user/profile/stake-history/fetch_data?page=" + page,
+                url: "/user/profile/stake-history/fetch-data?page=" + page,
                 success(response) {
                     $('#table_data').html(response);
                 }

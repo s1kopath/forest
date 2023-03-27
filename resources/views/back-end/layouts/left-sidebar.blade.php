@@ -56,7 +56,23 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="pcoded-hasmenu {{ $lastElement == 'deposit' ? 'active pcoded-trigger' : '' }}">
+                            <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                <span class="pcoded-micon">
+                                    <i class="feather icon-clipboard"></i>
+                                </span>
+                                <span class="pcoded-mtext">User Deposits</span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li class="{{ $route_name == 'manage_deposits' ? 'active' : '' }}">
+                                    <a href="{{ route('manage_deposits') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Manage Deposits</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
+
 
                     <div class="pcoded-navigation-label">ROI</div>
                     <ul class="pcoded-item pcoded-left-item">

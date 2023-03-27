@@ -24,14 +24,14 @@
                                     </div>
                                     <div class="col-4 text-right">
                                         <small class="font-weight-bold">
-                                            23min 23sec
+                                            <span id="minutes"></span>
+                                            <span id="seconds"></span>
                                         </small>
                                     </div>
                                 </div>
                                 <div class="row my-3">
                                     <div class="col">
-                                        <img class="rounded-circle" src="{{ asset('back-end/img/trade/ethereum.png') }}"
-                                            alt="flag">
+                                        <img class="rounded-circle" src="{{ $coinImg }}" alt="flag">
                                         <span class="font-weight-bold">
                                             {{ $coin }}
                                         </span>
@@ -101,7 +101,7 @@
             // Copy the text inside the text field
             navigator.clipboard.writeText(copyText);
 
-            $('#amount-copied').html('✔️ Copied');
+            $('#amount-copied').html('✔️');
         }
 
         function myFunction2() {
@@ -113,7 +113,29 @@
             // Copy the text inside the text field
             navigator.clipboard.writeText(copyText);
 
-            $('#wallet-copied').html('✔️ Copied');
+            $('#wallet-copied').html('✔️');
         }
+    </script>
+
+    <script>
+        var date = new Date();
+        var target = date.setTime(date.getTime() + (30 * 60 * 1000));
+
+        var myfunc = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = target - now;
+
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("minutes").innerText = minutes + "min";
+            document.getElementById("seconds").innerText = seconds + "sec";
+
+            if (distance < 0) {
+                document.getElementById("minutes").innerText = "Time";
+                document.getElementById("seconds").innerText = "Up";
+                clearInterval(myfunc);
+            }
+        }, 1000);
     </script>
 @endpush

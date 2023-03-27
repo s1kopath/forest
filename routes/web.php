@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BinanceController;
 use App\Http\Controllers\Dashboard\PublicDashboardController;
+use App\Http\Controllers\DepositController;
 use App\Http\Controllers\StackingRoisController;
 use App\Http\Controllers\IbRoyalityController;
 use App\Http\Controllers\GiftController;
@@ -64,6 +65,11 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         Route::get('verify/{user_id}/{status}', [DashboardController::class, 'verifyUser'])->name('verify_user');
     });
 
+    Route::prefix('deposit')->group(function () {
+        Route::get('manage-deposit', [DepositController::class, 'manageDeposits'])->name('manage_deposits');
+        Route::get('approve-deposit/{id}/{status}', [DepositController::class, 'approveDeposits'])->name('approve_deposits');
+    });
+
     Route::controller(StackingRoisController::class)->group(function () {
         Route::match(['get', 'post'], 'add-stacking-rois', 'addStacking')->name('add_stacking_rois');
         Route::get('manage-stacking-rois', 'index')->name('manage_stacking_rois');
@@ -112,11 +118,13 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::post('/update', [PublicDashboardController::class, 'updatePublicProfile'])->name('update_public_profile');
         Route::post('/update-location', [PublicDashboardController::class, 'editLocation'])->name('edit_location');
         Route::get('fund', [FundController::class, 'fund'])->name('public_fund');
+        Route::get('deposit-history/fetch-data', [FundController::class, 'fetchDepositHistoryData']);
         Route::post('new-deposit', [FundController::class, 'newDeposit'])->name('new_deposit');
+        Route::get('deposit-payment/{id}', [FundController::class, 'confirmDeposit'])->name('confirm_deposit');
         
         // stake
         Route::match(['get', 'post'], 'stake', [StakeController::class, 'stake'])->name('stake');
-        Route::get('stake-history/fetch_data', [StakeController::class, 'fetchStakeHistoryData']);
+        Route::get('stake-history/fetch-data', [StakeController::class, 'fetchStakeHistoryData']);
 
         Route::get('history', [PublicDashboardController::class, 'history'])->name('public_history');
         Route::get('history/fetch_data', [PublicDashboardController::class, 'fetchHistoryData']);
