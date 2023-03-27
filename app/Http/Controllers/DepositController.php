@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Deposit;
 use Illuminate\Http\Request;
 use App\Events\DepositTransactionEvent;
-use App\Http\Controllers\user\FundController;
+use App\Http\Controllers\User\FundController;
 
 class DepositController extends Controller
 {

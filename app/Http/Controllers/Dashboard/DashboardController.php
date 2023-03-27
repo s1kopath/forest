@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Events\JoiningBonusEvent;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\user\FundController;
+use App\Http\Controllers\User\FundController;
 use App\Models\Rank;
 use App\Models\User;
 use App\Models\UserStake;
