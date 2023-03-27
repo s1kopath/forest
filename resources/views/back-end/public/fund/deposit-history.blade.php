@@ -22,12 +22,12 @@
                     <td>{{ $data->date_time }}</td>
                     <td>
                         @if ($data->status == 2)
-                            <span class="text-info">
-                                Completed
+                            <span class="text-danger">
+                                Rejected
                             </span>
                         @elseif ($data->status == 1)
                             <span class="text-success">
-                                Active
+                                Completed
                             </span>
                         @else
                             <span class="text-warning">

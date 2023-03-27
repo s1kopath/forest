@@ -87,7 +87,7 @@ class FundController extends Controller
     public function fetchDepositHistoryData(Request $request)
     {
         if ($request->ajax()) {
-            $deposits = Deposit::where('user_id', auth()->id())->paginate(5);
+            $deposits = Deposit::where('user_id', auth()->id())->orderBy('id', 'desc')->paginate(5);
             return view('back-end.public.fund.deposit-history', compact('deposits'))->render();
         }
     }
