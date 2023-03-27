@@ -187,7 +187,6 @@ return [
          */
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,
-        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
         /*
          * Application Service Providers...
