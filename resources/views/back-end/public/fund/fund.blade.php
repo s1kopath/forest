@@ -37,6 +37,61 @@
             display: block;
         }
     </style>
+
+    <style>
+        .wrapper {
+            display: inline-flex;
+            background: #fff;
+            align-items: center;
+            justify-content: space-evenly;
+            border-radius: 5px;
+        }
+
+        .wrapper .option {
+            background: #fff;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 5px;
+            border: 2px solid lightgrey;
+            transition: all 0.3s ease;
+        }
+
+        #option-1:checked:checked~.option-1,
+        #option-3:checked:checked~.option-3,
+        #option-2:checked:checked~.option-2 {
+            border-color: #0069d9;
+            background: #0069d9;
+        }
+
+        #option-1:checked:checked~.option-1 .dot,
+        #option-3:checked:checked~.option-3 .dot,
+        #option-2:checked:checked~.option-2 .dot {
+            background: #fff;
+        }
+
+        #option-1:checked:checked~.option-1 .dot::before,
+        #option-3:checked:checked~.option-3 .dot::before,
+        #option-2:checked:checked~.option-2 .dot::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .wrapper .option span {
+            font-size: 15px;
+            color: #808080;
+        }
+
+        #option-1:checked:checked~.option-1 span,
+        #option-3:checked:checked~.option-3 span,
+        #option-2:checked:checked~.option-2 span {
+            color: #fff;
+        }
+    </style>
 @endpush
 
 @section('page-title', 'Funds')
@@ -69,18 +124,33 @@
                             <span>User ID: {{ $user->username }}</span>
                         </h4>
 
-                        <div class="d-flex justify-content-center overflow-auto pb-3">
-                            <img type="button" class="img-fluid rounded mx-1 shadow-sm border" style="width: 100px"
-                                src="{{ asset('front-end/img/deposit/1.png') }}" alt="forest">
-                            <img type="button" class="img-fluid rounded mx-1 shadow-sm border" style="width: 100px"
-                                src="{{ asset('front-end/img/deposit/5.png') }}" alt="forest">
-                            <img type="button" class="img-fluid rounded mx-1 shadow-sm border" style="width: 100px"
-                                src="{{ asset('front-end/img/deposit/6.png') }}" alt="forest">
-                        </div>
-
                         <p class="text-center h3">
                             <span>HOW WOULD YOU LIKE TO PAY?</span>
                         </p>
+                        <style>
+                            .active-form {
+                                box-shadow: 0 .25rem .55rem rgb(255, 196, 0) !important;
+                            }
+                        </style>
+                        <div class="d-flex justify-content-center overflow-auto pb-3">
+                            <img type="button" class="img-fluid rounded mx-1 shadow-sm border" style="width: 100px"
+                                src="{{ asset('front-end/img/deposit/1.png') }}" alt="forest" onclick="changeForm('visa')"
+                                id="visa-img">
+                            <img type="button" class="img-fluid rounded mx-1 border active-form" style="width: 100px"
+                                src="{{ asset('front-end/img/deposit/5.png') }}" alt="forest"
+                                onclick="changeForm('crypto')" id="crypto-img">
+                            <img type="button" class="img-fluid rounded mx-1 shadow-sm border" style="width: 100px"
+                                src="{{ asset('front-end/img/deposit/6.png') }}" alt="forest" onclick="changeForm('bank')"
+                                id="bank-img">
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <div class="card col-md-4 d-none" id="coming-soon">
+                                <div class="card-body">
+                                    <h5>Coming Soon...</h5>
+                                </div>
+                            </div>
+                        </div>
 
                         <form action="{{ route('new_deposit') }}" method="post" id="deposit-form">
                             @csrf
@@ -277,82 +347,78 @@
                     </div>
                     {{-- withdrawal tab --}}
                     <div class="tab-pane mt-3" id="withdrawal" role="tabpanel">
-                        <h4 class="text-primary font-weight-bold text-center">
-                            <span>Select Method:</span>
-                        </h4>
                         <div class="d-flex justify-content-center form-group">
-                            <div class="form-check m-2">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id=""
-                                    value="option1" checked>
-                                <label class="form-check-label" for="">
-                                    Visa/Master Card
+                            <div class="wrapper">
+                                <input type="radio" class="d-none" name="select_method" id="option-1"
+                                    value="Visa">
+                                <input type="radio" class="d-none" name="select_method" id="option-2"
+                                    value="Bank">
+                                <input type="radio" class="d-none" name="select_method" id="option-3"
+                                    value="Crypto">
+                                <label for="option-1" class="option option-1">
+                                    <span>Visa/Master Card</span>
                                 </label>
-                            </div>
-                            <div class="form-check m-2">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                    value="option2">
-                                <label class="form-check-label" for="exampleRadios2">
-                                    Bank
+                                <label for="option-2" class="option option-2">
+                                    <span>Bank</span>
                                 </label>
-                            </div>
-                            <div class="form-check m-2">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3"
-                                    value="option3">
-                                <label class="form-check-label" for="exampleRadios3">
-                                    Crypto
+                                <label for="option-3" class="option option-3">
+                                    <span>Crypto</span>
                                 </label>
                             </div>
                         </div>
                         <div class="container">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <fieldset class="form-group p-2 rounded ms-fieldset">
-                                        <legend class="w-auto px-2 ms-legend">Account</legend>
-                                        <select class="form-control form-control-sm ms-input" name="payment_pethod">
-                                            <option value="">Choose Account...</option>
-                                            <option value="01245698741222">01245698741222</option>
-                                        </select>
-                                    </fieldset>
+                            <form action="">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Account</legend>
+                                            <select class="form-control form-control-sm ms-input" name="payment_method">
+                                                <option value="">Choose Account...</option>
+                                                {{-- <option value="01245698741222">01245698741222</option> --}}
+                                            </select>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Amount of Money</legend>
+                                            <input class="form-control ms-input" type="number" name="amount"
+                                                placeholder="Enter Amount" required>
+                                        </fieldset>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Charge</legend>
+                                            <input class="form-control ms-input" type="number" step="0.01"
+                                                name="charge" placeholder="0.00" required>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Net Amount</legend>
+                                            <input class="form-control ms-input" type="number" step="0.01"
+                                                name="net_amount" placeholder="0.00" required>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">One Time Password</legend>
+                                            <div class="text-right" style="margin-bottom: -25px;">
+                                                <button class="btn btn-primary btn-sm p-1" type="button"
+                                                    id="button-addon2">Send OTP</button>
+                                            </div>
+                                            <input class="form-control ms-input" type="text" name="otp"
+                                                placeholder="Enter 6 digit OTP" required>
+                                        </fieldset>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <fieldset class="form-group p-2 rounded ms-fieldset">
-                                        <legend class="w-auto px-2 ms-legend">Amount of Money</legend>
-                                        <input class="form-control ms-input" type="number" name="amount"
-                                            placeholder="Enter Amount" required>
-                                    </fieldset>
+                                <div class="text-center m-t-20 m-b-20">
+                                    <button class="btn btn-primary rounded-pill">
+                                        REQUEST WITHDRAWAL
+                                    </button>
                                 </div>
 
-                                <div class="col-md-3">
-                                    <fieldset class="form-group p-2 rounded ms-fieldset">
-                                        <legend class="w-auto px-2 ms-legend">Charge</legend>
-                                        <input class="form-control ms-input" type="number" step="0.01"
-                                            name="charge" placeholder="0.00" required>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-3">
-                                    <fieldset class="form-group p-2 rounded ms-fieldset">
-                                        <legend class="w-auto px-2 ms-legend">Net Amount</legend>
-                                        <input class="form-control ms-input" type="number" step="0.01"
-                                            name="net_amount" placeholder="0.00" required>
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-6">
-                                    <fieldset class="form-group p-2 rounded ms-fieldset">
-                                        <legend class="w-auto px-2 ms-legend">One Time Password</legend>
-                                        <div class="text-right" style="margin-bottom: -25px;">
-                                            <button class="btn btn-primary btn-sm p-1" type="button"
-                                                id="button-addon2">Send OTP</button>
-                                        </div>
-                                        <input class="form-control ms-input" type="text" name="otp"
-                                            placeholder="Enter 6 digit OTP" required>
-                                    </fieldset>
-                                </div>
-                            </div>
-                            <div class="text-center m-t-20 m-b-20">
-                                <button class="btn btn-primary rounded-pill">
-                                    REQUEST WITHDRAWAL
-                                </button>
-                            </div>
+                            </form>
                         </div>
                     </div>
                     {{-- withdrawal method tab --}}
@@ -526,8 +592,8 @@
         </script>
 
         <script>
-            var _currency = $('[name="currency"]');
-            var _amount = $('[name="amount"]');
+            var _currency = $('[name=currency]');
+            var _amount = $('[name=amount]');
             var _currency_2_1 = $('#currency-lvl-2-1');
             var _currency_2_2 = $('#currency-lvl-2-2');
             var _amount_after = $('#amount-after');
@@ -594,7 +660,7 @@
             }
 
             function depositNext() {
-                var select_coin = $("input[name='coin_type']:checked");
+                var select_coin = $("input[name=coin_type]:checked");
                 var select_coin_type = select_coin.val();
                 if (select_coin_type) {
                     var id_val = select_coin.attr("id");
@@ -623,7 +689,7 @@
             }
 
             function depositAfterNext() {
-                var _select_network_type = $("input[name='network_type']:checked").val();
+                var _select_network_type = $("input[name=network_type]:checked").val();
                 if (_select_network_type) {
 
                     var network_prefix = _select_network_type.substring(0, 3);
@@ -705,5 +771,41 @@
                     }
                 });
             }
+
+            function changeForm(type) {
+                $("#bank-img").removeClass('active-form');
+                $("#crypto-img").removeClass('active-form');
+                $("#visa-img").removeClass('active-form');
+                $("#deposit-form").addClass('d-none');
+                $("#coming-soon").addClass('d-none');
+
+                if (type == "bank") {
+                    $("#bank-img").addClass('active-form');
+                    $("#coming-soon").removeClass('d-none');
+                }
+                if (type == "crypto") {
+                    $("#crypto-img").addClass('active-form');
+                    $("#deposit-form").removeClass('d-none');
+                }
+                if (type == "visa") {
+                    $("#visa-img").addClass('active-form');
+                    $("#coming-soon").removeClass('d-none');
+                }
+            }
+        </script>
+
+        <script>
+            $("input[name=select_method]").change(function() {
+                console.log(this.value);
+                if (this.value == "Bank") {
+
+                }
+                if (this.value == "Crypto") {
+
+                }
+                if (this.value == "Visa") {
+
+                }
+            });
         </script>
     @endpush
