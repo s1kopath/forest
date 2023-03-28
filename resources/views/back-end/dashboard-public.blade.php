@@ -32,9 +32,9 @@
 @section('dashboard-navbar')
     <ul class="nav-left pl-3">
         <li>
-            <h2 class="pt-2">
+            <h3 class="pt-3">
                 Dashboard
-            </h2>
+            </h3>
         </li>
         <li>
             <marquee class="p-0 m-0" width="140%" direction="left" height="45px">

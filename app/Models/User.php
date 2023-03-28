@@ -73,4 +73,18 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Deposit::class, 'user_id')->whereIn('status', [0, 1])->sum('amount');
     }
+
+    public function visaData()
+    {
+        return $this->hasOne(VisaDetails::class, 'user_id');
+    }
+
+    public function bankData()
+    {
+        return $this->hasOne(BankDetails::class, 'user_id');
+    }
+    public function cryptoData()
+    {
+        return $this->hasOne(CryptoDetails::class, 'user_id');
+    }
 }

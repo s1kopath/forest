@@ -106,9 +106,9 @@
             {{-- /onlu for public dashboard --}}
 
             <ul class="text-center nav-left" style="float: none!important">
-                <h2 class="pt-2">
+                <h3 class="pt-4">
                     @yield('page-title')
-                </h2>
+                </h3>
             </ul>
         </div>
     </div>

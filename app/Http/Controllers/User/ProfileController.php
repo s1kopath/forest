@@ -4,11 +4,17 @@ namespace App\Http\Controllers\User;
 
 use App\Models\User;
 use App\Models\UserDetail;
+use App\Models\BankDetails;
+use App\Models\VisaDetails;
 use Illuminate\Http\Request;
+use App\Models\CryptoDetails;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\CryptoDetailRequest;
 use App\Http\Controllers\ImageHandlerController;
+use App\Http\Requests\BankDetailRequest;
+use App\Http\Requests\VisaDetailRequest;
 
 class ProfileController extends Controller
 {
@@ -82,5 +88,64 @@ class ProfileController extends Controller
         }
 
         return true;
+    }
+
+    public function updateVisa(VisaDetailRequest $request)
+    {
+        $check = VisaDetails::where('user_id', auth()->id())->first();
+        if ($check) {
+            return back()->with('error', 'Visa already updated.');
+        } else {
+            $request->validated();
+
+            $visa = new VisaDetails();
+            $visa->user_id = auth()->id();
+            $visa->card_holder_name = $request->card_holder_name;
+            $visa->card_number = $request->card_number;
+            $visa->save();
+            return back()->with('message', 'Visa updated successfully.');
+        }
+    }
+
+    public function updateBank(BankDetailRequest $request)
+    {
+        $check = BankDetails::where('user_id', auth()->id())->first();
+        if ($check) {
+            return back()->with('error', 'Bank already updated.');
+        } else {
+            $request->validated();
+
+            $bank = new BankDetails();
+            $bank->user_id = auth()->id();
+            $bank->bank_name = $request->bank_name;
+            $bank->branch_name = $request->branch_name;
+            $bank->account_name = $request->account_name;
+            $bank->account_number = $request->account_number;
+            $bank->country = $request->country;
+            $bank->state = $request->state;
+            $bank->swift_code = $request->swift_code;
+            $bank->routing_number = $request->routing_number;
+            $bank->save();
+
+            return back()->with('message', 'Bank updated successfully.');
+        }
+    }
+
+    public function updateCrypto(CryptoDetailRequest $request)
+    {
+        $check = CryptoDetails::where('user_id', auth()->id())->first();
+        if ($check) {
+            return back()->with('error', 'Crypto already updated.');
+        } else {
+            $request->validated();
+
+            $bank = new CryptoDetails();
+            $bank->user_id = auth()->id();
+            $bank->network = $request->network;
+            $bank->wallet_address = $request->wallet_address;
+            $bank->save();
+
+            return back()->with('message', 'Crypto updated successfully.');
+        }
     }
 }

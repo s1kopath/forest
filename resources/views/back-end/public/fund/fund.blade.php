@@ -62,7 +62,8 @@
                 </ul>
 
                 <div class="tab-content card-block">
-                    <div class="tab-pane active" id="deposit" role="tabpanel">
+                    {{-- deposit tab --}}
+                    <div class="tab-pane mt-3 active" id="deposit" role="tabpanel">
                         <h4 class="text-primary font-weight-bold d-flex justify-content-between">
                             <span>Deposit:</span>
                             <span>User ID: {{ $user->username }}</span>
@@ -274,12 +275,11 @@
                             </div>
                         @endif
                     </div>
-
                     {{-- withdrawal tab --}}
-                    <div class="tab-pane" id="withdrawal" role="tabpanel">
-                        <h3 class="text-primary font-weight-bold text-center">
+                    <div class="tab-pane mt-3" id="withdrawal" role="tabpanel">
+                        <h4 class="text-primary font-weight-bold text-center">
                             <span>Select Method:</span>
-                        </h3>
+                        </h4>
                         <div class="d-flex justify-content-center form-group">
                             <div class="form-check m-2">
                                 <input class="form-check-input" type="radio" name="exampleRadios" id=""
@@ -292,7 +292,7 @@
                                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
                                     value="option2">
                                 <label class="form-check-label" for="exampleRadios2">
-                                    Paypal
+                                    Bank
                                 </label>
                             </div>
                             <div class="form-check m-2">
@@ -305,344 +305,405 @@
                         </div>
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <label for="accountNickname" class="form-label mb-0 font-weight-bold">
-                                        Account Nickname
-                                    </label>
-                                    <select name="rank" class="form-control form-select">
-                                        <option value="">Choose account...</option>
-                                        <option value="Demo 1">Demo 1</option>
-                                        <option value="Demo 2">Demo 2</option>
-                                        <option value="Demo 3">Demo 3</option>
-                                        <option value="Demo 4">Demo 4</option>
-                                        <option value="Demo 5">Demo 5</option>
-                                    </select>
+                                <div class="col-md-6">
+                                    <fieldset class="form-group p-2 rounded ms-fieldset">
+                                        <legend class="w-auto px-2 ms-legend">Account</legend>
+                                        <select class="form-control form-control-sm ms-input" name="payment_pethod">
+                                            <option value="">Choose Account...</option>
+                                            <option value="01245698741222">01245698741222</option>
+                                        </select>
+                                    </fieldset>
                                 </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="amountOfMoney" class="form-label mb-0 font-weight-bold">
-                                        Amount of Money
-                                    </label>
-                                    <input type="number" step="0.01" class="form-control" placeholder="0.01"
-                                        name="">
+                                <div class="col-md-6">
+                                    <fieldset class="form-group p-2 rounded ms-fieldset">
+                                        <legend class="w-auto px-2 ms-legend">Amount of Money</legend>
+                                        <input class="form-control ms-input" type="number" name="amount"
+                                            placeholder="Enter Amount" required>
+                                    </fieldset>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 form-group">
-                                    <label for="miningFree" class="form-label mb-0 font-weight-bold">
-                                        Mining Fee
-                                    </label>
-                                    <input type="number" step="0.01" class="form-control" placeholder="0.01"
-                                        name="">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="netAmount" class="form-label mb-0 font-weight-bold">
-                                        Net Amount
-                                    </label>
-                                    <input type="number" step="0.01" class="form-control" placeholder="0.01"
-                                        name="">
-                                </div>
-                            </div>
 
-                            <div class="form-group row">
-                                <label for="inputOtp" class="col-sm-6 col-form-label">One Time Password</label>
-                                <div class="col-sm-6">
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Enter"
-                                            aria-label="Recipient's username" aria-describedby="button-addon2">
-                                        <div class="input-group-append">
-                                            <style>
-                                                .rounded-right {
-                                                    border-top-right-radius: 100px !important;
-                                                    border-bottom-right-radius: 100px !important;
-                                                }
-                                            </style>
-                                            <button class="btn btn-primary rounded-right" type="button"
+                                <div class="col-md-3">
+                                    <fieldset class="form-group p-2 rounded ms-fieldset">
+                                        <legend class="w-auto px-2 ms-legend">Charge</legend>
+                                        <input class="form-control ms-input" type="number" step="0.01"
+                                            name="charge" placeholder="0.00" required>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-3">
+                                    <fieldset class="form-group p-2 rounded ms-fieldset">
+                                        <legend class="w-auto px-2 ms-legend">Net Amount</legend>
+                                        <input class="form-control ms-input" type="number" step="0.01"
+                                            name="net_amount" placeholder="0.00" required>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-6">
+                                    <fieldset class="form-group p-2 rounded ms-fieldset">
+                                        <legend class="w-auto px-2 ms-legend">One Time Password</legend>
+                                        <div class="text-right" style="margin-bottom: -25px;">
+                                            <button class="btn btn-primary btn-sm p-1" type="button"
                                                 id="button-addon2">Send OTP</button>
                                         </div>
+                                        <input class="form-control ms-input" type="text" name="otp"
+                                            placeholder="Enter 6 digit OTP" required>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="text-center m-t-20 m-b-20">
+                                <button class="btn btn-primary rounded-pill">
+                                    REQUEST WITHDRAWAL
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- withdrawal method tab --}}
+                    <div class="tab-pane mt-3" id="setMethod" role="tabpanel">
+                        <h4 class="font-weight-bold text-center">
+                            <u>Visa/master Card</u>
+                        </h4>
+                        <form action="{{ route('update_visa') }}" method="post">
+                            @csrf
+                            <div class="container">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Card Holder's Name</legend>
+                                            <input class="form-control ms-input" type="text" name="card_holder_name"
+                                                placeholder="Enter Card Holder's Name"
+                                                value="{{ $user->visaData->card_holder_name ?? '' }}" required>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Card Number</legend>
+                                            <input class="form-control ms-input" type="text" name="card_number"
+                                                placeholder="Enter Card Number"
+                                                value="{{ $user->visaData->card_number ?? '' }}" required>
+                                        </fieldset>
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="text-center m-t-20 m-b-20">
-                            <button class="btn btn-primary rounded-pill">
-                                REQUEST WITHDRAWAL
-                            </button>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="setMethod" role="tabpanel">
-                        <h3 class="font-weight-bold">
-                            <span>
-                                <i class="fas fa-circle fa-1x text-primary"></i>
-                                Visa/master Card
-                            </span>
-                        </h3>
-                        <div class="container">
-                            <div class="form-group row">
-                                <div class="col-sm-6">
-                                    <label for="cardHolderName">Card Holder's Name</label>
+                            @if (!$user->visaData)
+                                <div class="text-center m-t-20 m-b-20">
+                                    <button class="btn btn-primary rounded-pill">
+                                        update
+                                    </button>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" placeholder="">
+                            @endif
+                        </form>
+                        <hr>
+                        <h4 class="font-weight-bold text-center">
+                            <u>Bank</u>
+                        </h4>
+                        <form action="{{ route('update_bank') }}" method="post">
+                            @csrf
+                            <div class="container">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Bank Name</legend>
+                                            <input class="form-control ms-input" type="text" name="bank_name"
+                                                placeholder="Enter Bank Name"
+                                                value="{{ $user->bankData->bank_name ?? '' }}" required>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Branch Name</legend>
+                                            <input class="form-control ms-input" type="text" name="branch_name"
+                                                placeholder="Enter Branch Name"
+                                                value="{{ $user->bankData->branch_name ?? '' }}" required>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Account Name</legend>
+                                            <input class="form-control ms-input" type="text" name="account_name"
+                                                placeholder="Enter Account Name"
+                                                value="{{ $user->bankData->account_name ?? '' }}" required>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Account Number</legend>
+                                            <input class="form-control ms-input" type="text" name="account_number"
+                                                placeholder="Enter Account Number"
+                                                value="{{ $user->bankData->account_number ?? '' }}" required>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Country</legend>
+                                            <input class="form-control ms-input" type="text" name="country"
+                                                placeholder="Enter Country" value="{{ $user->bankData->country ?? '' }}"
+                                                required>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">State</legend>
+                                            <input class="form-control ms-input" type="text" name="state"
+                                                placeholder="Enter State" value="{{ $user->bankData->state ?? '' }}"
+                                                required>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Swiftcode</legend>
+                                            <input class="form-control ms-input" type="text" name="swift_code"
+                                                placeholder="Enter Swiftcode"
+                                                value="{{ $user->bankData->swift_code ?? '' }}" required>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Routing Number</legend>
+                                            <input class="form-control ms-input" type="text" name="routing_number"
+                                                placeholder="Enter Routing Number"
+                                                value="{{ $user->bankData->routing_number ?? '' }}" required>
+                                        </fieldset>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6">
-                                    <label for="cardNumber">Card Number</label>
+                            @if (!$user->bankData)
+                                <div class="text-center m-t-20 m-b-20">
+                                    <button class="btn btn-primary rounded-pill">
+                                        update
+                                    </button>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3 class="font-weight-bold">
-                            <span>
-                                <i class="fas fa-circle fa-1x text-primary"></i>
-                                Paypal
-                            </span>
-                        </h3>
-                        <div class="container">
-                            <div class="form-group row">
-                                <div class="col-sm-6">
-                                    <label for="email">Email attached to PayPal wallet</label>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="email" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3 class="font-weight-bold">
-                            <span>
-                                <i class="fas fa-circle fa-1x text-primary"></i>
-                                Crypto
-                            </span>
-                        </h3>
-                        <div class="container">
-                            <div class="form-group row">
-                                <div class="col-sm-6">
-                                    <label for="networkName">Network (USDT)</label>
-                                </div>
-                                <div class="col-sm-6">
-                                    <span>Tron (Trc20)</span>
+                            @endif
+                        </form>
+                        <hr>
+                        <h4 class="font-weight-bold text-center">
+                            <u>Crypto</u>
+                        </h4>
+                        <form action="{{ route('update_crypto') }}" method="post">
+                            @csrf
+                            <div class="container">
+                                <div class="form-group row">
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Network (USDT)</legend>
+                                            <input class="form-control ms-input" type="text" name="network"
+                                                placeholder="Enter Network" value="Tron (Trc20)" readonly>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Wallet Address</legend>
+                                            <input class="form-control ms-input" type="text" name="wallet_address"
+                                                placeholder="Enter Wallet Address"
+                                                value="{{ $user->cryptoData->wallet_address ?? '' }}" required>
+                                        </fieldset>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6">
-                                    <label for="address">Wallet Address</label>
+                            @if (!$user->cryptoData)
+                                <div class="text-center m-t-20 m-b-20">
+                                    <button class="btn btn-primary rounded-pill">
+                                        update
+                                    </button>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="text-center m-t-20 m-b-20">
-                            <button class="btn btn-primary rounded-pill">
-                                update
-                            </button>
-                        </div>
+                            @endif
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection
 
-@push('js')
-    <script>
-        // function to stay at same tab after refresh
-        $(document).ready(function() {
-            $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-                localStorage.setItem('activeTab', $(e.target).attr('href'));
+    @push('js')
+        <script>
+            // function to stay at same tab after refresh
+            $(document).ready(function() {
+                $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+                    localStorage.setItem('activeTab', $(e.target).attr('href'));
+                });
+                var activeTab = localStorage.getItem('activeTab');
+                if (activeTab) {
+                    $('#tab-list a[href="' + activeTab + '"]').tab('show');
+                }
             });
-            var activeTab = localStorage.getItem('activeTab');
-            if (activeTab) {
-                $('#tab-list a[href="' + activeTab + '"]').tab('show');
+        </script>
+
+        <script>
+            var _currency = $('[name="currency"]');
+            var _amount = $('[name="amount"]');
+            var _currency_2_1 = $('#currency-lvl-2-1');
+            var _currency_2_2 = $('#currency-lvl-2-2');
+            var _amount_after = $('#amount-after');
+
+            function loader() {
+                $("body").addClass("loading");
+                setTimeout(function() {
+                    $("body").removeClass("loading")
+                }, 100);
             }
-        });
-    </script>
 
-    <script>
-        var _currency = $('[name="currency"]');
-        var _amount = $('[name="amount"]');
-        var _currency_2_1 = $('#currency-lvl-2-1');
-        var _currency_2_2 = $('#currency-lvl-2-2');
-        var _amount_after = $('#amount-after');
+            var cryptoCurrencies = ["bitcoin", "ethereum", "tether"];
 
-        function loader() {
-            $("body").addClass("loading");
-            setTimeout(function() {
-                $("body").removeClass("loading")
-            }, 100);
-        }
+            function fetchCryptosCurrencies2(amount) {
+                cryptoCurrencies.forEach(element => {
+                    var api = "https://api.coingecko.com/api/v3/coins/" + element + "?localization=false";
+                    fetch(api)
+                        .then(response => {
+                            return response.json();
+                        })
+                        .then(coin => {
+                            displauCryptoCurrencies2(coin, amount);
+                        })
 
-        var cryptoCurrencies = ["bitcoin", "ethereum", "tether"];
-
-        function fetchCryptosCurrencies2(amount) {
-            cryptoCurrencies.forEach(element => {
-                var api = "https://api.coingecko.com/api/v3/coins/" + element + "?localization=false";
-                fetch(api)
-                    .then(response => {
-                        return response.json();
-                    })
-                    .then(coin => {
-                        displauCryptoCurrencies2(coin, amount);
-                    })
-
-            });
-        }
-
-        function displauCryptoCurrencies2(coin, amount) {
-            var price_usd = coin.market_data.current_price.usd * amount;
-
-            if (coin.name == "Bitcoin") {
-                document.getElementById("btc-usd").innerHTML = "~" + price_usd + " BTC";
+                });
             }
-            if (coin.name == "Ethereum") {
-                document.getElementById("eth-usd").innerHTML = "~" + price_usd + " ETH";
-            }
-            if (coin.name == "Tether") {
-                document.getElementById("usdt-usd").innerHTML = "~" + price_usd + " USDT";
-            }
-        }
 
-        function deposit() {
-            if (_currency.val() != '' && _amount.val() != '') {
-                _currency_2_1.html(_currency.val());
-                _currency_2_2.html(_currency.val());
-                _amount_after.html(_amount.val());
+            function displauCryptoCurrencies2(coin, amount) {
+                var price_usd = coin.market_data.current_price.usd * amount;
 
+                if (coin.name == "Bitcoin") {
+                    document.getElementById("btc-usd").innerHTML = "~" + price_usd + " BTC";
+                }
+                if (coin.name == "Ethereum") {
+                    document.getElementById("eth-usd").innerHTML = "~" + price_usd + " ETH";
+                }
+                if (coin.name == "Tether") {
+                    document.getElementById("usdt-usd").innerHTML = "~" + price_usd + " USDT";
+                }
+            }
+
+            function deposit() {
+                if (_currency.val() != '' && _amount.val() != '') {
+                    _currency_2_1.html(_currency.val());
+                    _currency_2_2.html(_currency.val());
+                    _amount_after.html(_amount.val());
+
+                    $("#deposit-section").toggleClass("d-flex d-none");
+                    $("#deposit-next-section").toggleClass("d-flex d-none");
+
+                    fetchCryptosCurrencies2(_amount.val());
+
+                    loader();
+                } else {
+                    Swal.fire({
+                        toast: true,
+                        icon: 'error',
+                        position: 'top-end',
+                        title: 'Select currency and enter amount!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            }
+
+            function depositNext() {
+                var select_coin = $("input[name='coin_type']:checked");
+                var select_coin_type = select_coin.val();
+                if (select_coin_type) {
+                    var id_val = select_coin.attr("id");
+                    var img_src = $("label[for='" + id_val + "']").find('img').attr('src');
+                    var strSplit = select_coin_type.split(" ");
+
+                    $("#network-title").html(strSplit[0]);
+                    $("#final-coin-title").html(strSplit[0]);
+                    $("#final-coin-title-2").html(strSplit[1]);
+                    $("#final-coin-src").attr('src', img_src);
+
+                    $("#deposit-next-section").toggleClass("d-flex d-none");
+                    $("#deposit-after-section").toggleClass("d-flex d-none");
+
+                    loader();
+                } else {
+                    Swal.fire({
+                        toast: true,
+                        icon: 'error',
+                        position: 'top-end',
+                        title: 'Select a coin type!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            }
+
+            function depositAfterNext() {
+                var _select_network_type = $("input[name='network_type']:checked").val();
+                if (_select_network_type) {
+
+                    var network_prefix = _select_network_type.substring(0, 3);
+                    var network_suffix = _select_network_type.substring(4, _select_network_type.length);
+
+                    $("#network-prefix").html(network_prefix);
+                    $("#network-suffix").html(network_suffix);
+
+                    $("#deposit-after-section").toggleClass("d-flex d-none");
+                    $("#deposit-final-section").toggleClass("d-flex d-none");
+
+                    loader();
+                } else {
+                    Swal.fire({
+                        toast: true,
+                        icon: 'error',
+                        position: 'top-end',
+                        title: 'Select a network type!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            }
+
+            function back1() {
                 $("#deposit-section").toggleClass("d-flex d-none");
                 $("#deposit-next-section").toggleClass("d-flex d-none");
 
-                fetchCryptosCurrencies2(_amount.val());
-
                 loader();
-            } else {
-                Swal.fire({
-                    toast: true,
-                    icon: 'error',
-                    position: 'top-end',
-                    title: 'Select currency and enter amount!',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
             }
-        }
 
-        function depositNext() {
-            var select_coin = $("input[name='coin_type']:checked");
-            var select_coin_type = select_coin.val();
-            if (select_coin_type) {
-                var id_val = select_coin.attr("id");
-                var img_src = $("label[for='" + id_val + "']").find('img').attr('src');
-                var strSplit = select_coin_type.split(" ");
-
-                $("#network-title").html(strSplit[0]);
-                $("#final-coin-title").html(strSplit[0]);
-                $("#final-coin-title-2").html(strSplit[1]);
-                $("#final-coin-src").attr('src', img_src);
-
+            function back2() {
                 $("#deposit-next-section").toggleClass("d-flex d-none");
                 $("#deposit-after-section").toggleClass("d-flex d-none");
 
                 loader();
-            } else {
-                Swal.fire({
-                    toast: true,
-                    icon: 'error',
-                    position: 'top-end',
-                    title: 'Select a coin type!',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
             }
-        }
 
-        function depositAfterNext() {
-            var _select_network_type = $("input[name='network_type']:checked").val();
-            if (_select_network_type) {
-
-                var network_prefix = _select_network_type.substring(0, 3);
-                var network_suffix = _select_network_type.substring(4, _select_network_type.length);
-
-                $("#network-prefix").html(network_prefix);
-                $("#network-suffix").html(network_suffix);
-
+            function back3() {
                 $("#deposit-after-section").toggleClass("d-flex d-none");
                 $("#deposit-final-section").toggleClass("d-flex d-none");
 
                 loader();
-            } else {
+            }
+
+            function submitDeposit() {
                 Swal.fire({
-                    toast: true,
-                    icon: 'error',
-                    position: 'top-end',
-                    title: 'Select a network type!',
-                    showConfirmButton: false,
-                    timer: 1500
+                    title: 'Are you sure?',
+                    text: "You wont to deposit!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#742DCE',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'YES, DEPOSIT!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $("#deposit-form").submit();
+                    }
+                })
+            }
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                fetch_data(1);
+            });
+
+            $(document).on('click', '.pagination a', function(event) {
+                event.preventDefault();
+                var page = $(this).attr('href').split('page=')[1];
+                fetch_data(page);
+            });
+
+            function fetch_data(page) {
+                $.ajax({
+                    url: "/user/profile/deposit-history/fetch-data?page=" + page,
+                    success(response) {
+                        $('#table_data').html(response);
+                    }
                 });
             }
-        }
-
-        function back1() {
-            $("#deposit-section").toggleClass("d-flex d-none");
-            $("#deposit-next-section").toggleClass("d-flex d-none");
-
-            loader();
-        }
-
-        function back2() {
-            $("#deposit-next-section").toggleClass("d-flex d-none");
-            $("#deposit-after-section").toggleClass("d-flex d-none");
-
-            loader();
-        }
-
-        function back3() {
-            $("#deposit-after-section").toggleClass("d-flex d-none");
-            $("#deposit-final-section").toggleClass("d-flex d-none");
-
-            loader();
-        }
-
-        function submitDeposit() {
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You wont to deposit!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#742DCE',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'YES, DEPOSIT!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $("#deposit-form").submit();
-                }
-            })
-        }
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            fetch_data(1);
-        });
-
-        $(document).on('click', '.pagination a', function(event) {
-            event.preventDefault();
-            var page = $(this).attr('href').split('page=')[1];
-            fetch_data(page);
-        });
-
-        function fetch_data(page) {
-            $.ajax({
-                url: "/user/profile/deposit-history/fetch-data?page=" + page,
-                success(response) {
-                    $('#table_data').html(response);
-                }
-            });
-        }
-    </script>
-@endpush
+        </script>
+    @endpush

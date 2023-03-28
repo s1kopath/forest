@@ -13,8 +13,9 @@
     background: transparent;
     border: none;
     outline: 0;
-    font-size: 18px;
+    font-size: 15px;
     height: 1.5em !important;
+    color: black;
 }
 
 .ms-input:hover,
@@ -24,7 +25,7 @@
 }
 
 .ms-input:disabled, .ms-input[readonly] {
-    background-color: #f8f8f8 !important;
+    background-color: #ffffff !important;
     opacity: 1;
 }
 

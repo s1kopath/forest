@@ -20,20 +20,23 @@
                         <div class="slide"></div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#changePassword" role="tab">Change Password</a>
+                        <a class="nav-link" data-toggle="tab" href="#changePassword" role="tab">
+                            <span class="d-none d-lg-block">Change Password</span>
+                            <span class="d-block d-lg-none">Password</span>
+                        </a>
                         <div class="slide"></div>
                     </li>
                 </ul>
 
                 <div class="tab-content card-block">
-                    <div class="tab-pane active" id="aboutMe" role="tabpanel">
+                    <div class="tab-pane mt-3 active" id="aboutMe" role="tabpanel">
                         <div class="mb-2">
-                            <h3 class="text-primary font-weight-bold">
+                            <h4 class="text-primary font-weight-bold">
                                 Personal Details:
                                 <a href="#" onclick="editdetails()" class="h5">
                                     <i class="far fa-edit text-dark"></i>
                                 </a>
-                            </h3>
+                            </h4>
                             <form action="{{ route('update_public_profile') }}" method="post" id="details_form">
                                 @csrf
                                 <div class="row">
@@ -96,12 +99,12 @@
                         </div>
 
                         <div class="mb-2">
-                            <h3 class="text-primary font-weight-bold">
+                            <h4 class="text-primary font-weight-bold">
                                 Location:
                                 <a href="#" onclick="editlocation()" class="h5">
                                     <i class="far fa-edit text-dark"></i>
                                 </a>
-                            </h3>
+                            </h4>
                             <form action="{{ route('edit_location') }}" method="post" id="location_form">
                                 @csrf
                                 <div class="row">
@@ -159,14 +162,14 @@
                             </form>
                         </div>
                     </div>
-                    <div class="tab-pane" id="verification" role="tabpanel">
+                    <div class="tab-pane mt-3" id="verification" role="tabpanel">
                         <div id="identity_verification">
                             <h3 class="text-primary font-weight-bold text-center">
                                 <span>Identity Verification:</span>
                             </h3>
                             <div class="row align-items-center">
                                 <div class="col-md-4 offset-md-2">
-                                    <label for="" class="form-label mb-0 font-weight-bold h3 text-primary">
+                                    <label for="" class="form-label mb-0 font-weight-bold h4 text-primary">
                                         Select Identity:
                                     </label>
                                 </div>
@@ -200,8 +203,8 @@
                                         <img class="cropper-img" id="image_1">
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
                                             <legend class="w-auto px-2 ms-legend">Front Image</legend>
-                                            <input type="file" class="ms-input" name="image_1"
-                                                id="v1_img_input" required>
+                                            <input type="file" class="ms-input" name="image_1" id="v1_img_input"
+                                                required>
                                             <input type="hidden" name="" id="v1_img_output">
                                         </fieldset>
                                     @endif
@@ -216,8 +219,8 @@
                                         <img class="cropper-img" id="image_2">
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
                                             <legend class="w-auto px-2 ms-legend">Back Image</legend>
-                                            <input type="file" class="ms-input" name="image_2"
-                                                id="v2_img_input" required>
+                                            <input type="file" class="ms-input" name="image_2" id="v2_img_input"
+                                                required>
                                         </fieldset>
                                     @endif
                                 </div>
@@ -267,10 +270,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="changePassword" role="tabpanel">
-                        <h3 class="text-primary font-weight-bold text-center">
+                    <div class="tab-pane mt-3" id="changePassword" role="tabpanel">
+                        <h4 class="text-primary font-weight-bold text-center">
                             <span>Change Password</span>
-                        </h3>
+                        </h4>
                         <form action="{{ route('update_password') }}" class="">
                             <div class="row">
                                 <div class="col-md-4">
@@ -278,12 +281,14 @@
                                         <legend class="w-auto px-2 ms-legend">Old Password</legend>
                                         <input class="form-control ms-input" type="password" name="old_password"
                                             placeholder="Enter Old Password..." required>
+                                    </fieldset>
                                 </div>
                                 <div class="col-md-4">
                                     <fieldset class="form-group p-2 rounded ms-fieldset">
                                         <legend class="w-auto px-2 ms-legend">New Password</legend>
                                         <input class="form-control ms-input" type="password" name="new_password"
                                             placeholder="Enter New Password..." required>
+                                    </fieldset>
                                 </div>
                                 <div class="col-md-4">
                                     <fieldset class="form-group p-2 rounded ms-fieldset">
@@ -291,6 +296,7 @@
                                         <input class="form-control ms-input" type="password"
                                             name="new_password_confirmation" placeholder="Enter Confirm Password..."
                                             required>
+                                    </fieldset>
                                 </div>
                             </div>
 

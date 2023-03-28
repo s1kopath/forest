@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Deposit;
 use App\Models\StakingRoi;
 use App\Models\Transaction;
+use App\Models\User;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class FundController extends Controller
 {
     public function fund()
     {
-        $user = auth()->user();
+        $user = User::with(['visaData', 'bankData', 'cryptoData'])->find(auth()->id());
+        // dd($user);
         $staking = StakingRoi::where('status', 1)->get();
         $wallet = Wallet::where('user_id', auth()->id())->first();
 
