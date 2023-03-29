@@ -48,7 +48,14 @@ class StakeController extends Controller
                 'next_payout' => now()->addMonth(),
             ]);
 
-            $wallet->main_amount = $wallet->main_amount - $request->amount;
+            // user can stake from bonus amount but can not wirhdraw from bonus amount
+            $wallet->main_amount -= $request->amount;
+            if ($request->amount > $wallet->withdrawable_amount) {
+                $wallet->withdrawable_amount = 0;
+                $wallet->bonus_amount -= $request->amount - $wallet->withdrawable_amount;
+            } else {
+                $wallet->withdrawable_amount -= $request->amount;
+            }
             $wallet->save();
 
             $details['user_id'] = auth()->id();

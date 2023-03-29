@@ -17,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $guarded = ['id'];
 
-    protected $appends = ['direct_team', 'total_team', 'total_investment', 'total_deposit'];
+    protected $appends = ['direct_team', 'total_team', 'total_investment', 'total_deposit', 'total_withdraw'];
 
     public function userToReferer()
     {
@@ -72,6 +72,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getTotalDepositAttribute()
     {
         return $this->hasMany(Deposit::class, 'user_id')->whereIn('status', [0, 1])->sum('amount');
+    }
+
+    public function getTotalWithdrawAttribute()
+    {
+        return $this->hasMany(Withdraw::class, 'user_id')->whereIn('status', [0, 1])->sum('amount');
     }
 
     public function visaData()

@@ -14,11 +14,14 @@ use App\Models\AmountForIbGain;
 use App\Models\StakingRebateBonus;
 use App\Http\Controllers\RanksController;
 use App\Http\Controllers\user\StakeController;
+use App\Models\Withdraw;
 
 class TestController extends Controller
 {
     public function test()
     {
+        $td = Withdraw::all();
+        dd($td);
         // Generate nonce string
         $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $nonce = '';

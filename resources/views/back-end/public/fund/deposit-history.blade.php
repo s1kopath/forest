@@ -59,12 +59,12 @@
                             ${{ $data->amount }}
                         </h4>
                         @if ($data->status == 2)
-                            <small class="text-info ">
-                                •&nbsp&nbsp&nbsp Completed
+                            <small class="text-danger ">
+                                •&nbsp&nbsp&nbsp Rejected
                             </small>
                         @elseif ($data->status == 1)
                             <small class="text-success ">
-                                •&nbsp&nbsp&nbsp Active
+                                •&nbsp&nbsp&nbsp Completed
                             </small>
                         @else
                             <small class="text-warning ">

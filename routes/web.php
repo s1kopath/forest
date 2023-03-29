@@ -127,6 +127,11 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::post('update-bank', [ProfileController::class, 'updateBank'])->name('update_bank');
         Route::post('update-crypto', [ProfileController::class, 'updateCrypto'])->name('update_crypto');
 
+        //withdraw
+        Route::get('withdraw-opt-send', [FundController::class, 'withdrawOptSend'])->name('withdraw_opt_send');
+        Route::post('submit-withdraw', [FundController::class, 'submitWithdraw'])->name('submit_withdraw');
+        Route::get('withdraw-history/fetch-data', [FundController::class, 'fetchWithdrawHistoryData']);
+
         // stake
         Route::match(['get', 'post'], 'stake', [StakeController::class, 'stake'])->name('stake');
         Route::get('stake-history/fetch-data', [StakeController::class, 'fetchStakeHistoryData']);

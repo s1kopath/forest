@@ -37,61 +37,6 @@
             display: block;
         }
     </style>
-
-    <style>
-        .wrapper {
-            display: inline-flex;
-            background: #fff;
-            align-items: center;
-            justify-content: space-evenly;
-            border-radius: 5px;
-        }
-
-        .wrapper .option {
-            background: #fff;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            margin: 0 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            padding: 5px;
-            border: 2px solid lightgrey;
-            transition: all 0.3s ease;
-        }
-
-        #option-1:checked:checked~.option-1,
-        #option-3:checked:checked~.option-3,
-        #option-2:checked:checked~.option-2 {
-            border-color: #0069d9;
-            background: #0069d9;
-        }
-
-        #option-1:checked:checked~.option-1 .dot,
-        #option-3:checked:checked~.option-3 .dot,
-        #option-2:checked:checked~.option-2 .dot {
-            background: #fff;
-        }
-
-        #option-1:checked:checked~.option-1 .dot::before,
-        #option-3:checked:checked~.option-3 .dot::before,
-        #option-2:checked:checked~.option-2 .dot::before {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .wrapper .option span {
-            font-size: 15px;
-            color: #808080;
-        }
-
-        #option-1:checked:checked~.option-1 span,
-        #option-3:checked:checked~.option-3 span,
-        #option-2:checked:checked~.option-2 span {
-            color: #fff;
-        }
-    </style>
 @endpush
 
 @section('page-title', 'Funds')
@@ -133,15 +78,15 @@
                             }
                         </style>
                         <div class="d-flex justify-content-center overflow-auto pb-3">
-                            <img type="button" class="img-fluid rounded mx-1 shadow-sm border" style="width: 100px"
-                                src="{{ asset('front-end/img/deposit/1.png') }}" alt="forest" onclick="changeForm('visa')"
-                                id="visa-img">
-                            <img type="button" class="img-fluid rounded mx-1 border active-form" style="width: 100px"
-                                src="{{ asset('front-end/img/deposit/5.png') }}" alt="forest"
-                                onclick="changeForm('crypto')" id="crypto-img">
-                            <img type="button" class="img-fluid rounded mx-1 shadow-sm border" style="width: 100px"
-                                src="{{ asset('front-end/img/deposit/6.png') }}" alt="forest" onclick="changeForm('bank')"
-                                id="bank-img">
+                            <img type="button" class="img-fluid rounded mx-1 shadow-sm border visa-img"
+                                style="width: 100px" src="{{ asset('front-end/img/deposit/1.png') }}" alt="forest"
+                                onclick="changeForm('visa')" id="">
+                            <img type="button" class="img-fluid rounded mx-1 border active-form crypto-img"
+                                style="width: 100px" src="{{ asset('front-end/img/deposit/5.png') }}" alt="forest"
+                                onclick="changeForm('crypto')" id="">
+                            <img type="button" class="img-fluid rounded mx-1 shadow-sm border bank-img"
+                                style="width: 100px" src="{{ asset('front-end/img/deposit/6.png') }}" alt="forest"
+                                onclick="changeForm('bank')" id="">
                         </div>
 
                         <div class="d-flex justify-content-center">
@@ -347,34 +292,40 @@
                     </div>
                     {{-- withdrawal tab --}}
                     <div class="tab-pane mt-3" id="withdrawal" role="tabpanel">
-                        <div class="d-flex justify-content-center form-group">
-                            <div class="wrapper">
+                        <form action="{{ route('submit_withdraw') }}" method="post">
+                            @csrf
+                            <div class="d-flex justify-content-center">
                                 <input type="radio" class="d-none" name="select_method" id="option-1"
                                     value="Visa">
                                 <input type="radio" class="d-none" name="select_method" id="option-2"
                                     value="Bank">
                                 <input type="radio" class="d-none" name="select_method" id="option-3"
                                     value="Crypto">
-                                <label for="option-1" class="option option-1">
-                                    <span>Visa/Master Card</span>
+                                <label for="option-1">
+                                    <img type="button" class="img-fluid rounded mx-1 shadow-sm border visa-img"
+                                        style="width: 100px" src="{{ asset('front-end/img/deposit/1.png') }}"
+                                        alt="forest" onclick="changeForm('visa')">
                                 </label>
-                                <label for="option-2" class="option option-2">
-                                    <span>Bank</span>
+                                <label for="option-2">
+                                    <img type="button" class="img-fluid rounded mx-1 shadow-sm border bank-img"
+                                        style="width: 100px" src="{{ asset('front-end/img/deposit/6.png') }}"
+                                        alt="forest" onclick="changeForm('bank')">
                                 </label>
-                                <label for="option-3" class="option option-3">
-                                    <span>Crypto</span>
+                                <label for="option-3">
+                                    <img type="button" class="img-fluid rounded mx-1 border crypto-img"
+                                        style="width: 100px" src="{{ asset('front-end/img/deposit/5.png') }}"
+                                        alt="forest" onclick="changeForm('crypto')">
                                 </label>
                             </div>
-                        </div>
-                        <div class="container">
-                            <form action="">
+
+                            <div class="container">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
                                             <legend class="w-auto px-2 ms-legend">Account</legend>
-                                            <select class="form-control form-control-sm ms-input" name="payment_method">
+                                            <select class="form-control form-control-sm ms-input" name="account_id"
+                                                id="payment-method" required>
                                                 <option value="">Choose Account...</option>
-                                                {{-- <option value="01245698741222">01245698741222</option> --}}
                                             </select>
                                         </fieldset>
                                     </div>
@@ -382,22 +333,22 @@
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
                                             <legend class="w-auto px-2 ms-legend">Amount of Money</legend>
                                             <input class="form-control ms-input" type="number" name="amount"
-                                                placeholder="Enter Amount" required>
+                                                placeholder="Enter Amount" required id="withdraw-amount">
                                         </fieldset>
                                     </div>
 
                                     <div class="col-md-3">
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
                                             <legend class="w-auto px-2 ms-legend">Charge</legend>
-                                            <input class="form-control ms-input" type="number" step="0.01"
-                                                name="charge" placeholder="0.00" required>
+                                            <input class="form-control ms-input" type="number" name="charge"
+                                                placeholder="00" readonly id="withdraw-charge">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-3">
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
                                             <legend class="w-auto px-2 ms-legend">Net Amount</legend>
-                                            <input class="form-control ms-input" type="number" step="0.01"
-                                                name="net_amount" placeholder="0.00" required>
+                                            <input class="form-control ms-input" type="number" name="net_amount"
+                                                placeholder="00" readonly id="withdraw-net">
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6">
@@ -405,7 +356,9 @@
                                             <legend class="w-auto px-2 ms-legend">One Time Password</legend>
                                             <div class="text-right" style="margin-bottom: -25px;">
                                                 <button class="btn btn-primary btn-sm p-1" type="button"
-                                                    id="button-addon2">Send OTP</button>
+                                                    onclick="sendOtp()">
+                                                    Send OTP
+                                                </button>
                                             </div>
                                             <input class="form-control ms-input" type="text" name="otp"
                                                 placeholder="Enter 6 digit OTP" required>
@@ -417,9 +370,13 @@
                                         REQUEST WITHDRAWAL
                                     </button>
                                 </div>
+                            </div>
+                        </form>
+                        @if ($user->total_withdraw > 0)
+                            <div id="table_data2">
 
-                            </form>
-                        </div>
+                            </div>
+                        @endif
                     </div>
                     {{-- withdrawal method tab --}}
                     <div class="tab-pane mt-3" id="setMethod" role="tabpanel">
@@ -755,6 +712,7 @@
         <script>
             $(document).ready(function() {
                 fetch_data(1);
+                fetch_data2(1);
             });
 
             $(document).on('click', '.pagination a', function(event) {
@@ -772,40 +730,108 @@
                 });
             }
 
+            function fetch_data2(page) {
+                $.ajax({
+                    url: "/user/profile/withdraw-history/fetch-data?page=" + page,
+                    success(response) {
+                        $('#table_data2').html(response);
+                    }
+                });
+            }
+
             function changeForm(type) {
-                $("#bank-img").removeClass('active-form');
-                $("#crypto-img").removeClass('active-form');
-                $("#visa-img").removeClass('active-form');
-                $("#deposit-form").addClass('d-none');
-                $("#coming-soon").addClass('d-none');
+                $(".bank-img").removeClass('active-form');
+                $(".crypto-img").removeClass('active-form');
+                $(".visa-img").removeClass('active-form');
+                $(".deposit-form").addClass('d-none');
+                $(".coming-soon").addClass('d-none');
 
                 if (type == "bank") {
-                    $("#bank-img").addClass('active-form');
-                    $("#coming-soon").removeClass('d-none');
+                    $(".bank-img").addClass('active-form');
+                    $(".coming-soon").removeClass('d-none');
                 }
                 if (type == "crypto") {
-                    $("#crypto-img").addClass('active-form');
-                    $("#deposit-form").removeClass('d-none');
+                    $(".crypto-img").addClass('active-form');
+                    $(".deposit-form").removeClass('d-none');
                 }
                 if (type == "visa") {
-                    $("#visa-img").addClass('active-form');
-                    $("#coming-soon").removeClass('d-none');
+                    $(".visa-img").addClass('active-form');
+                    $(".coming-soon").removeClass('d-none');
                 }
             }
         </script>
 
         <script>
             $("input[name=select_method]").change(function() {
-                console.log(this.value);
                 if (this.value == "Bank") {
-
+                    var bank_account = "{{ $user->bankData->account_name ?? '' }}";
+                    if (bank_account != '') {
+                        $("#payment-method").html(`
+                            <option value="">Choose Account...</option>
+                            <option value="{{ $user->bankData->id ?? '' }}" selected>{{ $user->bankData->account_name ?? '' }}</option>
+                        `);
+                    } else {
+                        $("#payment-method").html(`
+                            <option value="">Choose Account...</option>
+                        `);
+                    }
                 }
                 if (this.value == "Crypto") {
-
+                    var crypto_account = "{{ $user->cryptoData->wallet_address ?? '' }}";
+                    if (crypto_account != '') {
+                        $("#payment-method").html(`
+                            <option value="">Choose Account...</option>
+                            <option value="{{ $user->cryptoData->id ?? '' }}" selected>{{ $user->cryptoData->wallet_address ?? '' }}</option>
+                        `);
+                    } else {
+                        $("#payment-method").html(`
+                            <option value="">Choose Account...</option>
+                        `);
+                    }
                 }
                 if (this.value == "Visa") {
-
+                    var visa_account = "{{ $user->visaData->card_number ?? '' }}";
+                    if (visa_account != '') {
+                        $("#payment-method").html(`
+                            <option value="">Choose Account...</option>
+                            <option value="{{ $user->visaData->id ?? '' }}" selected>{{ $user->visaData->card_number ?? '' }}</option>
+                        `);
+                    } else {
+                        $("#payment-method").html(`
+                            <option value="">Choose Account...</option>
+                        `);
+                    }
                 }
             });
+
+            $("#withdraw-amount").keyup(function() {
+                var amount = this.value;
+                if (amount != '') {
+                    var charge = Math.round(amount * 5 / 100);
+                    var net = amount - charge;
+                    $("#withdraw-charge").val(charge);
+                    $("#withdraw-net").val(net);
+                } else {
+                    $("#withdraw-charge").val('');
+                    $("#withdraw-net").val('');
+                }
+            });
+
+            function sendOtp() {
+                fetch("{{ route('withdraw_opt_send') }}")
+                    .then(response => response.text())
+                    .then(response => {
+                        if (response == true) {
+                            Swal.fire({
+                                toast: true,
+                                icon: 'success',
+                                position: 'top-end',
+                                title: 'OTP has been sent to your Email',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
+                    });
+            }
         </script>
     @endpush

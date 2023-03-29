@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers\user;
 
-use App\Http\Controllers\Controller;
-use App\Models\Deposit;
-use App\Models\StakingRoi;
-use App\Models\Transaction;
+use App\Models\Otp;
 use App\Models\User;
 use App\Models\Wallet;
+use App\Models\Deposit;
+use App\Jobs\SendEmailJob;
+use App\Models\StakingRoi;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\WithdrawRequest;
+use App\Models\Withdraw;
 
 class FundController extends Controller
 {
@@ -91,6 +95,72 @@ class FundController extends Controller
         if ($request->ajax()) {
             $deposits = Deposit::where('user_id', auth()->id())->orderBy('id', 'desc')->paginate(5);
             return view('back-end.public.fund.deposit-history', compact('deposits'))->render();
+        }
+    }
+
+    public function withdrawOptSend()
+    {
+        $otp = rand(111111, 999999);
+        Otp::updateOrCreate([
+            'email' => auth()->user()->email
+        ], [
+            'otp' => $otp,
+            'token' => uniqid()
+        ]);
+
+
+        $message = 'This is your one-time password: ' . $otp;
+
+        $details['email'] = auth()->user()->email;
+        $details['message'] = $message;
+        $details['subject'] = 'OTP';
+
+        dispatch(new SendEmailJob($details));
+
+        return true;
+    }
+
+    public function submitWithdraw(WithdrawRequest $request)
+    {
+        $request->validated();
+
+        $check = Otp::where('email', auth()->user()->email)->where('otp', $request->otp)->first();
+        if ($check) {
+            $wallet = Wallet::where('user_id', auth()->id())->first();
+            $amount = $request->amount;
+
+            if (!$wallet && ($wallet->withdrawable_amount < $amount)) {
+                return back()->with('error', 'Insufficient balance.');
+            }
+
+            $charge = round($amount * 5 / 100);
+            $net = $amount - $charge;
+            Withdraw::create([
+                'user_id' => auth()->id(),
+                'amount' => $amount,
+                'charge' => $charge,
+                'net_amount' => $net,
+                'payment_method' => $request->select_method,
+                'account_id' => $request->account_id
+            ]);
+
+            $wallet->main_amount -= $amount;
+            $wallet->withdrawable_amount -= $amount;
+            $wallet->save();
+
+            $check->delete();
+
+            return back()->with('message', 'Withdraw request submitted successfully.');
+        } else {
+            return back()->with('error', 'Invalid OTP.');
+        }
+    }
+
+    public function fetchWithdrawHistoryData(Request $request)
+    {
+        if ($request->ajax()) {
+            $withdraws = Withdraw::where('user_id', auth()->id())->orderBy('id', 'desc')->paginate(5);
+            return view('back-end.public.fund.withdraw-history', compact('withdraws'))->render();
         }
     }
 }

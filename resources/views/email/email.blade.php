@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Account Verification Code</title>
+    <title>OTP Code</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,8 +71,7 @@
     <table>
         <tr>
             <td>
-                <h1>Account Verification Code</h1>
-                <p>Please use the following verification code to activate your account:</p>
+                <h1>OTP Code</h1>
                 <p class="code">{{ $body }}</p>
                 <p>This code will expire in 2 minutes.</p>
                 <p>If you did not request this verification code, please disregard this email.</p>
