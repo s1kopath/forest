@@ -16,21 +16,31 @@ class Withdraw extends Model
     function getVisaDetailsAttribute()
     {
         if ($this->payment_method == "Visa") {
-            return auth()->user()->visaData;
+            return $this->user_details->visaData;
         }
     }
 
     function getCryptoDetailsAttribute()
     {
         if ($this->payment_method == "Crypto") {
-            return auth()->user()->cryptoData;
+            return $this->user_details->cryptoData;
         }
     }
 
     function getBankDetailsAttribute()
     {
         if ($this->payment_method == "Bank") {
-            return auth()->user()->bankData;
+            return $this->user_details->bankData;
         }
+    }
+
+    public function user_details()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function approved_by_user()
+    {
+        return $this->belongsTo(User::class, 'approved_by');
     }
 }

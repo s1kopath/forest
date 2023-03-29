@@ -13,7 +13,12 @@ use Illuminate\Queue\SerializesModels;
 class DepositTransactionEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $user_id, $amount, $payment_gateway, $type, $purpose, $reference_number;
+    public $user_id;
+    public $amount;
+    public $payment_gateway;
+    public $type;
+    public $purpose;
+    public $reference_number;
 
     /**
      * Create a new event instance.

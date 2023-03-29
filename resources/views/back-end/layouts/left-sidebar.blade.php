@@ -71,6 +71,21 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="pcoded-hasmenu {{ $lastElement == 'withdraw' ? 'active pcoded-trigger' : '' }}">
+                            <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                <span class="pcoded-micon">
+                                    <i class="feather icon-clipboard"></i>
+                                </span>
+                                <span class="pcoded-mtext">User Withdraw</span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                <li class="{{ $route_name == 'manage_withdraw' ? 'active' : '' }}">
+                                    <a href="{{ route('manage_withdraw') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Manage Withdraw</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
 
 

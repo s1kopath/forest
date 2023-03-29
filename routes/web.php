@@ -1,24 +1,25 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\IbController;
+use App\Http\Controllers\GiftController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BinanceController;
-use App\Http\Controllers\Dashboard\PublicDashboardController;
 use App\Http\Controllers\DepositController;
-use App\Http\Controllers\StackingRoisController;
-use App\Http\Controllers\IbRoyalityController;
-use App\Http\Controllers\GiftController;
-use App\Http\Controllers\IbController;
-use App\Http\Controllers\User\FundController;
-use App\Http\Controllers\User\StakeController;
-use App\Http\Controllers\MonthlyContestController;
 use App\Http\Controllers\Otp\OtpController;
-use App\Http\Controllers\StripePaymentController;
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\WithdrawController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\User\FundController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\IbRoyalityController;
+use App\Http\Controllers\User\StakeController;
+use App\Http\Controllers\StackingRoisController;
 use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\MonthlyContestController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\PublicDashboardController;
 
 Route::get('/test', [TestController::class, 'test'])->name('test');
 
@@ -68,6 +69,11 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::prefix('deposit')->group(function () {
         Route::get('manage-deposit', [DepositController::class, 'manageDeposits'])->name('manage_deposits');
         Route::get('approve-deposit/{id}/{status}', [DepositController::class, 'approveDeposits'])->name('approve_deposits');
+    });
+
+    Route::prefix('withdraw')->group(function () {
+        Route::get('manage-withdraw', [WithdrawController::class, 'manageWithdraw'])->name('manage_withdraw');
+        Route::get('approve-withdraw/{id}/{status}', [WithdrawController::class, 'approveWithdraw'])->name('approve_withdraw');
     });
 
     Route::controller(StackingRoisController::class)->group(function () {

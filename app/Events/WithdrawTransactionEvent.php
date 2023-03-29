@@ -14,6 +14,11 @@ class WithdrawTransactionEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
     public $user_id;
+    public $amount;
+    public $payment_gateway;
+    public $type;
+    public $purpose;
+    public $reference_number;
 
     /**
      * Create a new event instance.
@@ -23,6 +28,11 @@ class WithdrawTransactionEvent
     public function __construct($details)
     {
         $this->user_id = $details['user_id'];
+        $this->amount = $details['amount'];
+        $this->payment_gateway = $details['payment_gateway'];
+        $this->type = $details['type'];
+        $this->purpose = $details['purpose'];
+        $this->reference_number = $details['reference_number'];
     }
 
     /**

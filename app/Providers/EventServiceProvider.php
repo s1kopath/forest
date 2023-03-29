@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use App\Events\DepositTransactionEvent;
 use App\Listeners\DepositTransactionListener;
+use App\Events\WithdrawTransactionEvent;
+use App\Listeners\WithdrawTransactionListener;
 use App\Events\StakingTransactionEvent;
 use App\Listeners\StakingTransactionListener;
 use App\Events\RoyaltyTransactionEvent;
@@ -34,6 +36,9 @@ class EventServiceProvider extends ServiceProvider
         // ],
         DepositTransactionEvent::class => [
             DepositTransactionListener::class,
+        ],
+        WithdrawTransactionEvent::class => [
+            WithdrawTransactionListener::class,
         ],
         JoiningBonusEvent::class => [
             JoiningBonusListener::class,
