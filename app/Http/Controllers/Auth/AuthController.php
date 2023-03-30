@@ -139,13 +139,20 @@ class AuthController extends Controller
             $otp->failed_attempt = 0;
             $otp->save();
 
+            $ref = User::where('username', $request->refer_username)->first();
+            if ($ref) {
+                $referer_id = $ref->id;
+            } else {
+                $referer_id = 1;
+            }
+
             $newUser = User::create([
                 'name' => $request->name,
                 'username' => $request->username,
                 'email' => $request->email,
                 'password' => bcrypt($request->password),
                 'user_type' => 'public',
-                'referer_id' => $request->referer_id ?? null,
+                'referer_id' => $referer_id,
                 'refer_code' => uniqid()
             ]);
 

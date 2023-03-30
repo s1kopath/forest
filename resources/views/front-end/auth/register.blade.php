@@ -82,6 +82,13 @@
                                         <div class="uk-margin-small uk-width-1-1 uk-inline">
                                             <span class="uk-form-icon uk-form-icon-flip fas fa-user fa-sm"></span>
                                             <input class="uk-input uk-border-rounded" type="text"
+                                                placeholder="Enter User ID" name="refer_username"
+                                                value="{{ session('referer_id') ? session('referer_name') : '' }}">
+                                        </div>
+
+                                        <div class="uk-margin-small uk-width-1-1 uk-inline">
+                                            <span class="uk-form-icon uk-form-icon-flip fas fa-user fa-sm"></span>
+                                            <input class="uk-input uk-border-rounded" type="text"
                                                 placeholder="Enter Full Name" name="name" required>
                                         </div>
                                         <div class="uk-margin-small uk-width-1-1 uk-inline">
@@ -127,14 +134,6 @@
                                                 </span>
                                             </label>
                                         </div>
-
-                                        @if (session('referer_id'))
-                                            <span>
-                                                * Referer: {{ session('referer_name') }}
-                                            </span>
-                                            <input type="hidden" name="referer_id"
-                                                value="{{ session('referer_id') }}">
-                                        @endif
 
                                         <div class="uk-margin-small uk-width-1-1">
                                             <button type="submit"

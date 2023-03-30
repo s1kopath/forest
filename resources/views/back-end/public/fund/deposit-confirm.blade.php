@@ -75,10 +75,18 @@
                                         </div>
                                     </div>
                                 </div>
+                                
+                                <div class="mt-1">
+                                    <fieldset class="form-group p-2 rounded ms-fieldset">
+                                        <legend class="w-auto px-2 ms-legend">Transaction Hash</legend>
+                                        <input class="form-control ms-input" type="text" name="transaction_hash"
+                                            placeholder="Enter Transaction Hash..." required>
+                                    </fieldset>
+                                </div>
 
                                 <div class="col-md-12 text-center">
                                     <a href="{{ route('public_fund') }}" class="btn rounded-pill jss619 shadow text-white">
-                                        OKAY
+                                        CONFIRM
                                     </a>
                                 </div>
                             </div>

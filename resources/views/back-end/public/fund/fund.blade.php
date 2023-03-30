@@ -64,11 +64,6 @@
                 <div class="tab-content card-block">
                     {{-- deposit tab --}}
                     <div class="tab-pane mt-3 active" id="deposit" role="tabpanel">
-                        <h4 class="text-primary font-weight-bold d-flex justify-content-between">
-                            <span>Deposit:</span>
-                            <span>User ID: {{ $user->username }}</span>
-                        </h4>
-
                         <p class="text-center h3">
                             <span>HOW WOULD YOU LIKE TO PAY?</span>
                         </p>
