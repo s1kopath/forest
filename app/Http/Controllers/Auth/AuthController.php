@@ -31,6 +31,7 @@ class AuthController extends Controller
                     'login.required' => 'Username or Email is required'
                 ]
             );
+            dd($request->password);
 
             $remember = $request->remember_me ? true : false;
 
@@ -133,110 +134,8 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        if ($request->isMethod('post')) {
-            $request->validate([
-                'name' => 'required',
-                'username' => 'required|unique:users,username',
-                'email' => 'required|email|unique:users,email',
-                'password' => 'required|min:6|confirmed',
-            ]);
-
-            $token = hash('sha256', time());
-
-            $otp = new Otp();
-            $otp->email = $request->email;
-            $otp->token = $token;
-            $otp->failed_attempt = 0;
-            $otp->save();
-
-            $ref = User::where('username', $request->refer_username)->first();
-            if ($ref) {
-                $referer_id = $ref->id;
-            } else {
-                $referer_id = 1;
-            }
-
-            $newUser = User::create([
-                'name' => $request->name,
-                'username' => $request->username,
-                'email' => $request->email,
-                'password' => bcrypt($request->password),
-                'user_type' => 'public',
-                'referer_id' => $referer_id,
-                'refer_code' => uniqid()
-            ]);
-
-            $newDetails = UserDetail::create([
-                'user_id' => $newUser->id,
-            ]);
-
-            $newWallet = Wallet::create([
-                'user_id' => $newUser->id,
-            ]);
-
-            $newRank = Rank::create([
-                'user_id' => $newUser->id,
-            ]);
-
-            $newIpGain = AmountForIbGain::create([
-                'user_id' => $newUser->id,
-            ]);
-
-            session(['email' => $request->email]);
-            session()->forget('resent_count');
-
-            return redirect()->route('verification.notice')->with('message', 'Email sent!');
-        } else {
-            return view('front-end.auth.register');
-        }
+        return view('front-end.auth.register');
     }
-
-    // public function resendOtp()
-    // {
-    //     $otp = Otp::where('email', session('email'))->first();
-
-    //     if ($otp) {
-    //         $otp_code = otp_generator();
-
-    //         if ($otp->resent_count > 3) {
-
-    //             $otp->resent_count++;
-    //             $otp->save();
-
-    //             return back()->with('message', 'Too many attempts, please try again after sometimes.');
-    //         }
-
-    //         if ($otp->resent_count == 3) {
-    //             $otpDetails['id'] = $otp->id;
-
-    //             $otp->resent_count++;
-    //             $otp->save();
-
-    //             // user can resend again in 30min
-    //             dispatch(new TempOtpRemoverJob($otpDetails))->delay(1800);
-
-    //             return back()->with('message', 'Too many attempts, please try again after sometimes.');
-    //         }
-
-
-    //         $otp->otp = $otp_code;
-    //         $otp->failed_attempt = 0;
-    //         $otp->resent_count++;
-    //         $otp->save();
-
-    //         $message = 'This is your verification code: ' . $otp_code;
-
-    //         $details['email'] = session('email');
-    //         $details['message'] = $message;
-    //         $details['subject'] = 'OTP Code';
-
-    //         dispatch(new SendEmailJob($details));
-
-    //         return redirect()->back()->with('message', 'Your Otp successfully resend!');
-    //     } else {
-    //         return redirect()->route('register')->with('message', 'User not found!');
-    //     }
-    // }
 
     public function registerWithRefer($username)
     {
@@ -245,7 +144,7 @@ class AuthController extends Controller
         if ($check) {
             session([
                 'referer_id' => $check->id,
-                'referer_name' => $check->name
+                'refer_username' => $check->username
             ]);
         }
 
