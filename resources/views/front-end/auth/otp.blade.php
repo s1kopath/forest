@@ -3,13 +3,13 @@
 @php
     use Carbon\Carbon;
     use App\Models\Otp;
-
+    
     $startTime = session('last_attempted') ?? Carbon::now();
-
+    
     $endTime = $startTime->copy()->addMinutes(30);
-
+    
     $diff = $endTime->diffInSeconds(now());
-
+    
 @endphp
 
 <head>
@@ -55,13 +55,10 @@
     <main>
         <!-- section content begin -->
         <div class="uk-section uk-section-secondary uk-light uk-padding-remove-vertical">
-            <div class="uk-container uk-container-expand">
-                <div class="uk-grid" data-uk-height-viewport="expand: true">
-                    <div class="uk-width-3-5@m uk-background-cover uk-background-center-right uk-visible@m uk-box-shadow-xlarge"
-                        style="background-image: url({{ asset('front-end/img/in-signin-image.jpg') }});">
-
-                    </div>
-                    <div class="uk-width-expand@m uk-flex uk-flex-middle">
+            <div class="uk-container uk-container-expand"
+                style="background-image: url({{ asset('front-end/img/darkbg.png') }}); background-repeat: no-repeat; background-size: cover;">
+                <div class="uk-grid uk-flex uk-flex-center" data-uk-height-viewport="expand: true">
+                    <div class="uk-width-1-2@l uk-flex uk-flex-middle">
                         <div class="uk-grid uk-flex-center">
                             <div class="uk-width-3-5@m">
                                 <div class="uk-text-center in-padding-horizontal@s">

@@ -65,6 +65,16 @@ class AuthController extends Controller
         }
     }
 
+    public function refAuth($keyword)
+    {
+        $ref = User::where('username', $keyword)->first();
+        if ($ref) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function adminRegister()
     {
         return view('back-end.auth.register');

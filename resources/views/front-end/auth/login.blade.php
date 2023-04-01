@@ -44,20 +44,17 @@
     <main>
         <!-- section content begin -->
         <div class="uk-section uk-section-secondary uk-light uk-padding-remove-vertical">
-            <div class="uk-container uk-container-expand">
-                <div class="uk-grid" data-uk-height-viewport="expand: true">
-                    <div class="uk-width-3-5@m uk-background-cover uk-background-center-right uk-visible@m uk-box-shadow-xlarge"
-                        style="background-image: url({{ asset('front-end/img/in-signin-image.jpg') }});">
-
-                    </div>
-                    <div class="uk-width-expand@m uk-flex uk-flex-middle">
+            <div class="uk-container uk-container-expand"
+                style="background-image: url({{ asset('front-end/img/darkbg.png') }}); background-repeat: no-repeat; background-size: cover;">
+                <div class="uk-grid uk-flex uk-flex-center" data-uk-height-viewport="expand: true">
+                    <div class="uk-width-1-2@l uk-flex uk-flex-middle">
                         <div class="uk-grid uk-flex-center">
                             <div class="uk-width-3-5@m">
                                 <div class="uk-text-center in-padding-horizontal@s">
                                     <a class="uk-logo" href="/">
                                         <img src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                            data-src="{{ asset('front-end/img/WF.png') }}"
-                                            alt="logo" width="146" height="40" data-uk-img>
+                                            data-src="{{ asset('front-end/img/WF.png') }}" alt="logo"
+                                            width="146" height="40" data-uk-img>
                                     </a>
                                     <p class="uk-text-lead uk-margin-small-top uk-margin-medium-bottom">
                                         Log into your account
@@ -75,7 +72,7 @@
                                             </div>
                                         @endforeach
                                     @endif
-                                    
+
                                     <!-- login form begin -->
                                     <form class="uk-grid uk-form" action="{{ route('auth_login') }}" method="POST">
                                         @csrf

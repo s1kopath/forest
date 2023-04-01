@@ -44,6 +44,7 @@ Route::get('all-traders', [HomeController::class, 'allTraders'])->name('all_trad
 Route::match(['get', 'post'], 'admin-login', [AuthController::class, 'login'])->name('auth_login');
 Route::get('public-login', [AuthController::class, 'publicLogin'])->name('public_login');
 Route::get('admin-register', [AuthController::class, 'adminRegister']);
+Route::get('api/ref-auth/{keyword}', [AuthController::class, 'refAuth']);
 Route::get('forget-password', [AuthController::class, 'forgetPassword'])->name('forget_password');
 Route::match(['get', 'post'], 'register', [AuthController::class, 'register'])->name('register');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
