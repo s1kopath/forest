@@ -31,7 +31,6 @@ class AuthController extends Controller
                     'login.required' => 'Username or Email is required'
                 ]
             );
-            dd($request->password);
 
             $remember = $request->remember_me ? true : false;
 
