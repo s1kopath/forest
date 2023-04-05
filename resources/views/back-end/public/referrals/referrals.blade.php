@@ -152,10 +152,4 @@
             $('#copied').addClass('bg-success');
         }
     </script>
-    <script>
-        function focusMe(button) {
-            document.getElementsByClassName("button-selected")[0].className = "";
-            button.className = "button-selected";
-        }
-    </script>
 @endpush

@@ -192,15 +192,8 @@
                             {{ env('APP_URL') . '/ref/' . auth()->user()->username }}
                         </p>
 
-                        <button type="button" class="btn btn-primary rounded-pill mb-3" onclick="myFunction()"
-                            id="copied">
-                            <i class="far fa-copy"></i>
-                            Copy
-                        </button>
-                        <a href="#" class="btn btn-primary rounded-pill mb-3">
-                            <i class="fas fa-share-alt"></i>
-                            Share
-                        </a>
+                        <x-refer-link-share-button />
+
                     </fieldset>
                 @else
                     <fieldset class="text-center m-3" style="border: 2px solid #060606;">
@@ -219,6 +212,8 @@
             </div>
         </div>
 
+
+
         <x-global-rate-2 />
 
         {{-- <div class="col-md-12"> --}}
@@ -231,18 +226,4 @@
 @endsection
 
 @push('js')
-    <script>
-        function myFunction() {
-            // Get the text field
-            var copyText = $("#referral-link").text();
-
-            copyText = copyText.trim();
-
-            // Copy the text inside the text field
-            navigator.clipboard.writeText(copyText);
-
-            $('#copied').html('✔️ Copied');
-            $('#copied').addClass('bg-success');
-        }
-    </script>
 @endpush
