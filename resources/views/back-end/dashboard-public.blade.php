@@ -27,6 +27,21 @@
             border-radius: 25px;
         }
     </style>
+
+    <style>
+        .carousel-indicators .active {
+            background-color: #091b65;
+            opacity: 80%;
+        }
+
+        .carousel-control-next {
+            right: -5%;
+        }
+
+        .carousel-control-prev {
+            left: -5%;
+        }
+    </style>
 @endpush
 
 @section('dashboard-navbar')
@@ -72,6 +87,14 @@
         <div class="col-md-12 mb-3">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" style=" width:100%; max-height: 200px !important;">
+                    <ol class="carousel-indicators" style="margin-bottom: -1px">
+                        @foreach ($banners as $banner)
+                            <li data-target="#carouselExampleControls" data-slide-to="{{ $loop->index }}"
+                                class="{{ $loop->index == 0 ? 'active' : '' }}">
+                            </li>
+                        @endforeach
+                    </ol>
+
                     @foreach ($banners as $banner)
                         <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }}">
                             <img src="{{ $banner->image }}" class="rounded d-block w-100" alt="forest">
@@ -195,12 +218,12 @@
                 </div>
             </div>
         </div>
-        
+
         <x-global-rate-2 />
-        
+
         {{-- <div class="col-md-12"> --}}
-            {{-- <div id="tradingview-widget"></div> --}}
-            {{-- <div class="bg-white rounded my-3 p-1">
+        {{-- <div id="tradingview-widget"></div> --}}
+        {{-- <div class="bg-white rounded my-3 p-1">
                 <x-global-rate />
             </div> --}}
         {{-- </div> --}}
@@ -219,6 +242,7 @@
             navigator.clipboard.writeText(copyText);
 
             $('#copied').html('✔️ Copied');
+            $('#copied').addClass('bg-success');
         }
     </script>
 @endpush

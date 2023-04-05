@@ -149,6 +149,7 @@
             navigator.clipboard.writeText(copyText);
 
             $('#copied').html('✔️ Copied');
+            $('#copied').addClass('bg-success');
         }
     </script>
     <script>
