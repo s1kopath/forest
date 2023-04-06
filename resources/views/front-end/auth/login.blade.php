@@ -52,7 +52,7 @@
                             <div class="uk-width-3-5@m">
                                 <div class="uk-text-center in-padding-horizontal@s">
                                     <a class="uk-logo" href="/">
-                                        <img src="{{ asset('front-end/img/reeve-logo-2.png') }}" alt="logo"
+                                        <img src="{{ asset('front-end/img/reeve-logo-3.png') }}" alt="logo"
                                             width="400" data-uk-img>
                                     </a>
                                     <p class="uk-text-lead uk-margin-small-top uk-margin-medium-bottom">

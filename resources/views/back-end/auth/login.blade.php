@@ -4,7 +4,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: url('back-end/assets/images/login-bg.jpg');
+            background: url('front-end/img/darkbg.png');
             background-size: cover;
             background-position: center;
         }
@@ -66,7 +66,7 @@
                     <form action="{{ route('auth_login') }}" method="POST" class="md-float-material form-material">
                         @csrf
                         <div class="text-center">
-                            <img class="rounded" src="{{ asset('back-end/img/logo.png') }}" alt="logo.png">
+                            <img class="img-fluid" src="{{ asset('front-end/img/reeve-logo-3.png') }}" alt="logo.png">
                         </div>
                         <div class="auth-box card">
                             <div class="card-body">
@@ -87,7 +87,7 @@
                                         </button>
                                     </div> --}}
                                 </div>
-                                <p class="text-muted text-center p-b-5">Sign in with your regular account</p>
+                                <p class="text-muted text-center p-b-5">Sign in with your admin account</p>
                                 @if (session('error'))
                                     <div class="alert bg-alert text-danger">
                                         {{ session('error') }}

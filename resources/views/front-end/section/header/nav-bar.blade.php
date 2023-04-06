@@ -5,7 +5,7 @@
                 <div class="uk-navbar-left">
                     <div class="uk-navbar-item">
                         <a class="uk-logo" href="/">
-                            <img src="{{ asset('front-end/img/reeve-logo-2.png') }}" alt="logo"
+                            <img src="{{ asset('front-end/img/reeve-logo-3.png') }}" alt="logo"
                                 width="146" height="40" data-uk-img>
                         </a>
                         <ul class="uk-navbar-nav uk-visible@m">
