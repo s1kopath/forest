@@ -15,7 +15,7 @@
                 <div class="form-group row">
                     <label for="staticdata" class="col-sm-2 col-form-label font-weight-bold">Profile Picture :</label>
                     <div class="col-sm-10">
-                        <img class="img-fluid" src="{{ asset('back-end/img/customer-service.png') }}" alt="forest"
+                        <img class="img-fluid" src="{{ asset('back-end/img/customer-service.png') }}" alt="Reeve Capital"
                             width="150px">
                     </div>
                 </div>
@@ -88,9 +88,9 @@
                 <div class="form-group row">
                     <label for="staticdata" class="col-sm-2 col-form-label font-weight-bold">Identity Copy :</label>
                     <div class="col-sm-10">
-                        <img class="img-fluid" src="{{ asset('back-end/img/slider/card1.png') }}" alt="forest"
+                        <img class="img-fluid" src="{{ asset('back-end/img/slider/card1.png') }}" alt="Reeve Capital"
                             width="100px">
-                        <img class="img-fluid" src="{{ asset('back-end/img/slider/card2.png') }}" alt="forest"
+                        <img class="img-fluid" src="{{ asset('back-end/img/slider/card2.png') }}" alt="Reeve Capital"
                             width="100px">
                     </div>
                 </div>

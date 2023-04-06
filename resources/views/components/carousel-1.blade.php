@@ -22,19 +22,19 @@
 
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ asset('front-end/img/slider/01 Staking-01.png') }}" class="d-block w-100" alt="forest">
+                <img src="{{ asset('front-end/img/slider/01 Staking-01.png') }}" class="d-block w-100" alt="Reeve Capital">
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('front-end/img/slider/02 Forex Trading-01.png') }}" class="d-block w-100"
-                    alt="forest">
+                    alt="Reeve Capital">
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('front-end/img/slider/03 Forex Broker-01.png') }}" class="d-block w-100"
-                    alt="forest">
+                    alt="Reeve Capital">
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('front-end/img/slider/04 E-Commerce-01.png') }}" class="d-block w-100"
-                    alt="forest">
+                    alt="Reeve Capital">
             </div>
         </div>
 

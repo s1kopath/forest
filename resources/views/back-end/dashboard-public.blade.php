@@ -65,7 +65,7 @@
         <div class="d-flex justify-content-between pb-2" style="background-color: #091b65;">
             <div class="col-4">
                 <img class="profile-header-avatar" src="{{ auth()->user()->userToUserDetails->pic }}" data-toggle="modal"
-                    data-target="#exampleModal" id="myImg" alt="forest" type="button">
+                    data-target="#exampleModal" id="myImg" alt="Reeve Capital" type="button">
             </div>
 
             <div class="col-8 text-white" style="overflow-wrap: break-word">
@@ -102,7 +102,7 @@
 
                     @foreach ($banners as $banner)
                         <div class="carousel-item {{ $loop->index == 0 ? 'active' : '' }}">
-                            <img src="{{ $banner->image }}" class="rounded d-block w-100" alt="forest">
+                            <img src="{{ $banner->image }}" class="rounded d-block w-100" alt="Reeve Capital">
                         </div>
                     @endforeach
                 </div>
@@ -144,7 +144,7 @@
                 <div class="card-body card-body-custom">
                     <div class="row align-items-center">
                         <div class="col-auto pl-1 pl-md-2 pr-0">
-                            <i class="fas fa-database bg-dribbble text-white"></i>
+                            <i class="far fa-money-bill-alt bg-dribbble text-white"></i>
                         </div>
                         <div class="col ml-2">
                             <span class="m-b-0 f-w-700 text-white">${{ $totalStake }}</span>

@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="_token" content="{{ csrf_token() }}" />
 
-    <link rel="icon" href="{{ asset('back-end/assets/images/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('front-end/img/reeve-favicon.jpeg') }}" type="image/x-icon">
 
     <!-- icon preload -->
     <link rel="preload" href="{{ asset('front-end/fonts/fa-brands-400.woff2') }}" as="font" type="font/woff2">

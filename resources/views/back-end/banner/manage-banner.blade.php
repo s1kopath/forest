@@ -52,7 +52,7 @@
                                         <tr role="row" class="even">
                                             <td>{{ $data->sl }}</td>
                                             <td>
-                                                <img class="img-fluid" src="{{ $data->image }}" alt="forest"
+                                                <img class="img-fluid" src="{{ $data->image }}" alt="Reeve Capital"
                                                     width="500">
                                             </td>
                                             <td>

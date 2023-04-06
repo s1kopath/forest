@@ -74,13 +74,13 @@
                         </style>
                         <div class="d-flex justify-content-center overflow-auto pb-3">
                             <img type="button" class="img-fluid rounded mx-1 shadow-sm border visa-img"
-                                style="width: 100px" src="{{ asset('front-end/img/deposit/1.png') }}" alt="forest"
+                                style="width: 100px" src="{{ asset('front-end/img/deposit/1.png') }}" alt="Reeve Capital"
                                 onclick="changeForm('visa')" id="">
                             <img type="button" class="img-fluid rounded mx-1 border active-form crypto-img"
-                                style="width: 100px" src="{{ asset('front-end/img/deposit/5.png') }}" alt="forest"
+                                style="width: 100px" src="{{ asset('front-end/img/deposit/5.png') }}" alt="Reeve Capital"
                                 onclick="changeForm('crypto')" id="">
                             <img type="button" class="img-fluid rounded mx-1 shadow-sm border bank-img"
-                                style="width: 100px" src="{{ asset('front-end/img/deposit/6.png') }}" alt="forest"
+                                style="width: 100px" src="{{ asset('front-end/img/deposit/6.png') }}" alt="Reeve Capital"
                                 onclick="changeForm('bank')" id="">
                         </div>
 
@@ -299,17 +299,17 @@
                                 <label for="option-1">
                                     <img type="button" class="img-fluid rounded mx-1 shadow-sm border visa-img"
                                         style="width: 100px" src="{{ asset('front-end/img/deposit/1.png') }}"
-                                        alt="forest" onclick="changeForm('visa')">
+                                        alt="Reeve Capital" onclick="changeForm('visa')">
                                 </label>
                                 <label for="option-2">
                                     <img type="button" class="img-fluid rounded mx-1 shadow-sm border bank-img"
                                         style="width: 100px" src="{{ asset('front-end/img/deposit/6.png') }}"
-                                        alt="forest" onclick="changeForm('bank')">
+                                        alt="Reeve Capital" onclick="changeForm('bank')">
                                 </label>
                                 <label for="option-3">
                                     <img type="button" class="img-fluid rounded mx-1 border crypto-img"
                                         style="width: 100px" src="{{ asset('front-end/img/deposit/5.png') }}"
-                                        alt="forest" onclick="changeForm('crypto')">
+                                        alt="Reeve Capital" onclick="changeForm('crypto')">
                                 </label>
                             </div>
 

@@ -34,7 +34,7 @@ class BinanceController extends Controller
                 "goodsType" => "01",
                 "goodsCategory" => "D000",
                 "referenceGoodsId" => uniqid(),
-                "goodsName" => "Forest Deposit",
+                "goodsName" => "Reeve Deposit",
                 "goodsDetail" => "Deposit of $" . $amount
             )
         );

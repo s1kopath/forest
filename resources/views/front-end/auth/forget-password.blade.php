@@ -5,7 +5,7 @@
     <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Forest, an investment platform">
+    <meta name="description" content="Reeve Capital, an investment platform">
     <meta name="keywords" content="blockit, uikit3, indonez, handlebars, scss, javascript">
     <meta name="author" content="Global fast Coder">
     <meta name="theme-color" content="#091b65" />
@@ -27,7 +27,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ asset('front-end/css/style.css') }}">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('front-end/img/favicon-32x32.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('front-end/img/reeve-favicon.jpeg') }}" type="image/x-icon">
     <!-- Touch icon -->
     <link rel="apple-touch-icon-precomposed" href="{{ asset('front-end/img/apple-touch-icon.png') }}">
     <title>Sign in - {{ env('APP_NAME') }}</title>
@@ -52,12 +52,11 @@
                             <div class="uk-width-3-5@m">
                                 <div class="uk-text-center in-padding-horizontal@s">
                                     <a class="uk-logo" href="/">
-                                        <img src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                            data-src="{{ asset('front-end/img/WF.png') }}" alt="logo"
-                                            width="146" height="40" data-uk-img>
+                                        <img src="{{ asset('front-end/img/reeve-logo-2.png') }}" alt="logo"
+                                            width="400" data-uk-img>
                                     </a>
                                     <p class="uk-text-lead uk-margin-small-top uk-margin-medium-bottom">
-                                        Log into your account
+                                        Recover your account
                                     </p>
 
                                     @if (session('error'))

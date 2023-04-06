@@ -16,7 +16,7 @@
                     <div class="d-flex justify-content-between">
                         <div class="col-4">
                             <img class="profile-header-avatar shadow" src="{{ asset('back-end/assets/images/avatar-4.jpg') }}"
-                                alt="forest">
+                                alt="Reeve Capital">
                         </div>
                         <div class="col-8 text-white" style="overflow-wrap: break-word">
                             <span class="font-weight-bold">Hello, {{ auth()->user()->username }}</span>
@@ -268,7 +268,7 @@
                                     </style>
                                 @endif
                                 <img class="profile-header-avatar" src="{{ auth()->user()->userToUserDetails->pic }}"
-                                    data-toggle="modal" data-target="#exampleModal" id="myImg" alt="forest"
+                                    data-toggle="modal" data-target="#exampleModal" id="myImg" alt="Reeve Capital"
                                     type="button">
                             </div>
 

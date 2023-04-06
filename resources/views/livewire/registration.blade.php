@@ -1,6 +1,6 @@
 <div class="uk-text-center in-padding-horizontal@s">
     <a class="uk-logo" href="/">
-        <img src="{{ asset('front-end/img/WF.png') }}" alt="logo" width="146" height="40" data-uk-img>
+        <img src="{{ asset('front-end/img/reeve-logo-2.png') }}" alt="logo" width="400" data-uk-img>
     </a>
     <p class="uk-text-lead uk-margin-small-top uk-margin-medium-bottom">
         Sign up with your regular account

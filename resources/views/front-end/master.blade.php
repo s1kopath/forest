@@ -5,13 +5,13 @@
     <!-- Meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Forest, an investment platform">
+    <meta name="description" content="Reeve Capital, an investment platform">
     <meta name="keywords" content="blockit, uikit3, indonez, handlebars, scss, javascript">
     <meta name="author" content="Global fast Coder">
     <meta name="theme-color" content="#091b65" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('front-end/img/favicon-32x32.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('front-end/img/reeve-favicon.jpeg') }}" type="image/x-icon">
     <!-- Touch icon -->
     <link rel="apple-touch-icon-precomposed" href="{{ asset('front-end/img/apple-touch-icon.png') }}">
     <title>@yield('title', env('APP_NAME'))</title>
