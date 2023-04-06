@@ -28,7 +28,7 @@ class Registration extends Component
     {
         return  [
             'name' => 'required',
-            'username' => 'required|unique:users,username',
+            'username' => 'required|min:4|unique:users,username',
             'email' => 'required|email|unique:users,email',
             'password' => [
                 'required',
@@ -62,12 +62,17 @@ class Registration extends Component
 
     public function checkUsername()
     {
-        if ($this->username) {
-            $ref = User::where('username', $this->username)->first();
-            if ($ref) {
-                $this->user_icon = '❌';
+        if (strlen($this->username) >= 4) {
+
+            if ($this->username) {
+                $ref = User::where('username', $this->username)->first();
+                if ($ref) {
+                    $this->user_icon = '❌';
+                } else {
+                    $this->user_icon = '✔️';
+                }
             } else {
-                $this->user_icon = '✔️';
+                $this->user_icon = '❌';
             }
         } else {
             $this->user_icon = '❌';

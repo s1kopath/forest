@@ -45,12 +45,12 @@
             @endif
         </div>
         <div class="card-block">
-            <div class="d-flex justify-content-center">
-                <div class="col-md-4 text-center">
-                    <h4 class="font-weight-bold">{{ count(auth()->user()->total_team) }}</h4>
+            <div class="d-flex justify-content-start">
+                <div class="col-md-2">
+                    <h4 class="font-weight-bold text-center">{{ count(auth()->user()->total_team) }}</h4>
                     <h3 class="font-weight-bold">Registration</h3>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-md-2 text-center">
                     <h4 class="font-weight-bold">{{ $staked_user }}</h4>
                     <h3 class="font-weight-bold">Staking</h3>
                 </div>

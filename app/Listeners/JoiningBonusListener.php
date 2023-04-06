@@ -48,18 +48,20 @@ class JoiningBonusListener
         if ($user->userToReferer) {
             $refererWallet = Wallet::where('user_id', $user->userToReferer->id)->first();
 
-            $refererWallet->main_amount += 1;
-            $refererWallet->bonus_amount += 1;
+            if ($refererWallet) {
+                $refererWallet->main_amount += 1;
+                $refererWallet->bonus_amount += 1;
 
-            $refererWallet->save();
+                $refererWallet->save();
 
-            Transaction::create([
-                'user_id' => $refererWallet->user_id,
-                'amount' => 1,
-                'type' => 'Credit',
-                'purpose' => 'Invitation Gift',
-                'from_user_id' => $user->id
-            ]);
+                Transaction::create([
+                    'user_id' => $refererWallet->user_id,
+                    'amount' => 1,
+                    'type' => 'Credit',
+                    'purpose' => 'Invitation Gift',
+                    'from_user_id' => $user->id
+                ]);
+            }
         }
     }
 }

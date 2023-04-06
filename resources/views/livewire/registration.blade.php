@@ -22,10 +22,10 @@
     <!-- login form begin -->
     <form class="uk-grid uk-form" wire:submit.prevent="store">
         <div class="uk-margin-small uk-width-1-1 uk-inline">
-            <span class="uk-form-icon uk-form-icon-flip" style="margin-right: -30px"">
+            <span class="uk-form-icon uk-form-icon-flip" style="margin-right: -30px">
                 {!! $referer_icon !!}
             </span>
-            <input class="uk-input uk-border-rounded" type="text" placeholder="Enter User ID" value=""
+            <input class="uk-input uk-border-rounded" type="text" placeholder="Enter Refer ID" value=""
                 wire:model="refer_username" wire:keyup="checkRef">
         </div>
 

@@ -24,13 +24,13 @@
         }
 
         .prod-p-card {
-            border-radius: 25px;
+            border-radius: 10px;
         }
     </style>
 
     <style>
         .carousel-indicators .active {
-            background-color: #091b65;
+            background-color: #ff2306;
             opacity: 80%;
         }
 
@@ -74,9 +74,14 @@
                 <small>{{ auth()->user()->email }}</small>
                 <br>
                 <span class="font-weight-bold text-primary">
-                    {{ auth()->user()->is_verified ? 'Verified' : 'Unverified' }}
-                    Account
+                    {{ auth()->user()->is_verified ? 'Verified Account' : 'Unverified' }}                    
                 </span>
+                @if (isset(auth()->user()->userToRank->rankToRankReward->title))
+                    <br>
+                    <span>
+                        {{ auth()->user()->userToRank->rankToRankReward->title }}
+                    </span>
+                @endif
             </div>
         </div>
     </div>
@@ -125,10 +130,10 @@
                         <div class="col-auto pl-1 pl-md-2 pr-0">
                             <i class="fas fa-money-bill-alt bg-dribbble text-white"></i>
                         </div>
-                        <div class="col">
+                        <div class="col ml-2">
                             <span class="m-b-0 f-w-700 text-white">${{ $wallet->main_amount }}</span>
                             <br>
-                            <small class="m-b-5 text-white">Current Wallet</small>
+                            <small class="m-b-5 text-white">My Wallet</small>
                         </div>
                     </div>
                 </div>
@@ -141,7 +146,7 @@
                         <div class="col-auto pl-1 pl-md-2 pr-0">
                             <i class="fas fa-database bg-dribbble text-white"></i>
                         </div>
-                        <div class="col">
+                        <div class="col ml-2">
                             <span class="m-b-0 f-w-700 text-white">${{ $totalStake }}</span>
                             <br>
                             <small class="m-b-5 text-white">Total Staking</small>
@@ -157,7 +162,7 @@
                         <div class="col-auto pl-1 pl-md-2 pr-0">
                             <i class="fas fa-tags bg-dribbble text-white"></i>
                         </div>
-                        <div class="col">
+                        <div class="col ml-2">
                             <span class="m-b-0 f-w-700 text-white">{{ count(auth()->user()->direct_team) }}</span>
                             <br>
                             <small class="m-b-5 text-white">Total Refer</small>
@@ -173,7 +178,7 @@
                         <div class="col-auto pl-1 pl-md-2 pr-0">
                             <i class="fas fa-dollar-sign bg-dribbble text-white"></i>
                         </div>
-                        <div class="col">
+                        <div class="col ml-2">
                             <span class="m-b-0 f-w-700 text-white">${{ $wallet->total_earning }}</span>
                             <br>
                             <small class="m-b-5 text-white">Total Income</small>

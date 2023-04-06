@@ -260,6 +260,13 @@
                     <div class="d-none d-lg-block">
                         <div class="d-flex justify-content-between">
                             <div class="col-4">
+                                @if (isset(auth()->user()->userToRank->rankToRankReward->title))
+                                    <style>
+                                        .profile-header-avatar {
+                                            margin: 12px 0 0 21px;
+                                        }
+                                    </style>
+                                @endif
                                 <img class="profile-header-avatar" src="{{ auth()->user()->userToUserDetails->pic }}"
                                     data-toggle="modal" data-target="#exampleModal" id="myImg" alt="forest"
                                     type="button">
@@ -271,9 +278,14 @@
                                 <small>{{ auth()->user()->email }}</small>
                                 <br>
                                 <span class="font-weight-bold text-primary">
-                                    {{ auth()->user()->is_verified ? 'Verified' : 'Unverified' }}
-                                    Account
+                                    {{ auth()->user()->is_verified ? 'Verified Account' : 'Unverified' }}
                                 </span>
+                                @if (isset(auth()->user()->userToRank->rankToRankReward->title))
+                                    <br>
+                                    <span>
+                                        {{ auth()->user()->userToRank->rankToRankReward->title }}
+                                    </span>
+                                @endif
                             </div>
                         </div>
                     </div>
