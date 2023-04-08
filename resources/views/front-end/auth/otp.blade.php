@@ -107,6 +107,17 @@
                                                 </span>
                                             </label>
                                         </div>
+
+                                        <style>
+                                            .uk-button-primary {
+                                                background-color: #091b65 !important;
+                                                color: #ffffff !important;
+                                            }
+
+                                            .uk-button-primary:hover {
+                                                background-color: #042297 !important;
+                                            }
+                                        </style>
                                         <div class="uk-margin-small uk-width-1-1">
                                             <button type="submit"
                                                 class="uk-button uk-width-1-1 uk-button-primary uk-border-rounded uk-float-left">
