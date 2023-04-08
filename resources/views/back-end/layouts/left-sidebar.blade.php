@@ -317,7 +317,10 @@
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu {{ $route_name == 'stake' ? 'active' : '' }}">
                             <a href="{{ route('stake') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-micon"><i class="far fa-money-bill-alt"></i></span>
+                                <span class="pcoded-micon">
+                                    <img class="img-fluid" width="20" style="opacity: 0.8;"
+                                        src="{{ asset('front-end/img/icons/Staking Sidebar.png') }}" alt="REEVE">
+                                </span>
                                 <span class="pcoded-mtext">Staking</span>
                             </a>
                         </li>
@@ -349,7 +352,10 @@
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu {{ $route_name == 'public_become_an_ib' ? 'active' : '' }}">
                             <a href="{{ route('public_become_an_ib') }}" class="waves-effect waves-dark">
-                                <span class="pcoded-micon"><i class="fa fa-paw"></i></span>
+                                <span class="pcoded-micon">
+                                    <img class="img-fluid" width="20" style="opacity: 0.8;"
+                                        src="{{ asset('front-end/img/icons/Become IB.png') }}" alt="REEVE">
+                                </span>
                                 <span class="pcoded-mtext">Become an IB</span>
                             </a>
                         </li>

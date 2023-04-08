@@ -74,7 +74,7 @@
                 <small>{{ auth()->user()->email }}</small>
                 <br>
                 <span class="font-weight-bold text-primary">
-                    {{ auth()->user()->is_verified ? 'Verified Account' : 'Unverified' }}                    
+                    {{ auth()->user()->is_verified ? 'Verified Account' : 'Unverified' }}
                 </span>
                 @if (isset(auth()->user()->userToRank->rankToRankReward->title))
                     <br>
@@ -128,7 +128,8 @@
                 <div class="card-body card-body-custom">
                     <div class="row align-items-center">
                         <div class="col-auto pl-1 pl-md-2 pr-0">
-                            <i class="fas fa-money-bill-alt bg-dribbble text-white"></i>
+                            <img class="img-fluid" width="40" src="{{ asset('front-end/img/icons/My wallet.png') }}"
+                                alt="REEVE">
                         </div>
                         <div class="col ml-2">
                             <span class="m-b-0 f-w-700 text-white">${{ $wallet->main_amount }}</span>
@@ -144,7 +145,8 @@
                 <div class="card-body card-body-custom">
                     <div class="row align-items-center">
                         <div class="col-auto pl-1 pl-md-2 pr-0">
-                            <i class="far fa-money-bill-alt bg-dribbble text-white"></i>
+                            <img class="img-fluid" width="40" src="{{ asset('front-end/img/icons/Staking.png') }}"
+                                alt="REEVE">
                         </div>
                         <div class="col ml-2">
                             <span class="m-b-0 f-w-700 text-white">${{ $totalStake }}</span>
@@ -160,7 +162,8 @@
                 <div class="card-body card-body-custom">
                     <div class="row align-items-center">
                         <div class="col-auto pl-1 pl-md-2 pr-0">
-                            <i class="fas fa-tags bg-dribbble text-white"></i>
+                            <img class="img-fluid" width="40" src="{{ asset('front-end/img/icons/Total Refer.png') }}"
+                                alt="REEVE">
                         </div>
                         <div class="col ml-2">
                             <span class="m-b-0 f-w-700 text-white">{{ count(auth()->user()->direct_team) }}</span>
@@ -176,7 +179,8 @@
                 <div class="card-body card-body-custom">
                     <div class="row align-items-center">
                         <div class="col-auto pl-1 pl-md-2 pr-0">
-                            <i class="fas fa-dollar-sign bg-dribbble text-white"></i>
+                            <img class="img-fluid" width="40" src="{{ asset('front-end/img/icons/Total income.png') }}"
+                                alt="REEVE">
                         </div>
                         <div class="col ml-2">
                             <span class="m-b-0 f-w-700 text-white">${{ $wallet->total_earning }}</span>

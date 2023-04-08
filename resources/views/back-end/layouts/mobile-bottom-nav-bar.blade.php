@@ -25,7 +25,7 @@
     .mobile-bottom-nav__item--active {
         color: #ff6600 !important;
     }
-
+    
     .mobile-bottom-nav__item-content {
         display: flex;
         flex-direction: column;
@@ -55,7 +55,10 @@
     <div class="mobile-bottom-nav__item">
         <a href="{{ route('stake') }}"
             class="mobile-bottom-nav__item-content {{ $route_name == 'stake' ? 'mobile-bottom-nav__item--active' : '' }}">
-            <i class="far fa-money-bill-alt"></i>
+            <span>
+                <img class="img-fluid" width="20" src="{{ asset('front-end/img/icons/Staking Sidebar.png') }}"
+                    alt="REEVE">
+            </span>
             Staking
         </a>
     </div>
