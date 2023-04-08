@@ -56,7 +56,7 @@
                                             width="400" data-uk-img>
                                     </a>
                                     <p class="uk-text-lead uk-margin-small-top uk-margin-medium-bottom">
-                                        Log into your account
+                                        Log In
                                     </p>
 
                                     @if (session('error'))
@@ -127,7 +127,7 @@
                                                 class="fab fa-facebook-f uk-margin-small-right"></i>Facebook</a>
                                     </div> --}}
                                     <span class="uk-text-small">
-                                        Don't have an account? <a href="{{ route('register') }}">
+                                        Don't have an account? <a href="{{ route('register') }}" style="color: #392bf8 !important;">
                                             Register here
                                         </a>
                                     </span>
