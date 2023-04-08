@@ -2096,6 +2096,7 @@ select.uk-form-width-xsmall {
     align-items: center;
     /* 4 */
     color: #999999;
+    z-index: 100;
 }
 
 /*

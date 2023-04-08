@@ -9,7 +9,9 @@ use App\Models\Wallet;
 use Livewire\Component;
 use App\Models\UserDetail;
 use App\Models\AmountForIbGain;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Validation\ValidationException;
 
 class Registration extends Component
 {
@@ -23,6 +25,8 @@ class Registration extends Component
     public $email;
     public $password;
     public $password_confirmation;
+    public $password_icon = '<span class="uk-form-icon uk-form-icon-flip fas fa-lock fa-sm"></span>';
+    public $password_confirmation_icon = '<span class="uk-form-icon uk-form-icon-flip fas fa-lock fa-sm"></span>';
 
     protected function rules()
     {
@@ -32,13 +36,13 @@ class Registration extends Component
             'email' => 'required|email|unique:users,email',
             'password' => [
                 'required',
-                'confirmed',
-                Password::min(6)
+                Password::min(8)
                     ->letters()
                     ->mixedCase()
                     ->numbers()
                     ->symbols()
-            ]
+            ],
+            'password_confirmation' => 'same:password'
         ];
     }
 
@@ -76,6 +80,32 @@ class Registration extends Component
             }
         } else {
             $this->user_icon = '❌';
+        }
+    }
+
+    public function checkPass()
+    {
+        try {
+            $this->validateOnly('password');
+        } catch (ValidationException $er) {
+            $this->password_icon = '<span class="uk-form-icon uk-form-icon-flip" style="margin-right: -30px">❌</span>';
+        } finally {
+            if (empty($er)) {
+                $this->password_icon = '<span class="uk-form-icon uk-form-icon-flip" style="margin-right: -30px">✔️</span>';
+            }
+        }
+    }
+
+    public function checkConfirmPass()
+    {
+        try {
+            $this->validateOnly('password_confirmation');
+        } catch (ValidationException $err) {
+            $this->password_confirmation_icon = '<span class="uk-form-icon uk-form-icon-flip" style="margin-right: -30px">❌</span>';
+        } finally {
+            if (empty($err)) {
+                $this->password_confirmation_icon = '<span class="uk-form-icon uk-form-icon-flip" style="margin-right: -30px">✔️</span>';
+            }
         }
     }
 
