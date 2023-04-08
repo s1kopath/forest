@@ -58,7 +58,7 @@
                 wire:model="password_confirmation" wire:keyup="checkConfirmPass" required>
 
         </div>
-        <div class="uk-text-small">
+        <div class="uk-text-small uk-width-1-1">
             <small>Hint: At least 8 characters (A a 1 #)</small>
         </div>
 
