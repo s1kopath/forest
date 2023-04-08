@@ -11,7 +11,7 @@
     <meta name="theme-color" content="#091b65" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('front-end/img/reeve-favicon.jpeg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('front-end/img/reeve-favicon.png') }}" type="image/x-icon">
     <!-- Touch icon -->
     <link rel="apple-touch-icon-precomposed" href="{{ asset('front-end/img/apple-touch-icon.png') }}">
     <title>@yield('title', env('APP_NAME'))</title>

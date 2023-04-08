@@ -27,7 +27,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ asset('front-end/css/style.css') }}">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('front-end/img/reeve-favicon.jpeg') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('front-end/img/reeve-favicon.png') }}" type="image/x-icon">
     <!-- Touch icon -->
     <link rel="apple-touch-icon-precomposed" href="{{ asset('front-end/img/apple-touch-icon.png') }}">
     <title>Sign in - {{ env('APP_NAME') }}</title>
