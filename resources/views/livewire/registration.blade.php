@@ -46,6 +46,17 @@
             <input class="uk-input uk-border-rounded" type="email" placeholder="Your Email Address" wire:model="email"
                 required>
         </div>
+        <div class="uk-margin-small uk-width-1-1 uk-inline">
+            <span class="uk-form-icon uk-form-icon-flip fa-solid fa-earth-americas fa-sm"></span>
+            <select class="uk-input uk-border-rounded" required wire:model="country">
+                <option value="">-- Select Country --</option>
+                @foreach ($country_list as $data)
+                    <option value="{{ $data['country'] }}">
+                        {{ $data['country'] }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
 
         <div class="uk-margin-small uk-width-1-1 uk-inline">
             {!! $password_icon !!}

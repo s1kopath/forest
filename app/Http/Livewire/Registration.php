@@ -9,6 +9,7 @@ use App\Models\Wallet;
 use Livewire\Component;
 use App\Models\UserDetail;
 use App\Models\AmountForIbGain;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
@@ -27,6 +28,8 @@ class Registration extends Component
     public $password_confirmation;
     public $password_icon = '<span class="uk-form-icon uk-form-icon-flip fas fa-lock fa-sm"></span>';
     public $password_confirmation_icon = '<span class="uk-form-icon uk-form-icon-flip fas fa-lock fa-sm"></span>';
+    public $country;
+    public $country_list;
 
     protected function rules()
     {
@@ -62,6 +65,8 @@ class Registration extends Component
         } else {
             $this->referer_icon = '<i class="fas fa-user"></i>';
         }
+
+        $this->country_list = array_values(Http::get('https://api.first.org/data/v1/countries')->json()['data']);
     }
 
     public function checkUsername()
