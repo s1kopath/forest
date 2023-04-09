@@ -14,6 +14,7 @@ use App\Models\AmountForIbGain;
 use App\Models\StakingRebateBonus;
 use App\Http\Controllers\RanksController;
 use App\Http\Controllers\user\StakeController;
+use App\Models\Country;
 use App\Models\Withdraw;
 use Illuminate\Support\Facades\Http;
 
@@ -21,8 +22,35 @@ class TestController extends Controller
 {
     public function test()
     {
-        $response = Http::get('https://api.first.org/data/v1/countries');
-        dd(array_values($response->json()['data'])[0]['country']);
+        // $response = Http::get('https://countrycode.dev/api/calls');
+        // dd($response->json());
+        // foreach ($response->json() as $data) {
+        //     Country::create([
+        //         'country_name' => $data['country_name'],
+        //         'phone_code' => '+' . $data['phone_code'],
+        //     ]);
+        // }
+        // dd(count($response->json()), Country::count());
+        // dd(array_values($response->json()['data'])[0]['country']);
+
+        // $countries = Country::all();
+
+        // foreach ($countries as $data) {
+        //     if ($data->country_flag == null) {
+        //         # code...
+        //         $flag = Http::get("https://restcountries.com/v3.1/name/" . $data->country_name .
+        //             "?fullText=true&fields=flags");
+
+        //         if (!isset($flag->json()['status'])) {
+        //             # code...
+        //             // dd($flag->json());
+        //             $data->update([
+        //                 'country_flag' => $flag->json()[0]['flags']['png']
+        //             ]);
+        //         }
+        //     }
+        // }
+        // dd($countries);
         return view('test');
         //Redirect user to the payment page
         // dd('200');

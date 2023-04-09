@@ -6,6 +6,7 @@ use App\Models\Otp;
 use App\Models\Rank;
 use App\Models\User;
 use App\Models\Wallet;
+use App\Models\Country;
 use Livewire\Component;
 use App\Models\UserDetail;
 use App\Models\AmountForIbGain;
@@ -29,7 +30,9 @@ class Registration extends Component
     public $password_icon = '<span class="uk-form-icon uk-form-icon-flip fas fa-lock fa-sm"></span>';
     public $password_confirmation_icon = '<span class="uk-form-icon uk-form-icon-flip fas fa-lock fa-sm"></span>';
     public $country;
-    public $country_list;
+    public $countries;
+    public $phone;
+    public $phone_country;
 
     protected function rules()
     {
@@ -66,7 +69,7 @@ class Registration extends Component
             $this->referer_icon = '<i class="fas fa-user"></i>';
         }
 
-        $this->country_list = array_values(Http::get('https://api.first.org/data/v1/countries')->json()['data']);
+        $this->countries = Country::all();;
     }
 
     public function checkUsername()
@@ -126,8 +129,14 @@ class Registration extends Component
         }
     }
 
+    function countryCode(){
+        dd('sdfknfd');
+    }
+
     public function store()
     {
+        dd($this->phone, $this->phone_country);
+
         $this->validate();
 
         $token = hash('sha256', time());
