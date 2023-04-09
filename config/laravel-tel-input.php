@@ -58,7 +58,7 @@ return [
 
         'placeholderNumberType' => 'MOBILE',
 
-        'preferredCountries' => ['CN', 'NG', 'US', 'GB'],
+        'preferredCountries' => [],
 
         'separateDialCode' => false,
 

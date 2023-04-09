@@ -86,10 +86,7 @@
         <div class="uk-margin-small uk-width-1-1 uk-inline">
             <span class="uk-form-icon uk-form-icon-flip fa-solid fa-earth-americas fa-sm"></span>
 
-            <x-tel-input wire:model="phone" id="phone" name="phone" class="form-input" onchange="myFunction()" />
-            <input class="uk-input uk-border-rounded" wire:model="phone_country" type="hidden" id="phone_country"
-                name="phone_country">
-
+            <x-tel-input wire:model="phone" id="phone" name="phone" class="form-input" />
         </div>
         <div class="uk-margin-small uk-width-1-1 uk-inline">
             {!! $password_icon !!}
@@ -165,51 +162,29 @@
 
 @push('scripts')
     <script>
-        // function myFunction() {
-        //     console.log('asdjbl');
-        // }
+        document.addEventListener('livewire:load', function() {
 
-        var input = $("#phone");
-        input.intlTelInput();
+            var input = document.querySelector('#phone');
+            var phone_number = document.querySelector('.iti--laravel-tel-input');
 
-        input.on("countrychange", function() {
-            // input.val('')
-            console.log('ljash');
-        });
-    </script>
+            input.addEventListener('telchange', function(e) {
 
-    {{-- <script>
-    function init() {
-            var input = document.querySelector(".tel-phone");
-            window.intlTelInput(input, {
-                // allowDropdown: false,
-                // autoInsertDialCode: true,
-                // autoPlaceholder: "off",
-                // dropdownContainer: document.body,
-                // excludeCountries: ["us"],
-                // formatOnDisplay: false,
-                // geoIpLookup: function(callback) {
-                //   fetch("https://ipapi.co/json")
-                //     .then(function(res) { return res.json(); })
-                //     .then(function(data) { callback(data.country_code); })
-                //     .catch(function() { callback("us"); });
-                // },
-                // hiddenInput: "full_number",
-                // initialCountry: "auto",
-                // localizedCountries: { 'de': 'Deutschland' },
-                // nationalMode: false,
-                // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
-                // placeholderNumberType: "MOBILE",
-                // preferredCountries: ['cn', 'jp'],
-                // separateDialCode: true,
-                // utilsScript: "build/js/utils.js",
+                @this.country = e.detail.countryName;
+
+                if (e.detail.number.length > 0) {
+                    @this.country_phone = e.detail.number;
+                    phone_number.value = e.detail.number;
+                } else {
+                    @this.country_phone = '+' + e.detail.dialCode;
+                    phone_number.value = '+' + e.detail.dialCode;
+                }
+
+            })
+
+            $(".iti--laravel-tel-input").keyup(function() {
+                @this.country_phone = $(this).val();
             });
 
-            // input.focus();
-        }
-        init();
-
-        /* This will be loaded when livewire update or load a new component inside master.blade.php */
-        document.addEventListener('livewire:update', init);
-    </script> --}}
+        });
+    </script>
 @endpush

@@ -30,9 +30,8 @@ class Registration extends Component
     public $password_icon = '<span class="uk-form-icon uk-form-icon-flip fas fa-lock fa-sm"></span>';
     public $password_confirmation_icon = '<span class="uk-form-icon uk-form-icon-flip fas fa-lock fa-sm"></span>';
     public $country;
-    public $countries;
     public $phone;
-    public $phone_country;
+    public $country_phone;
 
     protected function rules()
     {
@@ -68,8 +67,6 @@ class Registration extends Component
         } else {
             $this->referer_icon = '<i class="fas fa-user"></i>';
         }
-
-        $this->countries = Country::all();;
     }
 
     public function checkUsername()
@@ -129,14 +126,9 @@ class Registration extends Component
         }
     }
 
-    function countryCode(){
-        dd('sdfknfd');
-    }
-
     public function store()
     {
-        dd($this->phone, $this->phone_country);
-
+        
         $this->validate();
 
         $token = hash('sha256', time());
@@ -166,6 +158,8 @@ class Registration extends Component
 
         $newDetails = UserDetail::create([
             'user_id' => $newUser->id,
+            'phone_number' => $this->country_phone,
+            'country' => $this->country
         ]);
 
         $newWallet = Wallet::create([
