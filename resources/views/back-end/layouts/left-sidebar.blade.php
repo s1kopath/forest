@@ -207,6 +207,14 @@
                             </ul>
                         </li>
                     </ul>
+                    <ul class="pcoded-item pcoded-left-item d-none">
+                        <li class="pcoded-hasmenu {{ $route_name == 'manage_notice' ? 'active' : '' }}">
+                            <a href="{{ route('manage_notice') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-micon"><i class="fas fa-sign-out-alt"></i></span>
+                                <span class="pcoded-mtext">Dashboard Header Notice</span>
+                            </a>
+                        </li>
+                    </ul>
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu">
                             <a href="{{ route('logout') }}" class="waves-effect waves-dark">

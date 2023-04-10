@@ -8,6 +8,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\BinanceController;
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\Otp\OtpController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\WithdrawController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\User\FundController;
@@ -111,6 +112,8 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         Route::match(['get', 'post'], 'edit-banner/{id}', [BannerController::class, 'editBanner'])->name('edit_banner');
         Route::get('delete-banner/{id}', [BannerController::class, 'deleteBanner'])->name('delete_banner');
     });
+
+    Route::get('manage-notice', [SettingsController::class, 'manageNotice'])->name('manage_notice');
 });
 
 Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
@@ -164,7 +167,7 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
     Route::post('deposit-binance', [BinanceController::class, 'test1'])->name('binance_merchant_pay');
 });
 
-Route::controller(StripePaymentController::class)->group(function () {
-    Route::get('stripe', 'stripe');
-    Route::post('stripe', 'stripePost')->name('stripe.post');
-});
+// Route::controller(StripePaymentController::class)->group(function () {
+//     Route::get('stripe', 'stripe');
+//     Route::post('stripe', 'stripePost')->name('stripe.post');
+// });

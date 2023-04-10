@@ -4,7 +4,6 @@
 @endpush
 
 @section('content')
-
     <!-- slideshow content begin -->
     <x-carousel-1 />
     <!-- slideshow content end -->
@@ -692,8 +691,10 @@
                 <div class="uk-width-3-4@m uk-margin-medium-top">
                     <div class="uk-flex uk-flex-center uk-flex-middle button-app">
                         <div>
-                            <a href="#" class="uk-button uk-button-secondary uk-border-rounded">Open your
-                                account<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                            <a href="{{ route('register') }}" class="uk-button uk-button-secondary uk-border-rounded">
+                                Open your account
+                                <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                            </a>
                         </div>
                         <div class="uk-margin-left uk-margin-right">
                             <p class="uk-margin-remove text-white">And download the app</p>

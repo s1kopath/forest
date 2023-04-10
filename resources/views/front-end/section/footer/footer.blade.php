@@ -1,9 +1,7 @@
 <footer>
-    <div class="uk-section">
+    <div class="uk-section pb-0">
         <div class="uk-container uk-margin-top">
             <div class="uk-grid">
-
-
                 <div class="uk-width-1-3@m">
                     <div class="">
                         <img src="{{ asset('front-end/img/reeve-logo-2.png') }}" alt="logo">
@@ -74,35 +72,36 @@
 
             </div>
         </div>
-
-
-        {{-- <hr class="uk-margin-large">
-        <div class="uk-container">
+        <hr>
+        <div class="uk-container" style="padding-bottom: 12px;">
             <div class="uk-grid uk-flex uk-flex-middle">
-                <div class="uk-width-2-3@m uk-text-small">
-                    <ul class="uk-subnav uk-subnav-divider uk-visible@s" data-uk-margin="">
-                        <li><a href="#">Risk disclosure</a></li>
-                        <li><a href="#">Privacy policy</a></li>
-                        <li><a href="#">Return policy</a></li>
-                        <li><a href="#">Customer Agreement</a></li>
-                        <li><a href="#">AML policy</a></li>
-                    </ul>
-                    <p class="copyright-text">©2023 Development with ❤️ by Global Fast Coder🌎. All Rights Reserved.</p>
+                <div class="uk-width-2-3@m uk-text-small">                    
+                    <h6 class="copyright-text" style="color: black">Reeve Capital 2023. All Rights Reserved.</h6>
                 </div>
                 <div class="uk-width-1-3@m uk-flex uk-flex-right uk-visible@m">
                     <span class="uk-margin-right">
                         <img src="{{ asset('front-end/img/in-lazy.gif') }}"
-                            data-src="{{ asset('front-end/img/in-footer-mastercard.svg') }}" alt="footer-payment"
-                            width="34" height="21" data-uk-img="">
+                            data-src="{{ asset('front-end/img/icons/pngwing.com (1).png') }}" alt="footer-payment"
+                            width="50" data-uk-img="">
                     </span>
-                    <span>
+                    <span class="uk-margin-right">
                         <img src="{{ asset('front-end/img/in-lazy.gif') }}"
-                            data-src="{{ asset('front-end/img/in-footer-visa.svg') }}" alt="footer-payment"
-                            width="50" height="16" data-uk-img="">
+                            data-src="{{ asset('front-end/img/icons/pngwing.com (2).png') }}" alt="footer-payment"
+                            width="60" data-uk-img="">
+                    </span>
+                    <span class="uk-margin-right">
+                        <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                            data-src="{{ asset('front-end/img/icons/pngwing.com.png') }}" alt="footer-payment"
+                            width="45" data-uk-img="">
+                    </span>
+                    <span class="uk-margin-right">
+                        <img src="{{ asset('front-end/img/in-lazy.gif') }}"
+                            data-src="{{ asset('front-end/img/icons/pngwing.com.png(3).png') }}" alt="footer-payment"
+                            width="60" data-uk-img="">
                     </span>
                 </div>
             </div>
-        </div> --}}
+        </div>
 
     </div>
 </footer>
