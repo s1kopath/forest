@@ -87,14 +87,25 @@
             <span class="uk-form-icon uk-form-icon-flip fa-solid fa-earth-americas fa-sm"></span>
 
             <x-tel-input wire:model="phone" id="phone" name="phone" class="form-input" />
+            
+            @error('country_phone')
+                <div class="uk-text-small uk-width-1-1" style="color: #ff0000">
+                    <small>* Insert a valid phone number</small>
+                </div>
+            @enderror
+
         </div>
         <div class="uk-margin-small uk-width-1-1 uk-inline">
-            {!! $password_icon !!}
+            <span class="uk-form-icon uk-form-icon-flip" style="margin-right: -30px">
+                {!! $password_icon !!}
+            </span>
             <input class="uk-input uk-border-rounded" type="password" placeholder="Password" wire:model="password"
                 wire:keyup="checkPass" required>
         </div>
         <div class="uk-margin-small uk-width-1-1 uk-inline">
-            {!! $password_confirmation_icon !!}
+            <span class="uk-form-icon uk-form-icon-flip" style="margin-right: -30px">
+                {!! $password_confirmation_icon !!}
+            </span>
             <input class="uk-input uk-border-rounded" type="password" placeholder="Confirm Password"
                 wire:model="password_confirmation" wire:keyup="checkConfirmPass" required>
 

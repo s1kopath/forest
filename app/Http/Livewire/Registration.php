@@ -27,8 +27,8 @@ class Registration extends Component
     public $email;
     public $password;
     public $password_confirmation;
-    public $password_icon = '<span class="uk-form-icon uk-form-icon-flip fas fa-lock fa-sm"></span>';
-    public $password_confirmation_icon = '<span class="uk-form-icon uk-form-icon-flip fas fa-lock fa-sm"></span>';
+    public $password_icon = '<i class="fas fa-lock"></i>';
+    public $password_confirmation_icon = '<i class="fas fa-lock"></i>';
     public $country;
     public $phone;
     public $country_phone;
@@ -39,6 +39,7 @@ class Registration extends Component
             'name' => 'required',
             'username' => 'required|min:4|unique:users,username',
             'email' => 'required|email|unique:users,email',
+            'country_phone' => 'required|min:6',
             'password' => [
                 'required',
                 Password::min(8)
@@ -93,10 +94,10 @@ class Registration extends Component
         try {
             $this->validateOnly('password');
         } catch (ValidationException $er) {
-            $this->password_icon = '<span class="uk-form-icon uk-form-icon-flip" style="margin-right: -30px">❌</span>';
+            $this->password_icon = '❌';
         } finally {
             if (empty($er)) {
-                $this->password_icon = '<span class="uk-form-icon uk-form-icon-flip" style="margin-right: -30px">✔️</span>';
+                $this->password_icon = '✔️';
             }
         }
     }
@@ -106,10 +107,10 @@ class Registration extends Component
         try {
             $this->validateOnly('password_confirmation');
         } catch (ValidationException $err) {
-            $this->password_confirmation_icon = '<span class="uk-form-icon uk-form-icon-flip" style="margin-right: -30px">❌</span>';
+            $this->password_confirmation_icon = '❌';
         } finally {
             if (empty($err)) {
-                $this->password_confirmation_icon = '<span class="uk-form-icon uk-form-icon-flip" style="margin-right: -30px">✔️</span>';
+                $this->password_confirmation_icon = '✔️';
             }
         }
     }
