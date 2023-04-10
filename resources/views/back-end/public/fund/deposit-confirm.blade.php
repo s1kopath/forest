@@ -75,20 +75,23 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <div class="mt-1">
-                                    <fieldset class="form-group p-2 rounded ms-fieldset">
-                                        <legend class="w-auto px-2 ms-legend">Transaction Hash</legend>
-                                        <input class="form-control ms-input" type="text" name="transaction_hash"
-                                            placeholder="Enter Transaction Hash..." required>
-                                    </fieldset>
-                                </div>
+                                <form action="{{ route('submit_deposit') }}" method="post">
+                                    @csrf
+                                    <div class="mt-1">
+                                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                                            <legend class="w-auto px-2 ms-legend">Transaction Hash</legend>
+                                            <input class="form-control ms-input" type="text" name="transaction_hash"
+                                                placeholder="Enter Transaction Hash..." required>
+                                        </fieldset>
+                                        <input type="hidden" name="deposit_id" value="{{ $depositDetails->id }}">
+                                    </div>
 
-                                <div class="col-md-12 text-center">
-                                    <a href="{{ route('public_fund') }}" class="btn rounded-pill jss619 shadow text-white">
-                                        CONFIRM
-                                    </a>
-                                </div>
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="uk-button uk-button-primary">
+                                            CONFIRM
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

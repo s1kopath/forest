@@ -128,6 +128,7 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::get('deposit-history/fetch-data', [FundController::class, 'fetchDepositHistoryData']);
         Route::post('new-deposit', [FundController::class, 'newDeposit'])->name('new_deposit');
         Route::get('deposit-payment/{id}', [FundController::class, 'confirmDeposit'])->name('confirm_deposit');
+        Route::post('deposit-submit', [FundController::class, 'submitDeposit'])->name('submit_deposit');
 
         // set withdraw method 
         Route::post('update-visa', [ProfileController::class, 'updateVisa'])->name('update_visa');

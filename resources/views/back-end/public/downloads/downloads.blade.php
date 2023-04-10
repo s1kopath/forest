@@ -9,7 +9,7 @@
 @section('page-content')
     <div class="card">
         <div class="card-block">
-            <div class="table-responsive">
+            {{-- <div class="table-responsive">
                 <table class="table table-framed">
                     <thead>
                         <tr>
@@ -40,7 +40,10 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> --}}
+            
+            
+            <h4 class="p-5">Nothing to download...</h4>
         </div>
     </div>
 @endsection

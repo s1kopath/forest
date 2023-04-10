@@ -51,10 +51,12 @@
     <table class="table">
         <tbody>
             @foreach ($stakes as $key => $stake)
-                <tr data-toggle="collapse" data-target="#collapse{{ $stake->id }}" aria-expanded="false"
-                    aria-controls="collapse{{ $stake->id }}">
+                <tr class="collapse-button" data-toggle="collapse" data-target="#collapse{{ $stake->id }}"
+                    aria-expanded="false" aria-controls="collapse{{ $stake->id }}">
                     <td>
-                        <i class="fas fa-circle mt-3" style="color: #0548ac;"></i>
+                        <span class="font-weight-bold rounded text-white py-1 px-2" style="background-color: #0548ac;">
+                            <i class="fas fa-plus fa-xs"></i>
+                        </span>
                     </td>
                     <td>
                         <h4 class="font-weight-bold">${{ $stake->amount }} ({{ $stake->duration }} Months)</h4>
@@ -124,3 +126,9 @@
 <div class="col-md-12 mb-2">
     {{ $stakes->links() }}
 </div>
+
+<script>
+    $(".collapse-button").click(function() {
+        $(this).find("i").toggleClass('fa-plus fa-minus');
+    });
+</script>

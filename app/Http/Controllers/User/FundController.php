@@ -90,6 +90,19 @@ class FundController extends Controller
         return view('back-end.public.fund.deposit-confirm', compact('depositDetails', 'coin', 'network', 'barcode', 'walletAddress', 'coinImg'));
     }
 
+    public function submitDeposit(Request $request)
+    {
+        $request->validate([
+            'transaction_hash' => 'required'
+        ]);
+
+        $deposit = Deposit::find($request->deposit_id);
+        $deposit->transaction_hash = $request->transaction_hash;
+        $deposit->save();
+
+        return redirect()->route('public_fund');
+    }
+
     public function fetchDepositHistoryData(Request $request)
     {
         if ($request->ajax()) {

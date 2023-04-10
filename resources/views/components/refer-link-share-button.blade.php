@@ -1,14 +1,14 @@
 <div class="d-flex justify-content-center">
-    <button type="button" class="btn btn-primary rounded-pill mb-3 mr-1" onclick="myFunction()"
+    <button type="button" class="uk-button uk-button-primary mb-3 mr-1" onclick="myFunction()"
         id="copied">
         <i class="far fa-copy"></i>
         Copy
     </button>
-    <button class="btn btn-primary rounded-pill mb-3 d-block d-lg-none" id="share-btn">
+    <button class="uk-button uk-button-primary mb-3 d-block d-lg-none" id="share-btn">
         <i class="fas fa-share-alt"></i>
         Share
     </button>
-    <button class="btn btn-primary rounded-pill mb-3 d-none d-lg-block" data-toggle="modal"
+    <button class="uk-button uk-button-primary mb-3 d-none d-lg-block" data-toggle="modal"
         data-target="#shareModal">
         <i class="fas fa-share-alt"></i>
         Share

@@ -31,7 +31,7 @@
                 <h5 id="referral-link">
                     {{ env('APP_URL') . '/ref/' . auth()->user()->username }}
                 </h5>
-                <button type="button" class="btn btn-primary rounded-pill mb-3 mt-2" onclick="myFunction()" id="copied">
+                <button type="button" class="uk-button uk-button-primary mb-3 mt-2" onclick="myFunction()" id="copied">
                     <i class="far fa-copy"></i>
                     Copy
                 </button>

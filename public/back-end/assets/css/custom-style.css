@@ -79,3 +79,110 @@
     background-color: #ffffff;
     font-weight: 700;
 }
+
+.uk-button {
+    /* 1 */
+    margin: 0;
+    /* 2 */
+    border: none;
+    /* 3 */
+    overflow: visible;
+    /* 4 */
+    font: inherit;
+    color: inherit;
+    /* 5 */
+    text-transform: none;
+    /* 6 */
+    -webkit-appearance: none;
+    border-radius: 0;
+    /* 7 */
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 20px;
+    vertical-align: middle;
+    font-size: 0.875rem;
+    /* 8 */
+    line-height: 42px;
+    /* 9 */
+    text-align: center;
+    /* 10 */
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+/*
+ * Primary
+ */
+ .uk-button-primary {
+    background-color: #091b65;
+    color: #ffffff;
+    transition: all ease 200ms;
+}
+
+/* Hover */
+.uk-button-primary:hover {
+    background-color: #042297;
+    color: #fff;
+}
+
+/* OnClick + Active */
+.uk-button-primary:active,
+.uk-button-primary.uk-active {
+    background-color: #082ec4;
+    color: #ffffff;
+}
+
+/*
+ * Secondary
+ */
+ .uk-button-secondary {
+    background-color: #252526;
+    color: #fff;
+    transition: all ease 200ms;
+}
+
+/* Hover */
+.uk-button-secondary:hover {
+    background-color: #181819;
+    color: #fff;
+}
+
+/* OnClick + Active */
+.uk-button-secondary:active,
+.uk-button-secondary.uk-active {
+    background-color: #0c0c0c;
+    color: #fff;
+}
+
+/*
+ * Danger
+ */
+.uk-button-danger {
+    background-color: #EE4F6F;
+    color: #fff;
+}
+
+/* Hover */
+.uk-button-danger:hover {
+    background-color: #ec385c;
+    color: #fff;
+}
+
+/* OnClick + Active */
+.uk-button-danger:active,
+.uk-button-danger.uk-active {
+    background-color: #ea2049;
+    color: #fff;
+}
+
+/*
+ * Disabled
+ * The same for all style modifiers
+ */
+.uk-button-default:disabled,
+.uk-button-primary:disabled,
+.uk-button-secondary:disabled,
+.uk-button-danger:disabled {
+    background-color: #F8F8F8;
+    color: #999999;
+}

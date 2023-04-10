@@ -47,10 +47,13 @@
                                 Staking Amount
                             </label>
                             <div class="input-group">
-                                <input type="number" step="0.01" min="50" name="amount"
+                                <input type="number" step="0.01" min="50" name="amount" id="stake_amount"
                                     class="form-control rounded-pill" placeholder="$ 5000" required>
                                 <span class="input-group-append" style="z-index: 100; margin-left: -2em">
-                                    <label class="input-group-text h5 rounded-pill px-4">Max</label>
+                                    <label type="button" class="input-group-text h5 rounded-pill px-4"
+                                        style="background-color: #091b65!important" onclick="setMaxStakeValue()">
+                                        MAX
+                                    </label>
                                 </span>
                             </div>
                         </div>
@@ -64,11 +67,11 @@
                         </div>
                     </div>
                     <div class="text-center m-t-20 m-b-20">
-                        <button type="submit" class="btn btn-primary rounded-pill">
-                            Stake Now
+                        <button type="submit" class="uk-button uk-button-primary">
+                            STAKE NOW
                         </button>
                     </div>
-                    
+
                     <!-- Modal -->
                     <div class="modal fade" id="stakeModal" tabindex="-1" role="dialog" aria-labelledby="stakeModalLabel"
                         aria-hidden="true">
@@ -138,9 +141,9 @@
                                         </div>
                                     </div>
                                     <div class="text-center m-t-20 m-b-20">
-                                        <button type="button" class="btn btn-primary rounded-pill"
+                                        <button type="button" class="uk-button uk-button-primary"
                                             onclick="confirmSubmitForm()">
-                                            Confirm
+                                            CONFIRM
                                         </button>
                                     </div>
                                 </div>
@@ -209,6 +212,10 @@
                 date.setDate(0);
             }
             return date;
+        }
+
+        function setMaxStakeValue() {
+            $("#stake_amount").val("{{ $wallet->main_amount }}");
         }
     </script>
 

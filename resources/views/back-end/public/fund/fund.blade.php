@@ -115,7 +115,7 @@
                                             &nbsp; 20 USD - 50000 USD
                                         </p>
                                         <div class="col-md-12 text-center">
-                                            <button class="btn jss619 shadow" type="button" onclick="deposit()">
+                                            <button class="uk-button uk-button-primary" type="button" onclick="deposit()">
                                                 DEPOSIT
                                             </button>
                                         </div>
@@ -189,10 +189,10 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 text-center">
-                                            <button class="btn btn-outline-dark shadow" type="button" onclick="back1()">
+                                            <button class="uk-button uk-button-secondary" type="button" onclick="back1()">
                                                 BACK
                                             </button>
-                                            <button class="btn btn-cus-jss619 shadow" type="button"
+                                            <button class="uk-button uk-button-primary" type="button"
                                                 onclick="depositNext()">
                                                 NEXT
                                             </button>
@@ -230,10 +230,10 @@
                                         <p class="text-info">Not sure what to use?</p>
                                         <div class="p-2"></div>
                                         <div class="col-md-12 text-center">
-                                            <button class="btn btn-outline-dark shadow" type="button" onclick="back2()">
+                                            <button class="uk-button uk-button-secondary" type="button" onclick="back2()">
                                                 BACK
                                             </button>
-                                            <button class="btn btn-cus-jss619 shadow" type="button"
+                                            <button class="uk-button uk-button-primary" type="button"
                                                 onclick="depositAfterNext()">
                                                 NEXT
                                             </button>
@@ -267,10 +267,10 @@
                                             </a>
                                         </p>
                                         <div class="col-md-12 text-center">
-                                            <button class="btn btn-outline-dark shadow" type="button" onclick="back3()">
+                                            <button class="uk-button uk-button-secondary" type="button" onclick="back3()">
                                                 BACK
                                             </button>
-                                            <button class="btn btn-cus-jss619 shadow" type="button"
+                                            <button class="uk-button uk-button-primary" type="button"
                                                 onclick="submitDeposit()">
                                                 YES, PROCEED
                                             </button>
@@ -350,7 +350,7 @@
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
                                             <legend class="w-auto px-2 ms-legend">One Time Password</legend>
                                             <div class="text-right" style="margin-bottom: -25px;">
-                                                <button class="btn btn-primary btn-sm p-1" type="button"
+                                                <button class="btn uk-button-primary btn-sm p-1" type="button"
                                                     onclick="sendOtp()">
                                                     Send OTP
                                                 </button>
@@ -361,7 +361,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center m-t-20 m-b-20">
-                                    <button class="btn btn-primary rounded-pill">
+                                    <button class="uk-button uk-button-primary">
                                         REQUEST WITHDRAWAL
                                     </button>
                                 </div>
@@ -402,8 +402,8 @@
                             </div>
                             @if (!$user->visaData)
                                 <div class="text-center m-t-20 m-b-20">
-                                    <button class="btn btn-primary rounded-pill">
-                                        update
+                                    <button class="uk-button uk-button-primary">
+                                        UPDATE
                                     </button>
                                 </div>
                             @endif
@@ -484,8 +484,8 @@
                             </div>
                             @if (!$user->bankData)
                                 <div class="text-center m-t-20 m-b-20">
-                                    <button class="btn btn-primary rounded-pill">
-                                        update
+                                    <button class="uk-button uk-button-primary">
+                                        UPDATE
                                     </button>
                                 </div>
                             @endif
@@ -517,8 +517,8 @@
                             </div>
                             @if (!$user->cryptoData)
                                 <div class="text-center m-t-20 m-b-20">
-                                    <button class="btn btn-primary rounded-pill">
-                                        update
+                                    <button class="uk-button uk-button-primary">
+                                        UPDATE
                                     </button>
                                 </div>
                             @endif

@@ -210,7 +210,7 @@
                         <p>
                             You need to verify your account.
                         </p>
-                        <a href="{{ route('public_profile') }}" class="btn btn-primary rounded-pill mb-3">
+                        <a href="{{ route('public_profile') }}" class="uk-button uk-button-primary mb-3">
                             Verify
                         </a>
                     </fieldset>

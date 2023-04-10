@@ -87,12 +87,12 @@
                                     </div>
                                 </div>
                                 <div class="text-center mt-3 d-none" id="details_submit">
-                                    <button type="button" class="btn btn-secondary rounded-pill" onclick="closeDetails()">
-                                        Cancel
+                                    <button type="button" class="uk-button uk-button-secondary" onclick="closeDetails()">
+                                        CANCEL
                                     </button>
 
-                                    <button type="submit" class="btn btn-primary rounded-pill">
-                                        Update
+                                    <button type="submit" class="uk-button uk-button-primary">
+                                        UPDATE
                                     </button>
                                 </div>
                             </form>
@@ -150,13 +150,13 @@
                                     </div>
                                 </div>
                                 <div class="text-center mt-3 d-none" id="location_submit">
-                                    <button type="button" class="btn btn-secondary rounded-pill"
+                                    <button type="button" class="uk-button uk-button-secondary"
                                         onclick="closeLocation()">
-                                        Cancel
+                                        CANCEL
                                     </button>
 
-                                    <button type="submit" class="btn btn-primary rounded-pill">
-                                        Update
+                                    <button type="submit" class="uk-button uk-button-primary">
+                                        UPDATE
                                     </button>
                                 </div>
                             </form>
@@ -229,11 +229,9 @@
                                 @if (isset($user->userToUserDetails->kyc_type) ||
                                         isset($user->userToUserDetails->kyc_image_1) ||
                                         isset($user->userToUserDetails->kyc_image_2))
-                                    {{-- <button class="btn btn-primary rounded-pill" disabled>
-                                        UPDATE & NEXT
-                                    </button> --}}
+                                        
                                 @else
-                                    <button class="btn btn-primary rounded-pill" id="upload_kyc">
+                                    <button class="uk-button uk-button-primary" id="upload_kyc">
                                         UPDATE & NEXT
                                     </button>
                                 @endif
@@ -264,7 +262,7 @@
                                 </form>
                             </div>
                             <div class="text-center m-t-20 m-b-20">
-                                <button class="btn btn-primary rounded-pill" id="upload_pic">
+                                <button class="uk-button uk-button-primary" id="upload_pic">
                                     UPDATE
                                 </button>
                             </div>
@@ -301,8 +299,8 @@
                             </div>
 
                             <div class="text-center m-t-20 m-b-20">
-                                <button class="btn btn-primary rounded-pill">
-                                    Update Password
+                                <button class="uk-button uk-button-primary">
+                                    UPDATE PASSWORD
                                 </button>
                             </div>
                         </form>
