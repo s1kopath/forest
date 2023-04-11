@@ -51,6 +51,9 @@ class FundController extends Controller
 
         $depositDetails = Deposit::create($validated);
 
+        $depositDetails->trx_id = trx_generator('DE' . $depositDetails->id);
+        $depositDetails->save();
+
         return redirect()->route('confirm_deposit', $depositDetails->id);
     }
 
@@ -148,14 +151,17 @@ class FundController extends Controller
 
             $charge = round($amount * 5 / 100);
             $net = $amount - $charge;
-            Withdraw::create([
+            $newWithdraw = Withdraw::create([
                 'user_id' => auth()->id(),
                 'amount' => $amount,
                 'charge' => $charge,
                 'net_amount' => $net,
                 'payment_method' => $request->select_method,
-                'account_id' => $request->account_id
+                'account_id' => $request->account_id,
             ]);
+
+            $newWithdraw->trx_id = trx_generator('WD' . $newWithdraw->id);
+            $newWithdraw->save();
 
             $wallet->main_amount -= $amount;
             $wallet->withdrawable_amount -= $amount;

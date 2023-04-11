@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>Transaction ID</th>
                 <th>Amount</th>
                 <th>Charge</th>
                 <th>Net Amount</th>
@@ -15,6 +16,11 @@
             @foreach ($withdraws as $key => $data)
                 <tr>
                     <th scope="row">{{ $key + 1 }}</th>
+                    <td>
+                        <a href="javascript:void(0)">
+                            {{ $data->trx_id }}
+                        </a>
+                    </td>
                     <td>${{ $data->amount }}</td>
                     <td>${{ $data->charge }}</td>
                     <td>${{ $data->net_amount }}</td>
@@ -108,6 +114,15 @@
                 <tr>
                     <td colspan="6" class="p-0 border-0">
                         <div class="collapse pb-3" id="collapse{{ $data->id }}">
+                            <div class="row">
+                                <div class="col-4">Transaction ID</div>
+                                <div class="col-2 text-center">•</div>
+                                <div class="col-6 text-right">
+                                    <a href="javascript:void(0)">
+                                        {{ $data->trx_id }}
+                                    </a>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-4">Net Amount</div>
                                 <div class="col-2 text-center">•</div>

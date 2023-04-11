@@ -33,3 +33,18 @@ if (!function_exists('otp_generator')) {
     }
 }
 
+if (!function_exists('trx_generator')) {
+    function trx_generator($initial)
+    {
+        $length = 8;
+
+        if (strlen($initial) > 6) {
+            $initial = substr($initial, 0, 2);
+            $digits = 6;
+        } else {
+            $digits = $length - strlen($initial);
+        }
+
+        return $initial . rand(pow(10, $digits - 1), pow(10, $digits) - 1);
+    }
+}

@@ -45,10 +45,13 @@ class StakeController extends Controller
                 'percentage' => $staking->percentage,
                 'start_date' => now(),
                 'end_date' => now()->addMonths($staking->duration),
-                'next_payout' => now()->addMonth(),
+                'next_payout' => now()->addMonth()
             ]);
 
-            // user can stake from bonus amount but can not wirhdraw from bonus amount
+            $newStake->trx_id = trx_generator('ST' . $newStake->id);
+            $newStake->save();
+
+            // user can stake from bonus amount but can not wiredraw from bonus amount
             $wallet->main_amount -= $request->amount;
             if ($request->amount > $wallet->withdrawable_amount) {
                 $wallet->withdrawable_amount = 0;
@@ -64,12 +67,12 @@ class StakeController extends Controller
             dispatch(new RankRefreshJob($details));
             // dispatch(new LeadMemberRankRefreshJob($details))->delay(120);
 
-            return redirect()->route('public_history')->with('message', 'Successfully created.'); # code...
+            return redirect()->route('public_history')->with('message', 'Successfully created.');
         } else {
-
             $user = auth()->user();
             $staking = StakingRoi::where('status', 1)->get();
             $wallet = Wallet::where('user_id', auth()->id())->first();
+
             return view('back-end.public.stake.stake',  compact('staking', 'wallet', 'user'));
         }
     }
@@ -77,7 +80,7 @@ class StakeController extends Controller
     public function fetchStakeHistoryData(Request $request)
     {
         if ($request->ajax()) {
-            $stakes = UserStake::where('user_id', auth()->id())->paginate(5);
+            $stakes = UserStake::where('user_id', auth()->id())->latest()->paginate(5);
             return view('back-end.public.stake.stake-history', compact('stakes'))->render();
         }
     }

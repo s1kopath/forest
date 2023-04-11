@@ -264,14 +264,14 @@
         <nav class="pcoded-navbar">
             <div class="nav-list">
                 <div class="pcoded-inner-navbar main-menu">
-                    {{-- user details section is hidden in sidebar on mobile and showen in dashobard  --}}
+                    {{-- user details section is hidden in sidebar on mobile and showen on desktop  --}}
                     <div class="d-none d-lg-block">
-                        <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between pt-2">
                             <div class="col-4">
                                 @if (isset(auth()->user()->userToRank->rankToRankReward->title))
                                     <style>
                                         .profile-header-avatar {
-                                            margin: 12px 0 0 21px;
+                                            margin: 3px 0 0 21px;
                                         }
                                     </style>
                                 @endif
@@ -281,13 +281,20 @@
                             </div>
 
                             <div class="col-8 text-white" style="overflow-wrap: break-word">
-                                <span class="font-weight-bold">Hello, {{ auth()->user()->username }}</span>
+                                <span class="font-weight-bold">
+                                    Hello, {{ auth()->user()->username }}
+                                    @if (auth()->user()->is_verified)
+                                        <i class="fas fa-check-circle text-success"></i>
+                                    @else
+                                        <i class="fas fa-ban text-danger"></i>
+                                    @endif
+                                </span>
                                 <br>
                                 <small>{{ auth()->user()->email }}</small>
-                                <br>
+                                {{-- <br>
                                 <span class="font-weight-bold text-primary">
                                     {{ auth()->user()->is_verified ? 'Verified Account' : 'Unverified' }}
-                                </span>
+                                </span> --}}
                                 @if (isset(auth()->user()->userToRank->rankToRankReward->title))
                                     <br>
                                     <span>

@@ -60,7 +60,7 @@
 @endsection
 
 @section('dashboard-extra')
-    {{-- user details section is hidden in sidebar on mobile and showen in dashobard  --}}
+    {{-- user details section is hidden in sidebar on desktop and showen on mobile  --}}
     <div class="d-block d-lg-none">
         <div class="d-flex justify-content-between pb-2" style="background-color: #091b65;">
             <div class="col-4">
@@ -69,13 +69,20 @@
             </div>
 
             <div class="col-8 text-white" style="overflow-wrap: break-word">
-                <span class="font-weight-bold">Hello, {{ auth()->user()->username }}</span>
+                <span class="font-weight-bold">
+                    Hello, {{ auth()->user()->username }}
+                    @if (auth()->user()->is_verified)
+                        <i class="fas fa-check-circle text-success"></i>
+                    @else
+                        <i class="fas fa-ban text-danger"></i>
+                    @endif
+                </span>
                 <br>
                 <small>{{ auth()->user()->email }}</small>
-                <br>
+                {{-- <br>
                 <span class="font-weight-bold text-primary">
                     {{ auth()->user()->is_verified ? 'Verified Account' : 'Unverified' }}
-                </span>
+                </span> --}}
                 @if (isset(auth()->user()->userToRank->rankToRankReward->title))
                     <br>
                     <span>

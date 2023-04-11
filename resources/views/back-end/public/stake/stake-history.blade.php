@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>Transaction ID</th>
                 <th>Amount</th>
                 <th>Percentage</th>
                 <th>Duration</th>
@@ -18,6 +19,11 @@
             @foreach ($stakes as $key => $stake)
                 <tr>
                     <th scope="row">{{ $key + 1 }}</th>
+                    <td>
+                        <a href="javascript:void(0)">
+                            {{ $stake->trx_id }}
+                        </a>
+                    </td>
                     <td>${{ $stake->amount }}</td>
                     <td>{{ $stake->percentage }}%</td>
                     <td>{{ $stake->duration }} Months</td>
@@ -85,6 +91,16 @@
                 <tr>
                     <td colspan="6" class="p-0 border-0">
                         <div class="collapse px-4 pb-3" id="collapse{{ $stake->id }}">
+                            <div class="row">
+                                <div class="col-6">Transaction ID</div>
+                                <div class="col-2 text-center">•</div>
+                                <div class="col-4 text-right">
+                                    <a href="javascript:void(0)">
+                                        {{ $stake->trx_id }}
+                                    </a>
+                                </div>
+                            </div>
+                            
                             <div class="row">
                                 <div class="col-6">Percentage</div>
                                 <div class="col-2 text-center">•</div>

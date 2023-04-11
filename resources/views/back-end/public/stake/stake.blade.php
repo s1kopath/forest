@@ -17,11 +17,22 @@
                     @csrf
                     <div class="text-center row">
                         @foreach ($staking as $stake)
+                            <input class="d-none" type="radio" name="staking_package" id="exampleRadios{{ $stake->id }}"
+                                value="{{ $stake->id }}">
+
+                            <style>
+                                .lebel-title {
+                                    background-color: #091b65 !important;
+                                }
+
+                                .selected-lebel-title {
+                                    background-color: #1430a0 !important;
+                                }
+                            </style>
                             <div class="col-md-4">
-                                <div type="button" class="rounded-pill bg-secondary m-1">
-                                    <input class="form-check-input mt-4" type="radio" name="staking_package"
-                                        id="exampleRadios1" value="{{ $stake->id }}" required>
-                                    <label class="form-check-label" for="durationRadio">
+                                <label type="button" class="rounded-pill shadow m-1 px-5 form-check-label lebel-title"
+                                    for="exampleRadios{{ $stake->id }}">
+                                    <div type="button" class="">
                                         <div class="p-2">
                                             <h5 class="text-white">
                                                 <span id="stake_duration_{{ $stake->id }}">
@@ -29,15 +40,15 @@
                                                 </span>
                                                 Months
                                             </h5>
-                                            <span class="text-dark">
+                                            <span class="text-muted">
                                                 <span id="stake_percentage_{{ $stake->id }}">
                                                     {{ $stake->percentage }}
                                                 </span>
                                                 %/month
                                             </span>
                                         </div>
-                                    </label>
-                                </div>
+                                    </div>
+                                </label>
                             </div>
                         @endforeach
                     </div>
@@ -194,9 +205,19 @@
 
                 $('#end_date').html(": " + _end.getDate() + " " + monthNames[_end.getMonth()] + ", " + _end
                     .getFullYear());
+
+                $('#stakeModal').modal('show');
+            } else {
+                Swal.fire({
+                    toast: true,
+                    icon: 'error',
+                    position: 'top-end',
+                    title: 'Select a duration!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
 
-            $('#stakeModal').modal('show');
 
         });
 
@@ -217,6 +238,11 @@
         function setMaxStakeValue() {
             $("#stake_amount").val("{{ $wallet->main_amount }}");
         }
+
+        $("input[name=staking_package]").change(function() {
+            $('.lebel-title').removeClass('selected-lebel-title');
+            $("[for=" + this.id + "]").addClass('selected-lebel-title');
+        });
     </script>
 
     <script>

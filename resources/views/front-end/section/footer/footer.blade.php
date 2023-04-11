@@ -3,12 +3,12 @@
         <div class="uk-container uk-margin-top">
             <div class="uk-grid">
                 <div class="uk-width-1-3@m">
-                    <div class="">
-                        <img src="{{ asset('front-end/img/reeve-logo-2.png') }}" alt="logo">
+                    <div class="" style="margin-left: 0">
+                        <img src="{{ asset('front-end/img/reeve-logo-2.png') }}" alt="logo" width="146" height="40">
                     </div>
                     <style>
                         .social-icons {
-                            padding: 14px;
+                            padding: 14px 14px 14px 2px;
                         }
 
                         .social-icons>a {
@@ -16,7 +16,7 @@
                         }
                     </style>
                     <!-- social media begin -->
-                    <div class="uk-flex uk-flex-center social-icons">
+                    <div class="social-icons">
                         <a href="https://www.facebook.com/" class="text-decoration-none">
                             <img src="{{ asset('front-end/img/icons/facebook-icon.png') }}" width="40px"
                                 alt="REEVE">

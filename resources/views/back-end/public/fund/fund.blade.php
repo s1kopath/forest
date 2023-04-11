@@ -73,15 +73,15 @@
                             }
                         </style>
                         <div class="d-flex justify-content-center overflow-auto pb-3">
-                            <img type="button" class="img-fluid rounded mx-1 shadow-sm border visa-img"
-                                style="width: 100px" src="{{ asset('front-end/img/deposit/1.png') }}" alt="Reeve Capital"
-                                onclick="changeForm('visa')" id="">
                             <img type="button" class="img-fluid rounded mx-1 border active-form crypto-img"
                                 style="width: 100px" src="{{ asset('front-end/img/deposit/5.png') }}" alt="Reeve Capital"
                                 onclick="changeForm('crypto')" id="">
                             <img type="button" class="img-fluid rounded mx-1 shadow-sm border bank-img"
                                 style="width: 100px" src="{{ asset('front-end/img/deposit/6.png') }}" alt="Reeve Capital"
                                 onclick="changeForm('bank')" id="">
+                            <img type="button" class="img-fluid rounded mx-1 shadow-sm border visa-img"
+                                style="width: 100px" src="{{ asset('front-end/img/deposit/1.png') }}" alt="Reeve Capital"
+                                onclick="changeForm('visa')" id="">
                         </div>
 
                         <div class="d-flex justify-content-center">
@@ -189,7 +189,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 text-center">
-                                            <button class="uk-button uk-button-secondary" type="button" onclick="back1()">
+                                            <button class="uk-button uk-button-secondary" type="button"
+                                                onclick="back1()">
                                                 BACK
                                             </button>
                                             <button class="uk-button uk-button-primary" type="button"
@@ -230,7 +231,8 @@
                                         <p class="text-info">Not sure what to use?</p>
                                         <div class="p-2"></div>
                                         <div class="col-md-12 text-center">
-                                            <button class="uk-button uk-button-secondary" type="button" onclick="back2()">
+                                            <button class="uk-button uk-button-secondary" type="button"
+                                                onclick="back2()">
                                                 BACK
                                             </button>
                                             <button class="uk-button uk-button-primary" type="button"
@@ -267,7 +269,8 @@
                                             </a>
                                         </p>
                                         <div class="col-md-12 text-center">
-                                            <button class="uk-button uk-button-secondary" type="button" onclick="back3()">
+                                            <button class="uk-button uk-button-secondary" type="button"
+                                                onclick="back3()">
                                                 BACK
                                             </button>
                                             <button class="uk-button uk-button-primary" type="button"
@@ -296,26 +299,29 @@
                                     value="Bank">
                                 <input type="radio" class="d-none" name="select_method" id="option-3"
                                     value="Crypto">
-                                <label for="option-1">
-                                    <img type="button" class="img-fluid rounded mx-1 shadow-sm border visa-img"
-                                        style="width: 100px" src="{{ asset('front-end/img/deposit/1.png') }}"
-                                        alt="Reeve Capital" onclick="changeForm('visa')">
+                                <label for="option-3">
+                                    <img type="button" class="img-fluid rounded mx-1 border crypto-img"
+                                        style="width: 100px" src="{{ asset('front-end/img/deposit/5.png') }}"
+                                        alt="Reeve Capital" onclick="changeForm('crypto')">
                                 </label>
                                 <label for="option-2">
                                     <img type="button" class="img-fluid rounded mx-1 shadow-sm border bank-img"
                                         style="width: 100px" src="{{ asset('front-end/img/deposit/6.png') }}"
                                         alt="Reeve Capital" onclick="changeForm('bank')">
                                 </label>
-                                <label for="option-3">
-                                    <img type="button" class="img-fluid rounded mx-1 border crypto-img"
-                                        style="width: 100px" src="{{ asset('front-end/img/deposit/5.png') }}"
-                                        alt="Reeve Capital" onclick="changeForm('crypto')">
+                                <label for="option-1">
+                                    <img type="button" class="img-fluid rounded mx-1 shadow-sm border visa-img"
+                                        style="width: 100px" src="{{ asset('front-end/img/deposit/1.png') }}"
+                                        alt="Reeve Capital" onclick="changeForm('visa')">
                                 </label>
                             </div>
 
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6">
+                                        <small class="text-muted d-none" id="visa-not-available">
+                                            * Not available in Bangladesh
+                                        </small>
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
                                             <legend class="w-auto px-2 ms-legend">Account</legend>
                                             <select class="form-control form-control-sm ms-input" name="account_id"
@@ -376,31 +382,30 @@
                     {{-- withdrawal method tab --}}
                     <div class="tab-pane mt-3" id="setMethod" role="tabpanel">
                         <h4 class="font-weight-bold text-center">
-                            <u>Visa/master Card</u>
+                            <u>Crypto</u>
                         </h4>
-                        <form action="{{ route('update_visa') }}" method="post">
+                        <form action="{{ route('update_crypto') }}" method="post">
                             @csrf
                             <div class="container">
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
-                                            <legend class="w-auto px-2 ms-legend">Card Holder's Name</legend>
-                                            <input class="form-control ms-input" type="text" name="card_holder_name"
-                                                placeholder="Enter Card Holder's Name"
-                                                value="{{ $user->visaData->card_holder_name ?? '' }}" required>
+                                            <legend class="w-auto px-2 ms-legend">Network (USDT)</legend>
+                                            <input class="form-control ms-input" type="text" name="network"
+                                                placeholder="Enter Network" value="Tron (Trc20)" readonly>
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6">
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
-                                            <legend class="w-auto px-2 ms-legend">Card Number</legend>
-                                            <input class="form-control ms-input" type="text" name="card_number"
-                                                placeholder="Enter Card Number"
-                                                value="{{ $user->visaData->card_number ?? '' }}" required>
+                                            <legend class="w-auto px-2 ms-legend">Wallet Address</legend>
+                                            <input class="form-control ms-input" type="text" name="wallet_address"
+                                                placeholder="Enter Wallet Address"
+                                                value="{{ $user->cryptoData->wallet_address ?? '' }}" required>
                                         </fieldset>
                                     </div>
                                 </div>
                             </div>
-                            @if (!$user->visaData)
+                            @if (!$user->cryptoData)
                                 <div class="text-center m-t-20 m-b-20">
                                     <button class="uk-button uk-button-primary">
                                         UPDATE
@@ -492,30 +497,32 @@
                         </form>
                         <hr>
                         <h4 class="font-weight-bold text-center">
-                            <u>Crypto</u>
+                            <u>Visa/master Card</u>
                         </h4>
-                        <form action="{{ route('update_crypto') }}" method="post">
+                        <form action="{{ route('update_visa') }}" method="post">
                             @csrf
                             <div class="container">
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
-                                            <legend class="w-auto px-2 ms-legend">Network (USDT)</legend>
-                                            <input class="form-control ms-input" type="text" name="network"
-                                                placeholder="Enter Network" value="Tron (Trc20)" readonly>
+                                            <legend class="w-auto px-2 ms-legend">Card Holder's Name</legend>
+                                            <input class="form-control ms-input" type="text" name="card_holder_name"
+                                                placeholder="Enter Card Holder's Name"
+                                                value="{{ $user->visaData->card_holder_name ?? '' }}" required>
                                         </fieldset>
                                     </div>
                                     <div class="col-md-6">
                                         <fieldset class="form-group p-2 rounded ms-fieldset">
-                                            <legend class="w-auto px-2 ms-legend">Wallet Address</legend>
-                                            <input class="form-control ms-input" type="text" name="wallet_address"
-                                                placeholder="Enter Wallet Address"
-                                                value="{{ $user->cryptoData->wallet_address ?? '' }}" required>
+                                            <legend class="w-auto px-2 ms-legend">Card Number</legend>
+                                            <input class="form-control ms-input" type="text" name="card_number"
+                                                placeholder="Enter Card Number"
+                                                value="{{ $user->visaData->card_number ?? '' }}" required>
                                         </fieldset>
                                     </div>
+                                    <small class="text-muted">* Not available in Bangladesh</small>
                                 </div>
                             </div>
-                            @if (!$user->cryptoData)
+                            @if (!$user->visaData)
                                 <div class="text-center m-t-20 m-b-20">
                                     <button class="uk-button uk-button-primary">
                                         UPDATE
@@ -738,20 +745,22 @@
                 $(".bank-img").removeClass('active-form');
                 $(".crypto-img").removeClass('active-form');
                 $(".visa-img").removeClass('active-form');
-                $(".deposit-form").addClass('d-none');
-                $(".coming-soon").addClass('d-none');
+                $("#deposit-form").addClass('d-none');
+                $("#coming-soon").addClass('d-none');
+                $("#visa-not-available").addClass('d-none');
 
                 if (type == "bank") {
                     $(".bank-img").addClass('active-form');
-                    $(".coming-soon").removeClass('d-none');
+                    $("#coming-soon").removeClass('d-none');
                 }
                 if (type == "crypto") {
                     $(".crypto-img").addClass('active-form');
-                    $(".deposit-form").removeClass('d-none');
+                    $("#deposit-form").removeClass('d-none');
                 }
                 if (type == "visa") {
                     $(".visa-img").addClass('active-form');
-                    $(".coming-soon").removeClass('d-none');
+                    $("#coming-soon").removeClass('d-none');
+                    $("#visa-not-available").removeClass('d-none');
                 }
             }
         </script>

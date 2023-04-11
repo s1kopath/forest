@@ -3,10 +3,12 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>Transaction ID</th>
                 <th>Amount</th>
                 <th>Currency</th>
                 <th>Coin Type</th>
                 <th>Network Type</th>
+                <th>Transaction Hash</th>
                 <th>Deposited On</th>
                 <th>Status</th>
             </tr>
@@ -15,10 +17,16 @@
             @foreach ($deposits as $key => $data)
                 <tr>
                     <th scope="row">{{ $key + 1 }}</th>
+                    <td>
+                        <a href="javascript:void(0)">
+                            {{ $data->trx_id }}
+                        </a>
+                    </td>
                     <td>${{ $data->amount }}</td>
                     <td>{{ $data->currency }}</td>
                     <td>{{ $data->coin_type }}</td>
                     <td>{{ $data->network_type }}</td>
+                    <td>{{ $data->transaction_hash }}</td>
                     <td>{{ $data->date_time }}</td>
                     <td>
                         @if ($data->status == 2)
@@ -78,6 +86,15 @@
                     <td colspan="6" class="p-0 border-0">
                         <div class="collapse pb-3" id="collapse{{ $data->id }}">
                             <div class="row">
+                                <div class="col-4">Transaction ID</div>
+                                <div class="col-2 text-center">•</div>
+                                <div class="col-6 text-right">
+                                    <a href="javascript:void(0)">
+                                        {{ $data->trx_id }}
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-4">Network Type</div>
                                 <div class="col-2 text-center">•</div>
                                 <div class="col-6 text-right">
@@ -89,6 +106,15 @@
                                             echo $data->network_type;
                                         }
                                     @endphp
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Transaction Hash</div>
+                                <div class="col-2 text-center">•</div>
+                                <div class="col-6 text-right">
+                                    <a href="javascript:void(0)">
+                                        {{ $data->transaction_hash }}
+                                    </a>
                                 </div>
                             </div>
                             <div class="row">
