@@ -1,3 +1,24 @@
+<div class="d-flex justify-content-end">
+    <div class="row mx-2">
+        <div class="col-md-6">
+            <fieldset class="form-group p-2 rounded ms-fieldset">
+                <legend class="w-auto px-2 ms-legend">Search</legend>
+                <input class="form-control ms-input" type="text" name="keyword" placeholder="Transaction ID..."
+                    id="search-input" value="{{ isset($_GET['keyword']) ? $_GET['keyword'] : '' }}">
+            </fieldset>
+        </div>
+        <div class="col-md-6 text-left p-2">
+            <button type="button" class="uk-button uk-button-primary" id="search-btn">
+                Search
+            </button>
+            <button class="uk-button uk-button-danger {{ isset($_GET['keyword']) ? '' : 'd-none' }}"
+                onclick="fetch_data(1)">
+                Reset
+            </button>
+        </div>
+    </div>
+</div>
+
 <div class="table-responsive d-none d-lg-block">
     <table class="table">
         <thead>
@@ -100,7 +121,7 @@
                                     </a>
                                 </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-6">Percentage</div>
                                 <div class="col-2 text-center">•</div>
@@ -146,5 +167,26 @@
 <script>
     $(".collapse-button").click(function() {
         $(this).find("i").toggleClass('fa-plus fa-minus');
+    });
+
+    $("#search-btn").click(function() {
+        var keyword = $("#search-input").val();
+        if (keyword != '') {
+            $.ajax({
+                url: "/user/profile/stake-history/fetch-data?page=" + 1 + "&keyword=" + keyword,
+                success(response) {
+                    $('#table_data').html(response);
+                }
+            });
+        } else {
+            Swal.fire({
+                toast: true,
+                icon: 'error',
+                position: 'top-end',
+                title: 'Write something first...',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
     });
 </script>

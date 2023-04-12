@@ -80,7 +80,13 @@ class StakeController extends Controller
     public function fetchStakeHistoryData(Request $request)
     {
         if ($request->ajax()) {
-            $stakes = UserStake::where('user_id', auth()->id())->latest()->paginate(5);
+            $data = UserStake::where('user_id', auth()->id());
+
+            if ($request->keyword) {
+                $data->where('trx_id', $request->keyword);
+            }
+
+            $stakes = $data->latest()->paginate(5);
             return view('back-end.public.stake.stake-history', compact('stakes'))->render();
         }
     }
