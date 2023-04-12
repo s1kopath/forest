@@ -21,6 +21,7 @@ use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\MonthlyContestController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\PublicDashboardController;
+use App\Http\Controllers\User\SupportTicketController;
 
 Route::get('/test', [TestController::class, 'test'])->name('test');
 
@@ -163,6 +164,12 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::get('referrals', [PublicDashboardController::class, 'referrals'])->name('public_referrals');
         Route::get('downloads', [PublicDashboardController::class, 'downloads'])->name('public_downloads');
         Route::get('become-an-ib', [PublicDashboardController::class, 'becomeAnIb'])->name('public_become_an_ib');
+
+        // support ticket
+        Route::get('support-ticket', [SupportTicketController::class, 'userTicketPage'])->name('user_support_ticket');
+        Route::match(['get', 'post'], 'create-ticket', [SupportTicketController::class, 'createUserTicket'])->name('create_user_support_ticket');
+        Route::match(['get', 'post'], 'reply-ticket/{id}', [SupportTicketController::class, 'replyUserTicket'])->name('reply_ticket');
+        
     });
 
     Route::post('deposit-binance', [BinanceController::class, 'test1'])->name('binance_merchant_pay');

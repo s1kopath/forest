@@ -376,6 +376,16 @@
                         </li>
                     </ul>
                     <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu {{ $route_name == 'user_support_ticket' ? 'active' : '' }}">
+                            <a href="{{ route('user_support_ticket') }}" class="waves-effect waves-dark">
+                                <span class="pcoded-micon">
+                                    <i class="fas fa-ticket-alt"></i>
+                                </span>
+                                <span class="pcoded-mtext">Support Ticket</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu">
                             <a href="{{ route('logout') }}" class="waves-effect waves-dark">
                                 <span class="pcoded-micon"><i class="fas fa-sign-out-alt"></i></span>
