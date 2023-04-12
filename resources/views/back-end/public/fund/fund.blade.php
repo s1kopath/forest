@@ -367,7 +367,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center m-t-20 m-b-20">
-                                    <button class="uk-button uk-button-primary">
+                                    <button type="submit" class="uk-button uk-button-primary">
                                         REQUEST WITHDRAWAL
                                     </button>
                                 </div>
@@ -407,7 +407,7 @@
                             </div>
                             @if (!$user->cryptoData)
                                 <div class="text-center m-t-20 m-b-20">
-                                    <button class="uk-button uk-button-primary">
+                                    <button type="submit" class="uk-button uk-button-primary">
                                         UPDATE
                                     </button>
                                 </div>
@@ -489,7 +489,7 @@
                             </div>
                             @if (!$user->bankData)
                                 <div class="text-center m-t-20 m-b-20">
-                                    <button class="uk-button uk-button-primary">
+                                    <button type="submit" class="uk-button uk-button-primary">
                                         UPDATE
                                     </button>
                                 </div>
@@ -524,7 +524,7 @@
                             </div>
                             @if (!$user->visaData)
                                 <div class="text-center m-t-20 m-b-20">
-                                    <button class="uk-button uk-button-primary">
+                                    <button type="submit" class="uk-button uk-button-primary">
                                         UPDATE
                                     </button>
                                 </div>

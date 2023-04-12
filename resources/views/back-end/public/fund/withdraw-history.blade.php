@@ -36,20 +36,20 @@
                             <span class="font-weight-bold">Bank</span>
                             <br>
                             Bank Name: {{ $data->bank_details->bank_name }}
-                            <br>
-                            Branch Name: {{ $data->bank_details->branch_name }}
+                            {{-- <br>
+                            Branch Name: {{ $data->bank_details->branch_name }} --}}
                             <br>
                             Account Name: {{ $data->bank_details->account_name }}
                             <br>
                             Account Number: {{ $data->bank_details->account_number }}
-                            <br>
+                            {{-- <br>
                             Country: {{ $data->bank_details->country }}
                             <br>
                             State: {{ $data->bank_details->state }}
                             <br>
                             Swift Code: {{ $data->bank_details->swift_code }}
                             <br>
-                            Routing Number: {{ $data->bank_details->routing_number }}
+                            Routing Number: {{ $data->bank_details->routing_number }} --}}
                         @elseif ($data->payment_method == 'Crypto')
                             <span class="font-weight-bold">Crypto</span>
                             <br>
@@ -166,11 +166,11 @@
                                     <div class="col-2 text-center">•</div>
                                     <div class="col-6 text-right">{{ $data->bank_details->bank_name }}</div>
                                 </div>
-                                <div class="row">
+                                {{-- <div class="row">
                                     <div class="col-4">Branch Name</div>
                                     <div class="col-2 text-center">•</div>
                                     <div class="col-6 text-right">{{ $data->bank_details->branch_name }}</div>
-                                </div>
+                                </div> --}}
                                 <div class="row">
                                     <div class="col-4">Account Name</div>
                                     <div class="col-2 text-center">•</div>
@@ -181,7 +181,7 @@
                                     <div class="col-2 text-center">•</div>
                                     <div class="col-6 text-right">{{ $data->bank_details->account_number }}</div>
                                 </div>
-                                <div class="row">
+                                {{-- <div class="row">
                                     <div class="col-4">Country</div>
                                     <div class="col-2 text-center">•</div>
                                     <div class="col-6 text-right">{{ $data->bank_details->country }}</div>
@@ -200,7 +200,7 @@
                                     <div class="col-4">Routing Number</div>
                                     <div class="col-2 text-center">•</div>
                                     <div class="col-6 text-right">{{ $data->bank_details->routing_number }}</div>
-                                </div>
+                                </div> --}}
                             @elseif ($data->payment_method == 'Crypto')
                                 <div class="row">
                                     <div class="col-4">Payment Method</div>

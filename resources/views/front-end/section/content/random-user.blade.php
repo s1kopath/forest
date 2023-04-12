@@ -1,37 +1,35 @@
 <div class="uk-section in-equity-2 uk-background-contain uk-background-center">
     <div class="uk-container uk-margin-top">
-        <div class="uk-grid uk-flex uk-flex-center">
-            <div class="row">
-                <div class="col-md-4 rounded px-3 py-2 border" style="height: 200px">
-                    <table>
-                        <thead>
-                            <th colspan="3" class="text-center">New Registration</th>
-                        </thead>
-                        <tbody id="new-registration">
+        <div class="d-lg-flex justify-content-between">
+            <div class="col-md-4 m-1 shadow rounded px-3 py-2 border" style="height: 200px">
+                <table>
+                    <thead>
+                        <th colspan="3" class="text-center">New Registration</th>
+                    </thead>
+                    <tbody id="new-registration">
 
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-md-4 rounded px-3 py-2 border" style="height: 200px">
-                    <table>
-                        <thead>
-                            <th colspan="3" class="text-center">Deposit</th>
-                        </thead>
-                        <tbody id="demo-deposit">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4 m-1 shadow rounded px-3 py-2 border" style="height: 200px">
+                <table>
+                    <thead>
+                        <th colspan="3" class="text-center">Deposit</th>
+                    </thead>
+                    <tbody id="demo-deposit">
 
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-md-4 rounded px-3 py-2 border" style="height: 200px">
-                    <table>
-                        <thead>
-                            <th colspan="3" class="text-center">Withdrawal</th>
-                        </thead>
-                        <tbody id="demo-withdraw">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4 m-1 shadow rounded px-3 py-2 border" style="height: 200px">
+                <table>
+                    <thead>
+                        <th colspan="3" class="text-center">Withdrawal</th>
+                    </thead>
+                    <tbody id="demo-withdraw">
 
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -69,14 +67,14 @@
                             content = `
                             <tr>
                                 <td style="width: 50px"><img src="${flags[0].flags.png}" width="30px" height="20px"></td>
-                                <td style="width: 80px">${arr[1].substring(1, 4)}***${arr[1].substring(arr[1].length - 4, arr[1].length - 1)}</td>
+                                <td style="width: 80px">${arr[1].substring(1, 5)}**${arr[1].substring(arr[1].length - 4, arr[1].length - 1)}</td>
                                 <td style="width: 160px" class="text-right">${arr[2]}</td>
                             </tr>`;
 
-                            $('#new-registration').prepend(content).fadeIn('slow');
+                            $('#new-registration').append(content);
 
                             if ($('#new-registration tr').length > 5) {
-                                $('#new-registration tr').last().remove();
+                                $('#new-registration tr').first().remove();
                             }
                         })
                 })
@@ -105,10 +103,10 @@
                                     <td style="width: 100px" class="text-right">$${arr[2]}</td>
                                 </tr>`;
 
-                            $('#demo-deposit').prepend(content).fadeIn('slow');
+                            $('#demo-deposit').append(content);
 
                             if ($('#demo-deposit tr').length > 5) {
-                                $('#demo-deposit tr').last().remove();
+                                $('#demo-deposit tr').first().remove();
                             }
                         })
                 })
@@ -137,10 +135,10 @@
                                     <td style="width: 100px" class="text-right">$${arr[2]}</td>
                                 </tr>`;
 
-                            $('#demo-withdraw').prepend(content).fadeIn('slow');
+                            $('#demo-withdraw').append(content);
 
                             if ($('#demo-withdraw tr').length > 5) {
-                                $('#demo-withdraw tr').last().remove();
+                                $('#demo-withdraw tr').first().remove();
                             }
                         })
                 })

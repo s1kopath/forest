@@ -299,7 +299,7 @@
                             </div>
 
                             <div class="text-center m-t-20 m-b-20">
-                                <button class="uk-button uk-button-primary">
+                                <button type="submit" class="uk-button uk-button-primary">
                                     UPDATE PASSWORD
                                 </button>
                             </div>

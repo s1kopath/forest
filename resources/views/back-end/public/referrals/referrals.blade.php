@@ -77,6 +77,25 @@
                     Corporate-IB
                 </a>
             </div>
+
+            <div class="mt-lg-n5 d-flex justify-content-end">
+                <form method="get" actton="{{ route('public_referrals') }}" class="row mx-2">
+                    <div class="col-md-8">
+                        <fieldset class="form-group p-2 rounded ms-fieldset">
+                            <legend class="w-auto px-2 ms-legend">Search</legend>
+                            <input class="form-control ms-input" type="text" name="keyword"
+                                placeholder="Enter Name/User ID..."
+                                value="{{ isset($_GET['keyword']) ? $_GET['keyword'] : '' }}" required>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-2 text-right p-2">
+                        <button type="submit" class="uk-button uk-button-primary">
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+
             <div class="table-responsive mt-4 d-block d-lg-none">
                 <table class="table">
                     <tbody>

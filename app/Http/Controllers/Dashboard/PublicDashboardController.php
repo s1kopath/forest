@@ -99,7 +99,7 @@ class PublicDashboardController extends Controller
                 ->where('purpose', $request->purpose)
                 ->orderBy('id', 'desc')
                 ->paginate(5);
-                
+
             if ($request->purpose == 'Deposit') {
                 return view('back-end.public.history.data.deposit', compact('transactions'))->render();
             } elseif ($request->purpose == 'Withdraw') {
@@ -112,7 +112,7 @@ class PublicDashboardController extends Controller
                 return view('back-end.public.history.data.ib-royalty', compact('transactions'))->render();
             } elseif ($request->purpose == 'Rewards') {
                 return view('back-end.public.history.data.rewards', compact('transactions'))->render();
-            }elseif ($request->purpose == 'Contest') {
+            } elseif ($request->purpose == 'Contest') {
                 return view('back-end.public.history.data.contest', compact('transactions'))->render();
             } else {
                 return '&nbsp&nbsp&nbspNot found';
@@ -170,6 +170,11 @@ class PublicDashboardController extends Controller
             } else {
                 $list->whereRelation('userToRank', 'rank_id', $request->rank);
             }
+        }
+
+        if ($request->keyword) {
+            $list->where('username', 'like', "%{$request->keyword}%")
+                ->orWhere('name', 'like', "%{$request->keyword}%");
         }
 
         $user_list = $list->paginate(5);
