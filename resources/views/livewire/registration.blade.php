@@ -119,7 +119,7 @@
                 <input type="checkbox" value="" required>
                 <span class="text-inverse">
                     I read and accept
-                    <a href="/">
+                    <a href="{{ route('terms_conditions') }}" target="_blank">
                         Terms &amp; Conditions.
                     </a>
                 </span>

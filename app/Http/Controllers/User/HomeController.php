@@ -85,4 +85,10 @@ class HomeController extends Controller
     {
         return view('front-end.section.content.traders.all-traders');
     }
+    
+    public function termsConditions()
+    {
+        return view('front-end.section.content.terms-conditions');
+    }
 }
+

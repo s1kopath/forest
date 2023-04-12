@@ -40,6 +40,7 @@ Route::get('forex-trading', [HomeController::class, 'forexTrading'])->name('fore
 Route::get('e-commerce', [HomeController::class, 'ECommerce'])->name('e_commerce');
 Route::get('forex-broker', [HomeController::class, 'forexBroker'])->name('forex_broker');
 Route::get('all-traders', [HomeController::class, 'allTraders'])->name('all_traders');
+Route::get('terms-conditions', [HomeController::class, 'termsConditions'])->name('terms_conditions');
 
 // Auth Routes
 Route::match(['get', 'post'], 'admin-login', [AuthController::class, 'login'])->name('auth_login');

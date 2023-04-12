@@ -4,7 +4,8 @@
             <div class="uk-grid">
                 <div class="uk-width-1-3@m">
                     <div class="" style="margin-left: 0">
-                        <img src="{{ asset('front-end/img/reeve-logo-2.png') }}" alt="logo" width="146" height="40">
+                        <img src="{{ asset('front-end/img/reeve-logo-2.png') }}" alt="logo" width="146"
+                            height="40">
                     </div>
                     <style>
                         .social-icons {
@@ -37,7 +38,6 @@
                     <!-- social media end -->
                 </div>
 
-
                 <div class="uk-width-2-3@m">
                     <div class="uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid="">
                         <div>
@@ -45,7 +45,7 @@
                             <ul class="uk-list uk-link-text">
                                 <li><a href="#about">About Us</a></li>
                                 <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="{{ route('terms_conditions') }}">Terms & Conditions</a></li>
                                 <li><a href="#">Return Policy</a></li>
                             </ul>
                         </div>
@@ -75,7 +75,7 @@
         <hr>
         <div class="uk-container" style="padding-bottom: 12px;">
             <div class="uk-grid uk-flex uk-flex-middle">
-                <div class="uk-width-2-3@m uk-text-small">                    
+                <div class="uk-width-2-3@m uk-text-small">
                     <h6 class="copyright-text" style="color: black">Reeve Capital 2023. All Rights Reserved.</h6>
                 </div>
                 <div class="uk-width-1-3@m uk-flex uk-flex-right uk-visible@m">
