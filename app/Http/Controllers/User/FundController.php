@@ -48,6 +48,7 @@ class FundController extends Controller
         ]);
 
         $validated['user_id'] = auth()->id();
+        $validated['date_time'] = now();
 
         $depositDetails = Deposit::create($validated);
 
@@ -155,6 +156,7 @@ class FundController extends Controller
                 'user_id' => auth()->id(),
                 'amount' => $amount,
                 'charge' => $charge,
+                'date_time'=> now(),
                 'net_amount' => $net,
                 'payment_method' => $request->select_method,
                 'account_id' => $request->account_id,

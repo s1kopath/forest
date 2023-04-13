@@ -23,6 +23,7 @@ class TestController extends Controller
 {
     public function test()
     {
+        // dd(substr('public/ticket/1681373488.maxresdefault.jpg', 7));
         dd(trx_generator('DE21saa'));
         // $response = Http::get('https://countrycode.dev/api/calls');
         // dd($response->json());

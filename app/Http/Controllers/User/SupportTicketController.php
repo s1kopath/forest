@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ImageHandlerController;
+use App\Models\TicketReply;
 
 class SupportTicketController extends Controller
 {
@@ -27,10 +28,13 @@ class SupportTicketController extends Controller
                 $file_name_1 = null;
             }
 
+            $rand = rand(11111111, 99999999);
             $newTicket = Ticket::create([
                 'type' => 'private',
-                'slug' => Str::slug($request->subject) . '-' . uniqid(),
+                'slug' => Str::slug($request->subject) . '-' . $rand,
+                'ticket_number' => $rand,
                 'user_id' => auth()->id(),
+                'date_time' => now(),
                 'subject' => $request->subject,
                 'description' => $request->details,
                 'image' => $file_name_1
@@ -45,24 +49,26 @@ class SupportTicketController extends Controller
     public function replyUserTicket(Request $request, $id)
     {
         if ($request->isMethod('post')) {
-            dd($request->all());
-            // if ($request->screenshot) {
-            //     $imageHandler = new ImageHandlerController();
-            //     $file_name_1 = $imageHandler->base64Upload($request->screenshot, 'ticket');
-            // } else {
-            //     $file_name_1 = null;
-            // }
+            $request->validate([
+                'reply_description' => 'required_without:reply_image',
+                'reply_image' => 'required_without:reply_description',
+            ]);
+            // dd($request->all());
+            if ($request->reply_image) {                
+                $imageHandler = new ImageHandlerController();
+                $file_name_1 = $imageHandler->uploadAndGetPath($request->reply_image, 'ticket');
+            } else {
+                $file_name_1 = null;
+            }
 
-            // $newTicket = Ticket::create([
-            //     'type' => 'private',
-            //     'slug' => Str::slug($request->subject) . '-' . uniqid(),
-            //     'user_id' => auth()->id(),
-            //     'subject' => $request->subject,
-            //     'description' => $request->details,
-            //     'image' => $file_name_1
-            // ]);
+            $newTicket = TicketReply::create([
+                'ticket_id' => $request->ticket_id,
+                'reply_by' => 'user',
+                'text' => $request->reply_description,
+                'image' => $file_name_1
+            ]);
 
-            return redirect()->route('user_support_ticket')->with('message', 'Ticket created successfully.');
+            return back()->with('message', 'Replied successfully.');
         } else {
             $ticket = Ticket::with('replies')->find($id);
             return view('back-end.public.ticket.ticket-details', compact('ticket'));

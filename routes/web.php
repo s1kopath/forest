@@ -21,6 +21,7 @@ use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\MonthlyContestController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\PublicDashboardController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\User\SupportTicketController;
 
 Route::get('/test', [TestController::class, 'test'])->name('test');
@@ -116,6 +117,14 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     });
 
     Route::get('manage-notice', [SettingsController::class, 'manageNotice'])->name('manage_notice');
+    
+    Route::prefix('ticket')->group(function () {
+        // Route::match(['get', 'post'], 'add-banner', [BannerController::class, 'addBanner'])->name('add_banner');
+        Route::get('manage-tickets', [TicketController::class, 'manageTickets'])->name('manage_tickets');
+        Route::match(['get', 'post'], 'reply-ticket/{id}', [TicketController::class, 'replyTicket'])->name('admin_reply_ticket');
+        // Route::match(['get', 'post'], 'edit-banner/{id}', [BannerController::class, 'editBanner'])->name('edit_banner');
+        // Route::get('delete-banner/{id}', [BannerController::class, 'deleteBanner'])->name('delete_banner');
+    });
 });
 
 Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
@@ -168,7 +177,7 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         // support ticket
         Route::get('support-ticket', [SupportTicketController::class, 'userTicketPage'])->name('user_support_ticket');
         Route::match(['get', 'post'], 'create-ticket', [SupportTicketController::class, 'createUserTicket'])->name('create_user_support_ticket');
-        Route::match(['get', 'post'], 'reply-ticket/{id}', [SupportTicketController::class, 'replyUserTicket'])->name('reply_ticket');
+        Route::match(['get', 'post'], 'reply-ticket/{id}', [SupportTicketController::class, 'replyUserTicket'])->name('user_reply_ticket');
         
     });
 

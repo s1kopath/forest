@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('coin_type');
             $table->string('network_type');
             $table->tinyInteger('status')->default(0);
-            $table->dateTime('date_time')->default(now());
+            $table->dateTime('date_time');
             $table->integer('approved_by')->nullable();
             $table->dateTime('approved_on')->nullable();
             $table->timestamps();

@@ -13,7 +13,7 @@
                 Replay Ticket - {{ $ticket->ticket_number }}
             </h4>
             <div class="col text-right">
-                <a href="{{ route('user_support_ticket') }}" class="btn btn-danger btn-round waves-effect waves-light">
+                <a href="{{ route('manage_tickets') }}" class="btn btn-danger btn-round waves-effect waves-light">
                     <i class="fas fa-arrow-circle-left"></i>
                     Back
                 </a>
@@ -56,28 +56,16 @@
         </div>
     </div>
 
-
-
     @foreach ($ticket->replies as $reply)
         <x-ticket-replies :reply="$reply" />
     @endforeach
-    {{-- @dd($ticket) --}}
 
-    @if ($ticket->status == 0)
-        <p class="text-warning">* Waiting for response.</p>
-    @elseif ($ticket->status == 1)
-        @php
-            $ticket_details['route_name'] = route('user_reply_ticket', $ticket->id);
-            $ticket_details['ticket_id'] = $ticket->id;
-        @endphp
-        <hr>
-        <x-add-ticket-reply :details="$ticket_details" />
-    @elseif ($ticket->status == 2)
-        <p class="text-success">* Ticket resolved.</p>
-    @elseif ($ticket->status == 3)
-        <p class="text-danger">* Ticket expired.</p>
-    @endif
-
+    @php
+        $ticket_details['route_name'] = route('admin_reply_ticket', $ticket->id);
+        $ticket_details['ticket_id'] = $ticket->id;
+    @endphp
+    <hr>
+    <x-add-ticket-reply :details="$ticket_details" />
 @endsection
 
 @push('js')

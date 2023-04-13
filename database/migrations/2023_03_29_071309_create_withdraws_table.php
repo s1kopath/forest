@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('payment_method');
             $table->integer('account_id');
             $table->tinyInteger('status')->default(0);
-            $table->dateTime('date_time')->default(now());
+            $table->dateTime('date_time');
             $table->boolean('is_approved')->default(false);
             $table->integer('approved_by')->nullable();
             $table->dateTime('approved_on')->nullable();

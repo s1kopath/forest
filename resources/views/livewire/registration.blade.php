@@ -87,7 +87,7 @@
             <span class="uk-form-icon uk-form-icon-flip fa-solid fa-earth-americas fa-sm"></span>
 
             <x-tel-input wire:model="phone" id="phone" name="phone" class="form-input" />
-            
+
             @error('country_phone')
                 <div class="uk-text-small uk-width-1-1" style="color: #ff0000">
                     <small>* Insert a valid phone number</small>
@@ -157,7 +157,7 @@
     <div class="uk-margin-small uk-width-expand uk-text-small">
         <small class="uk-align-left">
             Already have account?
-            <a href="{{ route('public_login') }}">
+            <a href="{{ route('public_login') }}" style="color: #392bf8 !important;">
                 Login here
             </a>
         </small>
@@ -189,7 +189,6 @@
                     @this.country_phone = '+' + e.detail.dialCode;
                     phone_number.value = '+' + e.detail.dialCode;
                 }
-
             })
 
             $(".iti--laravel-tel-input").keyup(function() {

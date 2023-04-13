@@ -215,6 +215,31 @@
                             </a>
                         </li>
                     </ul>
+                    
+                    <div class="pcoded-navigation-label">SUPPORT</div>
+                    <ul class="pcoded-item pcoded-left-item">
+                        <li class="pcoded-hasmenu {{ $lastElement == 'tickets' ? 'active pcoded-trigger' : '' }}">
+                            <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                <span class="pcoded-micon">
+                                    <i class="fas fa-ticket-alt"></i>
+                                </span>
+                                <span class="pcoded-mtext">Support Ticket</span>
+                            </a>
+                            <ul class="pcoded-submenu">
+                                {{-- <li class="{{ $route_name == 'add_banner' ? 'active' : '' }}">
+                                    <a href="{{ route('add_banner') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Add Banner</span>
+                                    </a>
+                                </li> --}}
+                                <li class="{{ $route_name == 'manage_tickets' ? 'active' : '' }}">
+                                    <a href="{{ route('manage_tickets') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Manage Tickets</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
                     <ul class="pcoded-item pcoded-left-item">
                         <li class="pcoded-hasmenu">
                             <a href="{{ route('logout') }}" class="waves-effect waves-dark">

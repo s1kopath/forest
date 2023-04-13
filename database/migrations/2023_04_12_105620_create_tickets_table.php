@@ -17,14 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('type');
             $table->string('slug');
-            $table->string('ticket_number')->default(uniqid());
+            $table->string('ticket_number');
             $table->integer('user_id')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('subject');
             $table->string('image')->nullable();
             $table->longText('description');
-            $table->dateTime('date_time')->default(now());
+            $table->dateTime('date_time');
             $table->integer('response_by')->nullable();
             $table->dateTime('response_at')->nullable();
             $table->tinyInteger('status')->default(0);

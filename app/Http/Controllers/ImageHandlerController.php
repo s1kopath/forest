@@ -32,4 +32,13 @@ class ImageHandlerController extends Controller
             return false;
         }
     }
+
+    function uploadAndGetPath($image, $path_prefix = 'other')
+    {
+        $file_name = time() . "." . $image->getClientOriginalExtension();
+
+        $path = $image->storeAs('public/' . $path_prefix, $file_name);
+
+        return substr($path, 7);
+    }
 }
