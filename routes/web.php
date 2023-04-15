@@ -133,6 +133,13 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         // Route::match(['get', 'post'], 'edit-banner/{id}', [BannerController::class, 'editBanner'])->name('edit_banner');
         // Route::get('delete-banner/{id}', [BannerController::class, 'deleteBanner'])->name('delete_banner');
     });
+
+    // dashboard notice route
+    Route::controller(DashboardController::class)->group(function () {
+        Route::match(['get', 'post'], '/create-dashboard-notice', 'createNotice')->name('create_dashboard_notice');
+
+    });
+
 });
 
 Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
@@ -186,7 +193,7 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::get('support-ticket', [SupportTicketController::class, 'userTicketPage'])->name('user_support_ticket');
         Route::match(['get', 'post'], 'create-ticket', [SupportTicketController::class, 'createUserTicket'])->name('create_user_support_ticket');
         Route::match(['get', 'post'], 'reply-ticket/{id}', [SupportTicketController::class, 'replyUserTicket'])->name('user_reply_ticket');
-        
+                
     });
 
     Route::post('deposit-binance', [BinanceController::class, 'test1'])->name('binance_merchant_pay');

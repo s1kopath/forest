@@ -8,6 +8,7 @@ use App\Http\Controllers\User\FundController;
 use App\Models\Rank;
 use App\Models\User;
 use App\Models\UserStake;
+use App\Models\HeaderNotice;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -59,6 +60,27 @@ class DashboardController extends Controller
             }
         } else {
             return back()->with('warning', 'Something went wrong.');
+        }
+    }
+
+    public function createNotice(Request $request)
+    {        
+         // check method
+         if ($request->isMethod('POST')) {
+            // validation
+            $request->validate([
+                'body' => 'required',
+            ]);
+
+            //update or create
+            HeaderNotice::updateOrCreate([
+                'body' => $request->body,
+                'status' => $request->status,
+            ]);
+
+            return redirect()->back()->with('message', 'Notice Added Successfully.');
+        } else {
+            return view('back-end.notice.create-dashboard-notice');
         }
     }
 }

@@ -53,7 +53,7 @@
         </li>
         <li>
             <marquee class="p-0 m-0" width="140%" direction="left" height="45px">
-                This is a sample scrolling text that has scrolls in the upper direction.
+               {{ $notice[0]->body }}
             </marquee>
         </li>
     </ul>
