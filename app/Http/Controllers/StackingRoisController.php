@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\StakingRoi;
+use App\Models\UserStake;
 use Illuminate\Http\Request;
 
 class StackingRoisController extends Controller
@@ -65,5 +66,23 @@ class StackingRoisController extends Controller
     {
         StakingRoi::find($id)->delete();
         return redirect()->back()->with('message', 'Stacking Deleted Successfully.');
+    }
+
+    public function manageStaking(Request $request)
+    {
+        $stakingRoi = StakingRoi::all();
+        $query = UserStake::query();
+
+        if ($request->duration) {
+            $query->whereDuration($request->duration);
+        }
+
+        if ($request->from && $request->to) {
+            $query->whereDate('created_at', '>=', $request->from)->whereDate('created_at', '<=', $request->to);
+        }
+
+        $stakes = $query->latest()->with('user')->paginate(10);
+        
+        return view('back-end.stacking-rois.manage-stake', compact('stakes', 'stakingRoi'));
     }
 }

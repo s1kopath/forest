@@ -91,6 +91,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         Route::get('manage-stacking-rois', 'index')->name('manage_stacking_rois');
         Route::get('delete-stack/{id}', 'destroy')->name('delete_stack');
         Route::match(['get', 'post'], 'update-stacking-rois/{id}', 'updateStacking')->name('update_stacking_rois');
+        Route::get('manage-stake-rois', 'manageStaking')->name('manage_staking');
     });
 
     Route::controller(IbRoyalityController::class)->group(function () {
