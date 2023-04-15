@@ -61,6 +61,14 @@ Route::post('email/resend', [AuthController::class, 'resendLink'])->name('resend
 Route::get('email/verification', [AuthController::class, 'verificationNotice'])->name('verification.notice');
 Route::get('verify/{token}', [AuthController::class, 'verifyEmail']);
 
+Route::prefix('public')->group(function () {
+    Route::post('create-ticket', [SupportTicketController::class, 'publicCreateTicket'])->name('public_create_ticket');
+    // Route::match(['get', 'post'], 'add-banner', [BannerController::class, 'addBanner'])->name('add_banner');
+    // Route::get('manage-tickets', [TicketController::class, 'manageTickets'])->name('manage_tickets');
+    // Route::match(['get', 'post'], 'reply-ticket/{id}', [TicketController::class, 'replyTicket'])->name('admin_reply_ticket');
+    // Route::match(['get', 'post'], 'edit-banner/{id}', [BannerController::class, 'editBanner'])->name('edit_banner');
+});
+
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 

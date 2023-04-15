@@ -54,7 +54,7 @@ class SupportTicketController extends Controller
                 'reply_image' => 'required_without:reply_description',
             ]);
             // dd($request->all());
-            if ($request->reply_image) {                
+            if ($request->reply_image) {
                 $imageHandler = new ImageHandlerController();
                 $file_name_1 = $imageHandler->uploadAndGetPath($request->reply_image, 'ticket');
             } else {
@@ -73,5 +73,29 @@ class SupportTicketController extends Controller
             $ticket = Ticket::with('replies')->find($id);
             return view('back-end.public.ticket.ticket-details', compact('ticket'));
         }
+    }
+
+    public function publicCreateTicket(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required:email',
+            'subject' => 'required',
+            'message' => 'required'
+        ]);
+
+        $rand = rand(11111111, 99999999);
+        $newTicket = Ticket::create([
+            'type' => 'public',
+            'slug' => Str::slug($request->subject) . '-' . $rand,
+            'ticket_number' => $rand,
+            'name' => $request->name,
+            'email' => $request->email,
+            'date_time' => now(),
+            'subject' => $request->subject,
+            'description' => $request->message
+        ]);
+
+        return back()->with('message', 'Ticket created successfully.');
     }
 }

@@ -275,273 +275,253 @@
                 <ul
                     class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-grid text-center">
                     <li>
-                        <div>
-                            <div class="uk-background-contain uk-background-top-left"
-                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
-                                <div class="uk-flex uk-flex-middle">
-                                    <div class="uk-margin-right">
-                                        <div class="uk-background-primary uk-border-pill">
-                                            <img class="uk-align-center uk-border-pill"
-                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-1.png') }}"
-                                                alt="client-1" width="100" height="100" data-uk-img>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h5 class="uk-margin-remove-bottom text-dark">Marco P</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">Italian</p>
+                        <div class="uk-background-contain uk-background-top-left"
+                            data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                            <div class="uk-flex uk-flex-middle">
+                                <div class="uk-margin-right">
+                                    <div class="uk-background-primary uk-border-pill">
+                                        <img class="uk-align-center uk-border-pill"
+                                            src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                            data-src="{{ asset('front-end/img/blockit/in-team-1.png') }}" alt="client-1"
+                                            width="100" height="100" data-uk-img>
                                     </div>
                                 </div>
-                                <blockquote>
-                                    <p style="font-size: 18px">
-                                        Sono molto soddisfatto degli investimenti che ho fatto con questa azienda. Il team è
-                                        molto professionale e i rendimenti sono eccellenti.
-                                    </p>
-                                </blockquote>
+                                <div>
+                                    <h5 class="uk-margin-remove-bottom text-dark">Marco P</h5>
+                                    <p class="uk-text-muted uk-margin-remove-top">Italian</p>
+                                </div>
                             </div>
+                            <blockquote>
+                                <p style="font-size: 18px">
+                                    Sono molto soddisfatto degli investimenti che ho fatto con questa azienda. Il team è
+                                    molto professionale e i rendimenti sono eccellenti.
+                                </p>
+                            </blockquote>
                         </div>
                     </li>
                     <li>
-                        <div>
-                            <div class="uk-background-contain uk-background-top-left"
-                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
-                                <div class="uk-flex uk-flex-middle">
-                                    <div class="uk-margin-right">
-                                        <div class="uk-background-primary uk-border-pill">
-                                            <img class="uk-align-center uk-border-pill"
-                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-2.png') }}"
-                                                alt="client-1" width="100" height="100" data-uk-img>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h5 class="uk-margin-remove-bottom text-dark">Lars H</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">Danish</p>
+                        <div class="uk-background-contain uk-background-top-left"
+                            data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                            <div class="uk-flex uk-flex-middle">
+                                <div class="uk-margin-right">
+                                    <div class="uk-background-primary uk-border-pill">
+                                        <img class="uk-align-center uk-border-pill"
+                                            src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                            data-src="{{ asset('front-end/img/blockit/in-team-2.png') }}" alt="client-1"
+                                            width="100" height="100" data-uk-img>
                                     </div>
                                 </div>
-                                <blockquote>
-                                    <p style="font-size: 18px">
-                                        Jeg er meget tilfreds med mine investeringer i dette firma. Teamet er meget
-                                        kompetent og afkastet er fremragende.
-                                    </p>
-                                </blockquote>
+                                <div>
+                                    <h5 class="uk-margin-remove-bottom text-dark">Lars H</h5>
+                                    <p class="uk-text-muted uk-margin-remove-top">Danish</p>
+                                </div>
                             </div>
+                            <blockquote>
+                                <p style="font-size: 18px">
+                                    Jeg er meget tilfreds med mine investeringer i dette firma. Teamet er meget
+                                    kompetent og afkastet er fremragende.
+                                </p>
+                            </blockquote>
                         </div>
                     </li>
                     <li>
-                        <div>
-                            <div class="uk-background-contain uk-background-top-left"
-                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
-                                <div class="uk-flex uk-flex-middle">
-                                    <div class="uk-margin-right">
-                                        <div class="uk-background-primary uk-border-pill">
-                                            <img class="uk-align-center uk-border-pill"
-                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-3.png') }}"
-                                                alt="client-1" width="100" height="100" data-uk-img>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h5 class="uk-margin-remove-bottom text-dark">Maria S</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">Spanish</p>
+                        <div class="uk-background-contain uk-background-top-left"
+                            data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                            <div class="uk-flex uk-flex-middle">
+                                <div class="uk-margin-right">
+                                    <div class="uk-background-primary uk-border-pill">
+                                        <img class="uk-align-center uk-border-pill"
+                                            src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                            data-src="{{ asset('front-end/img/blockit/in-team-3.png') }}" alt="client-1"
+                                            width="100" height="100" data-uk-img>
                                     </div>
                                 </div>
-                                <blockquote>
-                                    <p style="font-size: 18px">
-                                        Estoy muy contento con las inversiones que he hecho con esta empresa. El equipo es
-                                        muy profesional y los retornos son excelentes
-                                    </p>
-                                </blockquote>
+                                <div>
+                                    <h5 class="uk-margin-remove-bottom text-dark">Maria S</h5>
+                                    <p class="uk-text-muted uk-margin-remove-top">Spanish</p>
+                                </div>
                             </div>
+                            <blockquote>
+                                <p style="font-size: 18px">
+                                    Estoy muy contento con las inversiones que he hecho con esta empresa. El equipo es
+                                    muy profesional y los retornos son excelentes
+                                </p>
+                            </blockquote>
                         </div>
                     </li>
                     <li>
-                        <div>
-                            <div class="uk-background-contain uk-background-top-left"
-                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
-                                <div class="uk-flex uk-flex-middle">
-                                    <div class="uk-margin-right">
-                                        <div class="uk-background-primary uk-border-pill">
-                                            <img class="uk-align-center uk-border-pill"
-                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-4.png') }}"
-                                                alt="client-1" width="100" height="100" data-uk-img>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h5 class="uk-margin-remove-bottom text-dark">Pierre L</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">French</p>
+                        <div class="uk-background-contain uk-background-top-left"
+                            data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                            <div class="uk-flex uk-flex-middle">
+                                <div class="uk-margin-right">
+                                    <div class="uk-background-primary uk-border-pill">
+                                        <img class="uk-align-center uk-border-pill"
+                                            src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                            data-src="{{ asset('front-end/img/blockit/in-team-4.png') }}" alt="client-1"
+                                            width="100" height="100" data-uk-img>
                                     </div>
                                 </div>
-                                <blockquote>
-                                    <p style="font-size: 18px">
-                                        Je suis très satisfait de mes investissements avec cette entreprise. L'équipe est
-                                        très professionnelle et les rendements sont excellents.
-                                    </p>
-                                </blockquote>
+                                <div>
+                                    <h5 class="uk-margin-remove-bottom text-dark">Pierre L</h5>
+                                    <p class="uk-text-muted uk-margin-remove-top">French</p>
+                                </div>
                             </div>
+                            <blockquote>
+                                <p style="font-size: 18px">
+                                    Je suis très satisfait de mes investissements avec cette entreprise. L'équipe est
+                                    très professionnelle et les rendements sont excellents.
+                                </p>
+                            </blockquote>
                         </div>
                     </li>
                     <li>
-                        <div>
-                            <div class="uk-background-contain uk-background-top-left"
-                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
-                                <div class="uk-flex uk-flex-middle">
-                                    <div class="uk-margin-right">
-                                        <div class="uk-background-primary uk-border-pill">
-                                            <img class="uk-align-center uk-border-pill"
-                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-5.png') }}"
-                                                alt="client-1" width="100" height="100" data-uk-img>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h5 class="uk-margin-remove-bottom text-dark">Katrin W</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">German</p>
+                        <div class="uk-background-contain uk-background-top-left"
+                            data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                            <div class="uk-flex uk-flex-middle">
+                                <div class="uk-margin-right">
+                                    <div class="uk-background-primary uk-border-pill">
+                                        <img class="uk-align-center uk-border-pill"
+                                            src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                            data-src="{{ asset('front-end/img/blockit/in-team-5.png') }}" alt="client-1"
+                                            width="100" height="100" data-uk-img>
                                     </div>
                                 </div>
-                                <blockquote>
-                                    <p style="font-size: 18px">
-                                        Ich bin sehr zufrieden mit den Investitionen, die ich bei diesem Unternehmen
-                                        getätigt habe. Das Team ist sehr kompetent und die Renditen sind ausgezeichnet.
-                                    </p>
-                                </blockquote>
+                                <div>
+                                    <h5 class="uk-margin-remove-bottom text-dark">Katrin W</h5>
+                                    <p class="uk-text-muted uk-margin-remove-top">German</p>
+                                </div>
                             </div>
+                            <blockquote>
+                                <p style="font-size: 18px">
+                                    Ich bin sehr zufrieden mit den Investitionen, die ich bei diesem Unternehmen
+                                    getätigt habe. Das Team ist sehr kompetent und die Renditen sind ausgezeichnet.
+                                </p>
+                            </blockquote>
                         </div>
                     </li>
                     <li>
-                        <div>
-                            <div class="uk-background-contain uk-background-top-left"
-                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
-                                <div class="uk-flex uk-flex-middle">
-                                    <div class="uk-margin-right">
-                                        <div class="uk-background-primary uk-border-pill">
-                                            <img class="uk-align-center uk-border-pill"
-                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-6.png') }}"
-                                                alt="client-1" width="100" height="100" data-uk-img>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h5 class="uk-margin-remove-bottom text-dark">Marcos S</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">Portuguese</p>
+                        <div class="uk-background-contain uk-background-top-left"
+                            data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                            <div class="uk-flex uk-flex-middle">
+                                <div class="uk-margin-right">
+                                    <div class="uk-background-primary uk-border-pill">
+                                        <img class="uk-align-center uk-border-pill"
+                                            src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                            data-src="{{ asset('front-end/img/blockit/in-team-6.png') }}" alt="client-1"
+                                            width="100" height="100" data-uk-img>
                                     </div>
                                 </div>
-                                <blockquote>
-                                    <p style="font-size: 18px">
-                                        Eu estou muito satisfeito com os meus investimentos nesta empresa. A equipe é muito
-                                        profissional e os retornos são excelentes.
-                                    </p>
-                                </blockquote>
+                                <div>
+                                    <h5 class="uk-margin-remove-bottom text-dark">Marcos S</h5>
+                                    <p class="uk-text-muted uk-margin-remove-top">Portuguese</p>
+                                </div>
                             </div>
+                            <blockquote>
+                                <p style="font-size: 18px">
+                                    Eu estou muito satisfeito com os meus investimentos nesta empresa. A equipe é muito
+                                    profissional e os retornos são excelentes.
+                                </p>
+                            </blockquote>
                         </div>
                     </li>
                     <li>
-                        <div>
-                            <div class="uk-background-contain uk-background-top-left"
-                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
-                                <div class="uk-flex uk-flex-middle">
-                                    <div class="uk-margin-right">
-                                        <div class="uk-background-primary uk-border-pill">
-                                            <img class="uk-align-center uk-border-pill"
-                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-7.png') }}"
-                                                alt="client-1" width="100" height="100" data-uk-img>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h5 class="uk-margin-remove-bottom text-dark">佐藤健太郎</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">Japanese</p>
+                        <div class="uk-background-contain uk-background-top-left"
+                            data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                            <div class="uk-flex uk-flex-middle">
+                                <div class="uk-margin-right">
+                                    <div class="uk-background-primary uk-border-pill">
+                                        <img class="uk-align-center uk-border-pill"
+                                            src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                            data-src="{{ asset('front-end/img/blockit/in-team-7.png') }}" alt="client-1"
+                                            width="100" height="100" data-uk-img>
                                     </div>
                                 </div>
-                                <blockquote>
-                                    <p style="font-size: 18px">
-                                        私はこの会社での投資に非常に満足しています。チームは非常にプロフェッシ
-                                        ョナルで、リターンも優れています。
-                                    </p>
-                                </blockquote>
+                                <div>
+                                    <h5 class="uk-margin-remove-bottom text-dark">佐藤健太郎</h5>
+                                    <p class="uk-text-muted uk-margin-remove-top">Japanese</p>
+                                </div>
                             </div>
+                            <blockquote>
+                                <p style="font-size: 18px">
+                                    私はこの会社での投資に非常に満足しています。チームは非常にプロフェッシ
+                                    ョナルで、リターンも優れています。
+                                </p>
+                            </blockquote>
                         </div>
                     </li>
                     <li>
-                        <div>
-                            <div class="uk-background-contain uk-background-top-left"
-                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
-                                <div class="uk-flex uk-flex-middle">
-                                    <div class="uk-margin-right">
-                                        <div class="uk-background-primary uk-border-pill">
-                                            <img class="uk-align-center uk-border-pill"
-                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-8.png') }}"
-                                                alt="client-1" width="100" height="100" data-uk-img>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h5 class="uk-margin-remove-bottom text-dark">Pieter V</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">Dutch</p>
+                        <div class="uk-background-contain uk-background-top-left"
+                            data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                            <div class="uk-flex uk-flex-middle">
+                                <div class="uk-margin-right">
+                                    <div class="uk-background-primary uk-border-pill">
+                                        <img class="uk-align-center uk-border-pill"
+                                            src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                            data-src="{{ asset('front-end/img/blockit/in-team-8.png') }}" alt="client-1"
+                                            width="100" height="100" data-uk-img>
                                     </div>
                                 </div>
-                                <blockquote>
-                                    <p style="font-size: 18px">
-                                        Ik ben erg tevreden over de investeringen die ik bij dit bedrijf heb gedaan. Het
-                                        team is zeer deskundig en de rendementen zijn uitstekend
-                                    </p>
-                                </blockquote>
+                                <div>
+                                    <h5 class="uk-margin-remove-bottom text-dark">Pieter V</h5>
+                                    <p class="uk-text-muted uk-margin-remove-top">Dutch</p>
+                                </div>
                             </div>
+                            <blockquote>
+                                <p style="font-size: 18px">
+                                    Ik ben erg tevreden over de investeringen die ik bij dit bedrijf heb gedaan. Het
+                                    team is zeer deskundig en de rendementen zijn uitstekend
+                                </p>
+                            </blockquote>
                         </div>
                     </li>
                     <li>
-                        <div>
-                            <div class="uk-background-contain uk-background-top-left"
-                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
-                                <div class="uk-flex uk-flex-middle">
-                                    <div class="uk-margin-right">
-                                        <div class="uk-background-primary uk-border-pill">
-                                            <img class="uk-align-center uk-border-pill"
-                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-9.png') }}"
-                                                alt="client-1" width="100" height="100" data-uk-img>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h5 class="uk-margin-remove-bottom text-dark">Anna L</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">Norwegian</p>
+                        <div class="uk-background-contain uk-background-top-left"
+                            data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                            <div class="uk-flex uk-flex-middle">
+                                <div class="uk-margin-right">
+                                    <div class="uk-background-primary uk-border-pill">
+                                        <img class="uk-align-center uk-border-pill"
+                                            src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                            data-src="{{ asset('front-end/img/blockit/in-team-9.png') }}" alt="client-1"
+                                            width="100" height="100" data-uk-img>
                                     </div>
                                 </div>
-                                <blockquote>
-                                    <p style="font-size: 18px">
-                                        Jeg er veldig fornøyd med investeringene mine i dette selskapet. Teamet er veldig
-                                        profesjonelt og avkastningen er utmerket
-                                    </p>
-                                </blockquote>
+                                <div>
+                                    <h5 class="uk-margin-remove-bottom text-dark">Anna L</h5>
+                                    <p class="uk-text-muted uk-margin-remove-top">Norwegian</p>
+                                </div>
                             </div>
+                            <blockquote>
+                                <p style="font-size: 18px">
+                                    Jeg er veldig fornøyd med investeringene mine i dette selskapet. Teamet er veldig
+                                    profesjonelt og avkastningen er utmerket
+                                </p>
+                            </blockquote>
                         </div>
                     </li>
                     <li>
-                        <div>
-                            <div class="uk-background-contain uk-background-top-left"
-                                data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
-                                <div class="uk-flex uk-flex-middle">
-                                    <div class="uk-margin-right">
-                                        <div class="uk-background-primary uk-border-pill">
-                                            <img class="uk-align-center uk-border-pill"
-                                                src="{{ asset('front-end/img/in-lazy.gif') }}"
-                                                data-src="{{ asset('front-end/img/blockit/in-team-5.png') }}"
-                                                alt="client-1" width="100" height="100" data-uk-img>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h5 class="uk-margin-remove-bottom text-dark">Hoàng A</h5>
-                                        <p class="uk-text-muted uk-margin-remove-top">Vietnamese</p>
+                        <div class="uk-background-contain uk-background-top-left"
+                            data-src="{{ asset('front-end/img/in-equity-4-blob-1.svg') }}" data-uk-img>
+                            <div class="uk-flex uk-flex-middle">
+                                <div class="uk-margin-right">
+                                    <div class="uk-background-primary uk-border-pill">
+                                        <img class="uk-align-center uk-border-pill"
+                                            src="{{ asset('front-end/img/in-lazy.gif') }}"
+                                            data-src="{{ asset('front-end/img/blockit/in-team-5.png') }}" alt="client-1"
+                                            width="100" height="100" data-uk-img>
                                     </div>
                                 </div>
-                                <blockquote>
-                                    <p style="font-size: 18px">
-                                        Tôi rất hài lòng với các khoản đầu tư của mình với công ty này. Đội ngũ làm việc rất
-                                        chuyên nghiệp và lợi nhuận rất tốt
-                                    </p>
-                                </blockquote>
+                                <div>
+                                    <h5 class="uk-margin-remove-bottom text-dark">Hoàng A</h5>
+                                    <p class="uk-text-muted uk-margin-remove-top">Vietnamese</p>
+                                </div>
                             </div>
+                            <blockquote>
+                                <p style="font-size: 18px">
+                                    Tôi rất hài lòng với các khoản đầu tư của mình với công ty này. Đội ngũ làm việc rất
+                                    chuyên nghiệp và lợi nhuận rất tốt
+                                </p>
+                            </blockquote>
                         </div>
                     </li>
                 </ul>
@@ -596,30 +576,39 @@
                 <div class="uk-width-1-2@m">
                     <p class="uk-margin-remove-bottom uk-text-lead uk-text-muted uk-text-center">Have a questions?
                     </p>
-                    <h1 class="uk-margin-small-top uk-text-center">Let's <span class="in-highlight">get in
-                            touch</span></h1>
-                    <form id="contact-form" class="uk-form uk-grid-small uk-margin-medium-top" data-uk-grid="">
-                        <div class="uk-width-1-2@s uk-inline">
-                            <span class="uk-form-icon fas fa-user fa-sm"></span>
-                            <input class="uk-input uk-border-rounded" id="name" name="name" type="text"
-                                placeholder="Full name">
+                    <h1 class="uk-margin-small-top uk-text-center" style="color: black">
+                        Create
+                        <span class="in-highlight">
+                            Support Ticket
+                        </span>
+                    </h1>
+                    <form action="{{ route('public_create_ticket') }}" method="post"
+                        class="uk-form uk-grid-small uk-margin-medium-top">
+                        @csrf
+                        <div class="uk-flex">
+                            <div class="uk-width-1-2@s uk-inline" style="margin:2px">
+                                <span class="uk-form-icon fas fa-user fa-sm" style="margin-left: -15px"></span>
+                                <input class="uk-input uk-border-rounded" id="name" name="name" type="text"
+                                    placeholder="Full name" required>
+                            </div>
+                            <div class="uk-width-1-2@s uk-inline" style="margin:2px">
+                                <span class="uk-form-icon fas fa-envelope fa-sm" style="margin-left: -15px"></span>
+                                <input class="uk-input uk-border-rounded" id="email" name="email" type="email"
+                                    placeholder="Email address" required>
+                            </div>
                         </div>
-                        <div class="uk-width-1-2@s uk-inline">
-                            <span class="uk-form-icon fas fa-envelope fa-sm"></span>
-                            <input class="uk-input uk-border-rounded" id="email" name="email" type="email"
-                                placeholder="Email address">
-                        </div>
-                        <div class="uk-width-1-1 uk-inline">
+                        <div class="uk-width-1-1 uk-inline" style="margin:2px">
                             <span class="uk-form-icon fas fa-pen fa-sm"></span>
                             <input class="uk-input uk-border-rounded" id="subject" name="subject" type="text"
-                                placeholder="Subject">
+                                placeholder="Subject" required>
+                        </div>
+                        <div class="uk-width-1-1" style="margin:2px">
+                            <textarea class="uk-textarea uk-border-rounded" id="message" name="message" rows="6" placeholder="Message"
+                                required></textarea>
                         </div>
                         <div class="uk-width-1-1">
-                            <textarea class="uk-textarea uk-border-rounded" id="message" name="message" rows="6" placeholder="Message"></textarea>
-                        </div>
-                        <div class="uk-width-1-1">
-                            <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded" id="sendemail"
-                                type="submit" name="submit">Send Message</button>
+                            <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded" type="submit"
+                                name="submit">Send Message</button>
                         </div>
                     </form>
                 </div>
