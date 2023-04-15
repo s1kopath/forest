@@ -133,7 +133,6 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     // dashboard notice route
     Route::controller(DashboardController::class)->group(function () {
         Route::match(['get', 'post'], '/create-dashboard-notice', 'createNotice')->name('create_dashboard_notice');
-
     });
 
 });

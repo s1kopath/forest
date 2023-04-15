@@ -45,18 +45,20 @@
 @endpush
 
 @section('dashboard-navbar')
-    <ul class="nav-left pl-3">
-        <li>
-            <h3 class="pt-3">
-                Dashboard
-            </h3>
-        </li>
-        <li>
-            <marquee class="p-0 m-0" width="140%" direction="left" height="45px">
-               {{ $notice[0]->body }}
-            </marquee>
-        </li>
-    </ul>
+    @if ($notice && $notice->status == 1)
+        <ul class="nav-left pl-3">
+            <li>
+                <h3 class="pt-3">
+                    Dashboard
+                </h3>
+            </li>
+            <li>
+                <marquee class="p-0 m-0" width="700" direction="left" height="45px">
+                    {{ $notice->body }}
+                </marquee>
+            </li>
+        </ul>
+    @endif
 @endsection
 
 @section('dashboard-extra')

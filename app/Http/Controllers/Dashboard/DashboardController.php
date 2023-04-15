@@ -64,23 +64,30 @@ class DashboardController extends Controller
     }
 
     public function createNotice(Request $request)
-    {        
-         // check method
-         if ($request->isMethod('POST')) {
+    {
+        $marquee = HeaderNotice::first();
+        // check method
+        if ($request->isMethod('POST')) {
             // validation
             $request->validate([
                 'body' => 'required',
+                'status' => 'required',
             ]);
 
-            //update or create
-            HeaderNotice::updateOrCreate([
-                'body' => $request->body,
-                'status' => $request->status,
-            ]);
+            if ($marquee) {
+                $marquee->body = $request->body;
+                $marquee->status = $request->status;
+                $marquee->save();
+            } else {
+                $newMarquee = new HeaderNotice();
+                $newMarquee->body = $request->body;
+                $newMarquee->status = $request->status;
+                $newMarquee->save();
+            }
 
             return redirect()->back()->with('message', 'Notice Added Successfully.');
         } else {
-            return view('back-end.notice.create-dashboard-notice');
+            return view('back-end.notice.create-dashboard-notice', compact('marquee'));
         }
     }
 }
