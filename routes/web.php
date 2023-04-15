@@ -129,6 +129,13 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         Route::get('update-ticket/{id}/{status}', [TicketController::class, 'updateTicket'])->name('admin_update_ticket');
         Route::get('send-ticket-link/{id}', [TicketController::class, 'sendTicketLink'])->name('send_ticket_link');
     });
+
+    // dashboard notice route
+    Route::controller(DashboardController::class)->group(function () {
+        Route::match(['get', 'post'], '/create-dashboard-notice', 'createNotice')->name('create_dashboard_notice');
+
+    });
+
 });
 
 Route::prefix('user')->middleware(['public', 'verified'])->group(function () {

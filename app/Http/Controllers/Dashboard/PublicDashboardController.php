@@ -13,6 +13,7 @@ use App\Models\AmountForIbGain;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\RanksController;
 use App\Http\Controllers\User\StakeController;
+use App\Models\HeaderNotice;
 
 class PublicDashboardController extends Controller
 {
@@ -21,8 +22,9 @@ class PublicDashboardController extends Controller
         $wallet = Wallet::where('user_id', auth()->id())->first();
         $totalStake = UserStake::where('user_id', auth()->id())->sum('amount');
         $banners = Banner::where('status', 1)->orderBy('sl', 'asc')->get();
+        $notice = HeaderNotice::where('status', 1)->get();            
 
-        return view('back-end.dashboard-public', compact('wallet', 'totalStake', 'banners'));
+        return view('back-end.dashboard-public', compact('wallet', 'totalStake', 'banners','notice'));
     }
 
     public function publicProfile()
