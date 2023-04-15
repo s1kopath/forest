@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-header row">
             <h4 class="col font-weight-bold">
-                Replay Ticket - {{ $ticket->ticket_number }}
+                Support Ticket#{{ $ticket->ticket_number }}
             </h4>
             <div class="col text-right">
                 <a href="{{ route('user_support_ticket') }}" class="btn btn-danger btn-round waves-effect waves-light">

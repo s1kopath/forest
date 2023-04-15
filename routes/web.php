@@ -63,10 +63,7 @@ Route::get('verify/{token}', [AuthController::class, 'verifyEmail']);
 
 Route::prefix('public')->group(function () {
     Route::post('create-ticket', [SupportTicketController::class, 'publicCreateTicket'])->name('public_create_ticket');
-    // Route::match(['get', 'post'], 'add-banner', [BannerController::class, 'addBanner'])->name('add_banner');
-    // Route::get('manage-tickets', [TicketController::class, 'manageTickets'])->name('manage_tickets');
-    // Route::match(['get', 'post'], 'reply-ticket/{id}', [TicketController::class, 'replyTicket'])->name('admin_reply_ticket');
-    // Route::match(['get', 'post'], 'edit-banner/{id}', [BannerController::class, 'editBanner'])->name('edit_banner');
+    Route::match(['get', 'post'], 'ticket/{slug}', [SupportTicketController::class, 'publicTicketReply'])->name('public_ticket_reply');
 });
 
 Route::prefix('admin')->middleware('admin')->group(function () {
@@ -125,13 +122,12 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     });
 
     Route::get('manage-notice', [SettingsController::class, 'manageNotice'])->name('manage_notice');
-    
+
     Route::prefix('ticket')->group(function () {
-        // Route::match(['get', 'post'], 'add-banner', [BannerController::class, 'addBanner'])->name('add_banner');
         Route::get('manage-tickets', [TicketController::class, 'manageTickets'])->name('manage_tickets');
         Route::match(['get', 'post'], 'reply-ticket/{id}', [TicketController::class, 'replyTicket'])->name('admin_reply_ticket');
-        // Route::match(['get', 'post'], 'edit-banner/{id}', [BannerController::class, 'editBanner'])->name('edit_banner');
-        // Route::get('delete-banner/{id}', [BannerController::class, 'deleteBanner'])->name('delete_banner');
+        Route::get('update-ticket/{id}/{status}', [TicketController::class, 'updateTicket'])->name('admin_update_ticket');
+        Route::get('send-ticket-link/{id}', [TicketController::class, 'sendTicketLink'])->name('send_ticket_link');
     });
 });
 
@@ -186,7 +182,6 @@ Route::prefix('user')->middleware(['public', 'verified'])->group(function () {
         Route::get('support-ticket', [SupportTicketController::class, 'userTicketPage'])->name('user_support_ticket');
         Route::match(['get', 'post'], 'create-ticket', [SupportTicketController::class, 'createUserTicket'])->name('create_user_support_ticket');
         Route::match(['get', 'post'], 'reply-ticket/{id}', [SupportTicketController::class, 'replyUserTicket'])->name('user_reply_ticket');
-        
     });
 
     Route::post('deposit-binance', [BinanceController::class, 'test1'])->name('binance_merchant_pay');

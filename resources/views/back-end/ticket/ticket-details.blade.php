@@ -60,12 +60,14 @@
         <x-ticket-replies :reply="$reply" />
     @endforeach
 
-    @php
-        $ticket_details['route_name'] = route('admin_reply_ticket', $ticket->id);
-        $ticket_details['ticket_id'] = $ticket->id;
-    @endphp
-    <hr>
-    <x-add-ticket-reply :details="$ticket_details" />
+    @if ($ticket->staus != 2 || $ticket->staus != 3)
+        @php
+            $ticket_details['route_name'] = route('admin_reply_ticket', $ticket->id);
+            $ticket_details['ticket_id'] = $ticket->id;
+        @endphp
+        <hr>
+        <x-add-ticket-reply :details="$ticket_details" />
+    @endif
 @endsection
 
 @push('js')

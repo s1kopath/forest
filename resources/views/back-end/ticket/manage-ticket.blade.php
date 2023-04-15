@@ -25,7 +25,8 @@
                             <tr>
                                 <th scope="row">{{ $key + 1 }}</th>
                                 <td>
-                                    <a href="{{ route('admin_reply_ticket', $ticket->id) }}" class="btn btn-outline-success rounded">
+                                    <a href="{{ route('admin_reply_ticket', $ticket->id) }}"
+                                        class="btn btn-outline-success rounded">
                                         {{ $ticket->ticket_number }}
                                     </a>
                                 </td>
@@ -66,9 +67,11 @@
                                     @endif
                                 </td>
                                 <td>
-                                    {{ $ticket->response_at ? date('Y-m-d h:i A', strtotime($ticket->response_at)) : '' }}
-                                    <br>
-                                    <small>{{ Carbon\Carbon::create($ticket->response_at)->diffForHumans() }}</small>
+                                    @if ($ticket->response_at)
+                                        {{ $ticket->response_at ? date('Y-m-d h:i A', strtotime($ticket->response_at)) : '' }}
+                                        <br>
+                                        <small>{{ Carbon\Carbon::create($ticket->response_at)->diffForHumans() }}</small>
+                                    @endif
                                 </td>
                                 <td>
                                     @if ($ticket->status == 0)
@@ -82,11 +85,40 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin_reply_ticket', $ticket->id) }}"
-                                        class="btn btn-success btn-round waves-effect waves-light">
-                                        Check
-                                        <i class="fas fa-arrow-circle-right"></i>
-                                    </a>
+                                    <div class="dropdown">
+                                        <a class="btn btn-success btn-round waves-effect waves-light dropdown-toggle"
+                                            href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            Action
+                                        </a>
+
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="{{ route('admin_reply_ticket', $ticket->id) }}">
+                                                Reply
+                                            </a>
+                                            @if ($ticket->status == 0)
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin_update_ticket', ['id' => $ticket->id, 'status' => 1]) }}">
+                                                    Mark As Open
+                                                </a>
+                                            @elseif($ticket->status == 1)
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin_update_ticket', ['id' => $ticket->id, 'status' => 2]) }}">
+                                                    Mark As Resolved
+                                                </a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin_update_ticket', ['id' => $ticket->id, 'status' => 3]) }}">
+                                                    Mark As Expired
+                                                </a>
+                                            @endif
+                                            @if ($ticket->type == 'public')
+                                                <a class="dropdown-item"
+                                                    href="{{ route('send_ticket_link', $ticket->id) }}">
+                                                    Send Reply Link
+                                                </a>
+                                            @endif
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

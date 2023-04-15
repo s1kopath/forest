@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>OTP Code</title>
+    <title>{{ $subject }}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,10 +71,10 @@
     <table>
         <tr>
             <td>
-                <h1>OTP Code</h1>
-                <p class="code">{{ $body }}</p>
-                <p>This code will expire in 2 minutes.</p>
-                <p>If you did not request this verification code, please disregard this email.</p>
+                <h1>{{ $subject }}</h1>
+                <p class="code">{!! $body !!}</p>
+                <p>This mail will expire soon.</p>
+                <p>If this don't concern you, please ignore this email.</p>
                 <p>Thank you for using our service!</p>
             </td>
         </tr>
@@ -83,6 +83,7 @@
                 <p>Development By <a href="">Global Fast Coder</a></p>
             </td>
         </tr>
+        
     </table>
 </body>
 

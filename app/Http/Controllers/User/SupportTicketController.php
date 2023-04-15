@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Ticket;
+use App\Models\TicketReply;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ImageHandlerController;
-use App\Models\TicketReply;
 
 class SupportTicketController extends Controller
 {
@@ -96,6 +96,37 @@ class SupportTicketController extends Controller
             'description' => $request->message
         ]);
 
-        return back()->with('message', 'Ticket created successfully.');
+        toast('Ticket created successfully.', 'success');
+
+        return back();
+    }
+
+    public function publicTicketReply(Request $request, $slug)
+    {
+        if ($request->isMethod('post')) {
+            $request->validate([
+                'reply_description' => 'required_without:reply_image',
+                'reply_image' => 'required_without:reply_description',
+            ]);
+            // dd($request->all());
+            if ($request->reply_image) {
+                $imageHandler = new ImageHandlerController();
+                $file_name_1 = $imageHandler->uploadAndGetPath($request->reply_image, 'ticket');
+            } else {
+                $file_name_1 = null;
+            }
+
+            $newTicket = TicketReply::create([
+                'ticket_id' => $request->ticket_id,
+                'reply_by' => 'user',
+                'text' => $request->reply_description,
+                'image' => $file_name_1
+            ]);
+
+            return back()->with('message', 'Replied successfully.');
+        } else {
+            $ticket = Ticket::with('replies')->where('slug',$slug)->first();
+            return view('back-end.public.ticket.public-ticket-details', compact('ticket'));
+        }
     }
 }
