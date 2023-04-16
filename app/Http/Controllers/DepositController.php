@@ -9,9 +9,25 @@ use App\Http\Controllers\User\FundController;
 
 class DepositController extends Controller
 {
-    public function manageDeposits()
+    public function manageDeposits(Request $request)
     {
-        $deposits = Deposit::with(['user_details', 'approved_by_user'])->orderBy('id', 'desc')->paginate(10);
+        $query = Deposit::query()->with(['user_details', 'approved_by_user']);
+
+        if ($request->keyword) {
+            $keyword = $request->keyword;
+            $query->whereIn('user_id', function ($qry) use ($keyword) {
+                $qry->select('id')
+                    ->from('users')
+                    ->where('name', 'like', '%' . $keyword . '%')
+                    ->orWhere('username', 'like', '%' . $keyword . '%')
+                    ->orWhere('email', 'like', '%' . $keyword . '%');
+            });
+
+            $query->orWhere('trx_id', $keyword)
+                ->orWhere('transaction_hash', $keyword);
+        }
+
+        $deposits = $query->latest()->paginate(10);
 
         return view('back-end.deposit.manage-deposits', compact('deposits'));
     }

@@ -46,9 +46,24 @@ class DashboardController extends Controller
         return view('back-end.dashboard', compact('support', 'amounts', 'user_count', 'ib_count', 'total_staking', 'user_count_last_month', 'ib_count_last_month', 'total_staking_last_month'));
     }
 
-    public function manageUsers()
+    public function manageUsers(Request $request)
     {
-        $users = User::where('user_type', 'public')->orderBy('id', 'desc')->paginate(10);
+        $query = User::query();
+
+        if ($request->keyword) {
+            $keyword = $request->keyword;
+            $query->whereIn('id', function ($qry) use ($keyword) {
+                $qry->select('id')
+                    ->where('name', 'like', '%' . $keyword . '%')
+                    ->orWhere('username', 'like', '%' . $keyword . '%')
+                    ->orWhere('email', 'like', '%' . $keyword . '%');
+            });
+        }
+
+        $users = $query->where('user_type', 'public')
+            ->latest()
+            ->paginate(10);
+
         return view('back-end.users.manage-users', compact('users'));
     }
 

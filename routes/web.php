@@ -83,6 +83,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
     Route::prefix('withdraw')->group(function () {
         Route::get('manage-withdraw', [WithdrawController::class, 'manageWithdraw'])->name('manage_withdraw');
+        Route::get('history-withdraw', [WithdrawController::class, 'withdrawHistory'])->name('withdraw_history');
         Route::get('approve-withdraw/{id}/{status}', [WithdrawController::class, 'approveWithdraw'])->name('approve_withdraw');
     });
 

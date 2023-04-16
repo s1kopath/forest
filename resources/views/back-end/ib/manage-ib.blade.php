@@ -7,6 +7,23 @@
             <h2 class="text-center">IB List</h5>
         </div>
         <div class="card-body">
+            <div class="d-flex justify-content-end">
+                <div class="ml-2">
+                    <form class="form-inline" action="{{ route('manage_ib') }}" method="get">
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="inputPassword2" class="sr-only">Keyword:</label>
+                            <input type="text" class="form-control" name="keyword" required
+                                placeholder="Name/Username/Email"
+                                value="{{ isset($_GET['keyword']) ? $_GET['keyword'] : '' }}">
+                        </div>
+                        <div class="mb-2">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                            <a href="{{ route('manage_ib') }}" class="btn btn-danger">Reset</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <div class="dt-responsive table-responsive">
                 <div id="order-table_wrapper" class="dataTables_wrapper dt-bootstrap4">
                     <div class="row">
@@ -46,22 +63,32 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($ib as $ibs)
+                                    @foreach ($ibs as $ib)
                                         <tr role="row" class="even">
                                             <td>{{ $loop->index + 1 }}</td>
-                                            <td>{{ $ibs->ib_name }}</td>
-                                            <td>{{ $ibs->self_amount }}</td>
-                                            <td>{{ $ibs->direct_amount }}</td>
-                                            <td>{{ $ibs->team_amount }}</td>
-                                            <td>{{ $ibs->reward }}</td>
+                                            <td>
+                                                {{ $ib->name }} ({{ $ib->username }})
+                                                <br>
+                                                {{ $ib->email }}
+                                            </td>
+                                            <td>
+                                                {{ isset($ib->userToAmountForIbGain) ? $ib->userToAmountForIbGain->self_amount : 0 }}
+                                            </td>
+                                            <td>
+                                                {{ isset($ib->userToAmountForIbGain) ? $ib->userToAmountForIbGain->direct_amount : 0 }}
+                                            </td>
+                                            <td>
+                                                {{ isset($ib->userToAmountForIbGain) ? $ib->userToAmountForIbGain->team_amount : 0 }}
+                                            </td>
+                                            <td>
+                                                {{ isset($ib->userToRank->rankToRankReward->reward) ? $ib->userToRank->rankToRankReward->reward : '--' }}
+                                            </td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a class="btn btn-warning"
-                                                        href="{{ route('delete_ib', $ibs->id) }}">Delete</a>
+                                                    <a class="btn btn-warning" href="#">Delete</a>
                                                 </div>
                                                 <div class="btn-group">
-                                                    <a class="btn btn-primary"
-                                                        href="{{ route('update_ib', $ibs->id) }}">Edit</a>
+                                                    <a class="btn btn-primary" href="#">Edit</a>
                                                 </div>
                                             </td>
                                         </tr>

@@ -4,21 +4,25 @@
 @section('page-content')
     <div class="card">
         <div class="card-header bg-info">
-            <h2 class="text-center">Manage Withdraw</h5>
+            <h2 class="text-center">Manage History</h5>
         </div>
         <div class="card-body">
             <div class="d-flex justify-content-end">
                 <div class="ml-2">
-                    <form class="form-inline" action="{{ route('manage_withdraw') }}" method="get">
+                    <form class="form-inline" action="{{ route('withdraw_history') }}" method="get">
+                        <div class="form-group mb-2">
+                            <label for="staticEmail2" class="sr-only">From:</label>
+                            <input type="date" class="form-control" name="from" required
+                                value="{{ isset($_GET['from']) ? $_GET['from'] : '' }}">
+                        </div>
                         <div class="form-group mx-sm-3 mb-2">
-                            <label for="inputPassword2" class="sr-only">Keyword:</label>
-                            <input type="text" class="form-control" name="keyword" required
-                                placeholder="Transacrion ID/Hash/Name/Username/Email"
-                                value="{{ isset($_GET['keyword']) ? $_GET['keyword'] : '' }}">
+                            <label for="inputPassword2" class="sr-only">To:</label>
+                            <input type="date" class="form-control" name="to" required
+                                value="{{ isset($_GET['to']) ? $_GET['to'] : '' }}">
                         </div>
                         <div class="mb-2">
-                            <button type="submit" class="btn btn-primary">Search</button>
-                            <a href="{{ route('manage_withdraw') }}" class="btn btn-danger">Reset</a>
+                            <button type="submit" class="btn btn-primary">Filter</button>
+                            <a href="{{ route('withdraw_history') }}" class="btn btn-danger">Reset</a>
                         </div>
                     </form>
                 </div>
@@ -170,6 +174,20 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Total:</td>
+                                        <td>${{ $total }}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>

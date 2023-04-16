@@ -85,6 +85,13 @@
                                     </a>
                                 </li>
                             </ul>
+                            <ul class="pcoded-submenu">
+                                <li class="{{ $route_name == 'withdraw_history' ? 'active' : '' }}">
+                                    <a href="{{ route('withdraw_history') }}" class="waves-effect waves-dark">
+                                        <span class="pcoded-mtext">Withdraw Histroy</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
 

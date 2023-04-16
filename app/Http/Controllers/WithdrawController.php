@@ -10,11 +10,43 @@ use App\Http\Controllers\user\FundController;
 
 class WithdrawController extends Controller
 {
-    public function manageWithdraw()
+    public function manageWithdraw(Request $request)
     {
-        $withdraws = Withdraw::with(['user_details', 'approved_by_user'])->orderBy('id', 'desc')->paginate(10);
+        $query = Withdraw::query()->with(['user_details', 'approved_by_user']);
+
+        if ($request->keyword) {
+            $keyword = $request->keyword;
+            $query->whereIn('user_id', function ($qry) use ($keyword) {
+                $qry->select('id')
+                    ->from('users')
+                    ->where('name', 'like', '%' . $keyword . '%')
+                    ->orWhere('username', 'like', '%' . $keyword . '%')
+                    ->orWhere('email', 'like', '%' . $keyword . '%');
+            });
+
+            $query->orWhere('trx_id', $keyword);
+        }
+
+        $withdraws = $query->latest()->paginate(10);
+
 
         return view('back-end.withdraw.manage-withdraws', compact('withdraws'));
+    }
+
+    public function withdrawHistory(Request $request)
+    {
+        $query = Withdraw::query()->with(['user_details', 'approved_by_user'])->whereStatus(1);
+
+        if ($request->from && $request->to) {
+            $query->whereDate('created_at', '>=', $request->from)->whereDate('created_at', '<=', $request->to);
+        }
+
+        $total = $query->sum('net_amount');
+
+        $withdraws = $query->latest()->paginate(10);
+
+
+        return view('back-end.withdraw.withdraw-history', compact('withdraws', 'total'));
     }
 
     public function approveWithdraw($id, $status)

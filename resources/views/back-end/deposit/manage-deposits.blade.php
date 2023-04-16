@@ -7,6 +7,23 @@
             <h2 class="text-center">Manage Deposits</h5>
         </div>
         <div class="card-body">
+            <div class="d-flex justify-content-end">
+                <div class="ml-2">
+                    <form class="form-inline" action="{{ route('manage_deposits') }}" method="get">
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="inputPassword2" class="sr-only">Keyword:</label>
+                            <input type="text" class="form-control" name="keyword" required
+                                placeholder="Transacrion ID/Hash/Name/Username/Email"
+                                value="{{ isset($_GET['keyword']) ? $_GET['keyword'] : '' }}">
+                        </div>
+                        <div class="mb-2">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                            <a href="{{ route('manage_deposits') }}" class="btn btn-danger">Reset</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <div class="dt-responsive table-responsive">
                 <div id="order-table_wrapper" class="dataTables_wrapper dt-bootstrap4">
                     <div class="row">
@@ -46,6 +63,16 @@
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
                                             style="width: 392.922px;">
+                                            Transaction ID
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
+                                            colspan="1" aria-label="Position: activate to sort column ascending"
+                                            style="width: 392.922px;">
+                                            Transaction Hash
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
+                                            colspan="1" aria-label="Position: activate to sort column ascending"
+                                            style="width: 392.922px;">
                                             Deposited On
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
@@ -73,6 +100,8 @@
                                             <td>{{ $data->currency }}</td>
                                             <td>{{ $data->coin_type }}</td>
                                             <td>{{ $data->network_type }}</td>
+                                            <td>{{ $data->trx_id }}</td>
+                                            <td>{{ $data->transaction_hash }}</td>
                                             <td>{{ $data->date_time }}</td>
                                             <td>
                                                 @if ($data->status == 2)
@@ -99,7 +128,8 @@
                                                         </a>
                                                     </div>
                                                     <div class="btn-group">
-                                                        <a class="btn btn-danger" onclick="return confirm('Are you sure ?')"
+                                                        <a class="btn btn-danger"
+                                                            onclick="return confirm('Are you sure ?')"
                                                             href="{{ route('approve_deposits', ['id' => $data->id, 'status' => 2]) }}">
                                                             Reject
                                                         </a>

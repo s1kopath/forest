@@ -7,6 +7,23 @@
             <h2 class="text-center">Manage Users</h5>
         </div>
         <div class="card-body">
+            <div class="d-flex justify-content-end">
+                <div class="ml-2">
+                    <form class="form-inline" action="{{ route('manage_users') }}" method="get">
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="inputPassword2" class="sr-only">Keyword:</label>
+                            <input type="text" class="form-control" name="keyword" required
+                                placeholder="Name/Username/Email"
+                                value="{{ isset($_GET['keyword']) ? $_GET['keyword'] : '' }}">
+                        </div>
+                        <div class="mb-2">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                            <a href="{{ route('manage_users') }}" class="btn btn-danger">Reset</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <div class="dt-responsive table-responsive">
                 <div id="order-table_wrapper" class="dataTables_wrapper dt-bootstrap4">
                     <div class="row">
