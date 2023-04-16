@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Dashboard;
 use App\Events\JoiningBonusEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\User\FundController;
+use App\Models\Deposit;
 use App\Models\Rank;
 use App\Models\User;
 use App\Models\UserStake;
 use App\Models\HeaderNotice;
+use App\Models\Ticket;
+use App\Models\Withdraw;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -29,7 +32,18 @@ class DashboardController extends Controller
         $total_staking = UserStake::sum('amount');
         $total_staking_last_month = UserStake::whereMonth('created_at', $last_month)->sum('amount');
 
-        return view('back-end.dashboard', compact('user_count', 'ib_count', 'total_staking', 'user_count_last_month', 'ib_count_last_month', 'total_staking_last_month'));
+        $support_ticket = Ticket::query();
+        $support['total_support_ticket'] = $support_ticket->count();
+        $support['pending_support_ticket'] = $support_ticket->whereStatus(0)->count();
+        $support['total_public_support_ticket'] = $support_ticket->whereType('public')->count();
+        $support['total_private_support_ticket'] = $support_ticket->whereType('private')->count();
+
+        $amounts['deposit'] = Deposit::whereStatus(1)->sum('amount');
+        $amounts['pendingDeposit'] = Deposit::whereStatus(0)->sum('amount');
+        $amounts['withdraw'] = Withdraw::whereStatus(1)->sum('amount');
+        $amounts['pendingWithdraw'] = Withdraw::whereStatus(0)->sum('amount');
+
+        return view('back-end.dashboard', compact('support', 'amounts', 'user_count', 'ib_count', 'total_staking', 'user_count_last_month', 'ib_count_last_month', 'total_staking_last_month'));
     }
 
     public function manageUsers()
