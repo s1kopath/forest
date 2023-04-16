@@ -83,11 +83,11 @@
                 <p>Thank you for using our service!</p>
             </td>
         </tr>
-        <tr>
+        {{-- <tr>
             <td style="text-align: center">
                 <p>Development By <a href="">Global Fast Coder</a></p>
             </td>
-        </tr>
+        </tr> --}}
     </table>
 </body>
 

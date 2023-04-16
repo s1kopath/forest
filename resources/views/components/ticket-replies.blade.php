@@ -4,7 +4,11 @@
             @if ($reply->reply_by == 'support')
                 Support
             @else
-                You
+                @if (auth()->user()->user_type == 'admin')
+                    User
+                @else
+                    You
+                @endif
             @endif
             <small class="text-muted">({{ $reply->created_at->diffForHumans() }})</small>
         </h6>

@@ -37,6 +37,11 @@
                                             style="width: 267.578px;">#Sl
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
+                                            colspan="1" aria-label="Position: activate to sort column ascending"
+                                            style="width: 392.922px;">
+                                            Transaction ID
+                                        </th>
+                                        <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Name: activate to sort column ascending"
                                             style="width: 267.578px;">Name/Email
                                         </th>
@@ -59,11 +64,6 @@
                                             colspan="1" aria-label="Position: activate to sort column ascending"
                                             style="width: 392.922px;">
                                             Network Type
-                                        </th>
-                                        <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
-                                            colspan="1" aria-label="Position: activate to sort column ascending"
-                                            style="width: 392.922px;">
-                                            Transaction ID
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="order-table" rowspan="1"
                                             colspan="1" aria-label="Position: activate to sort column ascending"
@@ -91,6 +91,7 @@
                                     @foreach ($deposits as $key => $data)
                                         <tr>
                                             <th scope="row">{{ $key + 1 }}</th>
+                                            <td>{{ $data->trx_id }}</td>
                                             <td>
                                                 {{ $data->user_details->name }}
                                                 <br>
@@ -100,7 +101,6 @@
                                             <td>{{ $data->currency }}</td>
                                             <td>{{ $data->coin_type }}</td>
                                             <td>{{ $data->network_type }}</td>
-                                            <td>{{ $data->trx_id }}</td>
                                             <td>{{ $data->transaction_hash }}</td>
                                             <td>{{ $data->date_time }}</td>
                                             <td>

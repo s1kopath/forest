@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('ticket_id')->index();
             $table->string('reply_by');
             $table->string('image')->nullable();
-            $table->longText('text');
+            $table->longText('text')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });

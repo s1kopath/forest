@@ -599,8 +599,18 @@
                         </div>
                         <div class="uk-width-1-1 uk-inline" style="margin:2px">
                             <span class="uk-form-icon fas fa-pen fa-sm"></span>
-                            <input class="uk-input uk-border-rounded" id="subject" name="subject" type="text"
-                                placeholder="Subject" required>
+                            <select class="uk-input uk-border-rounded" name="subject" required>
+                                <option value="">-- Select A Subject --</option>
+                                <option value="New Package">New Package</option>
+                                <option value="New User">New User</option>
+                                <option value="Staking">Staking</option>
+                                <option value="Trading">Trading</option>
+                                <option value="Deposit">Deposit</option>
+                                <option value="FAQ">FAQ</option>
+                                <option value="Transaction Error">Transaction Error</option>
+                                <option value="Fund Transfer">Fund Transfer</option>
+                                <option value="Other">Other</option>
+                            </select>
                         </div>
                         <div class="uk-width-1-1" style="margin:2px">
                             <textarea class="uk-textarea uk-border-rounded" id="message" name="message" rows="6" placeholder="Message"
