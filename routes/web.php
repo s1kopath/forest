@@ -46,7 +46,7 @@ Route::get('terms-conditions', [HomeController::class, 'termsConditions'])->name
 
 // Auth Routes
 Route::match(['get', 'post'], 'admin-login', [AuthController::class, 'login'])->name('auth_login');
-Route::get('public-login', [AuthController::class, 'publicLogin'])->name('public_login');
+Route::get('login', [AuthController::class, 'publicLogin'])->name('public_login');
 Route::get('admin-register', [AuthController::class, 'adminRegister']);
 Route::get('api/ref-auth/{keyword}', [AuthController::class, 'refAuth']);
 Route::get('forget-password', [AuthController::class, 'forgetPassword'])->name('forget_password');
