@@ -19,7 +19,7 @@
                                 <option value="">Choose Duration...</option>
                                 <option value="3">3 Months</option>
                                 <option value="6">6 Months</option>
-                                <option value="9">9 Months</option>
+                                <option value="12">12 Months</option>
                             </select>
                         </div>
                     </div>

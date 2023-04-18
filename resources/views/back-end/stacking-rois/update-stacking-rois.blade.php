@@ -17,11 +17,14 @@
                         <div class="col-md-6">
                             <select name="duration" class="form-control form-select" required>
                                 <option value="0">Choose Duration...</option>
-                                <option value="3" {{ $stacking->duration == '3' ? 'selected' : '' }}>3 Months
+                                <option value="3" {{ $stacking->duration == '3' ? 'selected' : '' }}>
+                                    3 Months
                                 </option>
-                                <option value="6" {{ $stacking->duration == '6' ? 'selected' : '' }}>6 Months
+                                <option value="6" {{ $stacking->duration == '6' ? 'selected' : '' }}>
+                                    6 Months
                                 </option>
-                                <option value="9" {{ $stacking->duration == '9' ? 'selected' : '' }}>9 Months
+                                <option value="12" {{ $stacking->duration == '12' ? 'selected' : '' }}>
+                                    12 Months
                                 </option>
                             </select>
                         </div>
