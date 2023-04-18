@@ -21,8 +21,18 @@
                     <div class="col-md-6">
                         <fieldset class="form-group p-2 rounded ms-fieldset">
                             <legend class="w-auto px-2 ms-legend">Subject</legend>
-                            <input class="form-control ms-input" type="text" name="subject"
-                                placeholder="Enter a subject..." required>
+                            <select class="form-control form-control-sm ms-input" name="subject" required>
+                                <option value="">-- Select A Subject --</option>
+                                <option value="New Package">New Package</option>
+                                <option value="New User">New User</option>
+                                <option value="Staking">Staking</option>
+                                <option value="Trading">Trading</option>
+                                <option value="Deposit">Deposit</option>
+                                <option value="FAQ">FAQ</option>
+                                <option value="Transaction Error">Transaction Error</option>
+                                <option value="Fund Transfer">Fund Transfer</option>
+                                <option value="Other">Other</option>
+                            </select>
                         </fieldset>
                     </div>
                     <div class="col-md-6">

@@ -27,16 +27,44 @@
                 <div>
                     Created: {{ $ticket->created_at->diffForHumans() }}
                     <br>
-                    Ticket:
-                    @if ($ticket->status == 0)
-                        <span class="badge badge-pill badge-warning">Pending</span>
-                    @elseif($ticket->status == 1)
-                        <span class="badge badge-pill badge-primary">Open</span>
-                    @elseif($ticket->status == 2)
-                        <span class="badge badge-pill badge-success">Resolved</span>
-                    @elseif($ticket->status == 3)
-                        <span class="badge badge-pill badge-danger">Expired</span>
-                    @endif
+                    <div class="dropdown">
+                        <a class="btn btn-sm {{ $ticket->status == 1 ? 'btn-primary' : ($ticket->status == 2 ? 'bg-success' : ($ticket->status == 3 ? 'bg-danger' : 'bg-warning')) }} btn-round waves-effect waves-light dropdown-toggle"
+                            href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            @if ($ticket->status == 0)
+                                Pending
+                            @elseif($ticket->status == 1)
+                                Open
+                            @elseif($ticket->status == 2)
+                                Resolved
+                            @elseif($ticket->status == 3)
+                                Expired
+                            @endif
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            @if ($ticket->status == 0)
+                                <a class="dropdown-item"
+                                    href="{{ route('admin_update_ticket', ['id' => $ticket->id, 'status' => 1]) }}">
+                                    Mark As Open
+                                </a>
+                            @elseif($ticket->status == 1)
+                                <a class="dropdown-item"
+                                    href="{{ route('admin_update_ticket', ['id' => $ticket->id, 'status' => 2]) }}">
+                                    Mark As Resolved
+                                </a>
+                                <a class="dropdown-item"
+                                    href="{{ route('admin_update_ticket', ['id' => $ticket->id, 'status' => 3]) }}">
+                                    Mark As Expired
+                                </a>
+                            @endif
+                            @if ($ticket->type == 'public')
+                                <a class="dropdown-item" href="{{ route('send_ticket_link', $ticket->id) }}">
+                                    Send Reply Link
+                                </a>
+                            @endif
+                        </div>
+                    </div>
                 </div>
             </div>
             <div>
@@ -60,7 +88,7 @@
         <x-ticket-replies :reply="$reply" />
     @endforeach
 
-    @if ($ticket->staus != 2 || $ticket->staus != 3)
+    @if ($ticket->status == 0 || $ticket->status == 1)
         @php
             $ticket_details['route_name'] = route('admin_reply_ticket', $ticket->id);
             $ticket_details['ticket_id'] = $ticket->id;
