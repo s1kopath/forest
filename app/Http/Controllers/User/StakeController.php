@@ -67,7 +67,7 @@ class StakeController extends Controller
             dispatch(new RankRefreshJob($details));
             // dispatch(new LeadMemberRankRefreshJob($details))->delay(120);
 
-            return redirect()->route('public_history')->with('message', 'Successfully created.');
+            return back()->with('message', 'Successfully staked.');
         } else {
             $user = auth()->user();
             $staking = StakingRoi::where('status', 1)->get();
